@@ -5,7 +5,7 @@ I am the Chief Lecturer for Cyber Security at [[https://www.novi.nl][Hogeschool 
 
 Next to my work I am active as an Independent Hacker. I assist my customers in their journey to increase their security posture. I do this through advice, seminars and security assessments.
 
-I run the meetup for [[https://www.hackthebox.eu][Hack The Box]] Netherlands. Each month, on the 3rd Wednesday, members of the Dutch cyber security community get together and have presentations, demos and discussion on wide ranging topics.
+I organize the Dutch meetup for [[https://www.hackthebox.eu][Hack The Box]]. Each month, on the 3rd Wednesday, members of the Dutch cyber security community get together and have presentations, demos and discussion on wide ranging topics.
 
 The views on this site are my own.
 
