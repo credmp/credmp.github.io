@@ -231,7 +231,7 @@ h2::before {
     width: 7.5em;
     margin-left: -8.0em;
     counter-increment: section;
-    content: "Chapter " counter(section) " ";
+    content: "Part " counter(section) " ";
 }
 
 

@@ -1,11 +1,13 @@
 #+TITLE: Arjen Wiersma
 #+SUBTITLE: Writings
 
-I am the Chief Lecturer for Cyber Security at [[https://www.novi.nl][Hogeschool NOVI]]. In my work I focus teaching students all there is to know about the technical side of Cyber Security. My main areas of expertise are Reverse Engineering, Infrastructure Security and Web Application Security. The views on this site are my own.
+I am the Chief Lecturer for Cyber Security at [[https://www.novi.nl][Hogeschool NOVI]]. In my work I focus on teaching students all there is to know about the technical side of Cyber Security. My main areas of expertise are Reverse Engineering, Infrastructure Security and Web Application Security.
 
 Next to my work I am active as an Independent Hacker. I assist my customers in their journey to increase their security posture. I do this through advice, seminars and security assessments.
 
-I run the meetup for [[https://www.hackthebox.eu][Hack The Box]] Netherlands. Each month, the 3rd Wednesday, members of the Dutch cyber security community get together and have presentations, demos and discussion on wide ranging topics.
+I run the meetup for [[https://www.hackthebox.eu][Hack The Box]] Netherlands. Each month, on the 3rd Wednesday, members of the Dutch cyber security community get together and have presentations, demos and discussion on wide ranging topics.
+
+The views on this site are my own.
 
 * Latest writings
   :PROPERTIES:
