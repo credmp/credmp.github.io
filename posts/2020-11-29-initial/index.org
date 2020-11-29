@@ -1,0 +1,11 @@
+#+TITLE: Initial Post
+#+subtitle: It has to start somewhere
+#+options: toc:nil
+
+This is an initial post to get started. I just launched [[https://www.adventofctf.com][Advent of CTF]] and wanted to create a place to post writings about it.
+
+The Advent of CTF is a Capture The Flag competition that is held during the first 24 days of December. Each day, at 8am CET a new challenge unlocks. The challenges range from easy to not so easy. The topics cover basic browser usage, encoding, SQL Injections, Type Juggling and many more.
+
+Once the competition is underway I will post writeups of the challenges and insights into the infrastructure behind the project.
+
+Go back to the [[../../index.org][homepage]].

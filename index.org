@@ -20,7 +20,7 @@ Full list in the [[file:posts/archive.org][blog archive]].
 
 From time to time I talk at conferences and meetups.
 
-- Hack The Box University CTF :: I was one of the opening talks for the event. In my talk ([[https://youtu.be/3b2Xul3gu_8?t=3592][YouTube link]]) I explained how Hogeschool NOVI developed its Cyber Security program. I focused on the technical side of the curriculum and how it ties into the Hack The Box platform. 
+- Building a Cyber Security Curriculum :: I was one of the opening speakers for the Hack The Box University CTF event. In my talk ([[https://youtu.be/3b2Xul3gu_8?t=3592][YouTube link]]) I explained how Hogeschool NOVI developed its Cyber Security program. I focused on the technical side of the curriculum and how it ties into the Hack The Box platform. 
 - Just enough Reverse Engineering :: During the 2nd Hack The Box meetup I talked ([[https://www.youtube.com/watch?v=GXd9HIUPntE&list=PLJODoimT7es6K2jGS3GJIlnHih-htUlub&index=3][YouTube link]]) about the basics of reverse engineering, the phases of the proces and the tools you can use for it. It was an introductionary talk. 
 
 * Projects/Code
