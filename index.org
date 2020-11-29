@@ -28,7 +28,7 @@ From time to time I talk at conferences and meetups.
   :HTML_CONTAINER_CLASS: post-list
   :END:
 
-- <2020-11-29 Sun> Released [[https://www.adventofctf.com][Advent of CTF]] on the world
+- <2020-11-29 Sun> Released [[https://www.adventofctf.com][Advent of CTF]]. 
 
 * Write Ups
   :PROPERTIES:
