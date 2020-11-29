@@ -1,0 +1,26 @@
+#+TITLE: Arjen Wiersma
+#+SUBTITLE: Writings
+
+* Latest writings
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: post-list
+  :END:
+
+#+INCLUDE: posts/posts.org
+
+Full list in the [[file:posts/archive.org][blog archive]].
+
+* Projects/Code
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: post-list
+  :END:
+
+- <2020-11-29 Sun> Released Advent of CTF on the world
+
+* Write Ups
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: post-list
+  :END:
+
+** Advent of CTF
+- <2020-12-01 Tue> [[./writeups/advent-of-ctf/challenge-1/index.org][Challenge 1]]
