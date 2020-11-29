@@ -13,6 +13,7 @@ The challenge will learn the player to:
 
 - Inspect page source
 - How to identify and decode *Base64* encoding
+- How to work with the Advent of CTF system
 
 * Solution
 :PROPERTIES:

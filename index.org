@@ -22,5 +22,3 @@ Full list in the [[file:posts/archive.org][blog archive]].
   :HTML_CONTAINER_CLASS: post-list
   :END:
 
-** Advent of CTF
-- <2020-12-01 Tue> [[./writeups/advent-of-ctf/challenge-1/index.org][Challenge 1]]
