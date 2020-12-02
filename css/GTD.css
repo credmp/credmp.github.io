@@ -264,8 +264,10 @@ pre::before {
     font-variant: small-caps;
     content: "";
 }
-pre.src-lisp::before { content: "lisp"; }
+pre.src-lisp::before { content: "Lisp"; }
 pre.src-org::before { content: "org"; }
+pre.src-rust::before { content: "Rust"; }
+pre.src-javascript::before { content: "JS"; }
 
 pre {
     color: #00008b;

@@ -51,3 +51,7 @@ When you hit *Go!* a unique badge will be displayed with the ability to share on
 [[file:index_att/badge.png]]
 
 You have solved the challenge and claimed your points. You also claimed your social media badge! The challenge is completed.
+
+* Honorable Mentions
+
+I would like to take this moment to thank /Semper Fight/ (@DennisFeijth on Twitter) for finding a bug in the Badge Service. Fixed before we even started.
