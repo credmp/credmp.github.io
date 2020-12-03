@@ -40,3 +40,4 @@ From time to time I talk at conferences and meetups.
 ** Advent of CTF 2020
 
 - [[./writeups/advent-of-ctf/challenge-1/index.org][Challenge 1]]
+- [[./writeups/advent-of-ctf/challenge-2/index.org][Challenge 2]]
