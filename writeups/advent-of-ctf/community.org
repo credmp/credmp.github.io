@@ -5,7 +5,7 @@
 
 The Advent of CTF has many people working on the challenges. Some are even nice enough to write about their solutions. This is a list of the ones that I am aware of:
 
-- [[https://cybersecfaith.com/][Cyber Faith]]
+- [[https://cybersecfaith.com/][CyberSecFaith]]
 - [[https://bluemacro.medium.com/][Blue Marco]]
 - [[https://maik.dev/tags/adventofctf/][Maik]]
 - [[https://binsec.nl/tag/advent-for-ctf/][b!ns3c]]
