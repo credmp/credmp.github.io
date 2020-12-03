@@ -1,0 +1,11 @@
+#+TITLE: Community
+#+SUBTITLES: "How others solve it"
+
+* Community Writeups
+
+The Advent of CTF has many people working on the challenges. Some are even nice enough to write about their solutions. This is a list of the ones that I am aware of:
+
+- [[https://cybersecfaith.com/][Cyber Faith]]
+- [[https://bluemacro.medium.com/][Blue Marco]]
+
+Go back to the [[../../index.org][homepage]].

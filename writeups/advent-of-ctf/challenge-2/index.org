@@ -55,3 +55,5 @@ Go and grab your points in the CTFd dashboard. Also, don't forget to grab the be
 [[file:index_att/badge.png]]
 
 The challenge is solved.
+
+Go back to the [[../../index.org][homepage]].
