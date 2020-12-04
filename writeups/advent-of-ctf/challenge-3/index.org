@@ -67,4 +67,4 @@ You can grab your points from the CTFd instance, you should have at least 600 po
 
 You have solved the challenge.
 
-Go back to the [[../../index.org][homepage]].
+Go back to the [[../../../index.org][homepage]].
