@@ -268,6 +268,7 @@ pre.src-lisp::before { content: "Lisp"; }
 pre.src-org::before { content: "org"; }
 pre.src-rust::before { content: "Rust"; }
 pre.src-javascript::before { content: "JS"; }
+pre.src-sql::before { content: "SQL"; }
 
 pre {
     color: #00008b;
