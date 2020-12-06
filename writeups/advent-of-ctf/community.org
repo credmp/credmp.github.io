@@ -10,5 +10,6 @@ The Advent of CTF has many people working on the challenges. Some are even nice 
 - [[https://maik.dev/tags/adventofctf/][Maik]]
 - [[https://binsec.nl/tag/advent-for-ctf/][b!ns3c]]
 - [[https://acaciarun.wordpress.com/][Acacia]]
+- [[https://b1tsec.medium.com/][b1tsec]]
   
 Go back to the [[../../index.org][homepage]].
