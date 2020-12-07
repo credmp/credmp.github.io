@@ -45,4 +45,5 @@ From time to time I talk at conferences and meetups.
 - [[./writeups/advent-of-ctf/challenge-3/index.org][Challenge 3]]
 - [[./writeups/advent-of-ctf/challenge-4/index.org][Challenge 4]]
 - [[./writeups/advent-of-ctf/challenge-5/index.org][Challenge 5]]
+- [[./writeups/advent-of-ctf/challenge-6/index.org][Challenge 6]]
 
