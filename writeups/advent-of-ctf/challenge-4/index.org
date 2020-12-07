@@ -193,4 +193,4 @@ Next to the points the flag also gives you access to the /Toyman/ badge. It is a
 
 The challenge has been solved. Onto the next one.
 
-Go back to the [[../../index.org][homepage]].
+Go back to the [[../../../index.org][homepage]].

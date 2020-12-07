@@ -56,4 +56,4 @@ Go and grab your points in the CTFd dashboard. Also, don't forget to grab the be
 
 The challenge is solved.
 
-Go back to the [[../../index.org][homepage]].
+Go back to the [[../../../index.org][homepage]].

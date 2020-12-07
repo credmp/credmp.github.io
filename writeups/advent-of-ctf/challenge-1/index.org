@@ -56,4 +56,4 @@ You have solved the challenge and claimed your points. You also claimed your soc
 
 I would like to take this moment to thank /Semper Fight/ (@DennisFeijth on Twitter) for finding a bug in the Badge Service. Fixed before we even started.
 
-Go back to the [[../../index.org][homepage]].
+Go back to the [[../../../index.org][homepage]].
