@@ -313,7 +313,7 @@
          :exclude (regexp-opt '("assets" "public"))
          :include '("CNAME" "LICENSE" ".nojekyll")
          :recursive t
-         :base-extension (regexp-opt '("jpg" "gif" "png" "js" "svg" "css"))
+         :base-extension (regexp-opt '("jpg" "gif" "png" "js" "svg" "css" "html" "json" "tsv"))
          :publishing-directory "./public"
          :publishing-function 'org-publish-attachment)))
 
