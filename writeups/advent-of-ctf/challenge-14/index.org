@@ -125,3 +125,4 @@ So, using the value =1e309= as a password and the verifier as =55c1943= will pas
 
 The only think on screen will be =NOVI{typ3_juggl1ng_f0r_l1fe}=.
 
+Go back to the [[../../../index.org][homepage]].
