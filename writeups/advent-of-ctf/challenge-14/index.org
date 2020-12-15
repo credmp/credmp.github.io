@@ -59,7 +59,7 @@ The main logic here is that a =hash= is created using the =password= and a =secr
 
 This means that all that needs to be done is to find a value that will be returned from =sha1= that can be known when the input =password= is compared with an unknown string.
 
-If you are familiar with Type Juggling in PHP your first guess might go to a [[https://www.whitehatsec.com/blog/magic-hashes/][magic hash]]. This is not the case here, as the hash itself is compared in a non loose way using /===/ instead of /==/. That is the hint that it is not a challenge to find a magic hash.
+If you are familiar with Type Juggling in PHP your first guess might go to a [[https://www.whitehatsec.com/blog/magic-hashes/][magic hash]]. This is not the case here, as the hash itself is compared in a non loose way using ===== instead of ====. That is the hint that it is not a challenge to find a magic hash.
 
 The trick to this challenge is to generate a /sha1/ hash when an unknown value is involved.
 
