@@ -79,7 +79,7 @@ d3.tsv("scores.tsv", function(error, data) {
     d.seconds = +d.seconds*1000;
   });
 
-  x.domain(d3.extent([1,25])).nice();
+  x.domain(d3.extent([1,24])).nice();
   y.domain(d3.extent(data, function(d) { return d.seconds; })).nice();
 
   svg.append("text")
