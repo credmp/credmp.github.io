@@ -61,3 +61,4 @@ From time to time I talk at conferences and meetups.
 - [[./writeups/advent-of-ctf/challenge-18/index.org][Challenge 18]]
 - [[./writeups/advent-of-ctf/challenge-19/index.org][Challenge 19]]
 - [[./writeups/advent-of-ctf/challenge-20/index.org][Challenge 20]]
+- [[./writeups/advent-of-ctf/challenge-21/index.org][Challenge 21]]
