@@ -30,7 +30,9 @@ From time to time I talk at conferences and meetups.
   :HTML_CONTAINER_CLASS: post-list
   :END:
 
-- <2020-11-29 Sun> Released [[https://www.adventofctf.com][Advent of CTF]]. 
+- <2020-11-29 Sun> Released [[https://www.adventofctf.com][Advent of CTF]].
+- <2020-10-15 Thu> [[https://github.com/credmp/pandoc-hbo][Pandoc HBO]] release. A setup for Dutch HBO/Master students to write beautiful reports.
+- <2020-10-15 Thu> [[https://github.com/credmp/docker-pandoc][Docker Pandoc]] release. A docker image that contains pandoc and all necessary packages for report generation based on the [[https://github.com/Wandmalfarbe/pandoc-latex-template][eisvogel LaTeX]] template.
 
 * Write Ups
   :PROPERTIES:
