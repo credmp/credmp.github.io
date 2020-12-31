@@ -14,10 +14,12 @@ body {
     font-size: 14px;
     font-weight: 300;
     color:  rgba(51, 51, 51, 1.00);
+    background-color: #f8f8f8;
     //background-color: rgb(0,0,0);
     //color: rgb(255,255,255,1);
     line-height: 1.4em;
     font-weight: normal;
+    text-align: justify;
     counter-reset: section;
     counter-reset: toc-section;
     counter-increment: toc-section;
