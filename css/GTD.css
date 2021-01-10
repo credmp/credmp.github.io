@@ -10,7 +10,7 @@
 
 body {
     font-family: "Roboto Mono", monospace;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 300;
     //color:  rgba(51, 51, 51, 1.00);
     background-color: rgb(0,0,0);
@@ -276,7 +276,7 @@ pre.src-javascript::before { content: "JS"; }
 pre.src-sql::before { content: "SQL"; }
 
 pre {
-    color: #ffff74;
+    color: #fff;
     //color: #00008b;
     //background-color: #fbfbfb;
     background-color: #000;
@@ -382,3 +382,72 @@ img {
     width: 100%;
     object-fit: contain;
 }
+
+.org-builtin {
+    /* font-lock-builtin-face */
+    color: magenta;
+}
+
+.org-comment {
+    /* font-lock-comment-face */
+    color: #b2ff22;
+}
+.org-comment-delimiter {
+    /* font-lock-comment-delimiter-face */
+    color: #b2ff22;
+}
+
+.org-constant {
+    /* font-lock-constant-face */
+    color: #008b8b;
+}
+
+.org-doc {
+    /* font-lock-doc-face */
+    color: #8b2252;
+}
+
+.org-function-name {
+    /* font-lock-function-name-face */
+    color: cyan;
+}
+
+.org-keyword {
+    /* font-lock-keyword-face */
+    color: rgb(255, 0, 102);
+}
+
+.org-preprocessor {
+    /* font-lock-preprocessor-face */
+    color: #483d8b;
+}
+
+.org-regexp-grouping-backslash {
+    /* font-lock-regexp-grouping-backslash */
+    font-weight: bold;
+}
+.org-regexp-grouping-construct {
+    /* font-lock-regexp-grouping-construct */
+    font-weight: bold;
+}
+
+.org-string {
+    /* font-lock-string-face */
+    color: yellow;
+}
+
+.org-type {
+    /* font-lock-type-face */
+    color: #228b22;
+}
+
+.org-variable-name {
+    /* font-lock-variable-name-face */
+    color: lightgreen;
+}
+
+.org-warning-1 {
+    /* font-lock-warning-face */
+    color: #ff0000;
+    font-weight: bold;
+ }
