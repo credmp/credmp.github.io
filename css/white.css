@@ -8,16 +8,35 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500'); 
 
+:root {
+    --text-color: rgba(51,51,51,1.00);
+    --background: #f8f8f8;
+    --bg-special-cold: #dde3f4;
+    --fg-special-cold: #093060;
+    --bg-special-mild: #c4ede0;
+    --fg-special-mild: #184034;
+    --bg-special-warm: #f0e0d4;
+    --fg-special-warm: #5d3026;
+    --bg-special-calm: #f8ddea;
+    --fg-special-calm: #61284f;
+    --red-alt-other: #a0132f;
+    --green-alt-other: #145c33;
+    --yellow-alt-other: #863927;
+    --blue-alt-other: #0000bb;
+    --magenta-alt-other: #5317ac;
+    --cyan-alt-other: #005a5f;
+}
+
 
 body {
     font-family: "Roboto Mono", monospace;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 300;
-    color:  rgba(51, 51, 51, 1.00);
-    //background-color: rgb(0,0,0);
-    //color: rgb(255,255,255,1);
+    color:  var(--text-color);
+    background-color: var(--background);
     line-height: 1.4em;
     font-weight: normal;
+    text-align: justify;
     counter-reset: section;
     counter-reset: toc-section;
     counter-increment: toc-section;
@@ -25,18 +44,20 @@ body {
 
 a, a:visited {
     text-decoration: none;
-    color: rgb(255, 0, 102);
+    color: var(--magenta-alt-other);
 }
 .org-bold {
     font-weight: 400;
 }
 i, i a {
-    color: #999999;
+    color: var(--bg-special-calm);
+    //color: #999999;
     //color: #39F;
     font-style: normal;
 }
 .org-italic, .org-org-meta-line {
-    color: rgba(48,63,159, 0.75);
+    color: var(--blue-alt-other);
+    //color: rgba(48,63,159, 0.75);
     font-style: normal;
 }
 .org-face-salient {
@@ -52,11 +73,13 @@ i, i a {
 /* --- Side notes --- */
 div.side-note::before {
     content: "Note";
-    color: rgba(0,0,0,.75);
+    color: var(--bg-special-mild); 
+    //color: rgba(0,0,0,.75);
     font-weight: 400;
 }
 div.side-note {
-    color: rgba(0,0,0,.5);
+    color: var(--bg-special-mild); 
+    //color: rgba(0,0,0,.5);
     float: left;
     font-size: .85em;
     line-height: 1.25em;
@@ -102,7 +125,7 @@ div.side-note {
     margin-left: -2.0em;
     text-align: right;
     text-transform: uppercase;
-    color:#2255bb;
+    color:var(--blue-alt-other);
 }
 #table-of-contents ul li ul,
 #table-of-contents ul li ul li {
@@ -385,3 +408,71 @@ img {
     width: 100%;
     object-fit: contain;
 }
+.org-builtin {
+    /* font-lock-builtin-face */
+    color: #483d8b;
+}
+
+.org-comment {
+    /* font-lock-comment-face */
+    color: #b22222;
+}
+.org-comment-delimiter {
+    /* font-lock-comment-delimiter-face */
+    color: #b22222;
+}
+
+.org-constant {
+    /* font-lock-constant-face */
+    color: #008b8b;
+}
+
+.org-doc {
+    /* font-lock-doc-face */
+    color: #8b2252;
+}
+
+.org-function-name {
+    /* font-lock-function-name-face */
+    color: #0000ff;
+}
+
+.org-keyword {
+    /* font-lock-keyword-face */
+    color: #a020f0;
+}
+
+.org-preprocessor {
+    /* font-lock-preprocessor-face */
+    color: #483d8b;
+}
+
+.org-regexp-grouping-backslash {
+    /* font-lock-regexp-grouping-backslash */
+    font-weight: bold;
+}
+.org-regexp-grouping-construct {
+    /* font-lock-regexp-grouping-construct */
+    font-weight: bold;
+}
+
+.org-string {
+    /* font-lock-string-face */
+    color: #8b2252;
+}
+
+.org-type {
+    /* font-lock-type-face */
+    color: #228b22;
+}
+
+.org-variable-name {
+    /* font-lock-variable-name-face */
+    color: #a0522d;
+}
+
+.org-warning-1 {
+    /* font-lock-warning-face */
+    color: #ff0000;
+    font-weight: bold;
+ }
