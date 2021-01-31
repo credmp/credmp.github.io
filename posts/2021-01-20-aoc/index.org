@@ -1,6 +1,7 @@
 #+TITLE: Reflecting on The Advent of CTF
 #+subtitle: Hosting a month long CTF
 #+options: toc:nil
+#+DATE: <2021-01-20 Wed>
 
 * The end of a month
 

@@ -1,6 +1,7 @@
 #+TITLE: Initial Post
 #+subtitle: It has to start somewhere
 #+options: toc:nil
+#+DATE: <2020-11-29 Sun>
 
 This is an initial post to get started. I just launched [[https://www.adventofctf.com][Advent of CTF]] and wanted to create a place to post writings about it.
 
