@@ -20,6 +20,7 @@ body {
     counter-reset: section;
     counter-reset: toc-section;
     counter-increment: toc-section;
+    text-align: justify;
 }
 
 a, a:visited {
