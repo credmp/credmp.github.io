@@ -7,7 +7,7 @@
 
 I have been using Linux ever since the late 1990's. I switched between Linux, Windows and macOS over the years, but since 2015 I have been a full time user. I currently use [[https://pop.system76.com/][POP!_os]] on my daily machine and I have a Dell XPS13 Developer Edition laptop that runs Ubuntu.
 
-The tools I use daily in the terminal are part of something called =coreutils=, [[https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands][Wikipedia has a nice listing of them]], and they include commands like =ls=, =cd=, =cat=, =ps= and the list goes on. These tools are familiar to anyone using Linux as they help you manage your file system.
+The tools I use daily in the terminal are part of something called =coreutils=, [[https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands][Wikipedia has a nice listing of them]], and they include commands like =ls=, =cat=, =cp=, =mv= and the list goes on. These tools are familiar to anyone using Linux as they help you manage your file system.
 
 These tools are very old; =ls= has been part of the =X/Open Portability Guide= set of commands since 1987, and transitioned into =coreutils= when that was formed in 2002. These tools work incredibly well at giving the basic information and functionality that is needed to manage the system.
 
