@@ -1,0 +1,209 @@
+#+TITLE: Programming languages
+#+subtitle: An overview of my programming history
+#+options: toc:nil
+#+DATE: <2021-02-15 ma>
+
+At least once per week I get asked /"What programming language should I learn?"/. As my students have to work through several languages during the time they spent on my courses (from =Assembly= to =Javascript=) I generally tend to say that they should invest in a general purpose programming language such as =Python=. It will serve them well during their time in the industry.
+
+This discussion on programming languages also tends to move into the /"What languages do you know?"/ realm. To answer that question I pull up the family tree of programming languages ([[https://en.wikipedia.org/wiki/Generational_list_of_programming_languages][Wikipedia]]) and point out the languages I have programmed. Most specifically I point out the common roots of most languages.
+
+Learning the overall structure and syntax of a few languages yields a remarkable long list of languages that you can /comprehend/ without much additional knowledge. A =variable assignment= in =C= is not much different then in =C++= and in =Java= etc. Based on a few clues it is possible to figure out what most programs do. Some languages have new =control flow= structures that require research, but that is little work compared to learning a language from scratch.
+
+I decided to create a =Graphviz= graph to help in this discussion. I outline the programming languages that I have written in, defined by /"Completed at least 1 major project"/, and their roots. I have dabbled in many more programming languages, but I think a /major/ project (3+ months of development) is required to at least go through all the gritty parts of a language.
+
+In the graph below I have visualized these lanaguages:
+
+- In green the languages I still utilize today;
+- in blue the ones I used but have chosen not to pursue anymore;
+- in grey the common roots in which I never wrote a large project (or any code at all).
+
+The graph is not very formal. There are many intermediary languages missing, but the idea is to show common roots of languages, not to be exact. You can probably infer what the emojis indicate.
+
+#+begin_quote
+Fun fact; the first language I even programmed was =Basic 2.0= on a =vTech Laser 310=. This was around 1988.
+#+end_quote
+
+#+begin_src dot :file languages.png :results output 
+  digraph G {
+      rankdir=LR
+      graph [fontname="helvetica",
+             fontsize=14,
+             splines=true,
+             pad=0.1,
+             compound=true,
+             color="grey60",
+             fontcolor="grey10",
+             fillcolor=grey95,
+             style="filled",
+             bgcolor="black"];
+
+      // not programmed
+      node [fontname="helvetica",
+            fontsize=12,color="grey60",
+            shape=box,
+            style="rounded, filled",
+            fontcolor="grey60",
+            fillcolor=black,
+            penwidth=2,
+            bgcolor="black"];
+
+      "Turbo Pascal"
+      Algol
+      Fortran
+      "Fortran II"
+      LISP
+      Smalltalk
+
+      // Inactive
+      node [fontname="helvetica",
+            fontsize=12,color="#5e7fbf",
+            shape=box,
+            style="rounded, filled",
+            fontcolor="#5e7fbf",
+            fillcolor=black,
+            penwidth=2,
+            bgcolor="black"];
+      Pascal
+      Delphi
+      "Basic 2.0"
+      Ruby
+
+      node [fontname="helvetica",
+            fontsize=12,
+            color="#62b246",
+            shape=box,
+            style="rounded,
+            filled",
+            fontcolor=grey,
+            fillcolor=black,
+            penwidth=2];
+      edge [fontname="helvetica",
+            color=grey60,
+            fontcolor=black,
+            arrowhead="normal",
+            penwidth=2,
+            arrowsize=0.5];
+
+      Fortran -> Algol [color=grey60, style=dashed, dir=none]
+      Fortran -> "Fortran II" [color=grey60, style=dashed, dir=none]
+      "Fortran II" ->  "Basic 2.0" [color=grey60, style=dashed, dir=none]
+
+      Algol -> C [color=grey60, style=dashed, dir=none]
+      Algol -> Pascal [color=grey60, style=dashed, dir=none]
+      Pascal -> "Turbo Pascal" 
+
+      Algol -> Smalltalk [color=grey60, style=dashed, dir=none]
+      Smalltalk -> Ruby [color=grey60, style=dashed, dir=none]
+      Smalltalk -> "Javascript 💩" [color=grey60, style=dashed, dir=none]
+
+      "Turbo Pascal" -> Delphi 
+
+      C -> "C++"
+      "C++" -> "Rust 💝"
+      C -> Go
+      C -> Perl
+      C -> Java
+      Perl -> "PHP 💩"
+      C -> Python
+      LISP -> "Clojure 💝" [color=grey60, style=dashed, dir=none]
+      LISP -> "Emacs Lisp" [color=grey60, style=dashed, dir=none]
+
+  }
+#+end_src
+
+#+CAPTION: A visual overview of my programming languages
+#+RESULTS:
+[[file:languages.png]]
+
+
+#+HTML: <details><summary><b>Graphviz</b> code for the graph</summary>
+#+begin_src graphviz
+  digraph G {
+      rankdir=LR
+      graph [fontname="helvetica",
+             fontsize=14,
+             splines=true,
+             pad=0.1,
+             compound=true,
+             color="grey60",
+             fontcolor="grey10",
+             fillcolor=grey95,
+             style="filled",
+             bgcolor="black"];
+
+      // not programmed
+      node [fontname="helvetica",
+            fontsize=12,color="grey60",
+            shape=box,
+            style="rounded, filled",
+            fontcolor="grey60",
+            fillcolor=black,
+            penwidth=2,
+            bgcolor="black"];
+
+      "Turbo Pascal"
+      Algol
+      Fortran
+      "Fortran II"
+      LISP
+      Smalltalk
+
+      // Inactive
+      node [fontname="helvetica",
+            fontsize=12,color="#5e7fbf",
+            shape=box,
+            style="rounded, filled",
+            fontcolor="#5e7fbf",
+            fillcolor=black,
+            penwidth=2,
+            bgcolor="black"];
+      Pascal
+      Delphi
+      "Basic 2.0"
+      Ruby
+
+      node [fontname="helvetica",
+            fontsize=12,
+            color="#62b246",
+            shape=box,
+            style="rounded,
+            filled",
+            fontcolor=grey,
+            fillcolor=black,
+            penwidth=2];
+      edge [fontname="helvetica",
+            color=grey60,
+            fontcolor=black,
+            arrowhead="normal",
+            penwidth=2,
+            arrowsize=0.5];
+
+      Fortran -> Algol [color=grey60, style=dashed, dir=none]
+      Fortran -> "Fortran II" [color=grey60, style=dashed, dir=none]
+      "Fortran II" ->  "Basic 2.0" [color=grey60, style=dashed, dir=none]
+
+      Algol -> C [color=grey60, style=dashed, dir=none]
+      Algol -> Pascal [color=grey60, style=dashed, dir=none]
+      Pascal -> "Turbo Pascal" 
+
+      Algol -> Smalltalk [color=grey60, style=dashed, dir=none]
+      Smalltalk -> Ruby [color=grey60, style=dashed, dir=none]
+      Smalltalk -> "Javascript 💩" [color=grey60, style=dashed, dir=none]
+
+      "Turbo Pascal" -> Delphi 
+
+      C -> "C++"
+      "C++" -> "Rust 💝"
+      C -> Go
+      C -> Perl
+      C -> Java
+      Perl -> "PHP 💩"
+      C -> Python
+      LISP -> "Clojure 💝" [color=grey60, style=dashed, dir=none]
+      LISP -> "Emacs Lisp" [color=grey60, style=dashed, dir=none]
+
+  }
+#+end_src
+#+HTML: </details>
+
+Go back to the [[../../index.org][homepage]].
