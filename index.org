@@ -43,3 +43,7 @@ From time to time I talk at conferences and meetups.
 ** Advent of CTF 2020
 
 December 2020 I hosted the Advent of CTF. 24 days long a new challenge was posted every day. There were more the 500 registered users and over 400 active players! You can find all the writeups [[./writeups/advent-of-ctf/index.org][here]].
+
+* Fun references
+
+- I was referenced [[https://youtu.be/DdkwNTgtIJ0?t=2429][in a talk by Martin Clausen]]. He gave a presentation on a Clojure build and in the conclusion he talked about knowing your tools. Thanks for the hat-tip!
