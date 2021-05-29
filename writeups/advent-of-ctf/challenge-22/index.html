@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 29 May. 2021 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advent of CTF - Challenge 22</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Arjen 'credmp' Wiersma">
+<meta description='The blog of Arjen Wiersma'/>
+<link rel='alternate' type='application+rss/xml' title='The blog of Arjen Wiersma' href='posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/GTD.css?v=76976d55497000bc7c0ec3a55cd8fee7709aaf0a69319efb7a796480448fa7bd" type="text/css">
+</head>
+<body>
+<main id="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 22</h1>
+<p class="subtitle">&ldquo;Dubstep&rdquo;</p>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org59c017f">Challenge</a></li>
+<li><a href="#orgde03195">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org59c017f" class="outline-2">
+<h2 id="org59c017f">Challenge</h2>
+<div class="outline-text-2" id="text-org59c017f">
+<p>
+This relatively simple challenge will teach you about Server Side Request Forgery. It is one of those type of vulnerabilities where cloud environments struggle with; allowing access through a server to an internal resource.
+</p>
+</div>
+</section>
+
+<section id="outline-container-orgde03195" class="outline-2">
+<h2 id="orgde03195">Solution</h2>
+<div class="outline-text-2" id="text-orgde03195">
+<p>
+The challenge starts with a single link.
+</p>
+
+
+<figure id="org7feff2a">
+<img src="index_att/challenge-start.png" alt="challenge-start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Start of the challenge</figcaption>
+</figure>
+
+<p>
+The link leads to a picture of an adorable cat.
+</p>
+
+
+<figure id="orgf3ff526">
+<img src="index_att/cat.png" alt="cat.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>An adorable cat</figcaption>
+</figure>
+
+<p>
+The page is loaded by means of an <code>image</code> parameter to the <code>index.php</code> page. This is always a good sign of Local File Inclusion, as we have seen earlier.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The url for the cat</label><pre class="src src-text">https://22.adventofctf.com/index.php?image=cat.jpg
+</pre>
+</div>
+
+<p>
+Investigating the source of the page you will notice that the image is not an image url, but a <code>data-uri</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs">docs</a>), that is a special type of URL which contains the full image as part of the string, in Base64.
+</p>
+
+
+<figure id="org4498e01">
+<img src="index_att/cat-base64.png" alt="cat-base64.png">
+
+<figcaption><span class="figure-number">Figure 3: </span>The image file in the source</figcaption>
+</figure>
+
+<p>
+As a file is included when passing it to <code>image</code>, lets see if we can grab the <code>flag.php</code> this way. Indeed it returns a Base64 String!
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Retrieve flag.php</label><pre class="src src-text">https://22.adventofctf.com/index.php?image=flag.php
+</pre>
+</div>
+
+<p>
+Sadly no flag, yet. The file uses another file to load some functions and variables; <code>secret.php</code>. This file is protected against direct read in <code>index.php</code> however. So there is no way to get to the <code>get_flag</code> function.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>The flag.php source code</label><pre class="src src-php">&lt;?php
+
+include("secret.php");
+
+if (strpos(check_secret(), "allow") !== false) {
+   echo get_flag(); 
+}
+
+?&gt;
+</pre>
+</div>
+
+<p>
+Looking at the <code>index.php</code> it is clear how the mechanism works. Given a filename in <code>image</code> it will simply load it using <code>file_get_contents</code> as long as it does not contain <code>secret</code>. The docs for <code>file_get_contents</code> say that <code>path</code> can be any string, from a file path, a php wrapper (such as the base64 encode we have used before) to an URL.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>Loading a file in index.php</label><pre class="src src-php">$path = $_GET["image"];
+if (strpos($path,"secret") !== false) {
+    $path="cat.jpg";
+}
+$image = file_get_contents($path);
+echo '&lt;img src="data:image/jpeg;base64,'.base64_encode($image).'" width="100%"/&gt;';
+</pre>
+</div>
+
+<p>
+The documentation for <code>file_get_contents</code> says it will load a url as well. Trying various URLs will get you resolving errors, until you try <code>http://localhost</code>. This will actually get you the first page again. 
+</p>
+
+<p>
+Lets try to get the flag by calling <code>http://localhost/flag.php</code> instead. This is a classic SSRF technique; the server allows the access of the file through the local IP, but not the external IP. This will retrieve the flag.
+</p>
+
+<p>
+This type of vulnerability is common in cloud environments where an internal configuration service is accessible from application containers. For instance <a href="https://nechudav.blogspot.com/2020/11/31k-ssrf-in-google-cloud-monitoring.html">on the GCP</a>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>Getting the flag</label><pre class="src src-text">https://22.adventofctf.com/index.php?image=http://localhost/flag.php
+</pre>
+</div>
+
+<p>
+Besides the points, also be sure to grab the beautiful badge!
+</p>
+
+
+<figure id="org8c0c73b">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen &rsquo;credmp&rsquo; Wiersma</p>
+<p class="date">Created: 29 May. 2021</p>
+</footer>
+</body>
+</html>

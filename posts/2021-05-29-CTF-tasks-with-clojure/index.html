@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 29 May. 2021 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CTF Tasks with Clojure</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Arjen 'credmp' Wiersma">
+<meta description='The blog of Arjen Wiersma'/>
+<link rel='alternate' type='application+rss/xml' title='The blog of Arjen Wiersma' href='posts/rss.xml'/>
+<link rel="stylesheet" href="../../css/GTD.css?v=76976d55497000bc7c0ec3a55cd8fee7709aaf0a69319efb7a796480448fa7bd" type="text/css">
+</head>
+<body>
+<main id="content">
+<header>
+<h1 class="title">CTF Tasks with Clojure</h1>
+<p class="subtitle">Using clojure where it is not normally used</p>
+</header>
+<section id="outline-container-orgae7da16" class="outline-2">
+<h2 id="orgae7da16">Introduction</h2>
+<div class="outline-text-2" id="text-orgae7da16">
+<p>
+It might not come as <a href="./../2021-02-15-Programming/">a surprise</a>, but Clojure is one of my most favorite programming language. Although I love the language I never used it while participating in a CTF to solve challenges. This is mainly due to the difficulty of working with things like hex numbers, which you need to do often in CTFs.
+</p>
+
+<p>
+So I decided to give it some effort and start developing tools when I run into challenges. Today I did a CTF challenge that required a <code>xor</code> of a list of bytes. So here we go.
+</p>
+</div>
+</section>
+
+<section id="outline-container-orgce8880a" class="outline-2">
+<h2 id="orgce8880a">String XORring</h2>
+<div class="outline-text-2" id="text-orgce8880a">
+<p>
+So, the fist thing to know is to convert an integer to a <code>hex</code> number is not something that is part of the language. In order to do it, the integer has to be formatted as a hexidecimal using <code>format</code>. That will result in a <code>string</code> of the hexidecimal number. The string is then converted using <code>symbol</code> to be an actual byte.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defn int-&gt;hex
+  "Function that int as argument and returns a symbol hex representation of the number.
+
+For example the number 115 is 0x73 hexidecimal"
+  [int]
+  (symbol (format "0x%02x" int)) )
+</pre>
+</div>
+
+<p>
+Using this technique a flag can be encoded using a key. By using a <code>map vector</code> each character of the flag is matched with a character from the key, so it would result in a list of pairs such as <code>[\A \s]</code> for the <code>A</code> from the flag and the <code>s</code> from the key. Obviously in this situation the key has to be as long or longer then the flag that is to be encoded.
+</p>
+
+<p>
+The list of pairs is then mapped into a <code>bit-xor</code> and its result is converted to hexidecimal. A list of hexidecimals is the result of this map, and the input for our decoding function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">;; Creating a key
+(map (fn [[a b]] (int-&gt;hex (bit-xor (int a) (int b))))
+     (map vector
+	  "ARJEN{flag}"
+	  "supersecretkey"))
+;; =&gt; (0x32 0x27 0x3a 0x20 0x3c 0x08 0x03 0x0f 0x13 0x02 0x09)
+</pre>
+</div>
+
+<p>
+As it is very common to map a key to some sequence of bytes to xor them I created a function to do just this. The rather lengthy name <code>xor-byte-list-&gt;string</code> does exactly that, it takes a list of bytes and xors it with a key (a string). It uses the same technique as above with <code>map vector</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defn xor-byte-list-&gt;string [byte-list xor-key]
+  ;; Decoding a key
+  (apply str
+	 (map (fn [[a b]] (char (bit-xor a (int b))))
+	      (map vector byte-list xor-key))))
+
+(xor-byte-list-&gt;string 
+ '(0x32 0x27 0x3a 0x20 0x3c 0x08 0x03 0x0f 0x13 0x02 0x09)
+ "supersecretkey")
+
+;; =&gt; "ARJEN{flag}"
+</pre>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org86cd50a" class="outline-2">
+<h2 id="org86cd50a">Other hex related functions</h2>
+<div class="outline-text-2" id="text-org86cd50a">
+<p>
+I keep a list of other hex related functions handy. Some I have copied over from the internet somewhere in the past such as <a href="https://stackoverflow.com/questions/10062967/clojures-equivalent-to-pythons-encodehex-and-decodehex">this</a> wonderful post on alternatives to Python&rsquo;s <code>encode('hex')</code> functions.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defn str-&gt;hex [s]
+  (apply str
+    (map #(format "0x%02x" (int %)) s)))
+
+(defn int-&gt;hex [i]
+  (format "0x%02x" i) )
+
+
+(defn hexify [s]
+    (apply str
+      (map #(format "%02x" (int %)) s)))
+
+  (defn unhexify [hex]
+    (apply str
+      (map 
+	(fn [[x y]] (char (Integer/parseInt (str x y) 16))) 
+	(partition 2 hex))))
+
+  (hexify "Clojure")
+  ;; ⇒ "436c6f6a757265"
+
+  (unhexify "436c6f6a757265")
+  ;; ⇒ "Clojure"
+</pre>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>
