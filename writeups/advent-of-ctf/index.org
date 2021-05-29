@@ -30,3 +30,8 @@
 - [[./challenge-22/index.org][Challenge 22]]
 - [[./challenge-23/index.org][Challenge 23]]
 - [[./challenge-24/index.org][Challenge 24]]
+
+* Article written about Advent of CTF
+
+- [[https://redteam-security.nl/adventofctf-2020/][Redteam Cyber Security]]
+  
