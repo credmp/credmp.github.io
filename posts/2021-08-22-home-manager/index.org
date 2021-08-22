@@ -1,0 +1,217 @@
+#+TITLE: Home Manager
+#+subtitle: Reproducible environments with home-manager
+#+options: toc:t
+#+DATE: <2021-08-22 Sun>
+#+DRAFT: t
+
+This is still a draft
+
+* Abstract
+
+* The tools
+
+** POP_os and NixOS
+
+** Home Manager
+
+** Setup
+
+* Configuration
+
+** Basic structure
+
+#+begin_src nix
+  { config, pkgs, ... }:
+
+  {
+    # Let Home Manager install and manage itself.
+    programs.home-manager.enable = true;
+
+    # Home Manager needs a bit of information about you and the
+    # paths it should manage.
+    home.username = "arjen";
+    home.homeDirectory = "/home/arjen";
+
+    # Packages
+    home.packages = [
+      # list packages to install
+    ];
+
+    # This value determines the Home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new Home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update Home Manager without changing this value. See
+    # the Home Manager release notes for a list of state version
+    # changes in each release.
+    home.stateVersion = "21.11";
+  }
+#+end_src
+
+** Applying changes
+
+Yes, every time you update ~loader.org~ you need to do a ~switch~.
+
+Do not forget to remove the old ~loader.el~.
+
+#+begin_src bash
+  #!/usr/bin/bash
+
+  nix-channel --update
+
+  if [ -f ~/.emacs.d/loader.el ]; then
+      echo "Cleaning old generated files (loader)"
+      rm ~/.emacs.d/loader.el
+  fi
+
+  home-manager switch
+#+end_src
+
+** Bleeding edge Emacs
+
+Add the ~emacs-overlay~ to the configuration.
+
+#+begin_src nix
+{
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
+  ];
+}
+#+end_src
+
+Highly recommended to add binary caches.
+
+#+begin_src shell :tangle no
+nix-env -iA cachix -f https://cachix.org/api/v1/install
+cachix use nix-community
+#+end_src
+
+Install the Emacs version you want, I chose the Pure GTK and Native Compilation combination.
+
+Emacs itself is [[https://emacshorrors.com/posts/psa-emacs-is-not-a-proper-gtk-application.html][not a proper GTK application]], what that means is that it does not do fractional scaling, does not work on Wayland and does not integrate fully with the system clipboard. The Pure GTK branch brings these features into play for Emacs.
+
+[[http://akrl.sdf.org/gccemacs.html][Native Compilation]] fixes another issue in Emacs; speed. Using the native-comp branch will speed up the emacs-lisp packages from 2.5x to 42x! Personally I notice this the most when editing large org-mode files.
+
+If you want to get this working without doing the steps in this document I highly recommend a post by [[http://www.cesarolea.com/posts/emacs-native-compile/][Cesar Olea]] on how to get both Pure GTK and Native Compilation on a Ubuntu based system.
+
+Different flavors:
+
+- emacsGit
+- emacsGcc
+- emacsPgtk
+- emacsPgtkGcc
+- emacsUnstable
+
+I choose to use emacsPgtkGcc
+
+#+begin_src nix
+  {
+    programs.emacs = {
+      enable = true;
+      package = pkgs.emacsPgtkGcc;
+    };
+  }
+#+end_src
+
+** A full texlive
+** Commercial tools
+** A Haskell environment
+
+* Full home.nix
+
+#+begin_src nix
+  { config, pkgs, ... }:
+
+  let
+    latex = pkgs.texlive.combine {
+      inherit (pkgs.texlive) scheme-full
+        wrapfig capt-of preview lxfonts # for ox-beamer
+        fontawesome5 awesomebox
+        ;
+    };
+  in
+  {
+    nixpkgs.config.packageOverrides = pkgs: {
+      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+        inherit pkgs;
+      };
+    };
+
+    # https://gist.github.com/mjlbach/179cf58e1b6f5afcb9a99d4aaf54f549
+    nixpkgs.overlays = [
+      (import (builtins.fetchTarball {
+        url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+      }))
+    ];
+
+    # Let Home Manager install and manage itself.
+    programs.home-manager.enable = true;
+
+    # Allow installation of jetbrains programs
+    nixpkgs.config.allowUnfree = true;
+
+    # Home Manager needs a bit of information about you and the
+    # paths it should manage.
+    home.username = "arjen";
+    home.homeDirectory = "/home/arjen";
+
+    fonts.fontconfig.enable = true;
+
+    # Packagers
+    home.packages = [
+      pkgs.tmux
+      pkgs.exa
+      pkgs.bat
+      pkgs.mu
+      pkgs.hunspell
+      pkgs.hunspellDicts.en_US
+      pkgs.hunspellDicts.nl_NL
+      pkgs.ghc
+      pkgs.cabal-install
+      pkgs.cabal2nix
+      pkgs.stack
+      pkgs.hlint
+      pkgs.ormolu
+      pkgs.haskell-language-server
+      pkgs.jdk
+      pkgs.jetbrains.phpstorm
+      pkgs.jetbrains.idea-ultimate
+      pkgs.emacs-all-the-icons-fonts
+      pkgs.nerdfonts
+      pkgs.fira-code
+      pkgs.fira-code-symbols
+      latex
+      pkgs.pandoc
+    ];
+
+    programs.emacs = {
+      enable = true;
+      package = pkgs.emacsPgtkGcc;
+    };
+
+    home.file.".emacs.d/loader.org".source = ./loader.org;
+    home.file.".emacs.d/init.el".source = ./init.el;
+
+    programs.git = {
+      enable = true;
+      userName = "Your name";
+      userEmail = "Your email";
+      aliases = {
+        st = "status";
+      };
+    };
+
+    # This value determines the Home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new Home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update Home Manager without changing this value. See
+    # the Home Manager release notes for a list of state version
+    # changes in each release.
+    home.stateVersion = "21.11";
+  }
+#+end_src

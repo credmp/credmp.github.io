@@ -275,6 +275,7 @@ pre.src-org::before { content: "org"; }
 pre.src-rust::before { content: "Rust"; }
 pre.src-javascript::before { content: "JS"; }
 pre.src-sql::before { content: "SQL"; }
+pre.src-nix::before { content: "nix"; }
 
 pre {
     color: #fff;
