@@ -5,7 +5,11 @@
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
   (package-refresh-contents))
-(dolist (pkg '(dash projectile org-plus-contrib yaml-mode htmlize))
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-refresh-contents)
+(dolist (pkg '(dash projectile org-plus-contrib yaml-mode htmlize php-mode clojure-mode haskell-mode rust-mode))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
@@ -166,7 +170,7 @@
               (duncan/org-html-head
                (append (duncan/head-common-list plist)
                        (plist-get plist :html-head-list)) plist)))
-  (plist-put plist :html-htmlized-css-url (duncan/asset-relative-link-to "css/GTD.css" pub-dir t))
+  (plist-put plist :html-htmlized-css-url (duncan/asset-relative-link-to "css/white.css" pub-dir t))
   (duncan/org-html-publish-generate-redirect plist filename pub-dir)
   (org-publish-org-to 'duncan/html filename
                       (concat "." (or (plist-get plist :html-extension)
@@ -355,7 +359,7 @@
            ("faGraduationCap" "\\faGraduationCap" nil "<i aria-hidden='true' class='fa fa-graduation-cap'></i>" "" "" "")
            ("faGifts" "\\faGifts" nil "<i aria-hidden='true' class='fas fa-gifts'></i>" "" "" "")
            ("faImage" "\\faImage" nil "<i aria-hidden='true' class='fa fa-image'></i>" "" "" ""))))
-        (org-html-htmlize-output-type       'css)
+        (org-html-htmlize-output-type 'css)
         (org-plantuml-jar-path (-first 'file-exists-p
                                         ; openSUSE, Ubuntu
                                        '("/usr/share/java/plantuml.jar" "/usr/share/plantuml/plantuml.jar")))
