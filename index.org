@@ -34,7 +34,7 @@ Github: [[https://github.com/credmp/hed][link]].
 
 A tool to manage your hosts file.
 
-[[file://./images/cast.gif]]
+[[./images/cast.gif]]
 
 ~hed~ allows you to manipulate your hosts file from the command-line. By providing safe and easy commands you can add new hosts and aliases to your environment.
 
