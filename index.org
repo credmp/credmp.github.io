@@ -34,11 +34,13 @@ Github: [[https://github.com/credmp/hed][link]].
 
 A tool to manage your hosts file.
 
+[[file://./images/cast.gif]]
+
 ~hed~ allows you to manipulate your hosts file from the command-line. By providing safe and easy commands you can add new hosts and aliases to your environment.
 
-This tool was inspired by my students to whom I teach a Basic Cyber Security class. In this class we utilize [[https://www.youtube.com/watch?v=3b2Xul3gu_8&t=3592s][Hack The Box as a learning platform]] and most students struggle with editing the `hosts` file when they get started. To make this easier for them I wrote a tool that gives them a safe means of adding and removing hosts in this file.
+This tool was inspired by my students to whom I teach a Basic Cyber Security class. In this class we utilize [[https://www.youtube.com/watch?v=3b2Xul3gu_8&t=3592s][Hack The Box as a learning platform]] and most students struggle with editing the ~hosts~ file when they get started. To make this easier for them I wrote a tool that gives them a safe means of adding and removing hosts in this file.
 
-The tool is to be used as a regular user, it will elevate privileges when it requires it by calling `sudo` and respawning the process.
+The tool is to be used as a regular user, it will elevate privileges when it requires it by calling ~sudo~ and respawning the process.
 
 ** Pandoc HBO
 
