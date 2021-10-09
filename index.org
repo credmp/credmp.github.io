@@ -26,11 +26,35 @@ From time to time I talk at conferences and meetups.
 - Building a Cyber Security Curriculum :: I was one of the opening speakers for the Hack The Box University CTF event. In my talk ([[https://youtu.be/3b2Xul3gu_8?t=3592][YouTube link]]) I explained how Hogeschool NOVI developed its Cyber Security program. I focused on the technical side of the curriculum and how it ties into the Hack The Box platform. 
 - Just enough Reverse Engineering :: During the 2nd Hack The Box meetup I talked ([[https://www.youtube.com/watch?v=GXd9HIUPntE&list=PLJODoimT7es6K2jGS3GJIlnHih-htUlub&index=3][YouTube link]]) about the basics of reverse engineering, the phases of the proces and the tools you can use for it. It was an introductionary talk. 
 
-* Projects/Code
+* Open Source Projects
+
+** hed
+
+Github: [[https://github.com/credmp/hed][link]].
+
+A tool to manage your hosts file.
+
+~hed~ allows you to manipulate your hosts file from the command-line. By providing safe and easy commands you can add new hosts and aliases to your environment.
+
+This tool was inspired by my students to whom I teach a Basic Cyber Security class. In this class we utilize [[https://www.youtube.com/watch?v=3b2Xul3gu_8&t=3592s][Hack The Box as a learning platform]] and most students struggle with editing the `hosts` file when they get started. To make this easier for them I wrote a tool that gives them a safe means of adding and removing hosts in this file.
+
+The tool is to be used as a regular user, it will elevate privileges when it requires it by calling `sudo` and respawning the process.
+
+** Pandoc HBO
+
+GitHub: [[https://github.com/credmp/pandoc-hbo][link]].
+
+Use markdown or org-mode to write high quality documents for work or school (conventions used by University of Applied Science in The Netherlands).
+
+- Beautiful PDF documents
+- References and literature listing in APA style
+
+* All Projects/Code
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: post-list
   :END:
 
+- <2021-10-09 Sat> Release [[https://github.com/credmp/hed][hed]]; a tool to manage your hosts file
 - <2020-11-29 Sun> Released [[https://www.adventofctf.com][Advent of CTF]].
 - <2020-10-15 Thu> [[https://github.com/credmp/pandoc-hbo][Pandoc HBO]] release. A setup for Dutch HBO/Master students to write beautiful reports.
 - <2020-10-15 Thu> [[https://github.com/credmp/docker-pandoc][Docker Pandoc]] release. A docker image that contains pandoc and all necessary packages for report generation based on the [[https://github.com/Wandmalfarbe/pandoc-latex-template][eisvogel LaTeX]] template.
