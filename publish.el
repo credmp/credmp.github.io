@@ -311,7 +311,7 @@
    (list "assets"
          :base-directory "./"
          :exclude (regexp-opt '("assets" "public"))
-         :include '("CNAME" "LICENSE" ".nojekyll" "upgrade-parrot.sh")
+         :include '("CNAME" "LICENSE" ".nojekyll" "upgrade-parrot.txt")
          :recursive t
          :base-extension (regexp-opt '("jpg" "gif" "png" "js" "svg" "css" "html" "json" "tsv"))
          :publishing-directory "./public"
