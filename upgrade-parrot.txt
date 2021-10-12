@@ -6,8 +6,8 @@ wget https://github.com/credmp/hed/releases/latest/download/hed -O ~/.local/bin/
 chmod +x ~/.local/bin/hed
 
 echo export PATH=\$PATH:~/.local/bin >> ~/.bashrc
-echo alias grep='rg'  >> ~/.bashrc
-echo alias ls='exa -alg --group-directories-first'  >> ~/.bashrc
-echo alias cat='batcat'  >> ~/.bashrc
+echo alias grep=\'rg\'  >> ~/.bashrc
+echo alias ls=\'exa -alg --group-directories-first\'  >> ~/.bashrc
+echo alias cat=\'batcat\'  >> ~/.bashrc
 
 source ~/.bashrc
