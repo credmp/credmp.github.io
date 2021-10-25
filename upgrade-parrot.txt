@@ -1,13 +1,25 @@
 #!/usr/bin/bash
 
-sudo apt install -y exa ripgrep bat
+# Install known packages
+sudo apt update
+sudo apt install -y exa ripgrep bat feroxbuster
+
+# make local bin directory
 mkdir ~/.local/bin
+
+# install hed
 wget https://github.com/credmp/hed/releases/latest/download/hed -O ~/.local/bin/hed
 chmod +x ~/.local/bin/hed
 
+# install rustscan
+wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb -O ~/Download/rustscan.deb
+sudo apt install ~/Download/rustscan.deb
+
+# add the stuff to bashrc
 echo export PATH=\$PATH:~/.local/bin >> ~/.bashrc
 echo alias grep=\'rg\'  >> ~/.bashrc
 echo alias ls=\'exa -alg --group-directories-first\'  >> ~/.bashrc
 echo alias cat=\'batcat\'  >> ~/.bashrc
 
+# source it
 source ~/.bashrc
