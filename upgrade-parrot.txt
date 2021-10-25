@@ -12,8 +12,8 @@ wget https://github.com/credmp/hed/releases/latest/download/hed -O ~/.local/bin/
 chmod +x ~/.local/bin/hed
 
 # install rustscan
-wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb -O ~/Download/rustscan.deb
-sudo apt install ~/Download/rustscan.deb
+wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb 
+sudo apt install ./rustscan_2.0.1_amd64.deb
 
 # add the stuff to bashrc
 echo export PATH=\$PATH:~/.local/bin >> ~/.bashrc
