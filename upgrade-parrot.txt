@@ -2,7 +2,7 @@
 
 # Install known packages
 sudo apt update
-sudo apt install -y exa ripgrep bat feroxbuster
+sudo apt install -y exa ripgrep bat feroxbuster seclists
 
 # make local bin directory
 mkdir ~/.local/bin
