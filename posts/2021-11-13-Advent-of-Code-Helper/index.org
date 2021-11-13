@@ -17,9 +17,11 @@ The following function reads the year and day from the input and then inserts th
            (creds (auth-source-search :host "adventofcode.com"))
            (secret (plist-get (car creds) :secret))
            (decoded (funcall secret))
-           (url-request-extra-headers `(("Cookie" . ,(concat "session=" decoded))))
+           (url-request-extra-headers
+            `(("Cookie" . ,(concat "session=" decoded))))
            )
-      (url-insert-file-contents (format "https://adventofcode.com/%d/day/%d/input" year day))
+      (url-insert-file-contents
+       (format "https://adventofcode.com/%d/day/%d/input" year day))
       ))
 #+end_src
 
