@@ -36,3 +36,5 @@ machine adventofcode.com password 1234YOURHASHHERE
 #+end_src
 
 Emacs will now happily grab the input for you and insert it into the current buffer.
+
+Go back to the [[../../index.org][homepage]].
