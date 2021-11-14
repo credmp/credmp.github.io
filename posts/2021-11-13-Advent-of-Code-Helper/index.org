@@ -5,21 +5,29 @@
 
 One step in solving the [[https://adventofcode.com][Advent of Code]] challenges is to grab the puzzle input. This step is easily automated within Emacs.
 
-The following function reads the year and day from the input and then inserts the contents of the url into the current buffer. This works quite nicely. One improvement would still be to create a similar function to grab the puzzle input for *today*.
+The following function reads the year and day from the input and then inserts the contents of the url into the current buffer. This works quite nicely. *Updated*: it now uses the current date as input unless it is prefixed (~C-u~). When prefixed you can give it a year and a date and it will pull in that specific input.
 
 #+name: get-aoc-input function
 #+begin_src emacs-lisp
-  (defun get-aoc-input ()
-    "Retrieve the input for a puzzle"
-    (interactive)
-    (let* ((year  (read-number "Year: "))
-           (day   (read-number "Day: "))
+  (defun aw/aoc-input (prefix)
+    "Retrieve the input for an advent of code puzzle. Use a prefix
+  to retrieve for a specific year or day."
+    (interactive "p")
+    (let* ((year  (cond ((= prefix 1)
+                         (string-to-number
+                          (format-time-string "%Y")))
+                        ((> prefix 1)
+                         (read-number "Year: "))))
+           (day (cond ((= prefix 1)
+                       (string-to-number
+                        (format-time-string "%d")))
+                      ((> prefix 1)
+                       (read-number "Day: "))))
            (creds (auth-source-search :host "adventofcode.com"))
            (secret (plist-get (car creds) :secret))
            (decoded (funcall secret))
            (url-request-extra-headers
-            `(("Cookie" . ,(concat "session=" decoded))))
-           )
+            `(("Cookie" . ,(concat "session=" decoded)))))
       (url-insert-file-contents
        (format "https://adventofcode.com/%d/day/%d/input" year day))
       ))
