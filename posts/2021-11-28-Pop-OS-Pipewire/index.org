@@ -1,0 +1,102 @@
+#+TITLE: POP_OS! Pipewire
+#+subtitle: Upgrade your sound in Linux
+#+options: toc:nil
+#+date: <2021-11-28 Sun>
+
+* Pipewire
+
+According to [[https://pipewire.org/][its website]]:
+
+#+begin_quote
+PipeWire is a project that aims to greatly improve handling of audio and video under Linux. It provides a low-latency, graph based processing engine on top of audio and video devices that can be used to support the use cases currently handled by both pulseaudio and JACK. PipeWire was designed with a powerful security model that makes interacting with audio and video devices from containerized applications easy, with supporting Flatpak applications being the primary goal.
+#+end_quote
+
+In other words, it replaces the current audio system with a system that is modular and ready for the future.
+
+** Checking what you are running now
+
+Using the command ~pactl info~ you can check to see what version of the audio system you are using. When you run only ~PulseAudio~ the output will include the following:
+
+#+begin_example
+Server Name: PulseAudio
+#+end_example
+
+When you have taken the steps in this article the output will look like the following:
+
+#+begin_src 
+Server String: /run/user/1000/pulse/native
+Library Protocol Version: 34
+Server Protocol Version: 35
+Is Local: yes
+Client Index: 50
+Tile Size: 65472
+User Name: arjen
+Host Name: beta
+Server Name: PulseAudio (on PipeWire 0.3.40)
+Server Version: 15.0.0
+Default Sample Specification: float32le 2ch 48000Hz
+Default Channel Map: front-left,front-right
+Default Sink: alsa_output.pci-0000_0c_00.3.analog-stereo
+Default Source: alsa_input.usb-046d_Logitech_BRIO_B48C2639-03.analog-stereo
+Cookie: 678c:13a1
+#+end_src
+
+* Enable it in POP_OS
+
+Pipewire lives in ~userland~, meaning that it is a service that is run whenever a user is logged into a session. First you will need to add the ~ppa~ for ~pipewire-upstream~ and ~update~ your repositories. 
+
+#+begin_src shell
+sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y pipewire gstreamer1.0-pipewire pipewire-pulse \
+     libspa-0.2-bluetooth libspa-0.2-jack pipewire-audio-client-libraries
+#+end_src
+
+For *each user* that wants to run Pipewire you need to enable it using ~systemctl~. Afterwards you need to reboot.
+
+#+begin_src shell
+systemctl --user mask pulseaudio
+systemctl --user --now disable pulseaudio.service pulseaudio.socket
+systemctl --user --now enable pipewire-media-session.service
+systemctl reboot
+#+end_src
+
+If you ever need to switch back to ~PulseAudio~ the steps are quite easy:
+
+#+begin_src shell
+systemctl --user unmask pulseaudio 
+systemctl --user --now disable pipewire-media-session.service
+systemctl --user --now enable pulseaudio.service pulseaudio.socket
+systemctl reboot
+#+end_src
+
+* Cadence and Catia
+
+The ~Cadence~ and ~Catia~ tools are extremely useful when working with audio. To get them, first add the ~kx.studio~ repositories.
+
+#+begin_src shell
+# Install required dependencies if needed
+sudo apt-get install apt-transport-https gpgv
+
+# Remove legacy repos
+sudo dpkg --purge kxstudio-repos-gcc5
+
+# Download package file
+wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_10.0.3_all.deb
+
+# Install it
+sudo dpkg -i kxstudio-repos_10.0.3_all.deb
+#+end_src
+
+Then install the applications:
+
+#+begin_src shell
+sudo apt install carla-git cadence
+#+end_src
+
+You can then use ~Catia~ to modify how sound is routed in your environment. You can for instance route the output of your Firefox session into the input of Discord, thereby sharing your sound with your friends. The below screenshot shows the default view in ~Catia~ for my environment.
+
+[[./images/catia.png]]
+
+Go back to the [[../../index.org][homepage]].
