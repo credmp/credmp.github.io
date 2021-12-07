@@ -9,6 +9,13 @@ I organize the Dutch meetup for [[https://www.hackthebox.eu][Hack The Box]]. Eac
 
 The views on this site are my own.
 
+* Long form articles
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: post-list
+:END:
+
+- <2021-12-07 Tue> [[./writeups/emacs/22-years-of-emacs][22 years of Emacs]]
+
 * Latest writings
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: post-list
