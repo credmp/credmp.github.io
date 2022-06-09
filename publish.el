@@ -9,6 +9,8 @@
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
+(add-to-list 'load-path ".")
+
 (require 'dash)
 (require 'org)
 (require 'ox-rss)
