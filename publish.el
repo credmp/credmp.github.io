@@ -310,6 +310,17 @@
          :with-toc t
          :html-head-include-scripts nil
          :html-head-include-default-style nil)
+   (list "challenges"
+         :base-directory "./c"
+         :base-extension "org"
+         :recursive t
+         :publishing-directory "./public/c"
+         :publishing-function 'duncan/org-html-publish-site-to-html
+         ;;:publishing-function 'org-html-publish-to-html
+         :section-numbers nil
+         :with-toc nil
+         :html-head-include-scripts nil
+         :html-head-include-default-style nil)
    (list "assets"
          :base-directory "./"
          :exclude (regexp-opt '("assets" "public"))
