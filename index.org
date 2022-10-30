@@ -1,7 +1,9 @@
 #+TITLE: Arjen Wiersma
 #+SUBTITLE: Writings
 
-I am the Chief Lecturer for Cyber Security at [[https://www.novi.nl][Hogeschool NOVI]]. In my work I focus on teaching students all there is to know about the technical side of Cyber Security. My main areas of expertise are Reverse Engineering, Infrastructure Security and Web Application Security.
+I am Manager Product Development and Chief Lecturer at [[https://www.novi.nl][Hogeschool NOVI]]. I work on creating the most modern and relevant educational products that we can offer. Through stategic partnerships and attracting the most talented content developers we offer world class education to our students.
+
+In my work as Chief Lecturer for Cybersecurity I focus on teaching students all there is to know about the technical side of Cyber Security. My main areas of expertise are Reverse Engineering, Infrastructure Security and Web Application Security.
 
 Next to my work I am active as an Independent Hacker. I assist my customers in their journey to increase their security posture. I do this through advice, seminars and security assessments.
 
