@@ -168,7 +168,7 @@
               (duncan/org-html-head
                (append (duncan/head-common-list plist)
                        (plist-get plist :html-head-list)) plist)))
-  (plist-put plist :html-htmlized-css-url (duncan/asset-relative-link-to "css/white.css" pub-dir t))
+  (plist-put plist :html-htmlized-css-url (duncan/asset-relative-link-to "css/theme.css" pub-dir t))
   (duncan/org-html-publish-generate-redirect plist filename pub-dir)
   (org-publish-org-to 'duncan/html filename
                       (concat "." (or (plist-get plist :html-extension)
