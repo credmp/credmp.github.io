@@ -212,7 +212,6 @@ span.subtitle {
 
 h3 { padding-top: .5em; }
 h1, h2, h3, h4 {
-    //color: black;
     color: white;
     font-size: 1em;
     font-weight: 400;
@@ -254,7 +253,6 @@ h3::before {
 
 
 code {
-    //background-color: #f9f9f9;
     background-color: #555;
     font-family: "Roboto Mono", sans-serif;
     font-weight: 400;
@@ -279,8 +277,6 @@ pre.src-nix::before { content: "nix"; }
 
 pre {
     color: #fff;
-    //color: #00008b;
-    //background-color: #fbfbfb;
     background-color: #000;
     overflow: auto;
     margin: 0em;
@@ -289,7 +285,6 @@ pre {
     line-height: 1.35em;
     font-family: "Roboto Mono", sans-serif;
     font-weight: 300;
-    #border-left: 2px dotted #00008b;
     border-left: 2px dotted #ffff74;
 }
 pre.src {
@@ -299,12 +294,9 @@ pre.src {
 
 /* --- Code folding --- */
 details {
-    //color: rgba(48,63,159, 1.00);
     color: #fee;
     background: #000;
-    //background: #fbfbfb;
     border: 1px solid rgba(48,63,159, 1.00);
-    //border: 1px solid rgb(255, 0, 102);
     border-radius: 3px;
     padding:  0.25em;
     margin-bottom: 1.0em;
@@ -315,12 +307,10 @@ details pre {
 details pre.src-lisp::before { content: ""; }
 summary {
     outline: 0;
-    //color: rgba(48,63,159, 1.00);
     color: rgb(255,255,255,1);
 }
 summary::after {
     font-size: 0.85em;
-    //color: rgba(48,63,159, 0.25);
     color: rgb(255,255,255,1);
     display: inline-block;
     float: right;

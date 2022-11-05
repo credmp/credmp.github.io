@@ -92,8 +92,8 @@
         (org-set-property "PUBDATE" date)
         ;; to avoid second update to rss.org by org-icalendar-create-uid
         ;;(insert-file-contents entry)
-        (buffer-string))))
-  )
+        (buffer-string)))))
+  
 
 (defun duncan/org-html-timestamp (timestamp contents info)
   "We are not going to leak org mode silly <date> format when rendering TIMESTAMP to the world, aren't we?.  CONTENTS and INFO are passed down to org-html-timestamp."
@@ -252,7 +252,7 @@
          :publishing-directory "./public"
          :publishing-function 'ignore
          ;;:publishing-function 'duncan/org-rss-publish-to-rss
-         :html-link-home "http://duncan.codes/"
+         :html-link-home "http://www.arjenwiersma.nl/"
          :html-link-use-abs-url t
          :auto-sitemap t
          :sitemap-style 'list
@@ -283,7 +283,7 @@
          :base-extension "org"
          :publishing-directory "./public"
          :publishing-function 'duncan/org-rss-publish-to-rss
-         :html-link-home "http://duncan.codes/"
+         :html-link-home "http://www.arjenwiersma.nl/"
          :html-link-use-abs-url t)
    (list "site"
          :base-directory "./"
