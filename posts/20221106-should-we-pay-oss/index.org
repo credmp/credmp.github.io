@@ -40,4 +40,21 @@ Outside the NPM realm you can also throw a stone and find an interesting story. 
 
 So, lets start working towards a sustainable open source culture where developers can get (well) paid for their work.
 
+* After the post
+
+After posting this earlier today the news dropped on hackernews that the author of [[https://github.com/rui314/mold][mold]], [[https://twitter.com/rui314][Rui Ueyama]], is thinking about changing the license for mold/macOS due to its lack of funding. His [[https://twitter.com/rui314/status/1589228847903698945][twitter post]] is unrolled below.
+
+#+begin_quote
+I was optimistic when I started the mold project that I'd be able to earn a comfortable income in some way if it becomes popular. But I may have to admit that that's a bit too optimistic. I'm still losing my money after two years.
+
+I *have* enough money that I earned when I was working as a full-time software engineer, but if I keep losing money, it's not sustainable long term.
+It's even a bit ironic that I had been asked by several big-name companies when mold/macOS would become available, since they wanted to use it for their multi-billion-dollar businesses. But no one gave me a financial support.
+
+Part of a reason is because most companies don't have an internal process to start supporting an open-source project. If they need to buy a license, that's fine, that's part of a usual business. But giving money away to "free" software? There's no precedent and hard to justify.
+Given this situation, I'm seriously considering changing the mold/macOS license (not mold/Unix license) from AGPL to a commercial, source-available one. Something like individuals would be able to use it for free but companies have to pay.
+
+I know some people are not happy about even thinking about it, and so am I. But to me it is more important to make the project viable long-term and grow into something that we can hire an engineer or two to accelerate the development. I haven't decided anything yet though!
+#+end_quote
+
+
 Go back to the [[../../index.org][homepage]].
