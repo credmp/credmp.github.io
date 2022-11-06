@@ -144,7 +144,7 @@
      ;; (list "link" (list "href" "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" "rel" "stylesheet" "integrity" "sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" "crossorigin" "anonymous"))
      ;; (list "script" (list "src" "https://use.fontawesome.com/8f6741dd38.js"))
      (list "meta" (list "description" description))
-     (list "link" (list "rel" "alternate" "type" "application+rss/xml" "title" description "href" "posts/rss.xml")))))
+     (list "link" (list "rel" "alternate" "type" "application+rss/xml" "title" description "href" "/posts/rss.xml")))))
 
 (defun duncan/hash-for-filename (filename)
   "Returns the sha25 for FILENAME."
