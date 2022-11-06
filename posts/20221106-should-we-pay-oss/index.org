@@ -1,0 +1,43 @@
+#+title: Should we pay for Open Source Software?
+#+options: toc:nil
+#+DATE: <2022-11-06 Sun>
+
+As the world is processing the [[https://www.forbes.com/sites/petersuciu/2022/11/05/twitter-is-facing-a-great-exodus--can-the-company-remain-profitable-if-it-loses-its-power-users/?sh=3a3aaec0212a][Twitter deal]] the open source project [[https://joinmastodon.org/][Mastodon]] is gaining a lot of traction. The instance that I am on, [[https://fostodon.org][fosstodon]], is run by a small team and is fully funded by [[https://hub.fosstodon.org/support/][donations]].
+
+Now this may sound somewhat strange; as the twitterverse is blowing up about $8/month for a blue checkmark I would argue that the $8 is better spent supporting open source projects. As developers, security people, and users we rely on a lot of free time and effort from open source contributors.
+
+* Sustainable open source
+
+This idea of sustainable open source is not new. On Github you can already donate to your favorite projects and many people accept money through patreon or [[https://liberapay.com/][Liberapay]]. This is a good step towards sustainability. To illustrate what could go wrong if we don't move more into this direction we should look at the case of Marak Squiress.
+
+You might've heard about ~color.js~ and ~faker.js~. The latter was used to generate fake data for testing forms in web applications and such. Both projects were used by thousands of other projects. Most developers did not even notice this dependency in their project as it would be deep into the dependency tree.
+
+One day Marak got fed up. He was tired of working on his projects and seeing companies use his projects without giving back. So he pleaded with the outside world to no avail. Sadly it seems he totally burned out and removed his projects from various repositories. Needless to say, stuff started to break. As the NPM ecosystem is not geared towards reproducability (and general usability) a missing package will only be followed with absolute failure.
+
+The [[https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/][detailed story]] of Marak and his decision is quite the read, I highly recommend going through it and reflecting on what it would mean for your own projects.
+
+* Dependencies
+
+The fragility of dependencies is not new. In an XKCD comic it was beautifully illustrated:
+
+[[./dependency.png]]
+
+There are countless examples where this goes wrong. Just in the NPM space it is quite easy to find examples where funding would've helped. Lets take a look at some supply chain attacks where a better funded developer might've taken the time to actually setup better security for themselves.
+
+In November of 2018 a malicious package was added as a dependency to version 3.3.6 of the popular package event-stream by a new maintainer. The malicious package, called flatmap-stream, contained an encrypted payload that stole bitcoins from certain applications. Read the [[https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident][NPM Blog]] for an incident report.
+
+In October of 2021 the NPM account for the UA-Parser-JS library was hijacked, to infect dependent systems with cryptominers and password-stealing trojans in a supply-chain attack. There is a [[https://www.bleepingcomputer.com/news/security/popular-npm-library-hijacked-to-install-password-stealers-miners/][Detailed story]] that goes into all the steps involved.
+
+In July of 2018 the credentials of a maintainer on NPM were compromised resulting in a malicious release of eslint-scope, version 3.7.2. The malicious code copied the npm credentials of the machine running eslint-scope and uploaded them to the attacker. There is a good [[https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/][blog post]] by the ESLint team.
+
+Although better funding does not mean better security posture, it would mean that developers get more time to spend on their projects. More time generally results in better choices and hopefully also security choices.
+
+* OpenSSL
+
+Outside the NPM realm you can also throw a stone and find an interesting story. Lets take a look at OpenSSL on November 1st of 2022. The release a critical patch for a vulnerability. Instead of it being something that was broken when security was not on the forefront this time it was a vulnerability in /new/ code. Code that was just recently added, knowing how important OpenSSL is in the ecosystem. Sadly it was not tested enough. The code dealt with the parsing of punycode urls in email addresses. It resulted in a trivial buffer overflow; using ~<=~ instead of ~<~. Read more about it in their [[https://www.openssl.org/blog/blog/2022/11/01/email-address-overflows/][blog post]].
+
+* Closing thought
+
+So, lets start working towards a sustainable open source culture where developers can get (well) paid for their work.
+
+Go back to the [[../../index.org][homepage]].
