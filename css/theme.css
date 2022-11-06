@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500');
 
 :root {
+    --body-width: 720px;
     --body-bg: #edf2f4;
     --body-color: #011627;
     --link-color: rgb(255, 0, 102);
@@ -12,6 +13,9 @@
     --code-background: #D7D8E9;
     --code-block-bg: #012E50;
     --code-block-fg: #fff;
+    --font-size: 18px;
+    --float-pos: left;
+    --toc-width: 32%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,15 +25,22 @@
         --link-color: #43FFFF;
         --text-i: #A0F353;
         --title: #fff;
-        --code-background: #C66;
-        /* --code-block-bg: #333; */
-        /* --code-block-fg: #fff; */
+        --code-background: #428EFF;
+    }
+}
+
+@media (max-width: 900px) {
+    :root {
+        --body-width: 100%;
+        --font-size: 12px;
+        --float-pos: right;
+        --toc-width: 100%;
     }
 }
 
 body {
     font-family: "Roboto Mono", monospace;
-    font-size: 18px;
+    font-size: var(--font-size);
     font-weight: 300;
     background-color: var(--body-bg);
     color: var(--body-color);
@@ -109,7 +120,7 @@ div.side-note {
 #table-of-contents ul li {
     vertical-align: top;
     display: inline-block;
-    width: 32%;
+    width: var(--toc-width);
 }
 #table-of-contents ul li:before {
     display: inline-block;
@@ -194,14 +205,14 @@ ol.org-ol {
 
 #content, #postamble {
     margin: 0 auto;
-    max-width: 80%;
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
+    max-width: var(--body-width);
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 
 #postamble {
     /*    border-top: 1px solid #999999; */
-    padding-top: 1.5em;
+    padding-top: 1em;
 }
 #postamble p, #postamble a {
     color: #999999;
@@ -212,7 +223,7 @@ ol.org-ol {
 
 h1.title {
     font-size: 1.5em;
-    margin-top: 4em;
+    margin-top: 1.5em;
     margin-bottom: 0em;
     font-weight: 400;
     text-align: left;
@@ -246,7 +257,7 @@ h2 {
 }
 h2::before {
     color: var(--title);
-    float: left;
+    float: var(--float-pos);
     text-align: right;
     font-weight: 300;
     width: 7.5em;
@@ -258,7 +269,7 @@ h2::before {
 
 h3::before {
     color: var(--title);
-    float: left;
+    float: var(--float-pos);
     text-align: right;
     font-weight: 300;
     width: 2.5em;
