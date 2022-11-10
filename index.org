@@ -5,7 +5,7 @@ I am Manager Product Development and Chief Lecturer at [[https://www.novi.nl][Ho
 
 In my work as Chief Lecturer for Cybersecurity I focus on teaching students all there is to know about the technical side of Cyber Security. My main areas of expertise are Reverse Engineering, Infrastructure Security and Web Application Security.
 
-Next to my work I am active as an Independent Hacker. I assist my customers in their journey to increase their security posture. I do this through advice, seminars and security assessments.
+#+HTML: <p>Next to my work I am active as an Independent Hacker. I assist my customers in their journey to increase their security posture. I do this through advice, seminars and security assessments. I toot on the fediverse as <a rel="me" href="https://fosstodon.org/@credmp">@credmp@fosstodon.org</a>.</p>
 
 I organize the Dutch meetup for [[https://www.hackthebox.eu][Hack The Box]]. Each month, on the 3rd Wednesday, members of the Dutch cyber security community get together and have presentations, demos and discussion on wide ranging topics. Through this collaboration I have become an Ambassador for Hack The Box.
 
