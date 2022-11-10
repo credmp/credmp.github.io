@@ -139,7 +139,7 @@
 
 (defun duncan/head-common-list (plist)
   "List of elements going in head for all pages.  Takes PLIST as context."
-  (let ((description "The blog of Arjen Wiersma"))
+  (let ((description "Writings by Arjen"))
     (list
      ;; (list "link" (list "href" "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" "rel" "stylesheet" "integrity" "sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" "crossorigin" "anonymous"))
      ;; (list "script" (list "src" "https://use.fontawesome.com/8f6741dd38.js"))
