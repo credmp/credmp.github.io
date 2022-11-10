@@ -47,7 +47,7 @@
          (posts (duncan/org-publish-sitemap--valid-entries posts)))
     (concat (format "#+TITLE: %s\n\n* %s\n" title subtitle)
             (org-list-to-org (cons (car sitemap) posts))
-            "\n#+BEGIN_EXPORT html\n<a href='rss.xml'><i class='fa fa-rss'></i></a>\n#+END_EXPORT\n")))
+            "\n#+BEGIN_EXPORT html\n<a href='/posts/rss.xml'><i class='fa fa-rss'></i></a>\n#+END_EXPORT\n")))
 
 (defun duncan/archive-sitemap-format-entry (entry style project)
   "archive.org and posts.org (latest) entry formatting. Format sitemap ENTRY for PROJECT with the post date before the link, to generate a posts list.  STYLE is not used."
@@ -351,7 +351,8 @@
   (let ((make-backup-files nil)
         (org-publish-project-alist       duncan--publish-project-alist)
         ;; deactivate cache as it does not take the publish.el file into account
-        (user-full-name "Arjen 'credmp' Wiersma")
+        (user-full-name "Arjen Wiersma")
+        (user-mail-address "ik@arjenwiersma.nl")
         ;;(user-mail-address "duncan@gmail.com")
         (org-src-fontify-natively t)
         (org-publish-cache nil)

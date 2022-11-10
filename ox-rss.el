@@ -332,6 +332,8 @@ as a communication channel."
 	 (ifile (plist-get info :input-file))
 	 (publink
 	  (concat (file-name-as-directory blogurl)
+                  "posts"
+                  "/"
 		  (file-name-nondirectory
 		   (file-name-sans-extension ifile))
 		  "." rssext)))
