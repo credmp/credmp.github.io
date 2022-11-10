@@ -80,6 +80,7 @@
          (filename (expand-file-name entry (expand-file-name base-directory (duncan/project-root))))
          
          (title (duncan/post-get-metadata-from-frontmatter filename "TITLE"))
+         (abstract (duncan/post-get-metadata-from-frontmatter filename "ABSTRACT"))
          ;;(title (org-publish-format-file-entry "%t" filename project))
          ;;(title (org-publish-find-title filename project))
          (date (format-time-string "<%Y-%m-%d>" (org-publish-find-date entry project)))
@@ -91,7 +92,8 @@
         (org-set-property "RSS_TITLE" title)
         (org-set-property "PUBDATE" date)
         ;; to avoid second update to rss.org by org-icalendar-create-uid
-        ;;(insert-file-contents entry)
+        ;;(insert-file-contents filename)
+        (insert (if abstract abstract ""))
         (buffer-string)))))
   
 
