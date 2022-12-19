@@ -263,30 +263,30 @@
          :sitemap-function 'duncan/archive-sitemap-function
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry)
    ;; Generate a org sitemap to use later for rss, ignoring publishing the site again
-   (list "sitemap-for-rss"
-         :base-directory "./posts"
-         :recursive t
-         :exclude (regexp-opt '("posts.org" "archive.org" "rss.org"))
-         :base-extension "org"
-         :publishing-directory "./public"
-         :publishing-function 'ignore
-         :auto-sitemap t
-         :sitemap-style 'list
-         :sitemap-filename "rss.org"
-         :sitemap-function 'duncan/sitemap-for-rss-sitemap-function
-         :sitemap-format-entry 'duncan/sitemap-for-rss-sitemap-format-entry)
-   ;; generates the rss.xml file from the rss sitemap
-   ;; (list "rss"
-   ;;       :base-directory "./"
+   ;; (list "sitemap-for-rss"
+   ;;       :base-directory "./posts"
    ;;       :recursive t
-   ;;       :exclude "."
-   ;;       :include '("posts/rss.org")
    ;;       :exclude (regexp-opt '("posts.org" "archive.org" "rss.org"))
    ;;       :base-extension "org"
    ;;       :publishing-directory "./public"
-   ;;       :publishing-function 'duncan/org-rss-publish-to-rss
-   ;;       :html-link-home "http://www.arjenwiersma.nl/"
-   ;;       :html-link-use-abs-url t)
+   ;;       :publishing-function 'ignore
+   ;;       :auto-sitemap t
+   ;;       :sitemap-style 'list
+   ;;       :sitemap-filename "rss.org"
+   ;;       :sitemap-function 'duncan/sitemap-for-rss-sitemap-function
+   ;;       :sitemap-format-entry 'duncan/sitemap-for-rss-sitemap-format-entry)
+   ;; generates the rss.xml file from the rss sitemap
+   (list "rss"
+         :base-directory "./"
+         :recursive t
+         :exclude "."
+         :include '("posts/rss.org")
+         :exclude (regexp-opt '("posts.org" "archive.org" "rss.org"))
+         :base-extension "org"
+         :publishing-directory "./public"
+         :publishing-function 'duncan/org-rss-publish-to-rss
+         :html-link-home "http://www.arjenwiersma.nl/"
+         :html-link-use-abs-url t)
    (list "site"
          :base-directory "./"
          :include '("posts/archive.org")
