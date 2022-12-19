@@ -276,17 +276,17 @@
    ;;       :sitemap-function 'duncan/sitemap-for-rss-sitemap-function
    ;;       :sitemap-format-entry 'duncan/sitemap-for-rss-sitemap-format-entry)
    ;; generates the rss.xml file from the rss sitemap
-   (list "rss"
-         :base-directory "./"
-         :recursive t
-         :exclude "."
-         :include '("posts/rss.org")
-         :exclude (regexp-opt '("posts.org" "archive.org" "rss.org"))
-         :base-extension "org"
-         :publishing-directory "./public"
-         :publishing-function 'duncan/org-rss-publish-to-rss
-         :html-link-home "http://www.arjenwiersma.nl/"
-         :html-link-use-abs-url t)
+   ;; (list "rss"
+   ;;       :base-directory "./"
+   ;;       :recursive t
+   ;;       :exclude "."
+   ;;       :include '("posts/rss.org")
+   ;;       :exclude (regexp-opt '("posts.org" "archive.org" "rss.org"))
+   ;;       :base-extension "org"
+   ;;       :publishing-directory "./public"
+   ;;       :publishing-function 'duncan/org-rss-publish-to-rss
+   ;;       :html-link-home "http://www.arjenwiersma.nl/"
+   ;;       :html-link-use-abs-url t)
    (list "site"
          :base-directory "./"
          :include '("posts/archive.org")
