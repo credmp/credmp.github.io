@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modernize Linux</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Modernize Linux</h1>
+<p class="subtitle" role="doc-subtitle">New tools for a modern day</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org00d4525">Using old tools</a></li>
+<li><a href="#org91dc2e8">The age of Rust</a></li>
+<li><a href="#org0c552bf">The tools I replaced</a>
+<ul>
+<li><a href="#org47f72fb">cat</a></li>
+<li><a href="#org187ed8b">ls</a></li>
+<li><a href="#orgf182fdd">grep</a></li>
+<li><a href="#org576177a">Replacing the old with the new</a></li>
+</ul>
+</li>
+<li><a href="#orgaa36119">A word of warning</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org00d4525" class="outline-2">
+<h2 id="org00d4525">Using old tools</h2>
+<div class="outline-text-2" id="text-org00d4525">
+<p>
+I have been using Linux ever since the late 1990&rsquo;s. I switched between Linux, Windows and macOS over the years, but since 2015 I have been a full time user. I currently use <a href="https://pop.system76.com/">POP!_os</a> on my daily machine and I have a Dell XPS13 Developer Edition laptop that runs Ubuntu.
+</p>
+
+<p>
+The tools I use daily in the terminal are part of something called <code>coreutils</code>, <a href="https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands">Wikipedia has a nice listing of them</a>, and they include commands like <code>ls</code>, <code>cat</code>, <code>cp</code>, <code>mv</code> and the list goes on. These tools are familiar to anyone using Linux as they help you manage your file system.
+</p>
+
+<p>
+These tools are very old; <code>ls</code> has been part of the <code>X/Open Portability Guide</code> set of commands since 1987, and transitioned into <code>coreutils</code> when that was formed in 2002. These tools work incredibly well at giving the basic information and functionality that is needed to manage the system.
+</p>
+</div>
+</section>
+
+<section id="outline-container-org91dc2e8" class="outline-2">
+<h2 id="org91dc2e8">The age of Rust</h2>
+<div class="outline-text-2" id="text-org91dc2e8">
+<p>
+As the C programming language has found a more modern version of itself in the Rust programming language many C programmers have started transitioning to Rust. Rust is more of a <i>safe</i> language then C as it rigorously tries to prevent any form of memory management mistakes.
+</p>
+
+<p>
+As this group has been transitioning it has also marked a new wave of re-envisioned old tools. System programmers have to work on something to learn a new language and many choose to re-implement an old tool from the <code>coreutils</code> library. These tools come with new insights and modern ideas. They are not limited to working on some archaic system that is still supported by Linux and its distributions.
+</p>
+
+<p>
+Several of these tools have replaced the old ones on my daily workstation. 
+</p>
+</div>
+</section>
+
+<section id="outline-container-org0c552bf" class="outline-2">
+<h2 id="org0c552bf">The tools I replaced</h2>
+<div class="outline-text-2" id="text-org0c552bf">
+<p>
+Note: On <code>POP!_os</code> these tools are all install-able using <code>apt-get</code>. 
+</p>
+</div>
+
+<div id="outline-container-org47f72fb" class="outline-3">
+<h3 id="org47f72fb">cat</h3>
+<div class="outline-text-3" id="text-org47f72fb">
+<p>
+The single biggest improvement has come from replacing <code>cat</code> with <code>bat</code>. The tool has a complete new take on listing file contents. By default it will show line numbers, syntax highlight known file types and provide a scrolling area in case the file it too large for the current terminal.
+</p>
+
+
+<figure id="orgaa883fd">
+<img src="index_att/bat.png" alt="bat.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Presenting a file with <code>bat</code></figcaption>
+</figure>
+
+<p>
+Obviously the default also has downsides, selecting more then 1 line to copy will now also include line numbers. A quick command line flag will switch to <code>plain</code> mode. In this mode only the text is syntax highlighted and all the other niceties are gone. This still is infinitely better then the monotone color of the standard <code>cat</code> tool.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org187ed8b" class="outline-3">
+<h3 id="org187ed8b">ls</h3>
+<div class="outline-text-3" id="text-org187ed8b">
+<p>
+It might sound strange to replace the <code>ls</code> tool, but compare the below screenshot with the regular <code>ls</code> output.
+</p>
+
+
+<figure id="orge5785c2">
+<img src="index_att/ls.png" alt="ls.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>Listing a directory with <code>exa</code></figcaption>
+</figure>
+
+<p>
+The command to gain the above screenshot is <code>exa -alg --group-directories-first</code>. The <code>g</code> is added as the tool, by default, does not show the group. All the files are <a href="https://the.exa.website/features/colours">color coded</a> and a <code>tree</code> command is built in using <code>--tree</code>, things I like to use a lot. 
+</p>
+
+
+<figure id="orgbadf756">
+<img src="index_att/ls-tree.png" alt="ls-tree.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Showing a tree listing using <code>exa</code></figcaption>
+</figure>
+
+<p>
+These additions have made <code>exa</code> replace <code>ls</code> for me.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf182fdd" class="outline-3">
+<h3 id="orgf182fdd">grep</h3>
+<div class="outline-text-3" id="text-orgf182fdd">
+<p>
+When working with large code-bases the <code>grep</code> command is invaluable. During the <code>AWAE</code> course by <i>Offensive Security</i> the student is required to learn how to effectively search large targets. This is where I found <code>rg</code> to be superior to <code>grep</code> for any form of extended use.
+</p>
+
+<p>
+In the screenshot below a search is done for the <code>expect</code> word in a <i>Rust</i> project. By providing a <i>file-type</i> flag to only search in <i>Rust</i> files 4 results are returned. Using a regular <code>grep</code> command like <code>grep -r expect *</code> would yield more then 5000 results.
+</p>
+
+
+<figure id="orga911939">
+<img src="index_att/rg.png" alt="rg.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Presenting the results of a <code>rg</code> search</figcaption>
+</figure>
+
+<p>
+The output format, as seen above, is also greatly superior to that of the standard tool. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org576177a" class="outline-3">
+<h3 id="org576177a">Replacing the old with the new</h3>
+<div class="outline-text-3" id="text-org576177a">
+<p>
+In order to use these tools on a daily basis the old ones can be <i>masked</i> by providing a shell <code>alias</code> in the initialization file. For the <code>zsh</code> shell this would be in <code>.zshrc</code>, for <code>bash</code> in <code>.bashrc</code>, etc.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">alias <span class="org-variable-name">grep</span>=<span class="org-string">'rg'</span>
+alias <span class="org-variable-name">ls</span>=<span class="org-string">'exa -alg --group-directories-first'</span>
+alias <span class="org-variable-name">cat</span>=<span class="org-string">'bat'</span>
+</pre>
+</div>
+
+<p>
+Although these are 3 tools that have replaced the standard ones, many defaults are still incredibly useful and irreplaceable. There are projects working on replacing <code>ps</code> and other tools. There even is a <a href="https://rust.libhunt.com/coreutils-alternatives">website dedicated to coreutils-alternatives</a>.
+</p>
+</div>
+</div>
+</section>
+
+<section id="outline-container-orgaa36119" class="outline-2">
+<h2 id="orgaa36119">A word of warning</h2>
+<div class="outline-text-2" id="text-orgaa36119">
+<p>
+Do not replace any tools in your workflow unless you know they are better then the original for your use-case. If you are not fully familiar with the tools you might get strange, unexpected results. As with any new tools some time is required to be invested in getting to know the new tools as you have done in the past with the old tools when starting to use Linux. 
+</p>
+
+<p>
+Go back to the <a href="../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+</body>
+</html>

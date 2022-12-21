@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 22</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 22</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Dubstep&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org75604c0">Challenge</a></li>
+<li><a href="#orgac6536c">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org75604c0" class="outline-2">
+<h2 id="org75604c0">Challenge</h2>
+<div class="outline-text-2" id="text-org75604c0">
+<p>
+This relatively simple challenge will teach you about Server Side Request Forgery. It is one of those type of vulnerabilities where cloud environments struggle with; allowing access through a server to an internal resource.
+</p>
+</div>
+</section>
+
+<section id="outline-container-orgac6536c" class="outline-2">
+<h2 id="orgac6536c">Solution</h2>
+<div class="outline-text-2" id="text-orgac6536c">
+<p>
+The challenge starts with a single link.
+</p>
+
+
+<figure id="org4210747">
+<img src="index_att/challenge-start.png" alt="challenge-start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Start of the challenge</figcaption>
+</figure>
+
+<p>
+The link leads to a picture of an adorable cat.
+</p>
+
+
+<figure id="org76cacc6">
+<img src="index_att/cat.png" alt="cat.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>An adorable cat</figcaption>
+</figure>
+
+<p>
+The page is loaded by means of an <code>image</code> parameter to the <code>index.php</code> page. This is always a good sign of Local File Inclusion, as we have seen earlier.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The url for the cat</label><pre class="src src-text">https://22.adventofctf.com/index.php?image=cat.jpg
+</pre>
+</div>
+
+<p>
+Investigating the source of the page you will notice that the image is not an image url, but a <code>data-uri</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs">docs</a>), that is a special type of URL which contains the full image as part of the string, in Base64.
+</p>
+
+
+<figure id="org28641b3">
+<img src="index_att/cat-base64.png" alt="cat-base64.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The image file in the source</figcaption>
+</figure>
+
+<p>
+As a file is included when passing it to <code>image</code>, lets see if we can grab the <code>flag.php</code> this way. Indeed it returns a Base64 String!
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Retrieve flag.php</label><pre class="src src-text">https://22.adventofctf.com/index.php?image=flag.php
+</pre>
+</div>
+
+<p>
+Sadly no flag, yet. The file uses another file to load some functions and variables; <code>secret.php</code>. This file is protected against direct read in <code>index.php</code> however. So there is no way to get to the <code>get_flag</code> function.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The flag.php source code</label><pre class="src src-php"><span class="org-php-php-tag">&lt;?php</span>
+
+<span class="org-php-keyword">include</span>(<span class="org-php-string">"secret.php"</span>);
+
+<span class="org-php-keyword">if</span> (<span class="org-php-function-call">strpos</span>(<span class="org-php-function-call">check_secret</span>(), <span class="org-php-string">"allow"</span>) <span class="org-php-comparison-op">!==</span> <span class="org-php-constant">false</span>) {
+   <span class="org-php-keyword">echo</span> <span class="org-php-function-call">get_flag</span>(); 
+}
+
+<span class="org-php-php-tag">?&gt;</span>
+</pre>
+</div>
+
+<p>
+Looking at the <code>index.php</code> it is clear how the mechanism works. Given a filename in <code>image</code> it will simply load it using <code>file_get_contents</code> as long as it does not contain <code>secret</code>. The docs for <code>file_get_contents</code> say that <code>path</code> can be any string, from a file path, a php wrapper (such as the base64 encode we have used before) to an URL.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Loading a file in index.php</label><pre class="src src-php"><span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">path</span> <span class="org-php-assignment-op">=</span> <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">_GET</span>[<span class="org-php-string">"image"</span>];
+<span class="org-php-keyword">if</span> (<span class="org-php-function-call">strpos</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">path</span>,<span class="org-php-string">"secret"</span>) <span class="org-php-comparison-op">!==</span> <span class="org-php-constant">false</span>) {
+    <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">path</span><span class="org-php-assignment-op">=</span><span class="org-php-string">"cat.jpg"</span>;
+}
+<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">image</span> <span class="org-php-assignment-op">=</span> <span class="org-php-function-call">file_get_contents</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">path</span>);
+<span class="org-php-keyword">echo</span> <span class="org-php-string">'&lt;img src="data:image/jpeg;base64,'</span>.<span class="org-php-function-call">base64_encode</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">image</span>).<span class="org-php-string">'" width="100%"/&gt;'</span>;
+</pre>
+</div>
+
+<p>
+The documentation for <code>file_get_contents</code> says it will load a url as well. Trying various URLs will get you resolving errors, until you try <code>http://localhost</code>. This will actually get you the first page again. 
+</p>
+
+<p>
+Lets try to get the flag by calling <code>http://localhost/flag.php</code> instead. This is a classic SSRF technique; the server allows the access of the file through the local IP, but not the external IP. This will retrieve the flag.
+</p>
+
+<p>
+This type of vulnerability is common in cloud environments where an internal configuration service is accessible from application containers. For instance <a href="https://nechudav.blogspot.com/2020/11/31k-ssrf-in-google-cloud-monitoring.html">on the GCP</a>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Getting the flag</label><pre class="src src-text">https://22.adventofctf.com/index.php?image=http://localhost/flag.php
+</pre>
+</div>
+
+<p>
+Besides the points, also be sure to grab the beautiful badge!
+</p>
+
+
+<figure id="org21ac7f8">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 7</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 7</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Blind&rdquo; / &ldquo;My Mistakes&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb1843e0">Challenge</a></li>
+<li><a href="#org38e3b34">Solutions</a>
+<ul>
+<li><a href="#org471704c">Solution</a></li>
+<li><a href="#orgef76b61">Unintended Solution 1</a></li>
+<li><a href="#orge267a33">Unintended Solution 2</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orgb1843e0" class="outline-2">
+<h2 id="orgb1843e0">Challenge</h2>
+<div class="outline-text-2" id="text-orgb1843e0">
+<p>
+Sometimes challenges have unexpected solutions. In this case I created a challenge, play-tested it and then decided to change it a bit to make it more attractive. However, my changes gave way to a slew of really easy unintended solutions. So where this challenge was meant to teach you about time based blind SQL injections, it turned out to be just a very simple straightforward SQL injection.
+</p>
+
+<p>
+What you will learn:
+</p>
+<ul class="org-ul">
+<li>Identify SQL injections when there are not error messages</li>
+<li>Use <code>SLEEP()</code> to extract data, character for character</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-org38e3b34" class="outline-2">
+<h2 id="org38e3b34">Solutions</h2>
+<div class="outline-text-2" id="text-org38e3b34">
+<p>
+So, there are at least 3 solutions to this challenge. Lets walk through them, from intended solution to unintended ones.
+</p>
+</div>
+
+<div id="outline-container-org471704c" class="outline-3">
+<h3 id="org471704c">Solution</h3>
+<div class="outline-text-3" id="text-org471704c">
+<p>
+The challenge starts with a new interface, the <i>Santabase</i> and the user has the option to search by <i>username</i> to retrieve data from the <i>naughty</i> list. These are all hints to the names of objects in the database.
+</p>
+
+
+<figure id="org54d0174">
+<img src="index_att/santabase.png" alt="santabase.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The santabase interface</figcaption>
+</figure>
+
+<p>
+Searching for anything in the database will yield empty results, unless you have the right username of course. The empty resultset has a header <i>Why?</i>. This is important as any correctly formatted query will result in an empty table.
+</p>
+
+
+<figure id="org883f68e">
+<img src="index_att/why.png" alt="why.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>Empty result set</figcaption>
+</figure>
+
+<p>
+When entering anything that breaks the query, the result will not contain the <i>Why?</i> header. This is the clue that is left in order to construct a proper SQL query. As there is nothing else that can be used to retrieve information a more creative use of SQL is necessary.
+</p>
+
+<p>
+A test query that can be utilized here is <code>' or (select sleep(1)); #</code>. This will cause the retrieval to last at least 1 second. In case you have a slow internet connection it might be necessary to increate the 1 to a higher number to notice the delay correctly.
+</p>
+
+<p>
+As it is known that the <code>username</code> column is searched in the <code>naughty</code> table (or list) a query can be constructed that will take the value of <code>username</code> character by character to compare it against a known set. If it matches, the sleep can be used to indicate a match and else the query will return instantly.
+</p>
+
+<p>
+First, to get a single character from a field the <code>mid()</code> function can be used. In this case the following expression <code>mid(username,1,1</code> will return the first character from the field username. Also <code>substr()</code> might be used, which was learned in the previous challenge. I like to use <code>mid()</code> as it is shorter.
+</p>
+
+<p>
+In order  to get a sense of the data the query needs to sleep when it matches a character. This can be achieved by using an <code>if()</code> expression. The first parameter will be the match, the thing that says true or false on a match, the 2nd parameter is the thing that happens when they match, in this case <code>sleep(1)</code> and the 3rd parameter will be the thing that happens when there is no match. For now we can simply return <code>0</code> then.  
+</p>
+
+<p>
+Putting it all together creates the following listing. The username is check to see if the first character of <code>username</code> is an <code>a</code>. If it is, it will sleep 1 second and else return instantly.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Check for the value of &rsquo;a&rsquo; in username</label><pre class="src src-sql"><span class="org-string">' or (select if(mid(username,1,1)='</span>a<span class="org-string">', sleep(1), 0) from naughty); #</span>
+</pre>
+</div>
+
+<p>
+Using this strategy the full username can be retrieved from the database. It takes quite some queries, but it has been retrieved.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Getting the username</label><pre class="src src-sql"><span class="org-string">' or (select if(mid(username,1,1)='</span>e<span class="org-string">', sleep(1), 0) from naughty); #</span>
+<span class="org-string">'</span> <span class="org-keyword">or</span> (<span class="org-keyword">select</span> if(mid(username,2,1)=<span class="org-string">'g'</span>, sleep(1), 0) <span class="org-keyword">from</span> naughty); #
+<span class="org-string">' or (select if(mid(username,3,1)='</span>i<span class="org-string">', sleep(1), 0) from naughty); #</span>
+<span class="org-string">'</span> <span class="org-keyword">or</span> (<span class="org-keyword">select</span> if(mid(username,4,1)=<span class="org-string">'s'</span>, sleep(1), 0) <span class="org-keyword">from</span> naughty); #
+<span class="org-string">' or (select if(mid(username,5,1)='</span>c<span class="org-string">', sleep(1), 0) from naughty); #</span>
+<span class="org-string">'</span> <span class="org-keyword">or</span> (<span class="org-keyword">select</span> if(mid(username,6,1)=<span class="org-string">'h'</span>, sleep(1), 0) <span class="org-keyword">from</span> naughty); #
+<span class="org-string">' or (select if(mid(username,7,1)='</span>e<span class="org-string">', sleep(1), 0) from naughty); #</span>
+</pre>
+</div>
+
+<p>
+Entering the username will show the flag in the <i>Why?</i> table. The flag can be used to retrieve the points and the badge.
+</p>
+
+
+<figure id="org9e74e22">
+<img src="index_att/badge.png" alt="badge.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The badge</figcaption>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-orgef76b61" class="outline-3">
+<h3 id="orgef76b61">Unintended Solution 1</h3>
+<div class="outline-text-3" id="text-orgef76b61">
+<p>
+Due to my  editing of the challenge to make it more stack-able from a knowledge point of view I inadvertently created one of the easiest challenges in the entire game.  The most basic SQL injection actually showed the flag to the user.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Getting the flag without all the fuzz</label><pre class="src src-sql"><span class="org-string">' or 1=1 #</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge267a33" class="outline-3">
+<h3 id="orge267a33">Unintended Solution 2</h3>
+<div class="outline-text-3" id="text-orge267a33">
+<p>
+Getting the flag alone is an accomplishment, however knowing the username is the real thing in this challenge. Due to the same reason that the first unintended solution exists, there is an obvious way to grab this data with the <i>UNION SELECT</i> from the previous challenge. Using this query the username is shown in the <i>Why?</i> table.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Grabbing the username using UNION SELECT</label><pre class="src src-sql"><span class="org-string">' UNION SELECT username FROM naughty #</span>
+</pre>
+</div>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

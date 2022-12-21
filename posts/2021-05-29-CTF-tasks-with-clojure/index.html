@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CTF Tasks with Clojure</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">CTF Tasks with Clojure</h1>
+<p class="subtitle" role="doc-subtitle">Using clojure where it is not normally used</p>
+</header>
+<section id="outline-container-org7ee95b2" class="outline-2">
+<h2 id="org7ee95b2">Introduction</h2>
+<div class="outline-text-2" id="text-org7ee95b2">
+<p>
+It might not come as <a href="./../2021-02-15-Programming/">a surprise</a>, but Clojure is one of my most favorite programming language. Although I love the language I never used it while participating in a CTF to solve challenges. This is mainly due to the difficulty of working with things like hex numbers, which you need to do often in CTFs.
+</p>
+
+<p>
+So I decided to give it some effort and start developing tools when I run into challenges. Today I did a CTF challenge that required a <code>xor</code> of a list of bytes. So here we go.
+</p>
+</div>
+</section>
+
+<section id="outline-container-orge6636ce" class="outline-2">
+<h2 id="orge6636ce">String XORring</h2>
+<div class="outline-text-2" id="text-orge6636ce">
+<p>
+So, the fist thing to know is to convert an integer to a <code>hex</code> number is not something that is part of the language. In order to do it, the integer has to be formatted as a hexidecimal using <code>format</code>. That will result in a <code>string</code> of the hexidecimal number. The string is then converted using <code>symbol</code> to be an actual byte.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(<span class="org-keyword">defn</span> <span class="org-function-name">int-&gt;hex</span>
+  <span class="org-doc">"Function that int as argument and returns a symbol hex representation of the number.</span>
+
+<span class="org-doc">For example the number 115 is 0x73 hexidecimal"</span>
+  [int]
+  (symbol (format <span class="org-string">"0x%02x"</span> int)) )
+</pre>
+</div>
+
+<p>
+Using this technique a flag can be encoded using a key. By using a <code>map vector</code> each character of the flag is matched with a character from the key, so it would result in a list of pairs such as <code>[\A \s]</code> for the <code>A</code> from the flag and the <code>s</code> from the key. Obviously in this situation the key has to be as long or longer then the flag that is to be encoded.
+</p>
+
+<p>
+The list of pairs is then mapped into a <code>bit-xor</code> and its result is converted to hexidecimal. A list of hexidecimals is the result of this map, and the input for our decoding function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure"><span class="org-comment-delimiter">;; </span><span class="org-comment">Creating a key</span>
+(map (<span class="org-keyword">fn</span> [[a b]] (int-&gt;hex (bit-xor (int a) (int b))))
+     (map vector
+          <span class="org-string">"ARJEN{flag}"</span>
+          <span class="org-string">"supersecretkey"</span>))
+<span class="org-comment-delimiter">;; </span><span class="org-comment">=&gt; (0x32 0x27 0x3a 0x20 0x3c 0x08 0x03 0x0f 0x13 0x02 0x09)</span>
+</pre>
+</div>
+
+<p>
+As it is very common to map a key to some sequence of bytes to xor them I created a function to do just this. The rather lengthy name <code>xor-byte-list-&gt;string</code> does exactly that, it takes a list of bytes and xors it with a key (a string). It uses the same technique as above with <code>map vector</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(<span class="org-keyword">defn</span> <span class="org-function-name">xor-byte-list-&gt;string</span> [byte-list xor-key]
+  <span class="org-comment-delimiter">;; </span><span class="org-comment">Decoding a key</span>
+  (apply str
+         (map (<span class="org-keyword">fn</span> [[a b]] (char (bit-xor a (int b))))
+              (map vector byte-list xor-key))))
+
+(xor-byte-list-&gt;string 
+ '(0x32 0x27 0x3a 0x20 0x3c 0x08 0x03 0x0f 0x13 0x02 0x09)
+ <span class="org-string">"supersecretkey"</span>)
+
+<span class="org-comment-delimiter">;; </span><span class="org-comment">=&gt; "ARJEN{flag}"</span>
+</pre>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org4bf8f29" class="outline-2">
+<h2 id="org4bf8f29">Other hex related functions</h2>
+<div class="outline-text-2" id="text-org4bf8f29">
+<p>
+I keep a list of other hex related functions handy. Some I have copied over from the internet somewhere in the past such as <a href="https://stackoverflow.com/questions/10062967/clojures-equivalent-to-pythons-encodehex-and-decodehex">this</a> wonderful post on alternatives to Python&rsquo;s <code>encode('hex')</code> functions.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(<span class="org-keyword">defn</span> <span class="org-function-name">str-&gt;hex</span> [s]
+  (apply str
+    (map #(format <span class="org-string">"0x%02x"</span> (int <span class="org-variable-name">%</span>)) s)))
+
+(<span class="org-keyword">defn</span> <span class="org-function-name">int-&gt;hex</span> [i]
+  (format <span class="org-string">"0x%02x"</span> i) )
+
+
+(<span class="org-keyword">defn</span> <span class="org-function-name">hexify</span> [s]
+    (apply str
+      (map #(format <span class="org-string">"%02x"</span> (int <span class="org-variable-name">%</span>)) s)))
+
+  (<span class="org-keyword">defn</span> <span class="org-function-name">unhexify</span> [hex]
+    (apply str
+      (map 
+        (<span class="org-keyword">fn</span> [[x y]] (char (<span class="org-type">Integer</span>/parseInt (str x y) 16))) 
+        (partition 2 hex))))
+
+  (hexify <span class="org-string">"Clojure"</span>)
+  <span class="org-comment-delimiter">;; </span><span class="org-comment">&#8658; "436c6f6a757265"</span>
+
+  (unhexify <span class="org-string">"436c6f6a757265"</span>)
+  <span class="org-comment-delimiter">;; </span><span class="org-comment">&#8658; "Clojure"</span>
+</pre>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>

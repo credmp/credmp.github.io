@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 4</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 4</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Obfuscation&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5b40e09">Challenge</a></li>
+<li><a href="#orgda54b93">Solution</a>
+<ul>
+<li><a href="#org3a8d32f">Analysis</a></li>
+<li><a href="#orgabadef9">Solve</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org5b40e09" class="outline-2">
+<h2 id="org5b40e09">Challenge</h2>
+<div class="outline-text-2" id="text-org5b40e09">
+<p>
+This challenge will teach you that everything that is in the browser is under your control. Even if someone took extraordinary measures to obfuscate some logic, as long as it is in the browser, you control it.
+</p>
+
+<p>
+What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>What Local Storage is in the browser</li>
+<li>How to examine Javascript code in the browser</li>
+<li>How to run code that is part of a web application in the browser</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-orgda54b93" class="outline-2">
+<h2 id="orgda54b93">Solution</h2>
+<div class="outline-text-2" id="text-orgda54b93">
+<p>
+Day 4 starts with a screen saying that you are <code>User 0</code> and that you do not have access to the <i>special present</i>.
+</p>
+
+
+<figure id="org4578e02">
+<img src="index_att/startup.png" alt="startup.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Startup screen</figcaption>
+</figure>
+</div>
+
+<div id="outline-container-org3a8d32f" class="outline-3">
+<h3 id="org3a8d32f">Analysis</h3>
+<div class="outline-text-3" id="text-org3a8d32f">
+<p>
+Examining the parts of the browser that we are now familiar with shows that a <code>login.js</code> is included again. In the DevTools (F12) the code for the challenge is listed. The full listing is in the <code>Detail</code> block below.
+</p>
+
+<details><summary><b>login.js</b> (Full version)</summary>
+<div class="org-src-container">
+<pre class="src src-javascript"><span class="org-keyword">function</span> <span class="org-function-name">startup</span>() {
+    key = localStorage.getItem(<span class="org-string">'key'</span>);
+
+    <span class="org-keyword">if</span> (key === <span class="org-constant">null</span>) {
+        localStorage.setItem(<span class="org-string">'key'</span>, <span class="org-string">'eyJ1c2VyaWQiOjB9.1074'</span>);
+    }
+}
+
+<span class="org-keyword">var</span> <span class="org-variable-name">_0x1fde</span>=[<span class="org-string">'charCodeAt'</span>];
+(<span class="org-keyword">function</span>(<span class="org-variable-name">_0x93ff3a</span>,<span class="org-variable-name">_0x1fded8</span>){
+    <span class="org-keyword">var</span> <span class="org-variable-name">_0x39b47b</span>=<span class="org-keyword">function</span>(<span class="org-variable-name">_0x54f1d3</span>){
+        <span class="org-keyword">while</span>(--_0x54f1d3){
+            _0x93ff3a[<span class="org-string">'push'</span>](_0x93ff3a[<span class="org-string">'shift'</span>]());
+        }};
+    _0x39b47b(++_0x1fded8);
+}(_0x1fde,0x192));
+<span class="org-keyword">var</span> <span class="org-variable-name">_0x39b4</span>=<span class="org-keyword">function</span>(<span class="org-variable-name">_0x93ff3a</span>,<span class="org-variable-name">_0x1fded8</span>){
+    _0x93ff3a=_0x93ff3a-0x0;
+    <span class="org-keyword">var</span> <span class="org-variable-name">_0x39b47b</span>=_0x1fde[_0x93ff3a];
+    <span class="org-keyword">return</span> _0x39b47b;
+};
+<span class="org-keyword">function</span> <span class="org-function-name">calculate</span>(<span class="org-variable-name">_0x54f1d3</span>){
+    <span class="org-keyword">var</span> <span class="org-variable-name">_0x58628b</span>=_0x39b4,<span class="org-variable-name">_0xc289d4</span>=0x0;
+    <span class="org-keyword">for</span>(<span class="org-keyword">let</span> <span class="org-variable-name">_0x19ddf3</span> <span class="org-keyword">in</span> text){
+        _0xc289d4+=text[_0x58628b(<span class="org-string">'0x0'</span>)](_0x19ddf3);
+    }<span class="org-keyword">return</span> _0xc289d4;
+}
+
+<span class="org-keyword">function</span> <span class="org-function-name">check</span>() {
+    key = localStorage.getItem(<span class="org-string">'key'</span>);
+    hash = window.location.search.split(<span class="org-string">'?'</span>)[1];
+
+    <span class="org-keyword">if</span> (key !== <span class="org-constant">null</span> &amp;&amp; hash != <span class="org-string">'token='</span>+key) {
+        parts = key.split(<span class="org-string">'.'</span>);
+        text = atob(parts[0]);
+        checksum = parseInt(parts[1]);
+
+        count = calculate(text);
+
+        <span class="org-keyword">if</span> (count == checksum) {
+            setTimeout(<span class="org-keyword">function</span>(){
+                window.location=<span class="org-string">"index.php?token="</span> + key;
+            }, 5000);
+        }
+    }
+}
+
+startup();
+check();
+</pre>
+</div>
+</details>
+
+<p>
+The most significant part of the code that stands out is a highly obfuscated piece of Javascript. This is clearly intended to hide its workings from the user. It does not make a lot of sense to decode the workings of it, do note that near the end a readable function is declared, called <code>calculate</code>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Obfuscated javascript</label><pre class="src src-javascript"><span class="org-keyword">var</span> <span class="org-variable-name">_0x1fde</span>=[<span class="org-string">'charCodeAt'</span>];
+(<span class="org-keyword">function</span>(<span class="org-variable-name">_0x93ff3a</span>,<span class="org-variable-name">_0x1fded8</span>){
+    <span class="org-keyword">var</span> <span class="org-variable-name">_0x39b47b</span>=<span class="org-keyword">function</span>(<span class="org-variable-name">_0x54f1d3</span>){
+        <span class="org-keyword">while</span>(--_0x54f1d3){
+            _0x93ff3a[<span class="org-string">'push'</span>](_0x93ff3a[<span class="org-string">'shift'</span>]());
+        }};
+    _0x39b47b(++_0x1fded8);
+}(_0x1fde,0x192));
+<span class="org-keyword">var</span> <span class="org-variable-name">_0x39b4</span>=<span class="org-keyword">function</span>(<span class="org-variable-name">_0x93ff3a</span>,<span class="org-variable-name">_0x1fded8</span>){
+    _0x93ff3a=_0x93ff3a-0x0;
+    <span class="org-keyword">var</span> <span class="org-variable-name">_0x39b47b</span>=_0x1fde[_0x93ff3a];
+    <span class="org-keyword">return</span> _0x39b47b;
+};
+<span class="org-keyword">function</span> <span class="org-function-name">calculate</span>(<span class="org-variable-name">_0x54f1d3</span>){
+    <span class="org-keyword">var</span> <span class="org-variable-name">_0x58628b</span>=_0x39b4,<span class="org-variable-name">_0xc289d4</span>=0x0;
+    <span class="org-keyword">for</span>(<span class="org-keyword">let</span> <span class="org-variable-name">_0x19ddf3</span> <span class="org-keyword">in</span> text){
+        _0xc289d4+=text[_0x58628b(<span class="org-string">'0x0'</span>)](_0x19ddf3);
+    }<span class="org-keyword">return</span> _0xc289d4;
+}
+</pre>
+</div>
+
+<p>
+The function, <code>calculate</code>, is used in another function. This function is called <code>check()</code>. Reading the code it will extract a <code>key</code> from the Local Storage of the browser. It will also take a value from the <code>window.location.search</code> variable of the browser. This is a reference to the addressbar, so it tries to get the URL that is currently in it.
+</p>
+
+<p>
+If both are set and the <code>hash</code> variable equals <code>'token'+key</code> (which was taken from the local storage) it will go into the main check logic.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Function check()</label><pre class="src src-javascript"><span class="org-keyword">function</span> <span class="org-function-name">check</span>() {
+    key = localStorage.getItem(<span class="org-string">'key'</span>);
+    hash = window.location.search.split(<span class="org-string">'?'</span>)[1];
+
+    <span class="org-keyword">if</span> (key !== <span class="org-constant">null</span> &amp;&amp; hash != <span class="org-string">'token='</span>+key) {
+        parts = key.split(<span class="org-string">'.'</span>);
+        text = atob(parts[0]);
+        checksum = parseInt(parts[1]);
+
+        count = calculate(text);
+
+        <span class="org-keyword">if</span> (count == checksum) {
+            setTimeout(<span class="org-keyword">function</span>(){
+                window.location=<span class="org-string">"index.php?token="</span> + key;
+            }, 5000);
+        }
+    }
+}
+</pre>
+</div>
+
+<p>
+The <code>token</code> that is passed through the URL and Local Storage is <code>split</code> on a <code>.</code>, breaking it up in 2 pieces. The first part is Base64 decoded using <code>atob()</code> and the 2nd part is converted to an integer using <code>parseInt()</code>. The text is passed to the obfuscated <code>calculate</code> function. If the result of <code>calculate</code> is the same as the 2nd part of the token then the browser is refreshed to the index page.
+</p>
+
+<p>
+So, the challenge is to create a token that can pass these conditions.
+</p>
+
+<p>
+The other function in the code is <code>startup()</code>. If no value is already in the local storage it will set the default of <code>eyJ1c2VyaWQiOjB9.1074</code>. 
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Function startup()</label><pre class="src src-javascript"><span class="org-keyword">function</span> <span class="org-function-name">startup</span>() {
+    key = localStorage.getItem(<span class="org-string">'key'</span>);
+
+    <span class="org-keyword">if</span> (key === <span class="org-constant">null</span>) {
+        localStorage.setItem(<span class="org-string">'key'</span>, <span class="org-string">'eyJ1c2VyaWQiOjB9.1074'</span>);
+    }
+}
+</pre>
+</div>
+
+<p>
+At the end of the javascript both <code>startup</code> and <code>check</code> are called to first set a default value if necessary and secondly to verify if the URL of the page can be used.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Startup code</label><pre class="src src-javascript">startup();
+check();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgabadef9" class="outline-3">
+<h3 id="orgabadef9">Solve</h3>
+<div class="outline-text-3" id="text-orgabadef9">
+<p>
+So, lets examin the default value. It is a token that reads <code>eyJ1c2VyaWQiOjB9.1074</code>. From the code we know that it is 2 parts, a payload and a checksum. From previous challenges we know that anything that starts with <code>eyJ</code> is most likely a Base64 encoded JSON structure. Using CyberChef we can read it&rsquo;s value: <code>{"userid":0}</code>.
+</p>
+
+<p>
+It indeed holds a JSON structure that holds the userid. This is the same userid that is shown on the page. Changing it to <code>{"userid":1}</code> and encoding it with Base64 will yield the value  <code>eyJ1c2VyaWQiOjF9</code>. You can try to use this value with the old checksum to see what happens. Using the url <a href="https://04.adventofctf.com/index.php?token=eyJ1c2VyaWQiOjF9.1074">https://04.adventofctf.com/index.php?token=eyJ1c2VyaWQiOjF9.1074</a> will give some interesting results.
+</p>
+
+
+<figure id="org8cfd73e">
+<img src="./index_att/user-unknown.png" alt="user-unknown.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>User unknown</figcaption>
+</figure>
+
+<p>
+There are 2 things at play here. First the value is compared to the local storage, which we did not change yet, and secondly the checksum is checked. The logic for the checksum is obfuscated, so how will we know what it should be?
+</p>
+
+<p>
+Looking at the code again you will see that the checksum is check using <code>calculate()</code> which will have a parameter of the decoded text, lets try that in the browser. Go the the <i>Console</i> tab and enter <code>calculate('{"userid":1}')</code>.
+</p>
+
+
+<figure id="org266877e">
+<img src="index_att/console-error.png" alt="console-error.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Javascript error calling calculate</figcaption>
+</figure>
+
+<p>
+Looking back at the code you might notice that the code does something sneaky, it is a CTF after all. Instead of using the parameter passed to <code>calculate</code> to do the calculation it reads a global variable called <code>text</code> for its input. Lets change our approach, set a <code>text</code> variable with the JSON structure and call <code>calculate</code> again.
+</p>
+
+
+<figure id="orgb055d91">
+<img src="index_att/calculate_checksum.png" alt="calculate_checksum.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Calculate a checksum</figcaption>
+</figure>
+
+<p>
+So, for a <code>userid</code> of 1 the checksum changes to <code>1075</code>. Putting it together the new token will be: <code>eyJ1c2VyaWQiOjF9.1075</code>. Put this value into the local storage (either using javascript as the code above does, or through the <code>DevTools &gt; Storage &gt; Local storage</code> pane).
+</p>
+
+
+<figure id="org20912f8">
+<img src="index_att/local_storage.png" alt="local_storage.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>New token in local storage</figcaption>
+</figure>
+
+<p>
+Now, call the URL using your new token. The system will register that you are now user 1 and give you access to the flag.
+</p>
+
+
+<figure id="org6927265">
+<img src="index_att/flag.png" alt="flag.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The flag</figcaption>
+</figure>
+
+<p>
+Next to the points the flag also gives you access to the <i>Toyman</i> badge. It is awesome, share it on all your socials!
+</p>
+
+
+<figure id="org04c60d2">
+<img src="index_att/badge.png" alt="badge.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The badge</figcaption>
+</figure>
+
+<p>
+The challenge has been solved. Onto the next one.
+</p>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

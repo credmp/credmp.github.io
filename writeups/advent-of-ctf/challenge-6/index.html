@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 6</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 6</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Union&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org62c2323">Challenge</a></li>
+<li><a href="#org3ebcf59">Solution</a>
+<ul>
+<li><a href="#orge67774d">Determine next steps</a></li>
+</ul>
+</li>
+<li><a href="#orge6bebb8">Solve method 1 - The long way</a>
+<ul>
+<li><a href="#org2eacd52">Getting the database</a></li>
+<li><a href="#org476236f">The information schema</a></li>
+<li><a href="#org83742f9">The flag</a></li>
+</ul>
+</li>
+<li><a href="#org827a4c1">Solve method 2 - The short way</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org62c2323" class="outline-2">
+<h2 id="org62c2323">Challenge</h2>
+<div class="outline-text-2" id="text-org62c2323">
+<p>
+Yesterday was the first SQL Injection challenge, it is only logical to follow up with a more elaborate SQL Injection challenge, in this case a <i>UNION SELECT</i> challenge.
+</p>
+
+<p>
+What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>How to identify a <i>UNION SELECT</i></li>
+<li>How to learn about other tables in a schema</li>
+<li>How to use substring</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-org3ebcf59" class="outline-2">
+<h2 id="org3ebcf59">Solution</h2>
+<div class="outline-text-2" id="text-org3ebcf59">
+<p>
+The challenge opens up to a search box.
+</p>
+
+
+<figure id="orge4919f4">
+<img src="index_att/search.png" alt="search.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The SantaBase search</figcaption>
+</figure>
+
+<p>
+Entering any values will result in various lists to be returned. In the below screenshot de result is shown for the search of <code>a</code>.
+</p>
+
+
+<figure id="org96ee6fc">
+<img src="index_att/search-a.png" alt="search-a.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>Search result for &rsquo;a&rsquo;</figcaption>
+</figure>
+
+<p>
+The thing you will notice is that all fields are truncated. In the footer of the card it reads that due to privacy concerns the data is truncated to the first 5 characters.
+</p>
+
+<p>
+Obviously the entry that has a <i>FLAG</i> written at the start of the line looks interesting, but it is a misdirect. It is meant to get you to figure out how to read the rest of the string.
+</p>
+</div>
+
+
+<div id="outline-container-orge67774d" class="outline-3">
+<h3 id="orge67774d">Determine next steps</h3>
+<div class="outline-text-3" id="text-orge67774d">
+<p>
+In order to determine the steps it is important to figure out what is possible with the search. One of the first things to attempt is to use a <i>UNION SELECT</i>. This will make it possible to retrieve arbitrary data from the database. Lets try the most basic <i>UNION SELECT</i>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>SQL for a UNION SELECT</label><pre class="src src-sql"><span class="org-string">' UNION SELECT 1,2,3 #</span>
+</pre>
+</div>
+
+<p>
+The result will be that a new row is added to the results with 1, 2 and 3 added in the columns. 
+</p>
+
+
+<figure id="orgc0fb2a0">
+<img src="index_att/union.png" alt="union.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>UNION SELECT results</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section id="outline-container-orge6bebb8" class="outline-2">
+<h2 id="orge6bebb8">Solve method 1 - The long way</h2>
+<div class="outline-text-2" id="text-orge6bebb8">
+</div>
+<div id="outline-container-org2eacd52" class="outline-3">
+<h3 id="org2eacd52">Getting the database</h3>
+<div class="outline-text-3" id="text-org2eacd52">
+<p>
+Great, so now we can start reading data from the database. As it probably is a MySQL/MariaDB server (as the last one was it), lets try reading the information schema. To speed that up, we need to know the database we are in. Lets try the <i>DATABASE()</i> function first.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>SQL to access the database name</label><pre class="src src-sql">noextra<span class="org-string">' UNION SELECT 1,DATABASE(),3 #</span>
+</pre>
+</div>
+
+<p>
+I added <code>noextra</code> to the search to only get 1 row back.
+</p>
+
+
+<figure id="org8a47cdf">
+<img src="index_att/database.png" alt="database.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>First part of the database name</figcaption>
+</figure>
+
+<p>
+The problem in this challenge is that only 5 characters are shown. How do we get the rest? One way to do it is to use the <code>substr</code> function. With <code>substr</code> it is possible to get a subset of a string, for instance character 6 through 10. Using it the rest of the string can be retrieved. In the following query the first part of the <i>DATABASE()</i> function is in column 2, the 2nd part in column 3.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>SQL to retrieve the database name</label><pre class="src src-sql">noextra<span class="org-string">' UNION SELECT 1,DATABASE(),substr(DATABASE(),6,5) #</span>
+</pre>
+</div>
+
+<p>
+From the output it is clear that the name of the database is <code>testdb</code>.
+</p>
+
+
+<figure id="orga0e0292">
+<img src="index_att/database-name.png" alt="database-name.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Retrieving the database name</figcaption>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-org476236f" class="outline-3">
+<h3 id="org476236f">The information schema</h3>
+<div class="outline-text-3" id="text-org476236f">
+<p>
+Using this strategy it is possible to read out the table names in the <code>testdb</code> schema. A reference of tables in the information schema can be read <a href="https://dev.mysql.com/doc/refman/5.7/en/information-schema.html">online</a>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>SQL to retrieve the table names</label><pre class="src src-sql">noextra<span class="org-string">' UNION SELECT 1,table_name,substr(table_name,6,5)</span>
+<span class="org-string"> FROM information_schema.tables</span>
+<span class="org-string"> WHERE table_schema='</span>testdb<span class="org-string">' #</span>
+</pre>
+</div>
+
+<p>
+The result shows 2 tables in the output. A table called <code>flags</code> and one called <code>secrets</code>.
+</p>
+
+
+<figure id="org1da176c">
+<img src="index_att/tables.png" alt="tables.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Output from the information schema</figcaption>
+</figure>
+
+<p>
+Obviously the table called <code>flags</code> is the most interesting, as it will contain, well, flags hopefully. Using the previous strategy it is possible to get the column names as well.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>SQL to retrieve the column names</label><pre class="src src-sql">noextra<span class="org-string">' UNION SELECT 1,column_name,substr(column_name,6,5)</span>
+<span class="org-string">  FROM information_schema.columns</span>
+<span class="org-string">  WHERE table_name='</span>flags<span class="org-string">' #</span>
+</pre>
+</div>
+
+<p>
+The only result from this query is <code>description</code>. So in the <code>testdb</code> schema there is a table called <code>flags</code> that has a column called <code>description</code>. Using this information a flag extractor can be created.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org83742f9" class="outline-3">
+<h3 id="org83742f9">The flag</h3>
+<div class="outline-text-3" id="text-org83742f9">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>SQL to retrieve the flag</label><pre class="src src-sql">noextra<span class="org-string">' UNION SELECT 1,description,substr(description,6,5) FROM flags #</span>
+</pre>
+</div>
+
+<p>
+The output reveals that the flag is more then 10 characters long, so multiple iterations will be needed to get to the full flag.
+</p>
+
+
+<figure id="orgaca7753">
+<img src="index_att/flag.png" alt="flag.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Revealing the flag</figcaption>
+</figure>
+
+<p>
+A follow up of this query would be to apply substring in both columns, each 5 characters further.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>SQL to retrieve the next part flag</label><pre class="src src-sql">noextra<span class="org-string">' UNION SELECT 1,substr(description,11,5),</span>
+<span class="org-string">         substr(description,16,5) FROM flags #</span>
+</pre>
+</div>
+
+<p>
+With that the challenge is solved. Be sure to also check out the badge.
+</p>
+
+
+<figure id="org6d57d40">
+<img src="./index_att/badge.png" alt="badge.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The badge</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org827a4c1" class="outline-2">
+<h2 id="org827a4c1">Solve method 2 - The short way</h2>
+<div class="outline-text-2" id="text-org827a4c1">
+<p>
+If you were creative enough to not get trapped in <i>an id column can not contain text</i> mindset you would&rsquo;ve tried the following statement:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>DATABASE() in column 1</label><pre class="src src-sql"><span class="org-string">' UNION SELECT database(),2, 3</span>
+</pre>
+</div>
+
+<p>
+The thing you will notice is that the 1st column can be of unlimited size. Using this approach will lead to a SQL payload that is shown in the below listing.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>UNION SELECT on first column</label><pre class="src src-sql"><span class="org-string">' union select description,2,3 from flags #</span>
+</pre>
+</div>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 15</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 15</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Juggler++&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1760584">Challenge</a></li>
+<li><a href="#org08ba785">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org1760584" class="outline-2">
+<h2 id="org1760584">Challenge</h2>
+<div class="outline-text-2" id="text-org1760584">
+<p>
+This challenge is a partner to the previous one, it focuses on an oddity in the PHP programming language.
+</p>
+
+<p>
+What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>Type juggling in <code>strcmp</code></li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-org08ba785" class="outline-2">
+<h2 id="org08ba785">Solution</h2>
+<div class="outline-text-2" id="text-org08ba785">
+<p>
+When the challenge starts the user is asked to enter a flag to compare it to the flag in the challenge. Obviously it is not possible to know the flag unless you solve the challenge, so there has to be another way. Lets examine the source code on the page.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Sourcecode from the challenge</label><pre class="src src-php"><span class="org-php-php-tag">&lt;?php</span>
+
+<span class="org-php-function-call">ini_set</span>(<span class="org-php-string">'display_errors'</span>, 0);
+
+<span class="org-php-keyword">include</span>(<span class="org-php-string">"flag.php"</span>);
+
+<span class="org-php-keyword">if</span> (<span class="org-php-keyword">isset</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">_POST</span>[<span class="org-php-string">"flag"</span>])) {
+    <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">f</span> <span class="org-php-assignment-op">=</span> <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">_POST</span>[<span class="org-php-string">"flag"</span>];
+
+    <span class="org-php-keyword">if</span> (<span class="org-php-function-call">strcmp</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">f</span>, <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">flag</span>) <span class="org-php-comparison-op">==</span> 0 <span class="org-php-logical-op">||</span> <span class="org-php-function-call">sha1</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">flag</span>) <span class="org-php-comparison-op">==</span> <span class="org-php-function-call">sha1</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">f</span>)) {
+    <span class="org-php-keyword">echo</span> <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">flag</span>;
+    <span class="org-php-keyword">die</span>();
+    }
+}
+
+<span class="org-php-function-call">header</span>(<span class="org-php-string">"Location: /index.php?error=Wrong flag"</span>);
+<span class="org-php-keyword">exit</span>();
+
+<span class="org-php-php-tag">?&gt;</span>
+</pre>
+</div>
+
+<p>
+It start the same as the previous challenge. This time it checks to see if <code>flag</code> is set as a <i>post</i> variable. The <code>flag</code> is then compared to the flag stored in the application itself. If they don&rsquo;t match, the <code>sha1</code> of the flags have to match.
+</p>
+
+<p>
+The rabbit hole here is that you might want to try and generate a magic hash that can be used to compare against the hash of the stored flag, but this will be fruitless.
+</p>
+
+<p>
+The interesting function here is <code>strcmp</code>. It compares 2 strings and will return <code>0</code> when they are the same.However, when a parameter to the function is not a string an error will be thrown.
+</p>
+
+<blockquote>
+<p>
+Warning: strcmp() expects parameter 1 to be string, array given in php shell code on line 1
+</p>
+</blockquote>
+
+<p>
+When this happens the result of the <code>strcmp</code> operation will be <code>NULL</code>. When <code>NULL</code> is compared to <code>0</code> in a loose manner it will return <code>true</code>. Within firefox, post a request to the system and <i>Edit &amp; Resend</i> it using DevTools (F12). Change the parameter in the requestbody from <code>flag</code> to <code>flag[]</code>, making it a PHP array.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>The payload</label><pre class="src src-text">flag[]=test
+</pre>
+</div>
+
+<p>
+Within firefox this will look like the following screenshot.
+</p>
+
+
+<figure id="orgc880c98">
+<img src="./index_att/tamper.png" alt="tamper.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Tamper the parameter of get_flag.php</figcaption>
+</figure>
+
+<p>
+The response of the request will contain the flag.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">NOVI{typ3_juggl1ng_f0r_l1fe_seriously}
+</pre>
+</div>
+
+<p>
+Also, do not forget to claim your badge.
+</p>
+
+
+<figure id="orgb1e0f4c">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

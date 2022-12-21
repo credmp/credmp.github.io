@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 11</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 11</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Filter&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd500bce">Challenge</a></li>
+<li><a href="#orgbcd8cbd">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orgd500bce" class="outline-2">
+<h2 id="orgd500bce">Challenge</h2>
+<div class="outline-text-2" id="text-orgd500bce">
+<p>
+Building on the previous challenge this adds a layer of complexity due to filtering and the use of multiple elements to achieve an exfiltration.
+</p>
+
+<p>
+In this challenge you will learn:
+</p>
+
+<ul class="org-ul">
+<li>How to detect filtering</li>
+<li>How to use <code>php://filter</code></li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-orgbcd8cbd" class="outline-2">
+<h2 id="orgbcd8cbd">Solution</h2>
+<div class="outline-text-2" id="text-orgbcd8cbd">
+<blockquote>
+<p>
+Santa&rsquo;s book of secrets has upgraded its security. All should be fine now.
+</p>
+</blockquote>
+
+<p>
+The challenge starts with the same page as in <a href="../challenge-10/index.html">Challenge 10</a>. As the description says that the security has been upgraded, it is fair to assume it is the same type of challenge, only with some added security features.
+</p>
+
+
+<figure id="org1a30492">
+<img src="index_att/the-challenge.png" alt="the-challenge.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The start of the challenge</figcaption>
+</figure>
+
+<p>
+Direct access to <code>flag.php</code> leads to the text <i>Direct access not permitted</i>. This means that this time it is not possible to get the flag from this page directly.
+</p>
+
+
+<figure id="org9fbb2df">
+<img src="index_att/cookie.png" alt="cookie.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>The cookie</figcaption>
+</figure>
+
+<p>
+As with the previous challenge, there is a cookie for <i>zerooneone</i>. 
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The encoded cookie</label><pre class="src src-text">eyJwYXRoIjoiLiIsInBhZ2UiOiJtYWluIn0=
+</pre>
+</div>
+
+<p>
+As with almost all previous challenges a Base64 encoded string, a JSON structure, is stored in the cookie. Decoding it reveals 2 keys; <code>path</code> and <code>page</code>. The current values are <code>.</code>, for the current directory and <code>main</code> for the <code>main.php</code> page.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>The decoded cookie</label><pre class="src src-javascript">{<span class="org-string">"path"</span>:<span class="org-string">"."</span>, <span class="org-string">"page"</span>:<span class="org-string">"main"</span> }
+</pre>
+</div>
+
+<p>
+The first thing to try is to change the <code>page</code> value to <code>flag</code>. This should include the <code>flag.php</code> file that is there according to the description.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Use the flag as a page</label><pre class="src src-javascript">{<span class="org-string">"path"</span>:<span class="org-string">"."</span>, <span class="org-string">"page"</span>:<span class="org-string">"flag"</span> }
+</pre>
+</div>
+
+<p>
+This, however, results in an error message. The message at the end of the line is <i>no direct access</i>, so apparently the file is there, but direct access to it is not allowed.
+</p>
+
+
+<figure id="orgf5d4265">
+<img src="index_att/flag-include.png" alt="flag-include.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Direct access error message</figcaption>
+</figure>
+
+<p>
+Playing around with this payload might make you try to change the path. When you use more then 1 <code>.</code> the path will also throw an error.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Include using many dots</label><pre class="src src-javascript">{<span class="org-string">"path"</span>:<span class="org-string">"../../../../../../"</span>, <span class="org-string">"page"</span>:<span class="org-string">"/etc/passwd"</span> }
+</pre>
+</div>
+
+<p>
+The error message is displayed just like the previous one. So, the flag can not be retrieved directly and navigating the file system also seems to not work.
+</p>
+
+
+<figure id="org8b91c0d">
+<img src="index_att/dots.png" alt="dots.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Soo many dots error message</figcaption>
+</figure>
+
+<p>
+Investigating ways to do a file inclusion in PHP will eventually bring you to extracting data using <code>php://filter</code>. This is part of <a href="https://www.php.net/manual/en/wrappers.php.php">PHP Wrappers</a>. It basically allows you to filter resources through a conversion tool, such as <code>convert.base64-encode</code>. This seems like a great opportunity.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Using PHP filters</label><pre class="src src-javascript">{<span class="org-string">"path"</span>:<span class="org-string">"."</span>, <span class="org-string">"page"</span>:<span class="org-string">"php://filter/convert.base64-encode/resource=flag"</span> }
+</pre>
+</div>
+
+<p>
+It ends in an error message however. The error message says it is due to <i>blacklist</i>. 
+</p>
+
+
+<figure id="org32841d4">
+<img src="index_att/blacklist.png" alt="blacklist.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Blacklist error message</figcaption>
+</figure>
+
+<p>
+So, some words that are used are part of a <i>blacklist</i>. This means that part of the thing that was in the payload was not allowed to be there. Playing with this you will find that the word <i>filter</i> is not allowed in the <code>page</code> value. Similar in the <code>path</code> the word <i>base</i> is not allowed.
+</p>
+
+<p>
+Thinking this challenge over the usage of the 2 parts of the JSON structure can be assumed to be something as in the below listing.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Usage of JSON data</label><pre class="src src-php"><span class="org-php-keyword">include</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">data</span>[<span class="org-php-string">"path"</span>] . <span class="org-php-string">"/"</span> . <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">data</span>[<span class="org-php-string">"page"</span>] . <span class="org-php-string">".php"</span>);
+</pre>
+</div>
+
+<p>
+Using this knowledge and the insight as to what is allowed in both parts the PHP wrapper can be created as a 2 part string. The first part, with <i>filter</i>, in the <code>path</code> and the second part, with the <i>convert.base64-encode</i>, in the <code>page</code>.  
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>The final payload</label><pre class="src src-javascript">{<span class="org-string">"path"</span>:<span class="org-string">"php://filter"</span>, <span class="org-string">"page"</span>:<span class="org-string">"convert.base64-encode/resource=flag"</span> }
+</pre>
+</div>
+
+<p>
+The payload will result in a big blob of Base64 text to be presented on the page.
+</p>
+
+
+<figure id="org494f19a">
+<img src="index_att/extract.png" alt="extract.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The encoded flag.php</figcaption>
+</figure>
+
+<p>
+Decoding the blob of text will show the contents of <code>flag.php</code>. The flag can be retrieved from the code.
+</p>
+
+
+<figure id="org7985ab5">
+<img src="index_att/flag.png" alt="flag.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The flag</figcaption>
+</figure>
+
+<p>
+Be sure to grab your points and the badge.
+</p>
+
+
+<figure id="orgef0c0e7">
+<img src="index_att/badge.png" alt="badge.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The badge</figcaption>
+</figure>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

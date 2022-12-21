@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 18</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 18</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Evaluations&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgca11d36">Challenge</a></li>
+<li><a href="#orgcb60efe">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orgca11d36" class="outline-2">
+<h2 id="orgca11d36">Challenge</h2>
+<div class="outline-text-2" id="text-orgca11d36">
+<p>
+For today the challenge centers around NodeJS and the ever interesting Javascript.
+</p>
+
+<p>
+Today you will learn:
+</p>
+
+<ul class="org-ul">
+<li>How to identify a Javascript injection</li>
+<li>How to exploit a Javascript injection</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-orgcb60efe" class="outline-2">
+<h2 id="orgcb60efe">Solution</h2>
+<div class="outline-text-2" id="text-orgcb60efe">
+<blockquote>
+<p>
+We created a calculator for Santa to figure out how many days until Christmas remain. It is not finished yet, it will only return what you give it. Sort of. The flag is in flag.txt.
+</p>
+</blockquote>
+
+<p>
+The challenge starts with an edit box which asks you to enter the number of days until Christmas. Entering any number will reflect this number back to you,
+</p>
+
+
+<figure id="orgac47f09">
+<img src="index_att/challenge-start.png" alt="challenge-start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Entering a number in the challenge</figcaption>
+</figure>
+
+<p>
+Entering any text in the challenge will result in a big error message. This error message reveals a lot about the challenge. It lists pretty much all the modules used to build the challenge. Clearly it is a <code>NodeJS</code> application that passes the input to the <code>eval</code> function.
+</p>
+
+
+<figure id="orgf8fe9f7">
+<img src="index_att/error.png" alt="error.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>Entering text in the challenge</figcaption>
+</figure>
+
+<p>
+Testing the eval feature with a simple addition shows that valid code is returned evaluated. Lets try <code>1+1</code> and indeed it returns <code>2</code>.
+</p>
+
+
+<figure id="orgc44f61d">
+<img src="index_att/1plus1.png" alt="1plus1.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Math</figcaption>
+</figure>
+
+<p>
+Looking around for <code>eval</code> and <code>payload</code> on google several resources can be found that have great introductions. You will notice it is vary similar to template injections. Lets build a sample first based off of Payload all the Things again.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-javascript">{<span class="org-string">'test'</span>}
+</pre>
+</div>
+
+<p>
+As we know it is a NodeJS application the <code>fs.readFileSync</code> functionality, which is handily available in the app, can be used as well.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-javascript">{fs.readFileSync(<span class="org-string">'flag.txt'</span>, {encoding:<span class="org-string">'utf8'</span>, flag:<span class="org-string">'r'</span>})}
+</pre>
+</div>
+
+<p>
+Don&rsquo;t forget to also grab the badge.
+</p>
+
+
+<figure id="orgb783f7d">
+<img src="./index_att/badge.png" alt="badge.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>The badge</figcaption>
+</figure>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>

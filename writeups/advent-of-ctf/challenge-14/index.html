@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Dec. 2022 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advent of CTF - Challenge 14</title>
+<meta name="author" content="Arjen Wiersma" />
+<meta name="generator" content="Org Mode" />
+<meta description='Writings by Arjen'/>
+<link rel='alternate' type='application+rss/xml' title='Writings by Arjen' href='/posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/theme.css?v=20216e086cf8a20ead56908f3be0bcda6af2531ec1a68c9058ee7495590f57ea" type="text/css">
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<h1 class="title">Advent of CTF - Challenge 14</h1>
+<p class="subtitle" role="doc-subtitle">&ldquo;Juggler&rdquo;</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6c608d6">Challenge</a></li>
+<li><a href="#org09c23f6">Solution</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org6c608d6" class="outline-2">
+<h2 id="org6c608d6">Challenge</h2>
+<div class="outline-text-2" id="text-org6c608d6">
+<p>
+This is the first challenge that deals with PHP language gotcha&rsquo;s. What you will learn:
+</p>
+
+<ul class="org-ul">
+<li>Read some PHP</li>
+<li>PHP Types</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-org09c23f6" class="outline-2">
+<h2 id="org09c23f6">Solution</h2>
+<div class="outline-text-2" id="text-org09c23f6">
+
+<figure id="orgf4cc57b">
+<img src="./index_att/badge.png" alt="badge.png">
+
+</figure>
+
+<blockquote>
+<p>
+We are testing a new 2 factor security system for Santa&rsquo;s deepest secrets. It should be pretty secure!
+</p>
+</blockquote>
+
+<p>
+When the challenge starts something new shows up; the actual code to the challenge!
+</p>
+
+
+<figure id="orgc914959">
+<img src="index_att/start.png" alt="start.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Start of the challenge</figcaption>
+</figure>
+
+<p>
+This is a unique starting point as it is completely transparent what is required to solve this challenge. The entire source code of the logic that has to be beaten is readable.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Challenge source code</label><pre class="src src-php"><span class="org-php-php-tag">&lt;?php</span>
+
+<span class="org-php-function-call">ini_set</span>(<span class="org-php-string">'display_errors'</span>, 0);
+
+<span class="org-php-keyword">include</span>(<span class="org-php-string">"flag.php"</span>);
+
+<span class="org-php-keyword">if</span> (<span class="org-php-keyword">isset</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">_POST</span>[<span class="org-php-string">"password"</span>], <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">_POST</span>[<span class="org-php-string">"verifier"</span>])) {
+    <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">password</span> <span class="org-php-assignment-op">=</span> <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">_POST</span>[<span class="org-php-string">"password"</span>];
+    <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">verifier</span> <span class="org-php-assignment-op">=</span> <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">_POST</span>[<span class="org-php-string">"verifier"</span>];
+
+    <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">hash</span> <span class="org-php-assignment-op">=</span> <span class="org-php-function-call">sha1</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">password</span> <span class="org-php-arithmetic-op">+</span> <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">secret_salt</span>);
+    <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">reference</span> <span class="org-php-assignment-op">=</span> <span class="org-php-function-call">substr</span>(<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">hash</span>, 0, 7);
+
+    <span class="org-php-keyword">if</span> (<span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">verifier</span> <span class="org-php-comparison-op">===</span> <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">reference</span>) {
+    <span class="org-php-keyword">echo</span> <span class="org-php-variable-sigil">$</span><span class="org-php-variable-name">flag</span>;
+    <span class="org-php-keyword">die</span>();
+    }
+}
+
+<span class="org-php-function-call">header</span>(<span class="org-php-string">"Location: /index.php?error=That was not right."</span>);
+<span class="org-php-keyword">exit</span>();
+
+<span class="org-php-php-tag">?&gt;</span>
+</pre>
+</div>
+
+<p>
+Starting at the top the <i>ini_set</i> will tell PHP to not show any errors to the user. The next line includes a file called <code>flag.php</code>, making its variables available inside this code. The <code>if</code> statement then checks to see if both <code>password</code> and <code>verifier</code> are set. For convenience they are then set to local variables.
+</p>
+
+<p>
+The main logic here is that a <code>hash</code> is created using the <code>password</code> and a <code>secret_salt</code>. The <code>secret_salt</code> is defined inside <code>flag.php</code> and contains an unknown value. Then a <code>reference</code> is taken from the hash as a 7 character substring of the generated hash. The <code>verifier</code> is then compared to the <code>reference</code>.
+</p>
+
+<p>
+This means that all that needs to be done is to find a value that will be returned from <code>sha1</code> that can be known when the input <code>password</code> is compared with an unknown string.
+</p>
+
+<p>
+If you are familiar with Type Juggling in PHP your first guess might go to a <a href="https://www.whitehatsec.com/blog/magic-hashes/">magic hash</a>. This is not the case here, as the hash itself is compared in a non loose way using <code>===</code> instead of <code>==</code>. That is the hint that it is not a challenge to find a magic hash.
+</p>
+
+<p>
+The trick to this challenge is to generate a <i>sha1</i> hash when an unknown value is involved.
+</p>
+
+<p>
+The version of PHP inside the challenge is <code>7.3.23</code>. This is unknown at the time you perform the challenge, but can be used for any experiments you might want to do while reading this write-up. PHP has an interactive shell that can be used to test payloads, it can be started using <code>php -a</code>.
+</p>
+
+<p>
+When running the code in the interactive shell you might notice something odd:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>PHP interactive shell with sha1</label><pre class="src src-text">php &gt; echo sha1("value" + "value");
+
+Warning: A non-numeric value encountered in php shell code on line 1
+
+Warning: A non-numeric value encountered in php shell code on line 1
+b6589fc6ab0dc82cf12099d1c2d40ab994e8410c
+</pre>
+</div>
+
+<p>
+Although the code looks correct, the <code>+</code> is not a string concatenation operation in PHP, it is used for numeric addition. As there are no errors allowed to display this is unknown to the user. The fact that PHP expects a numeric operation this can be exploited. Lets examine what happen when you add 2 strings in which one of them is a number.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Understanding addition with strings</label><pre class="src src-text">php &gt; echo "10" + "value";
+
+Warning: A non-numeric value encountered in php shell code on line 1
+10
+</pre>
+</div>
+
+<p>
+PHP will drop the string and return the number. But what happens when 2 strings that are not numbers are combined?
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Adding 2 strings is 0</label><pre class="src src-text">php &gt; echo "value" + "value";
+
+Warning: A non-numeric value encountered in php shell code on line 1
+
+Warning: A non-numeric value encountered in php shell code on line 1
+0
+</pre>
+</div>
+
+<p>
+The addition renders a <code>0</code> as a result. So when the <code>secret_salt</code> is not a number, then the result could always be a <code>0</code>. The <code>sha1</code> of <code>0</code> is <code>b6589fc6ab0dc82cf12099d1c2d40ab994e8410c</code>. This would mean that any password would always create a hash that starts with <code>b6589fc</code>. Testing this sadly does not work. But this provides another hint; the <code>secret_salt</code> is a number.
+</p>
+
+<p>
+So if the hash is not created over the value <code>0</code> what else can it be? PHP has the concept of <code>INF</code>, as it will not overflow a number. So if it is possible to add a high enough number to the <code>secret_salt</code> the hash will be done over <code>INF</code> instead of <code>0</code>. One way to write a large number is the use the <code>e</code> syntax.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>PHP interactive shell trying random numbers</label><pre class="src src-text">php &gt; echo 1e100 + 123213213;
+1.0E+100
+php &gt; echo 1e300 + 123213213;
+1.0E+300
+php &gt; echo 1e309 + 123213213;
+INF
+</pre>
+</div>
+
+<p>
+By means of experimentation it becomes clear that the value of <code>1e309</code> will overflow the number into <code>INF</code>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>sha1 of INF</label><pre class="src src-text">php &gt; echo sha1(INF);
+55c1943f65c7c105ae98e6703cd64127b6585656
+</pre>
+</div>
+
+<p>
+So, using the value <code>1e309</code> as a password and the verifier as <code>55c1943</code> will pass the check completely and show the flag.
+</p>
+
+<p>
+The only think on screen will be <code>NOVI{typ3_juggl1ng_f0r_l1fe}</code>.
+</p>
+
+<p>
+Go back to the <a href="../../../index.html">homepage</a>.
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Arjen Wiersma</p>
+<p class="date">Created: 21 Dec. 2022</p>
+</footer>
+</body>
+</html>
