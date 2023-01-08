@@ -46,11 +46,10 @@ url = "index.xml"
 [markup.goldmark.renderer]
   unsafe = true
 
-[menu]
-#[[menu.main]]
+# [menu]
+# [[menu.main]]
 #  identifier = 'about'
 #  name = 'about hugo'
 #  pre = "<i class='fa fa-heart'></i>"
 #  url = '/about/'
 #  weight = -110
-
