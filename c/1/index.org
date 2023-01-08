@@ -1,6 +1,0 @@
-#+TITLE: Badge challenge 1
-#+SUBTITLE: You scanned it, you solve it!
-
-#+begin_src
-L3AvNDhvbzZyODYycjU0czJuNzk1c3NwNHI1NDFwbnJxNHE=
-#+end_src
