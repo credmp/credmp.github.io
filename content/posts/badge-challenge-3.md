@@ -9,4 +9,4 @@ During each in-person Hack The Box meetup I have a small badge challenge that wi
 
 -   [The zip archive](/files/badge3.zip) (sha1: 28e84243c79caefce06f62ba2c5d930de37a3439)
 
-Good luck. Afterwards I will post a walkthrough of the challenge on this site.
+Good luck. Afterwards I will post a walkthrough of the challenge on this site. Badge Life is hard :)
