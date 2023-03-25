@@ -441,7 +441,7 @@ Badge Life (in ASCII art)
 
 The passphrase was: *Badge Life at The meetup*
 
-* DONE Open Universiteit: Software Quality Management
+* DONE Open Universiteit: Software Quality Management :education:
 CLOSED: [2023-03-25 Sat 16:31]
 :PROPERTIES:
 :EXPORT_FILE_NAME: ou-sqm

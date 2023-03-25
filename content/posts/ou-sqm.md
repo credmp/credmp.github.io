@@ -2,6 +2,7 @@
 title = "Open Universiteit: Software Quality Management"
 author = ["Arjen Wiersma"]
 date = 2023-03-25T16:31:00+01:00
+tags = ["education"]
 draft = false
 +++
 
