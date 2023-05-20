@@ -539,3 +539,135 @@ Note that at each step in the derivation, we apply a rule to replace a non-termi
 ** Moving forward
 
 The preparation phase for the master's thesis at Open Universiteit spans 11 weeks, followed by 22 weeks of research and writing. As I am just starting the preparation phase, I anticipate the topic to evolve over time, and I look forward to sharing my journey with you.
+
+
+* TODO Improving the Usability and Accessibility of Programming Environments with Visual Algebraic Specification and Editor Generation
+
+A thesis by Susan Uskudarli.
+
+Programming environments can be complex and difficult to use, especially for novice users. However, recent research has shown that using visual languages and interactive tools can improve the usability and accessibility of programming environments. In this blog post, I will explore a thesis that proposes an formalism for describing visual languages called Visual Algebraic Specification (VAS), as well as editor generation techniques and a visual specification environment called VASE that can be used to improve the usability and accessibility of programming environments.
+
+Visual Algebraic Specification (VAS) is an algebraic formalism for describing visual languages using algebraic equations. VAS allows for a more precise and concise description of visual languages, which can improve their usability and accessibility. VAS is designed to be used in conjunction with a visual specification environment called VASE, which provides an interactive environment for creating and editing VAS specifications. The use of an interactive environment like VASE can improve the usability and accessibility of programming environments by providing users with a more intuitive way to create and edit programs.
+
+One key benefit of using VAS is that it allows for the formal description of visual languages using algebraic equations. This means that visual languages can be described in a way that is both precise and concise, making them easier to understand and use. Additionally, because VAS is based on algebraic equations, it can be used to describe both static (syntax) and dynamic (semantics) aspects of visual languages.
+
+Another benefit of using VAS is that it allows for the automatic generation of editors for programming languages or other formalisms. Editor generation works by analyzing the syntax and semantics of a language or formalism, then generating an editor that supports features like syntax highlighting, error checking, and auto-completion. This can significantly reduce the amount of manual effort required to create editors, making it easier and faster to develop programming environments.
+
+VASE is a visual specification environment that is designed to be used in conjunction with VAS. VASE provides an interactive environment for creating and editing VAS specifications, as well as generating editors for programming languages or other formalisms. One key benefit of using VASE is that it allows for the creation of both end-user and specification languages. End-user languages are designed to be used by non-programmers, while specification languages are designed to be used by programmers to describe the syntax and semantics of a language.
+
+Editor generation is a key feature of VASE, and it can be used to automatically generate editors for both end-user and specification languages. This means that users can create their own visual languages and editors without needing to have programming expertise. Additionally, because VASE is based on VAS, it allows for the automatic generation of editors that are tailored to the specific syntax and semantics of a language.
+
+One example of how VASE can be used is in the development of domain-specific languages (DSLs). DSLs are specialized programming languages designed for specific application domains, such as finance or healthcare. By using VAS and VASE, developers can create DSLs that are tailored to the needs of a specific domain, making it easier for non-programmers to use these languages.
+
+Another benefit of using VAS and VASE is that they can be used to support collaborative development. Because VAS and VASE provide a formalism for describing visual languages and generating editors, multiple users can work on a specification simultaneously. This can improve collaboration between developers, as well as reduce the time required to develop programming environments.
+
+Future research areas could explore how VAS and VASE can be used in other domains beyond visual languages, such as natural language processing or machine learning. Additionally, future research could investigate how VAS and VASE can be used to support collaborative development or the development of DSLs.
+
+In conclusion, the use of visual languages and interactive tools like VAS, editor generation techniques, and VASE can improve the usability and accessibility of programming environments. By exploring these and other areas of research, it may be possible to further improve the usability and accessibility of programming environments and other interactive systems. If you're interested in learning more about this topic, I encourage you to read the full thesis.
+
+* TODO Using AI in academics
+:PROPERTIES:
+:EXPORT_FILE_NAME: ai-in-academics
+:END:
+
+Using AI, in particular generative models such as GPT, are in contention within academics. The purity of academics resides in students writing on their research and having their work peer-reviewed. But how can you now be sure that the student wrote the paper and how can you trust its content? Many universities, including the OU have written about it. The OU published an article in [[https://modulair.ou.nl/modulair-2023-april/chatgpt-in-het-onderwijs][Modulair about it]]. Generally, the consensus seems to be that it is ok to use AI as an assistant, but you must write your texts.
+
+For me AI has proven to be a valuable assistant. Here are some ways in which I found AI to be extremely useful:
+
+** Blank page syndrome
+
+"Blank page syndrome" refers to the common experience of feeling stuck and overwhelmed when faced with a blank document. It can hinder productivity and creativity in academic writing. Thankfully, AI-powered tools have been developed to combat this syndrome. Utilizing natural language processing algorithms, these tools can generate ideas, provide content suggestions, and even create outlines to jumpstart the writing process. Examples of such tools include [[https://chat.openai.com][ChatGPT]] and [[https://ai.facebook.com/blog/large-language-model-llama-meta-ai/][LLaMA]], which have proven to be invaluable resources for overcoming this challenge.
+
+Take the following, [[https://medium.com/@ryan.craven.qa/mastering-ai-prompts-comprehensive-guide-for-better-output-68aa2d104f21][simplified]], prompt:
+
+#+begin_quote
+I am writing a blog post on using AI to write academic papers. I want to cover "blank page syndrome", "finding related works" and "spelling and grammar correction". Your task is to work as my writing assistant. Write an outline for this article.
+#+end_quote
+
+Results in the following outline:
+
+#+begin_example
+I. Introduction
+A. Brief explanation of the challenges faced in academic writing
+B. Introduction to the role of AI in overcoming these challenges
+
+II. Understanding "Blank Page Syndrome"
+A. Definition and common experiences associated with "blank page syndrome"
+B. Causes and psychological factors contributing to the syndrome
+C. Introduction to AI-powered tools that can help combat it
+
+III. Overcoming "Blank Page Syndrome" with AI
+A. AI-based content generation tools
+1. Natural language processing algorithms for generating ideas
+2. Examples of AI tools that provide content suggestions and outlines
+
+IV. Finding Related Works Efficiently
+A. Importance of literature review and related work in academic writing
+B. Challenges in finding relevant sources and connections
+C. AI-driven approaches to streamline the process
+1. Text mining and semantic analysis algorithms
+2. Machine learning techniques for identifying related works
+D. Examples of AI tools for efficient literature search and recommendation
+
+V. Improving Spelling and Grammar Accuracy
+A. Significance of proper spelling and grammar in academic papers
+B. Limitations of traditional spell checkers and grammar tools
+C. AI-powered proofreading tools for enhanced accuracy
+1. Natural language processing algorithms for grammar checks
+2. Machine learning models for spelling and punctuation correction
+D. Examples of popular AI-based writing assistant tools
+
+VI. Ethical Considerations and Human Oversight
+A. Discussing concerns regarding overreliance on AI in writing
+B. Importance of human oversight and critical thinking
+C. Addressing potential biases and limitations in AI-driven writing tools
+
+VII. Benefits and Impact of AI in Academic Writing
+A. Increased productivity and efficiency for researchers
+B. Enhanced accuracy and clarity in written work
+C. Facilitation of interdisciplinary research and collaboration
+
+VIII. Future Possibilities and Challenges
+A. Advancements in AI technologies for academic writing
+B. Integration of AI into existing writing platforms and workflows
+C. Challenges and considerations for the future of AI in academic writing
+
+IX. Conclusion
+A. Recap of the benefits of using AI in academic writing
+B. Encouragement for researchers to explore and utilize AI tools
+C. Final thoughts on the transformative potential of AI in academic writing
+
+Make sure to expand on each section with relevant examples, case studies, and practical tips to provide a comprehensive understanding of how AI can assist in academic writing.
+#+end_example
+
+How is that for a starter outline? Yes, you will have to work on the structure and the ideas, but you get to start with a solid base. It frees you from the initial "get it on paper" anxiety.
+
+** Finding related work
+
+Conducting a comprehensive literature review and identifying relevant related works is crucial for academic writing. However, this task can be time-consuming and overwhelming. AI-driven approaches have emerged to streamline the process and provide researchers with efficient ways to discover related works. By leveraging text mining, semantic analysis, and machine learning techniques, AI tools can analyze vast databases of scholarly articles, uncover hidden connections, and recommend relevant sources. Tools like ~scite_~'s Assistant (https://scite.ai/assistant) have proven to be invaluable assets for researchers, enabling them to save time and access a wealth of knowledge with ease.
+
+[[./images/scite-assistant.png]]
+
+** Improving spelling and grammar accuracy
+
+Accurate spelling and proper grammar are essential in academic writing to effectively convey ideas. While traditional spell checkers and grammar tools have limitations, AI-powered proofreading tools have significantly improved accuracy and efficiency. These tools leverage natural language processing algorithms and machine learning models to identify grammar mistakes, spelling errors, and punctuation inconsistencies. [[https://www.grammarly.com/][Grammarly]], a widely recognized tool, has gained acclaim for its ability to enhance the overall quality of written work, ensuring polished and error-free academic papers.
+
+[[./images/grammarly.png]]
+
+** Ethical Considerations and Human Oversight
+
+While AI tools provide invaluable assistance, it's important to acknowledge the importance of human oversight and critical thinking in academic writing. Researchers should exercise caution and verify the suggestions provided by AI tools. Additionally, addressing potential biases and limitations in AI-driven writing tools is crucial to ensure fair representation and accurate information.
+
+** Benefits and Impact of AI in Academic Writing
+
+The integration of AI into academic writing processes holds tremendous potential. Researchers can benefit from increased productivity, as AI tools expedite tasks that would otherwise be time-consuming. The enhanced accuracy and clarity in written work contribute to improved quality, enabling researchers to convey their ideas more effectively. Moreover, AI-powered tools facilitate interdisciplinary research, knowledge dissemination, and collaboration, breaking down barriers and fostering innovation across academic disciplines.
+
+** Future Possibilities and Challenges
+
+The future of AI in academic writing looks promising. Advancements in AI technologies, including more sophisticated natural language processing algorithms and intelligent content generation models, will further enhance the capabilities of AI tools. Integrating AI into existing writing platforms and workflows will streamline the academic writing process, making it more accessible and user-friendly. However, challenges such as addressing
+
+** Conclusion
+
+In conclusion, the utilization of AI tools in academic writing can have a transformative impact on researchers. By leveraging AI-powered text generation and proofreading capabilities, academics can experience a multitude of benefits. Firstly, AI tooling allows for increased writing velocity, enabling researchers to produce content more efficiently. With AI's assistance, the time-consuming process of meticulously correcting spelling and grammar errors is significantly reduced, freeing up valuable time for researchers to focus on the critical thinking process. As a result, the overall quality of written work can be elevated, ensuring that ideas are effectively conveyed and scholarly contributions are of the highest standard. By embracing AI tooling, academics can embrace a more streamlined and effective approach to writing, empowering them to make significant strides in their research endeavors.
+
+[[./images/chatgpt-ai-conclusion.png]]
