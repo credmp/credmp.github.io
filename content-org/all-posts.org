@@ -565,7 +565,8 @@ Future research areas could explore how VAS and VASE can be used in other domain
 
 In conclusion, the use of visual languages and interactive tools like VAS, editor generation techniques, and VASE can improve the usability and accessibility of programming environments. By exploring these and other areas of research, it may be possible to further improve the usability and accessibility of programming environments and other interactive systems. If you're interested in learning more about this topic, I encourage you to read the full thesis.
 
-* TODO Using AI in academics
+* DONE Using AI in academics
+CLOSED: [2023-05-20 Sat 11:00]
 :PROPERTIES:
 :EXPORT_FILE_NAME: ai-in-academics
 :END:
