@@ -1,3 +1,0 @@
-[submodule "handbook"]
-	path = content/handbook
-	url = https://github.com/credmp/htb-handbook.git
