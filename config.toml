@@ -46,10 +46,15 @@ url = "index.xml"
 [markup.goldmark.renderer]
   unsafe = true
 
-# [menu]
-# [[menu.main]]
-#  identifier = 'about'
-#  name = 'about hugo'
-#  pre = "<i class='fa fa-heart'></i>"
-#  url = '/about/'
-#  weight = -110
+[module]
+[[module.mounts]]
+  source = 'handbook'
+  target = 'content'
+
+[menu]
+[[menu.main]]
+ identifier = 'handbook'
+ name = '📓 HTB Handbook'
+ # pre = "<i class='fa fa-heart'></i>"
+ url = '/handbook/'
+ weight = -110
