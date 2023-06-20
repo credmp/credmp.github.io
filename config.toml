@@ -46,10 +46,14 @@ url = "index.xml"
 [markup.goldmark.renderer]
   unsafe = true
 
-[module]
-[[module.mounts]]
-  source = 'handbook'
-  target = 'content'
+# [module]
+# [[module.mounts]]
+#   source = 'content'
+#   target = 'content'
+# [[module.mounts]]
+#   source = 'handbook'
+#   target = 'content'
+#   includeFiles = '/handbook/**'
 
 [menu]
 [[menu.main]]
