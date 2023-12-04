@@ -1,6 +1,7 @@
 +++
 title = "Advent of Code 2023 Day 4"
 author = ["Arjen Wiersma"]
+date = 2023-12-04T23:16:00+01:00
 draft = false
 +++
 
