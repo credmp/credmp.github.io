@@ -1573,7 +1573,8 @@ func main() {
 
 #+end_src
 
-* TODO Advent of Code 2023 day 9
+* DONE Advent of Code 2023 day 9
+CLOSED: [2023-12-09 za 07:29]
 :PROPERTIES:
 :EXPORT_FILE_NAME: aoc-2023-day-9
 :END:
