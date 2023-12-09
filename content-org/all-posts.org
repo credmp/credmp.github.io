@@ -1079,3 +1079,573 @@ func main() {
 }
 
 #+end_src
+
+* DONE Advent of Code 2023 day 5
+CLOSED: [2023-12-09 za 07:13]
+:PROPERTIES:
+:EXPORT_FILE_NAME: aoc-2023-day-5
+:END:
+
+Today was an interesting problem. We are basically given a map to follow based on a number, possibly transforming the number at each step. With a single number this is quite simple, just apply the rules and step through each set of transformations. The problem becomes tricky when it turns out we have to deal with enormous ranges of numbers. On the subreddit some people reported their implementation to take hours and use 20GB of memory.
+
+Luckily there is always a fast solution. In this case it was using ranges of numbers to go through the transformations, so just taking the first number and then creating a (new) range out of the transformation instead of each individual number.
+
+#+begin_src go
+package main
+
+import (
+	"fmt"
+	"log"
+	"math"
+	"os"
+	"strconv"
+	"strings"
+	"time"
+
+	"arjenwiersma.nl/aoc/internal/aoc"
+)
+
+type Range struct {
+	d, s, r int
+}
+
+func (r *Range) transform(i int) int {
+	if i >= r.s && i <= r.s+r.r-1 {
+		delta := i - r.s
+		return r.d + delta
+	}
+
+	return i
+}
+
+type Segment struct {
+	from, to int
+}
+
+func main() {
+	content, _ := os.ReadFile("2023/Day05/input.txt")
+	segments := strings.Split(strings.TrimSpace(string(content)), "\n\n")
+
+	seedStr := strings.Split(segments[0][6:], " ")
+	var seed []int
+	for _, x := range seedStr {
+		if strings.TrimSpace(x) == "" {
+			continue
+		}
+		s, err := strconv.Atoi(strings.TrimSpace(x))
+		if err != nil {
+			log.Fatal(s, err)
+		}
+		seed = append(seed, s)
+	}
+	// fmt.Println("Seeds: ", seed)
+
+	maps := make([][]Range, len(segments)-1)
+	for i, s := range segments[1:] {
+		l := strings.Split(s, "\n")
+		maps[i] = make([]Range, len(l)-1)
+		for j, x := range l[1:] {
+			var m Range
+			fmt.Sscanf(x, "%d %d %d", &m.d, &m.s, &m.r)
+			maps[i][j] = m
+		}
+	}
+
+	startTime := time.Now()
+
+	min := math.MaxInt
+	for _, s := range seed {
+		c := s
+	trans:
+		for _, m := range maps {
+			for _, t := range m {
+				source := c
+				c = t.transform(c)
+				if c != source {
+					continue trans
+				}
+			}
+		}
+		if c < min {
+			min = c
+		}
+	}
+	endTime := time.Now()
+	elapsed := endTime.Sub(startTime)
+	fmt.Printf("Part 1: %d (%v)\n", min, elapsed) // 662197086
+
+	startTime = time.Now()
+	// starting segments
+	var S []Segment
+	for i := 0; i < len(seed); i += 2 {
+		S = append(S, Segment{seed[i], seed[i] + seed[i+1]})
+	}
+
+	for _, m := range maps {
+		var A []Segment
+		for _, t := range m {
+			var nS []Segment
+			for _, s := range S {
+				nA, nnS := createSegments(s, t)
+				A = append(A, nA...)
+				nS = append(nS, nnS...)
+			}
+			S = nS
+		}
+		S = append(S, A...)
+	}
+	min = math.MaxInt
+
+	for _, s := range S {
+		min = aoc.Min(s.from, min)
+	}
+	endTime = time.Now()
+	elapsed = endTime.Sub(startTime)
+	fmt.Printf("Part 2: %d (%v)\n", min, elapsed) // 52510809
+}
+
+func createSegments(s Segment, t Range) (A []Segment, nS []Segment) {
+	before := Segment{s.from, aoc.Min(s.to, t.s)}
+	inter := Segment{aoc.Max(s.from, t.s), aoc.Min(t.s+t.r, s.to)}
+	after := Segment{aoc.Max(t.s+t.r, s.from), s.to}
+
+	if before.to > before.from {
+		nS = append(nS, before)
+	}
+	if inter.to > inter.from {
+		inter.from = inter.from - t.s + t.d
+		inter.to = inter.to - t.s + t.d
+		A = append(A, inter)
+	}
+	if after.to > after.from {
+		nS = append(nS, after)
+	}
+
+	return A, nS
+}
+#+end_src
+
+* DONE Advent of Code 2023 day 6
+CLOSED: [2023-12-09 za 07:16]
+:PROPERTIES:
+:EXPORT_FILE_NAME: aoc-2023-day-6
+:END:
+
+Day 6 turned out to be the easiest day in the range so far. A simple implementation of the algorithm was more than sufficient.
+
+I later learned that it was a quadratic function. On the subreddit Deatranger999 said:
+
+#+begin_quote
+If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x + d is at most 0, where t is the total time of the race and d is the distance you'd like to beat. So I just plugged each one into WolframAlpha, found the roots, and then calculated the number of integers between the two roots.
+#+end_quote
+
+My solution was to bruteforce :)
+
+#+begin_src go
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+
+	"arjenwiersma.nl/aoc/internal/aoc"
+)
+
+func main() {
+	lines := aoc.AsLines("2023/Day06/input.txt")
+
+	var times []int
+	for _, t := range strings.Split(lines[0], " ")[1:] {
+		s := strings.TrimSpace(t)
+		if s == "" {
+			continue
+		}
+		i, _ := strconv.Atoi(s)
+		times = append(times, i)
+	}
+	var distances []int
+	for _, t := range strings.Split(lines[1], " ")[1:] {
+		s := strings.TrimSpace(t)
+		if s == "" {
+			continue
+		}
+		i, _ := strconv.Atoi(s)
+		distances = append(distances, i)
+	}
+
+	result := make([]int, len(times))
+
+	for i := 0; i < len(times); i++ {
+		for t := 0; t < times[i]; t++ {
+			d := t * (times[i] - t)
+			if d > distances[i] {
+				result[i] += 1
+			}
+		}
+	}
+
+	ans := 1
+	for _, c := range result {
+		ans *= c
+	}
+
+	fmt.Println("Part 1: ", ans)
+
+	nT, _ := strconv.Atoi(fmt.Sprintf("%d%d%d%d", times[0], times[1], times[2], times[3]))
+	nD, _ := strconv.Atoi(fmt.Sprintf("%d%d%d%d", distances[0], distances[1], distances[2], distances[3]))
+
+	ans = 0
+	for t := 0; t < nT; t++ {
+		d := t * (nT - t)
+		if d > nD {
+			ans += 1
+		}
+	}
+	fmt.Println("Part 2: ", ans)
+
+}
+#+end_src
+
+* DONE Advent of Code 2023 day 7
+CLOSED: [2023-12-09 za 07:18]
+:PROPERTIES:
+:EXPORT_FILE_NAME: aoc-2023-day-7
+:END:
+
+Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
+
+#+begin_src go
+package main
+
+import (
+	"fmt"
+	"sort"
+	"strconv"
+	"strings"
+	"time"
+
+	"arjenwiersma.nl/aoc/internal/aoc"
+)
+
+type Card struct {
+	bid    int
+	hand   []int
+	jokers int
+}
+
+func (c *Card) strongerThen(o *Card) bool {
+	for i, v := range c.hand {
+		if v > o.hand[i] {
+			return true
+		} else if v < o.hand[i] {
+			return false
+		}
+	}
+	return false
+}
+
+func (c *Card) rank() int {
+	freq := make([]int, 15)
+	for _, v := range c.hand {
+		if v == 1 { // skip counting the joker
+			continue
+		}
+		freq[v]++
+	}
+
+	sort.Ints(freq)
+
+	freq[len(freq)-1] += c.jokers
+	strength := 2 * freq[len(freq)-1]
+	// full house and 2 pair
+	if freq[len(freq)-2] == 2 {
+		strength += 1
+	}
+	return strength
+}
+
+func NewCard(s string, bid int, p2 bool) *Card {
+	c := &Card{}
+	c.bid = bid
+	c.jokers = 0
+	for p := 0; p < len(s); p++ {
+		if s[p]-'0' >= 2 && s[p]-'0' <= 9 {
+			c.hand = append(c.hand, int(s[p]-'0'))
+		} else {
+			x := 10
+			switch s[p] {
+			case 'A':
+				x = 14
+			case 'K':
+				x = 13
+			case 'Q':
+				x = 12
+			case 'J':
+				if p2 {
+					c.jokers += 1
+					x = 1
+				} else {
+					x = 11
+				}
+			case 'T':
+				x = 10
+			}
+			c.hand = append(c.hand, x)
+		}
+	}
+	return c
+}
+
+func (c *Card) String() string {
+	return fmt.Sprintf("%v (%d)", c.hand, c.bid)
+}
+
+func main() {
+	content := aoc.AsLines("2023/Day07/input.txt")
+
+	var cards []*Card
+	for _, v := range content {
+		p := strings.Split(v, " ")
+		b, _ := strconv.Atoi(p[1])
+		c := NewCard(p[0], b, false)
+		cards = append(cards, c)
+	}
+
+	startTime := time.Now()
+	lessFunc := func(i, j int) bool {
+		if cards[i].rank() == cards[j].rank() {
+			return cards[j].strongerThen(cards[i])
+		}
+		return cards[i].rank() < cards[j].rank()
+	}
+
+	sort.Slice(cards, lessFunc)
+
+	res := 0
+	for i, c := range cards {
+		res += (i + 1) * c.bid
+	}
+
+	endTime := time.Now()
+	elapsed := endTime.Sub(startTime)
+	if 251216224 != res {
+		panic("Wrong answer")
+	}
+	fmt.Printf("Part 1: %d (%v)\n", res, elapsed) // 251216224
+
+	cards = []*Card{}
+	for _, v := range content {
+		p := strings.Split(v, " ")
+		b, _ := strconv.Atoi(p[1])
+		c := NewCard(p[0], b, true)
+		cards = append(cards, c)
+	}
+	startTime = time.Now()
+
+	sort.Slice(cards, lessFunc)
+
+	res = 0
+	for i, c := range cards {
+		res += (i + 1) * c.bid
+	}
+	endTime = time.Now()
+	elapsed = endTime.Sub(startTime)
+	if 250825971 != res {
+		panic("Wrong part 2")
+	}
+	fmt.Printf("Part 2: %d (%v)\n", res, elapsed) // 250825971
+}
+
+#+end_src
+
+* DONE Advent of Code 2023 day 8
+CLOSED: [2023-12-09 za 07:27]
+:PROPERTIES:
+:EXPORT_FILE_NAME: aoc-2023-day-8
+:END:
+
+Somewhat suspicious of 2 easy days we end up at Day 8. A simple map to follow again, from one key follow the instructions until we hit =ZZZ=. Part 2 had us do it for several keys at once, with the goal to find the spot where they all converge. This can take *forever*, erhm, a long time.
+
+So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem. It is the smallest positive integer that is divisible by two or more numbers without leaving a remainder. To find the LCM of two or more numbers, you can use a method called prime factorization or a simpler approach involving multiples. We can also use the Greatest Common Divisor (GCD) to find the LCM.
+
+#+begin_example
+LCM(a, b) = (a * b) / GCD(a, b)
+#+end_example
+
+Example: Find the LCM of 12 and 18 using their GCD.
+
+Step 1: Find the GCD of 12 and 18.
+
+- You can use methods like prime factorization or the Euclidean algorithm to find the GCD.
+- GCD(12, 18) = 6
+
+Step 2: Use the formula to find the LCM.
+
+#+begin_example
+LCM(12, 18) = (12 * 18) / 6 = 216 / 6 = 36
+#+end_example
+
+So, the LCM of 12 and 18 is 36.
+
+#+begin_src go
+package main
+
+import (
+	"fmt"
+	"strings"
+	"time"
+
+	"arjenwiersma.nl/aoc/internal/aoc"
+)
+
+func LCM(numbers []int) int {
+	result := numbers[0]
+	for i := 1; i < len(numbers); i++ {
+		result = (result * numbers[i]) / GCD(result, numbers[i])
+	}
+	return result
+}
+
+func GCD(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return GCD(b, a%b)
+}
+
+func solve(s string, instr string, m map[string][]string, p2 bool) int {
+	steps := 0
+	for {
+		d := 0
+		if string(instr[steps%len(instr)]) == "R" {
+			d = 1
+		}
+
+		if !p2 && s == "ZZZ" {
+			break
+		}
+		if p2 && s[2] == 'Z' {
+			break
+		}
+
+		s = m[s][d]
+
+		steps += 1
+	}
+	return steps
+}
+func main() {
+	content := aoc.AsLines("2023/Day08/input.txt")
+
+	instr := content[0]
+	m := make(map[string][]string)
+
+	for _, v := range content[2:] {
+		n := strings.Split(v, " = ")
+		lr := strings.Split(n[1], ",")
+
+		m[n[0]] = []string{strings.TrimSpace(lr[0][1:]), strings.TrimSpace(lr[1][:len(lr[1])-1])}
+	}
+
+	startTime := time.Now()
+
+	steps := solve("AAA", instr, m, false)
+
+	endTime := time.Now()
+	elapsed := endTime.Sub(startTime)
+	fmt.Printf("Part 1: %d (%v)\n", steps, elapsed)
+
+	startTime = time.Now()
+
+	var solves []int
+	for k := range m {
+		if k[2] == 'A' {
+			solves = append(solves, solve(k, instr, m, true))
+		}
+	}
+
+	// do stuff
+	endTime = time.Now()
+	elapsed = endTime.Sub(startTime)
+	fmt.Printf("Part 2: %d (%v)\n", LCM(solves), elapsed)
+}
+
+#+end_src
+
+* TODO Advent of Code 2023 day 9
+:PROPERTIES:
+:EXPORT_FILE_NAME: aoc-2023-day-9
+:END:
+
+The weekend generally is a place to find hard puzzles again, this time not so much. A simple quest to find the next number in a sequence with a fully written out algorithm to follow. They key here is to use recursion.
+
+#+begin_src go
+package main
+
+import (
+	"fmt"
+	"time"
+
+	"arjenwiersma.nl/aoc/internal/aoc"
+)
+
+func NextStep(in []int) int {
+	allZero := true
+
+	for _, v := range in {
+		if v != 0 {
+			allZero = false
+		}
+	}
+
+	if allZero {
+		return 0
+	}
+
+	var diffs []int
+	for i := 1; i < len(in); i++ {
+		diffs = append(diffs, in[i]-in[i-1])
+	}
+
+	p := NextStep(diffs)
+	return in[len(in)-1] + p
+}
+
+func main() {
+	content := aoc.AsLines("2023/Day09/input.txt")
+
+	var lines [][]int
+	for _, v := range content {
+		lines = append(lines, aoc.AsNumbers(v))
+	}
+
+	startTime := time.Now()
+
+	var res []int
+	for _, v := range lines {
+		res = append(res, NextStep(v))
+	}
+
+	r := aoc.SumArray(res)
+	endTime := time.Now()
+	elapsed := endTime.Sub(startTime)
+	fmt.Printf("Part 1: %d (%v)\n", r, elapsed)
+
+	startTime = time.Now()
+
+	for _, v := range lines {
+		aoc.Reverse(v)
+	}
+
+	res = []int{}
+	for _, v := range lines {
+		res = append(res, NextStep(v))
+	}
+
+	r = aoc.SumArray(res)
+	endTime = time.Now()
+	elapsed = endTime.Sub(startTime)
+	fmt.Printf("Part 2: %d (%v)\n", r, elapsed)
+}
+#+end_src
