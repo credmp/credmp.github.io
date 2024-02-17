@@ -1,5 +1,5 @@
 #+hugo_base_dir: ../
-#+STARTUP: logdone
+#+STARTUP: logdone overview
 
 * DONE 22 years of Emacs :@writing:emacs:
 CLOSED: [2021-12-07 Tue]
@@ -539,31 +539,6 @@ Note that at each step in the derivation, we apply a rule to replace a non-termi
 ** Moving forward
 
 The preparation phase for the master's thesis at Open Universiteit spans 11 weeks, followed by 22 weeks of research and writing. As I am just starting the preparation phase, I anticipate the topic to evolve over time, and I look forward to sharing my journey with you.
-
-
-* TODO Improving the Usability and Accessibility of Programming Environments with Visual Algebraic Specification and Editor Generation
-
-A thesis by Susan Uskudarli.
-
-Programming environments can be complex and difficult to use, especially for novice users. However, recent research has shown that using visual languages and interactive tools can improve the usability and accessibility of programming environments. In this blog post, I will explore a thesis that proposes an formalism for describing visual languages called Visual Algebraic Specification (VAS), as well as editor generation techniques and a visual specification environment called VASE that can be used to improve the usability and accessibility of programming environments.
-
-Visual Algebraic Specification (VAS) is an algebraic formalism for describing visual languages using algebraic equations. VAS allows for a more precise and concise description of visual languages, which can improve their usability and accessibility. VAS is designed to be used in conjunction with a visual specification environment called VASE, which provides an interactive environment for creating and editing VAS specifications. The use of an interactive environment like VASE can improve the usability and accessibility of programming environments by providing users with a more intuitive way to create and edit programs.
-
-One key benefit of using VAS is that it allows for the formal description of visual languages using algebraic equations. This means that visual languages can be described in a way that is both precise and concise, making them easier to understand and use. Additionally, because VAS is based on algebraic equations, it can be used to describe both static (syntax) and dynamic (semantics) aspects of visual languages.
-
-Another benefit of using VAS is that it allows for the automatic generation of editors for programming languages or other formalisms. Editor generation works by analyzing the syntax and semantics of a language or formalism, then generating an editor that supports features like syntax highlighting, error checking, and auto-completion. This can significantly reduce the amount of manual effort required to create editors, making it easier and faster to develop programming environments.
-
-VASE is a visual specification environment that is designed to be used in conjunction with VAS. VASE provides an interactive environment for creating and editing VAS specifications, as well as generating editors for programming languages or other formalisms. One key benefit of using VASE is that it allows for the creation of both end-user and specification languages. End-user languages are designed to be used by non-programmers, while specification languages are designed to be used by programmers to describe the syntax and semantics of a language.
-
-Editor generation is a key feature of VASE, and it can be used to automatically generate editors for both end-user and specification languages. This means that users can create their own visual languages and editors without needing to have programming expertise. Additionally, because VASE is based on VAS, it allows for the automatic generation of editors that are tailored to the specific syntax and semantics of a language.
-
-One example of how VASE can be used is in the development of domain-specific languages (DSLs). DSLs are specialized programming languages designed for specific application domains, such as finance or healthcare. By using VAS and VASE, developers can create DSLs that are tailored to the needs of a specific domain, making it easier for non-programmers to use these languages.
-
-Another benefit of using VAS and VASE is that they can be used to support collaborative development. Because VAS and VASE provide a formalism for describing visual languages and generating editors, multiple users can work on a specification simultaneously. This can improve collaboration between developers, as well as reduce the time required to develop programming environments.
-
-Future research areas could explore how VAS and VASE can be used in other domains beyond visual languages, such as natural language processing or machine learning. Additionally, future research could investigate how VAS and VASE can be used to support collaborative development or the development of DSLs.
-
-In conclusion, the use of visual languages and interactive tools like VAS, editor generation techniques, and VASE can improve the usability and accessibility of programming environments. By exploring these and other areas of research, it may be possible to further improve the usability and accessibility of programming environments and other interactive systems. If you're interested in learning more about this topic, I encourage you to read the full thesis.
 
 * DONE Using AI in academics
 CLOSED: [2023-05-20 Sat 11:00]
@@ -1650,3 +1625,15 @@ func main() {
 	fmt.Printf("Part 2: %d (%v)\n", r, elapsed)
 }
 #+end_src
+
+* DONE Heading to the finish line
+CLOSED: [2024-02-17 za 20:59]
+:PROPERTIES:
+:EXPORT_FILE_NAME: ou-heading-to-the-finish-line
+:END:
+
+It has been a little while. I have been swamped with work and the work on my thesis, leaving no room to finish the Advent of Code or much of anything else.
+
+Yesterday I gave my practice presentation for my thesis. This means I am one more step closer to the finish line. During the day there were many interactions with fellow students. One of the topics has been the templates to use at Open Universiteit. So, I thought I would just create a repository of the templates that I use, so that anyone can learn from them.
+
+The repository is here: [[https://github.com/credmp/ou-templates][https://github.com/credmp/ou-templates]]
