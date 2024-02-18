@@ -24,6 +24,8 @@ Next to my work I am active as an Independent Hacker. I assist my customers in t
 <br/><br/>
 I organize the Dutch meetup for [Hack The Box](https://www.hackthebox.com), for which I am the ambassador in The Netherlands. Each month, on the 3rd Wednesday, members of the Dutch cyber security community get together and have presentations, demos and discussion on wide ranging topics. Through this collaboration I have become an Ambassador for Hack The Box.
 <br/><br/>
+Find my longer form writings in the [Writing Category](/categories/writing/).
+<br/><br/>
 The views on this site are my own. 
 """
 
@@ -75,8 +77,8 @@ url = "index.xml"
 
 [menu]
 [[menu.main]]
- identifier = 'handbook'
- name = '📓 HTB Handbook'
- # pre = "<i class='fa fa-heart'></i>"
- url = '/handbook/'
+ identifier = 'writings'
+ name = '🚀 Long form writings'
+ pre = "<i class='fa fa-heart'></i>"
+ url = '/categories/writing/'
  weight = -110
