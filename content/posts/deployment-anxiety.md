@@ -31,4 +31,3 @@ Luckily for me the software worked quite nicely. Freeler grew to 350.000 members
 
 So why do I tell this story? Well... having the luxury of CI/CD, instant feedback and _the ability to patch things the same minute/hour/day should be the greatest good in the world_. Be fearless, merge your changes, fix your issues, deploy without anxiety.... you will never have to see a robot feed a CD ROM to a computer in order to find out if you code works.
 
-Edit: small textual update
