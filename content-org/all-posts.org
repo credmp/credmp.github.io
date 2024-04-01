@@ -1760,4 +1760,14 @@ To launch applications I use something called [[https://github.com/davatorium/ro
 #+CAPTION: Rofi launching applications in i3
 [[./images/rofi.png]]
 
-You can configure your environment exactly as you want. Take a look at [[https://www.reddit.com/r/unixporn/][r/unixporn]] for some more extreme versions of customized desktops. 
+You can configure your environment exactly as you want. Take a look at [[https://www.reddit.com/r/unixporn/][r/unixporn]] for some more extreme versions of customized desktops.
+
+* DONE Microsoft Teams (v2) on Linux
+CLOSED: [2024-04-01 ma 10:29]
+:PROPERTIES:
+:EXPORT_FILE_NAME: ms-teams-on-linux
+:END:
+
+This post is just a small note for those of you who also run Microsoft Teams on Linux through their browser and now receive a note "your browser does not meet the requirements for the new Teams". It turns out that the client is looking at the user-agent string to determine which browsers it accepts, and which not.
+
+So, if you have the message, install an user-agent switcher and select a common browser on a common OS (from the MS perspective) and you will suddenly meet the requirements.
