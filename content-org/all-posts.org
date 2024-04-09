@@ -1771,3 +1771,13 @@ CLOSED: [2024-04-01 ma 10:29]
 This post is just a small note for those of you who also run Microsoft Teams on Linux through their browser and now receive a note "your browser does not meet the requirements for the new Teams". It turns out that the client is looking at the user-agent string to determine which browsers it accepts, and which not.
 
 So, if you have the message, install an user-agent switcher and select a common browser on a common OS (from the MS perspective) and you will suddenly meet the requirements.
+
+* DONE The cyber cafe podcast
+CLOSED: [2024-04-09 di 20:39]
+:PROPERTIES:
+:EXPORT_FILE_NAME: cyber-cafe-podcast
+:END:
+
+Last week I was a guest on the Cyber Cafe podcast by [[https://rootsec.nl/][rootsec]]. It was a fun discussion on education and the current xz backdoor story. It is in the Dutch language. It is available on youtube and included below:
+
+#+HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/at2S1aP6p6E?si=NI9s0wz6JWfuHIAD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
