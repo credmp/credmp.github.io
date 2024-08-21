@@ -3,8 +3,8 @@ title = """
   "Deep Work" voor het studeren [NL]
   """
 author = ["Arjen Wiersma"]
-tags = ["planning"]
-draft = true
+date = 2024-08-21T22:52:00+02:00
+draft = false
 +++
 
 {{< figure src="/ox-hugo/_20240720_225806screenshot.png" >}}

@@ -1,6 +1,5 @@
 #+hugo_base_dir: ../
 #+STARTUP: logdone overview
-#+filetags: :planning:
 
 * DONE 22 years of Emacs :@writing:emacs:
 CLOSED: [2021-12-07 Tue]
@@ -1987,7 +1986,8 @@ Using the calendar effectively to reserve time is not revolutionary. There are o
 
 Hopefully, you'll start your study time now with a good system to manage your time. This is the first step towards a successful study period!
 
-* TODO "Deep Work" voor het studeren [NL]
+* DONE "Deep Work" voor het studeren [NL]
+CLOSED: [2024-08-21 wo 22:52]
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-to-stud-deepwork
 :END:
