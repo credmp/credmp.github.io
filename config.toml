@@ -11,7 +11,7 @@ ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 ShowRssButtonInSectionTermList = true
 ShowToc = true
-Description = "Explore the cutting edge of cybersecurity with Arjen Wiersma, an expert in reverse engineering, infrastructure security, and web application security. As the Manager of Product Development and Chief Lecturer at Hogeschool NOVI, Arjen blends deep technical knowledge with educational leadership to drive advancements in the field. Follow his insights on the latest in cybersecurity and his contributions to the Dutch cybersecurity community."
+Description = "Explore Arjen Wiersma's blend of education and cybersecurity expertise. As the Manager of Product Development and Chief Lecturer at Hogeschool NOVI, Arjen develops engaging curricula that integrate real-world cybersecurity challenges with effective teaching methods. His work helps students and professionals enhance their skills in both education and digital security."
 author = "Arjen Wiersma"
 
 [params.homeInfoParams]
