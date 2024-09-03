@@ -1,7 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>🐧 Basic HTB and Linux things on Arjen Wiersma</title><link>https://www.arjenwiersma.nl/handbook/100_basics/</link><description>Recent content in 🐧 Basic HTB and Linux things on Arjen Wiersma</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://www.arjenwiersma.nl/handbook/100_basics/index.xml" rel="self" type="application/rss+xml"/><item><title>🌍 Connecting to the vpn</title><link>https://www.arjenwiersma.nl/handbook/100_basics/vpn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.arjenwiersma.nl/handbook/100_basics/vpn/</guid><description>HTB Documentation: Introduction to lab access.
-Hack The Box uses a VPN (Virtual Private Network) to connect the users to the machines. To connect to this network we use a tool called openvpn.
-Download the openvpn file. Login to Hack The Box. Click on the &amp;#34;Connect to HTB&amp;#34; button. Select the server you want to connect to, then select OpenVPN. Download the OpenVPN file. Connect with OpenVPN Open the file with openvpn within Kali:</description></item><item><title>Basic Linux Commands</title><link>https://www.arjenwiersma.nl/handbook/100_basics/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.arjenwiersma.nl/handbook/100_basics/linux/</guid><description> Copy contents of a file to the clipboard The xclip command is very useful when you want to copy files to the clipboard.
-sudo apt install xclip Use it as follows to put something on the internal clipboard of your VM:
-cat file | xclip -selection clipboard If you want to use it to copy something from you VM to your host machine, use the primary.
-cat file | xclip -selection primary</description></item><item><title>🧪 Burp Proxy</title><link>https://www.arjenwiersma.nl/handbook/100_basics/burp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.arjenwiersma.nl/handbook/100_basics/burp/</guid><description>To view and manipulate network traffic to and from websites we often use a tool called Burp Suite.
-Viewing traffic with the Proxy To view traffic to and from websites Brup makes acts a so-called &amp;#34;proxy&amp;#34;, acting as a middleman between the browser and webserver. The easiest way to connect through this proxy is by using Burp&amp;#39;s built-in browser. To open this browser head to the Proxy tab, the Intercept tab and click on Open Browser.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>🐧 Basic HTB and Linux things on Arjen Wiersma</title><link>https://www.arjenwiersma.nl/handbook/100_basics/</link><description>Recent content in 🐧 Basic HTB and Linux things on Arjen Wiersma</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://www.arjenwiersma.nl/handbook/100_basics/index.xml" rel="self" type="application/rss+xml"/><item><title>🌍 Connecting to the vpn</title><link>https://www.arjenwiersma.nl/handbook/100_basics/vpn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.arjenwiersma.nl/handbook/100_basics/vpn/</guid><description>&lt;p>
+&lt;a href="https://help.hackthebox.com/en/articles/5185687-introduction-to-lab-access">HTB Documentation: Introduction to lab access&lt;/a>.&lt;/p>
+&lt;p>
+Hack The Box uses a VPN (Virtual Private Network) to connect the users to the machines. To connect to this network we use a tool called &lt;code>openvpn&lt;/code>.&lt;/p>
+&lt;div id="outline-container-headline-1" class="outline-2">
+&lt;h2 id="headline-1">
+Download the openvpn file.
+&lt;/h2>
+&lt;div id="outline-text-headline-1" class="outline-text-2">
+&lt;ol>
+&lt;li>Login to Hack The Box.&lt;/li>
+&lt;li>Click on the &amp;#34;Connect to HTB&amp;#34; button.&lt;/li>
+&lt;li>Select the server you want to connect to, then select &lt;code>OpenVPN&lt;/code>.&lt;/li>
+&lt;li>Download the OpenVPN file.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="./connect.png" alt="./connect.png" title="./connect.png" />&lt;/p></description></item><item><title>Basic Linux Commands</title><link>https://www.arjenwiersma.nl/handbook/100_basics/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.arjenwiersma.nl/handbook/100_basics/linux/</guid><description>&lt;div id="outline-container-headline-1" class="outline-2">
+&lt;h2 id="headline-1">
+Copy contents of a file to the clipboard
+&lt;/h2>
+&lt;div id="outline-text-headline-1" class="outline-text-2">
+&lt;p>
+The &lt;code>xclip&lt;/code> command is very useful when you want to copy files to the clipboard.&lt;/p>
+&lt;div class="src src-text">
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>sudo apt install xclip&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;p>
+Use it as follows to put something on the internal clipboard of your VM:&lt;/p>
+&lt;div class="src src-text">
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>cat file | xclip -selection clipboard&lt;/span>&lt;/span>&lt;/code>&lt;/pr</description></item><item><title>🧪 Burp Proxy</title><link>https://www.arjenwiersma.nl/handbook/100_basics/burp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.arjenwiersma.nl/handbook/100_basics/burp/</guid><description>&lt;p>
+To view and manipulate network traffic to and from websites we often use a tool called Burp Suite.&lt;/p>
+&lt;div id="outline-container-headline-1" class="outline-2">
+&lt;h2 id="headline-1">
+Viewing traffic with the Proxy
+&lt;/h2>
+&lt;div id="outline-text-headline-1" class="outline-text-2">
+&lt;p>To view traffic to and from websites Brup makes acts a so-called &amp;#34;proxy&amp;#34;, acting as a middleman between the browser and webserver. The easiest way to connect through this proxy is by using Burp&amp;#39;s built-in browser. To open this browser head to the &lt;code>Proxy&lt;/code> tab, the &lt;code>Intercept&lt;/code> tab and click on &lt;code>Open Browser&lt;/code>.&lt;/p></description></item></channel></rss>
