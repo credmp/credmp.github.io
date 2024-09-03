@@ -1,7 +1,6 @@
 baseURL = 'https://www.arjenwiersma.nl'
 languageCode = 'en-us'
 title = 'Arjen Wiersma'
-
 theme = "PaperMod"
 
 [params]
@@ -12,6 +11,8 @@ ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 ShowRssButtonInSectionTermList = true
 ShowToc = true
+Description = "Explore the cutting edge of cybersecurity with Arjen Wiersma, an expert in reverse engineering, infrastructure security, and web application security. As the Manager of Product Development and Chief Lecturer at Hogeschool NOVI, Arjen blends deep technical knowledge with educational leadership to drive advancements in the field. Follow his insights on the latest in cybersecurity and his contributions to the Dutch cybersecurity community."
+author = "Arjen Wiersma"
 
 [params.homeInfoParams]
 Title = 'Hi There! 👋'
