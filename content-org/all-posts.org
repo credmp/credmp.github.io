@@ -1986,7 +1986,7 @@ Using the calendar effectively to reserve time is not revolutionary. There are o
 
 Hopefully, you'll start your study time now with a good system to manage your time. This is the first step towards a successful study period!
 
-* DONE "Deep Work" voor het studeren [NL]
+* DONE "Deep Work" voor het studeren [NL]                  :learn_to_study:
 CLOSED: [2024-08-21 wo 22:52]
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-to-stud-deepwork
@@ -2051,7 +2051,7 @@ Niet alle tijd is hetzelfde. Om effectief te studeren moet je het voor jezelf mo
 
 [1] Newport (2016) Deep Work: Rules for Focused Success in a Distracted World, Grand Central Publishing.
 
-* DONE Bronnen beheren met Zotero [NL]
+* DONE Bronnen beheren met Zotero [NL]                     :learn_to_study:
 CLOSED: [2024-09-03 di 19:22]
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-to-stud-zotero

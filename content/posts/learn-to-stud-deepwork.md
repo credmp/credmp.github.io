@@ -4,6 +4,7 @@ title = """
   """
 author = ["Arjen Wiersma"]
 date = 2024-08-21T22:52:00+02:00
+tags = ["learn-to-study"]
 draft = false
 +++
 

@@ -2,6 +2,7 @@
 title = "Bronnen beheren met Zotero [NL]"
 author = ["Arjen Wiersma"]
 date = 2024-09-03T19:22:00+02:00
+tags = ["learn-to-study"]
 draft = false
 +++
 
