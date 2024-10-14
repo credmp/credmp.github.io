@@ -1,7 +1,6 @@
 baseURL = 'https://www.arjenwiersma.nl'
 languageCode = 'en-us'
 title = 'Arjen Wiersma'
-
 theme = "PaperMod"
 
 [params]
@@ -12,6 +11,7 @@ ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 ShowRssButtonInSectionTermList = true
 ShowToc = true
+description = 'The website of Arjen Wiersma where he writes about coding, learning, and so much more.'
 
 [params.homeInfoParams]
 Title = 'Hi There! 👋'
