@@ -20,7 +20,7 @@ My name is Arjen and I am the Manager of Product Development and Chief Lecturer 
 <br/><br/>
 In my work as Chief Lecturer for Cybersecurity I focus on teaching students all there is to know about the technical side of Cyber Security. My main areas of expertise are Reverse Engineering, Infrastructure Security and Web Application Security.
 <br/><br/>
-Next to my work I am active as an Independent Hacker. I assist my customers in their journey to increase their security posture. I do this through advice, seminars and security assessments. I toot on the fediverse as [@credmp@fosstodon.org](https://fosstodon.org/@credmp).
+Next to my work I am active as an Independent Hacker. I assist my customers in their journey to increase their security posture. I do this through advice, seminars and security assessments. I toot on the fediverse as [@credmp@fosstodon.org](https://fosstodon.org/@credmp) and on [@arjenwiersma.nl](https://bsky.app/profile/arjenwiersma.nl) on Blue Sky.
 <br/><br/>
 I used to organize the Dutch meetup for [Hack The Box](https://www.hackthebox.com), for which I was the ambassador in The Netherlands from 2020 to 2024. Each month, on the 3rd Wednesday, members of the Dutch cyber security community got together and shared presentations, demos and discussion on wide ranging topics.
 <br/><br/>
@@ -40,6 +40,11 @@ url = "https://github.com/credmp"
 [[params.socialIcons]]
 name = "mastodon"
 url = "https://fosstodon.org/@credmp"
+
+[[params.socialIcons]]
+name = "bluesky"
+url = "https://bsky.app/profile/arjenwiersma.nl"
+
 
 [[params.socialIcons]]
 name = "Rss"
