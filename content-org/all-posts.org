@@ -2198,7 +2198,7 @@ The below snippet takes the "missing" value and replaces it with a placeholder. 
 
 Another step into building rock solid software.
 
-* DONE Using Traefik
+* DONE Using Traefik :development:
 CLOSED: [2024-11-17 zo 12:18]
 :PROPERTIES:
 :EXPORT_FILE_NAME: setting-up-traefik

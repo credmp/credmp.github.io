@@ -2,6 +2,7 @@
 title = "Using Traefik"
 author = ["Arjen Wiersma"]
 date = 2024-11-17T12:18:00+01:00
+tags = ["development"]
 draft = false
 +++
 
