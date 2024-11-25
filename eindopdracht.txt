@@ -1,0 +1,240 @@
+Eindopdracht Cyber Security 
+
+ 
+
+Integrale eindopdracht 
+
+De leerlijn Basis Cyber Security (15EC) is een introductie in Cyber Security en Ethical Hacking. Aan het einde van de leerlijn kun je een security assessment uitvoeren en een rapport maken op basis van de PTES. Je hebt geleerd hoe het penetratietestproces werkt en welke programma’s en technieken je daarbij kunt gebruiken in Kali Linux. 
+
+ 
+
+Om deze leerlijn af te ronden dien je de volgende leeruitkomsten aan te tonen:  
+
+ 
+
+Basisbegrippen bij Information Security 
+
+De student past de basisprincipes van informatiebeveiliging toe binnen een bedrijf, door beveiligingsrisico’s te identificeren, standaarden toe te passen en best practices te gebruiken. 
+
+Introduction and Kali Linux 
+
+De student maakt een Kali Linux omgeving en maakt gebruik van de Kali Linux terminal tijdens het security assessment, door programma’s te gebruiken en te navigeren door bestandssystemen. 
+
+Recon & Vulnerability Analysis 
+
+De student verzamelt informatie over een bedrijf via passieve en actieve verkenning en voert een kwetsbaarhedenanalyse uit op basis van de verzamelde informatie door gebruik te maken van programma’s en technieken in Kali Linux, waarbij de kwetsbaarheden worden geclassificeerd. 
+
+Threat Modeling & Exploitation 
+
+De student identificeert potentiële dreigingen uit de verzamelde informatie, maakt op basis hiervan een visueel dreigingslandschap, classificeert de dreigingen aan de hand van STRIDE, beredeneert welke potentiële aanvallen te verwachten zijn, en adviseert security controls daartegen. 
+
+Penetration testing 
+
+De student voert een security assessment (pentest) uit op basis van de Penetration Testing Execution Standard (PTES) en beschrijft de informatie, resultaten, bevindingen en adviezen in een rapport. 
+
+ 
+
+Om de leerlijn Basis Cyber Security met succes af te ronden is een voldoende nodig voor de integrale eindopdracht. 
+
+Algemene opdrachtbeschrijving 
+
+In deze integrale eindopdracht pas je de kennis en vaardigheden, die je in deze leerlijn hebt opgedaan, toe in de praktijk. Je gaat een security assessment (pentest) uitvoeren bij een bedrijf op basis van de Penetration Testing Execution Standard (PTES). Je zoekt een bedrijf waar je het security assessment kunt uitvoeren (de opdrachtgever) en doorloopt tijdens de eindopdracht de volgende stappen van de PTES: Pre-engagement, Intelligence Gathering, Threat Modeling, Vulnerability Analysis en Reporting. Tijdens de eindopdracht wordt niet verwacht dat je de Exploitation fase doorloopt. 
+
+ 
+
+Voor deze eindopdracht maak je een rapport van het security assessment. Tijdens het security assessment onderzoek je de digitale infrastructuur van een bedrijf. Je identificeert kwetsbaarheden en veiligheidsrisico’s door middel van relevante programma’s in Kali Linux te gebruiken. Het doel van een security assessment is om een bedrijf bewust te maken van eventuele beveiligingsrisico’s en om zwakke plekken te identificeren. Op basis van de resultaten, potentiële aanvallen en literatuur geef je passende adviezen aan het bedrijf om de beveiliging te verbeteren. 
+
+ 
+
+Het rapport wordt opgesteld volgens de geldende richtlijnen uit de PTES (met uitzondering van de (Post-)Exploitation fase). De vijf stappen zijn verder uitgewerkt in deelopdrachten. 
+
+ 
+
+Op te leveren producten 
+
+Rapport 
+
+ 
+
+Deelopdrachten 
+
+ 
+
+Deelopdracht 1. Pre-engagement 
+
+In de Pre-engagement fase tref je voorbereidingen voor de pentest. Je beschrijft de afspraken met de opdrachtgever over de ‘rules of engagement’ en alle informatie die je nodig hebt voordat je kunt starten met de pentest. Zo beschrijf je informatie over de organisatie, zoals het type bedrijf en de processen en diensten die het bedrijf aanbiedt. Ook stel je de scope vast en bespreek je de verwachtingen van het security assessment, bijvoorbeeld welke systemen, netwerken of applicaties er getest zullen worden, de planning en wat je moet doen bij kritieke bevindingen. Beschrijf verder wat de risico’s zijn en zorg voor een vrijwaring, zodat je toestemming hebt om de pentest te mogen uitvoeren. 
+
+ 
+
+Op te leveren: 
+
+Rapport met pre-engagement fase 
+
+ 
+
+Deelopdracht 2. Intelligence Gathering  
+
+In de Intelligence Gathering fase verzamel je informatie over het bedrijf, zoals publiekelijk beschikbare informatie, IP-adressen, domeinnamen, technische details en sociale media-accounts. Tijdens deze fase doe je zowel een passieve als actieve verkenning om de informatie te verzamelen. Maak gebruik van openbare bronnen voor de passieve verkenning en gebruik verschillende technieken en tools in Kali Linux voor de actieve verkenning, bijvoorbeeld Nmap en Shodan. Het verzamelen van informatie kan onder andere bestaan uit technische details over de infrastructuur en applicaties of het verkrijgen van inzicht in de personeelsstructuur en processen. Onderbouw ook de gevonden informatie met screenshots.  
+
+ 
+
+Op te leveren: 
+
+Rapport met intelligence gathering fase 
+
+ 
+
+Deelopdracht 3. Threat Modeling 
+
+In de Threat Modeling fase identificeer je potentiële dreigingen en risico’s uit de verzamelde informatie in de context van de opdrachtgever. Op basis van de potentiële dreigingen beredeneer je welke mogelijke aanvallen te verwachten zijn en welke security controls daartegen ingezet kunnen worden. Je categoriseert de potentiële dreigingen en mogelijke aanvallen op basis van STRIDE. Voor de potentiële impact kun je kijken naar verschillende factoren, zoals beschikbaarheid, integriteit en vertrouwelijkheid (BIV). Breng de dreigingen visueel in kaart middels een dreigingslandschap (DFD). 
+
+ 
+
+Op te leveren: 
+
+Rapport met threat modeling fase 
+
+ 
+
+Deelopdracht 4. Vulnerability Analysis 
+
+In de Vulnerability Analysis fase identificeer en analyseer je kwetsbaarheden en zwakke plekken in een systeem of netwerk van het bedrijf. Je voert een kwetsbaarhedenanalyse uit op basis van de verzamelde informatie in de Intelligence Gathering fase. Je gaat opzoeken naar potentiële zwakke plekken in de beveiliging. Lever bewijs en onderbouwing voor je analyse. Classificeer de gevonden kwetsbaarheden door middel van een CVSS-score en bepaal welke kwetsbaarheden prioriteit hebben.  
+
+ 
+
+Op te leveren: 
+
+Rapport met vulnerability analysis fase 
+
+ 
+
+Deelopdracht 5. Reporting 
+
+In de Reporting fase documenteer je alle bevindingen en resultaten uit de andere fasen in een rapport en geef je advies om de beveiliging te verbeteren. Het rapport bestaat uit een managementsamenvatting en een technisch verslag. Het rapport is geen handleiding of stappenplan. In deze fase rapporteer je dus je bevindingen en adviezen aan de opdrachtgever op basis van de PTES-rapportage normen. Het rapport moet begrijpelijk zijn voor technische en niet-technische stakeholders. In de managementsamenvatting beschrijf je beknopt de belangrijkste punten van je gehele security assessment. In het technisch verslag beschrijf je het security assessment in detail met onderbouwing door literatuur, modellen, methoden en visuele weergaves.  
+
+ 
+
+Op te leveren: 
+
+Rapport met reporting fase 
+
+Rapport met managementsamenvatting en technische verslag 
+
+ 
+
+ 
+
+Quickscan 
+
+ 
+
+Hieronder vind je een aantal randvoorwaarden waaraan de eindopdracht moet voldoen. De beoordelaar kan op basis van deze eisen de eindopdracht teruggeven en zal deze niet verder nakijken tot aan de eisen zijn voldaan. 
+
+ 
+
+Gebruik de quickscan om te zien of je voldoet aan de inlevereisen. 
+
+ 
+
+Algemene eisen 
+
+​​☐​ Naam van de student, inleverdatum en leerlijntitel zijn opgenomen op de titelpagina. 
+
+​​☐​ De eindopdracht is digitaal ingeleverd als .pdf. 
+
+​​☐​ De documenten zijn als losse documenten ingeleverd en niet als ZIP-bestand. 
+
+​​☐​ Alle deelopdrachten zijn uitgewerkt en de gevraagde deelproducten zijn aanwezig. 
+
+​​☐​ De eindopdracht is goed leesbaar zonder storende aanwezigheid van grammatica- en  
+
+       spellingsfouten. 
+
+​​☐​ De omvang van het rapport beslaat maximaal 5000 woorden. 
+
+       (exclusief inhoudsopgave, bronnenlijst en eventuele bijlagen). 
+
+​​☐​ Bronverwijzing is volgens de APA-richtlijnen, zowel in de tekst als de bronnenlijst. 
+
+​​☐​ Pagina’s zijn genummerd en gerefereerd in de inhoudsopgave. 
+
+​​☐​ Bijlagen zijn overzichtelijk genummerd, aansluitend bij de opdracht en er wordt naar  
+
+       verwezen in de tekst. 
+
+​​☐​ Er is relevant gebruikgemaakt van afbeeldingen, grafieken, tabellen etc. 
+
+​​☐​ Het gebruik van AI is bij deze eindopdracht toegestaan. Indien je gebruikmaakt van AI: 
+
+Wordt dit vermeld op de bronnenlijst, waarbij concreet wordt vermeld om welke vorm/tool het gaat (bijvoorbeeld ChatGPT); 
+
+Worden de gebruikte prompts in een bijlage aangeleverd. 
+
+NB: je bent te allen tijde verantwoordelijk voor het individueel aantonen van de leeruitkomsten. Indien de betrokken examinatoren dit niet onomstotelijk kunnen vaststellen, zal er melding worden gemaakt van een vermoeden van fraude. 
+
+​​☐​ Indien je een herkansing inlevert na het krijgen van feedback, is het ingevulde ‘Template   
+
+       herkansingsfeedback’ bijgevoegd. Voor alle criteria, waarvoor je een onvoldoende haalt,   
+
+       schrijf je een toelichting over de gemaakte wijzigingen (bij een criterium waarvoor je een  
+
+       onvoldoende hebt gehaald, maar niets hebt verbeterd, geef je dus aan dat je hier niets aan  
+
+       veranderd hebt). De totale verbeteringen die je beschrijft moeten redelijkerwijs tot een  
+
+       voldoende voor de eindopdracht kunnen leiden. 
+
+ 
+
+Inhoudelijke eisen 
+
+​​☐​ De eindopdracht is professioneel geschreven, conform de richtlijnen van de hand-out ‘Academisch Schrijven 101’. 
+ 
+
+Beoordelingscriteria 
+
+ 
+
+De eindopdracht wordt beoordeeld op basis van de volgende beoordelingscriteria. Per criterium kent de beoordelaar een aantal punten toe. 
+
+ 
+
+Weging 
+
+Criterium 1.1 
+
+De student beschrijft duidelijk de afspraken met de opdrachtgever over de ‘rules of engagement’ en alle belangrijke en benodigde informatie om te kunnen starten met de pentest aan de hand van de gemaakte afspraken. 
+
+10% 
+
+Criterium 1.2 
+
+De student verzamelt relevante informatie over het bedrijf via een passieve en actieve verkenning door gebruik te maken van openbare bronnen en verschillende passende programma’s en technieken in Kali Linux en onderbouwt nauwkeurig de gevonden informatie met screenshots. 
+
+20% 
+
+Criterium 1.3 
+
+De student identificeert accuraat, in de context van de opdrachtgever, potentiële dreigingen, gecategoriseerd op basis van STRIDE, door een overzichtelijk visueel dreigingslandschap (DFD) te maken en beredeneert vervolgens op navolgbare wijze welke potentiële aanvallen hieruit kunnen voortkomen en welke security controls daartegen in te zetten zijn. 
+
+25% 
+
+Criterium 1.4 
+
+De student voert een overzichtelijke en volledige kwetsbaarhedenanalyse uit op basis van de verzamelde informatie, levert daarvoor gedetailleerde onderbouwing en bewijzen en geeft een correcte classificatie aan de gevonden kwetsbaarheden door middel van CVSS. 
+
+25% 
+
+Criterium 1.5 
+
+De student schrijft een compleet en professioneel rapport, met een managementsamenvatting en technisch verslag, voor de opdrachtgever op basis van de PTES structuur en geeft een duidelijk, dekkend en onderbouwd advies aan de opdrachtgever. 
+
+20% 
+
+Totaal 
+
+ 
+
+100% 
+
+ 
