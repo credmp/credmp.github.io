@@ -5,7 +5,7 @@ date = 2024-12-02T18:41:00+01:00
 draft = false
 +++
 
-Today the academic world is remembering Bastiaan Heeren, who passed away last week.
+Today the academic world is remembering [Bastiaan Heeren](https://cs.ou.nl/members/bastiaan/), who passed away last week.
 
 I spent the better time of a year working on my thesis, and before that I enjoyed lectures given by Bastiaan. He was a person with a great love for teaching, especially when you can get into the nitty gritty details of software quality and the benefits of functional programming.
 

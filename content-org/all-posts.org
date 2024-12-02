@@ -2279,7 +2279,7 @@ CLOSED: [2024-12-02 ma 18:41]
 :EXPORT_FILE_NAME: remembering-bastiaan
 :END:
 
-Today the academic world is remembering Bastiaan Heeren, who passed away last week.
+Today the academic world is remembering [[https://cs.ou.nl/members/bastiaan/][Bastiaan Heeren]], who passed away last week.
 
 I spent the better time of a year working on my thesis, and before that I enjoyed lectures given by Bastiaan. He was a person with a great love for teaching, especially when you can get into the nitty gritty details of software quality and the benefits of functional programming.
 
