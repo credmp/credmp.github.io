@@ -2289,8 +2289,20 @@ Right after [[/posts/master-of-science/][I graduated]] his illness progressed an
 
 You will be missed.
 
+* DONE The right to repair
+CLOSED: [2024-12-04 wo 22:13]
+:PROPERTIES:
+:EXPORT_FILE_NAME: ifixit-dell
+:END:
+
+My old laptop, now almost 6 years old, has seen it all. From conferences, to lectures, traveling to distant places and to the library. I did a lot of work on it during the writing of my thesis, and it is a victim to countless hours of compiler time.
+
+Sadly the battery started to die. It got to the point that you can only use it shortly for heavier loads. Luckily, unlike certain hardware (looking at you Apple), it is easy to fix. All it needs is a new battery. So I found that [[https://www.ifixit.com/Guide][ifixit]] had the right parts and a *very* useful kit with all the right tools to do the job.
+
+It only took 10 minutes to do, and now my trusty old laptop is able to last 7 to 8 hours again! Gotta love the ability to repair things. I hope it lasts another 5 to 6 years!
+
 * DONE Advent of Code 2024 :@writing:
-CLOSED: [2024-12-02 ma 22:59]
+CLOSED: [2024-12-04 wo]
 :PROPERTIES:
 :EXPORT_FILE_NAME: aoc-2024
 :END:
@@ -2392,5 +2404,84 @@ My first solution was nothing like this, but after refining it I am very happy w
 ** Day 3
 
 This was the traditional easy puzzle after a more complicated one. Basically simple parsing for which I used regular expressions. Nothing special, on to day 4.
+
+** Day 4
+
+For day 4 I solved the first part with an over engineered path finding solution, which turned out to be quite the overkill, but extremely fun to program.
+
+I really like the pattern in use, below is some of the code of it. First you create a ~Deque~ that holds the work, then you load it up with the initial starting points. In the case of the puzzle these are the location of the ~X~ characters.
+
+From there you just loop over the ~work~, taking a partial solution and seeing if any cells around it will lead to another partial solution, so from ~XM~ to ~XMA~ and on the next iteration to ~XMAS~. The ~dx~ is a collection of ~Coord~ that indicate valid movements across the board.
+
+#+begin_src java
+Deque<Path> work = new ArrayDeque<>();
+
+// Load initial points
+for (int y = 0; y < input.length; y++) {
+    for (int x = 0; x < input[y].length; x++) {
+        if (input[y][x] == 'X') {
+            work.add( new Path(List.of(new Coord(x,y)), "X", null) );
+        }
+    }
+}
+
+// Process each outstanding point..
+while (!work.isEmpty()) {
+    var path = work.pop();
+    for (Coord d : dx) {
+        if (path.dir() != null && path.dir != d) {
+            continue;
+        }
+        var newCoord = lastStep.add(d);
+        // Ensure this is a valid point on the grid
+        if (newCoord.x() >= 0 && newCoord.x() < input[0].length &&
+            newCoord.y() >= 0 && newCoord.y() < input.length) {
+            // ... create new paths and string based on location
+            // Check if we have an end case, else add it to the work
+            if (target.equals(xmas)) {
+                matches.add(newPath);
+            } else if (target.startsWith(xmas)) {
+                work.add(newPath);
+            }
+
+        }
+    }
+}
+#+end_src
+
+A more straightforward approach, which was actually needed for part 2, is to just try to solve it in one step. First you iterate over both ~y~ and ~x~ coordinates looking for an ~X~, just as above. When you find one, iterate over ~[-1, 0, 1]~ on both the ~x~ and ~y~ axis-es, using ~dy~ and ~dx~ for the *direction*. If both ~direction~ are ~0~, we continue as it would give the current position. The beauty of this approach is that you can move outward in steps, ~x + 3 * dx~ will give you a value 3 cells in the give ~direction~. From there it is a simple matter of checking if we are in bounds and if the letters spell *MAS*.
+
+#+begin_src java
+for (int y = 0; y < input.length; y++) {
+    for (int x = 0; x < input[y].length; x++) {
+        if (input[y][x] != 'X') continue;
+        for (int dy = -1; dy <= 1; dy++) {
+            for (int dx = -1; dx <= 1; dx++) {
+                if (dy == dx && dx == 0) continue;
+                if (!(0 <= y + 3 * dy && y + 3 * dy < input.length &&
+                      0 <= x + 3 * dx && x + 3 * dx < input[y].length)) continue;
+
+                if (input[y+1*dy][x+1*dx] == 'M' &&
+                    input[y+2*dy][x+2*dx] == 'A' &&
+                    input[y+3*dy][x+3*dx] == 'S') {
+                    matches++;
+                }
+            } 
+        }
+    }
+}
+#+end_src
+
+For part 2 a similar approach can be used, however the order is not important. So I chose to create a ~List~ and then check against a target list with the ~containsAll~ method, it does not care about order.
+
+#+begin_src java
+var x1 = List.of(input[y-1][x-1], input[y][x], input[y+1][x+1]);
+var x2 = List.of(input[y-1][x+1], input[y][x], input[y+1][x-1]);
+if (x1.containsAll( target ) && x2.containsAll( target )){
+    matches++;
+}
+#+end_src
+
+Another reminder to not over engineer at the start.
 
 [This article will be update with more days]
