@@ -2302,7 +2302,7 @@ Sadly the battery started to die. It got to the point that you can only use it s
 It only took 10 minutes to do, and now my trusty old laptop is able to last 7 to 8 hours again! Gotta love the ability to repair things. I hope it lasts another 5 to 6 years!
 
 * DONE Advent of Code 2024 :@writing:
-CLOSED: [2024-12-04 wo]
+CLOSED: [2024-12-05 do] 
 :PROPERTIES:
 :EXPORT_FILE_NAME: aoc-2024
 :END:
@@ -2483,5 +2483,54 @@ if (x1.containsAll( target ) && x2.containsAll( target )){
 #+end_src
 
 Another reminder to not over engineer at the start.
+
+
+** Day 5
+
+Another fun puzzle, when I initially read it my mind jumped to graphs. There is a 2 part input, the first part being a list of rules, numbers that are only valid when they are placed in front of other numbers.
+
+The second part of the input is a list of ~report~ structures. The first quest was to validate the reports and find only the valid ones.
+
+My first attempt, in part 1, was to take the rules for a number (a ~List<Integer>~) and see if there is an ~anyMatch~ of the sublist before it using ~order::contains~. Basically if the pages is ~75,97,47,61,53~ and the rule ~97|75~ (97 should be before 75), the the loop will iterate over the pages, and check to see if ~[75]~ is in the list of rules for ~97~.
+
+#+begin_src java
+boolean isValid(List<Integer> pages, Instructions input) {
+    var valid = true;
+    for (int i = 0; i < pages.size(); i++) {
+        var order = input.order().get(pages.get(i));
+        if (order != null) {
+            var hasAny = pages.subList(0,i+1).stream().anyMatch(order::contains);
+
+            if (hasAny) {
+                valid = false;
+            }
+        }
+    }
+    return valid;
+}
+#+end_src
+
+Part 2 had us fixing the broken pages. After some initial magic with arrays I figured out it is a basic sorting problem. In Java you can use ~Comparator~ implementations to create custom sorting rules, as long as it responds with ~-1,0,1~ for to the left, the same, to the right. So the lambda ~Comparator~ takes a left hand side and right hand side value, retrieves the rules for the left hand side (if ~null~ it is equal ~0~) and checks to see if the right hand side is in the ruleset (~-1~). If all checks fail, the value should go to the right hand side.
+
+#+begin_src java
+var answer = 0L;
+for (var pages : input.pages()) {
+    var valid = isValid(pages, input);
+    var work = new ArrayList<>(pages); // pages is immutable
+    if (!valid) {
+        Collections.sort(work, (lhs, rhs) -> {
+                var order = input.order().get(lhs);
+                if (order == null) return 0;
+                if (order.contains(rhs)) return -1;
+                return 1;
+            });
+        answer += work.get(work.size()/2); 
+    } 
+}
+#+end_src
+
+A surprisingly easy solution to a messy problem when you want to implement it yourself.
+
+** More to come
 
 [This article will be update with more days]
