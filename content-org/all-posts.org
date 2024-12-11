@@ -2302,7 +2302,7 @@ Sadly the battery started to die. It got to the point that you can only use it s
 It only took 10 minutes to do, and now my trusty old laptop is able to last 7 to 8 hours again! Gotta love the ability to repair things. I hope it lasts another 5 to 6 years!
 
 * DONE Advent of Code 2024 :@writing:
-CLOSED: [2024-12-10 di] 
+CLOSED: [2024-12-11 wo] 
 :PROPERTIES:
 :EXPORT_FILE_NAME: aoc-2024
 :END:
@@ -2532,6 +2532,9 @@ for (var pages : input.pages()) {
 A surprisingly easy solution to a messy problem when you want to implement it yourself.
 
 ** Day 6
+:PROPERTIES:
+:ID:       70657f9b-2463-48e8-91d9-a67cdc0efa5b
+:END:
 
 Traditionally the Friday puzzles seem to be somewhat more challenging, this Friday is no exception. We are given a challenge similar to sliding puzzle games.
 
@@ -2564,6 +2567,9 @@ Part 2 becomes much more interesting; we are to find infinite loops by placing e
 I looked for a "smart" solution, but the brute force is done in less then 2 seconds. So I will leave it at this, but somehow feel there might be more optimizations possible.
 
 ** Day 7
+:PROPERTIES:
+:ID:       6811910e-0733-430a-91b1-b14c26223534
+:END:
 
 The end of week 1, and easier then the Friday puzzle. We are given a list of numbers per line that we need to either /add/ or /multiply/ to get to a target number. I chose to use some recursion to solve this problem. Each iteration of the recursion will reduce the array of numbers using one of the operations.
 
@@ -2772,6 +2778,50 @@ var rating = paths.size();
 
 return new Trail(score, rating);
 #+end_src
+
+** Day 11 - one to remember
+
+For the last couple of days the discussion forums have been full with memes about brute forcing the answer. Up to now you could really do so. I have one colleague who wrote a nice brute force for [[id:70657f9b-2463-48e8-91d9-a67cdc0efa5b][Day 6]] that took several minutes, but it did work. Personally I am not a fan of the brute forcing approach, I like to make it more elegant when possible.
+
+Today is this years first [[https://adventofcode.com/2021/day/6][Lanternfish]] type of problem, one where the problem space becomes so large that your computer is not able to brute force it due to memory constraints. It calls for a more elegant solution.
+
+Part 1 and part 2 are basically the same, the difference is the amount of iterations for the problem. In this case we have some rules in which rocks change and split up. We are tasked to find the amount of rocks after ~25~ and ~75~ iterations. The first is do-able with a brute force approach, the second is not.
+
+The rules are straightforward, but the solution to the problem space might not be. The trick is to use something called ~memoization~.
+
+#+begin_quote
+In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls to pure functions and returning the cached result when the same inputs occur again.       
+#+end_quote
+
+So, basically we store results of method calls. Lets first look at my solution. It is a recursive function that takes a ~number~ and the number of ~iterations~ to apply to it.
+
+#+begin_src java
+if (iterations == 0) return 1;
+var cache = new Cache(number,iterations);
+if (memo.containsKey(cache)) {
+    return memo.get(cache);
+}
+if (number == 0) {
+    long l = ways(1, iterations - 1, memo);
+    memo.put(cache, l);
+    return l;
+}
+
+String s = "" + number;
+int l = s.length();
+if (l % 2 == 0) {
+    long c = ways(Long.parseLong(s.substring(0,l/2)), iterations-1, memo) + ways(Long.parseLong(s.substring(l/2,l)), iterations-1, memo);
+    memo.put(cache, c);
+    return c;
+}
+long c =  ways(number * 2024, iterations-1, memo);
+memo.put(cache, c);
+return c;
+#+end_src
+
+For this call the result is stored in a ~memo~, a simple ~HashMap~ that stores the method arguments in a ~CacheKey~ and then stores the count, the result of the recursive call. What happens here is that there might be many different calls to this method, such as ~(9,23)~. In this case the number 9 has 23 iterations to go. By computing the result once and then storing the computed value we save the time of doing the same calculations many other times.
+
+This was a really fun and relatively quick challenge, greatly enjoyed it!
 
 ** More to come
 
