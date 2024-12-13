@@ -2908,34 +2908,34 @@ Today was quite something. We have claw machines that have 2 buttons. The button
 
 My initial solution was naive and used dynamic programming to solve it. It did not adhere to the rule /every problem has a solution that completes in at most 15 seconds on ten-year-old hardware/. So eventually I found a solution (thanks Hyperneutrino!) that uses math to solve this problem.
 
-Basically we are trying to find the amount of ~x~ and ~y~ movements both the A button and the B button have to make in order to get to the prize ~x~ and ~y~ values.
+Basically we are trying to find the amount of ~x~ and ~y~ movements both the A button (indicated by ~S~) and the B button (indicated by ~T~) have to make in order to get to the prize ~x~ and ~y~ values.
 
 #+begin_example
-axA + bxB = px
-ayA + byB = py
+axS + bxT = px
+ayS + byT = py
 #+end_example
 
 We can make these equations the same by multiplying with ~by~ and ~bx~. We do this so we can remove the B button from the equation and solve A.
 
 #+begin_example
-axbyA + bxbyB = pxby
-aybxA + bybxB = pybx
+axbyS + bxbyT = pxby
+aybxS + bybxT = pybx
 
-Now bxbyB == bxbyB
+Now bxbyT == bxbyT
 #+end_example
 
 This can then be rewritten in a single equation, from which we can isolate A.
 
 #+begin_example
-axbyA - aybxA = pxby - pybx
+axbyS - aybxS = pxby - pybx
 
-(axby-aybx)A =  pxby - pybx
+(axby-aybx)S =  pxby - pybx
 #+end_example
 
 Now we can divide by ~axby - aybx~ and get our solution for A. We have to ensure the input is never ~0~ to prevent division by zero. In the code we can check this by checking that ~ax * by == ay * bx~ never occurs.
 
 #+begin_example
-A = pxby - pybx
+S = pxby - pybx
     -----------
     axby - aybx 
 #+end_example
@@ -2943,9 +2943,9 @@ A = pxby - pybx
 As we now have the A button value, we can also solve the B button. 
 
 #+begin_example
-axA + bxB = px
-bxB = px - axA
-B = px-axA
+axS + bxT = px
+bxT = px - axS
+T = px-axS
     ------
     bx
 #+end_example
