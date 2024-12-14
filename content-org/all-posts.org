@@ -2302,7 +2302,7 @@ Sadly the battery started to die. It got to the point that you can only use it s
 It only took 10 minutes to do, and now my trusty old laptop is able to last 7 to 8 hours again! Gotta love the ability to repair things. I hope it lasts another 5 to 6 years!
 
 * DONE Advent of Code 2024 :@writing:
-CLOSED: [2024-12-12 do] 
+CLOSED: [2024-12-14 za] 
 :PROPERTIES:
 :EXPORT_FILE_NAME: aoc-2024
 :END:
@@ -2963,6 +2963,42 @@ private long solve(double ax, double ay, double bx, double by, long px, long py)
     return answer;
 }
 #+end_src
+
+** Day 14 - Restroom redoubt
+
+Today we are back at Easter Bunny HQ, looking for a restroom. We are given a collection of robots, their current position on a grid and their velocity. The question becomes, where are they after 100 iterations (seconds)? An interesting part of this question is that the robots wrap around the grid.
+
+This mechanic allows for very easy calculation of the final coordinates, as ~(x + vx * 100) % width~ will give us the final position, instead of having to go through all the calculations.
+
+Interestingly, Java does not really like negative numbers in the modulo operator. For example, ~-102 % 11~ yields ~-3~ while it should yield ~8~ for it to be useful in our case. So, when the number is negative, just add the width to it. 
+
+#+begin_src java
+for (var robot : robots) {
+    int newX = (robot.start.x() + robot.vel.x() * 100) % width;
+    if (newX < 0) newX += width;
+
+    int newY = (robot.start.y() + robot.vel.y() * 100) % height;
+    if (newY < 0) newY += height;
+
+    positions.merge(new Coord(newX, newY), 1, Integer::sum);
+}
+#+end_src
+
+Part 2 was a horrible puzzle. There was no clue what to do in order to get this:
+
+[[./images/day14.png]]
+
+I finally solved it by looking at the field when all robots are on a unique position. I also have seen solution where the minimum safety value is found. The problem description was:
+
+#+begin_quote
+During the bathroom break, someone notices that these robots seem awfully similar to ones built and used at the North Pole. If they're the same type of robots, they should have a hard-coded Easter egg: very rarely, most of the robots should arrange themselves into a picture of a Christmas tree.
+
+What is the fewest number of seconds that must elapse for the robots to display the Easter egg?       
+#+end_quote
+
+Maybe if it had said "very rarely, but when all the robots arrange themselves", but then again, how are you supposed to know that it means non-overlapping.
+
+Love the Christmas tree though.
 
 ** More to come
 
