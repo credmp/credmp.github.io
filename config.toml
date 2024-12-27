@@ -87,3 +87,9 @@ url = "index.xml"
  pre = "<i class='fa fa-heart'></i>"
  url = '/categories/writing/'
  weight = -110
+[[menu.main]]
+ identifier = 'built'
+ name = '🔧 Things I built'
+ pre = "<i class='fa fa-heart'></i>"
+ url = '/categories/writing/'
+ weight = -120
