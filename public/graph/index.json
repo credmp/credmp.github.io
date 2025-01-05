@@ -2,30 +2,17 @@
   "graph": {
     "/notes/rust/": {
       "in": [
-        "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
-        "/notes/zero2prod/",
-        "/notes/type-driven-design/",
-        "/notes/type-driven-design/",
-        "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
-        "/notes/zero2prod/",
-        "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
+        "/posts/a-new-theme/",
         "/notes/type-driven-design/",
         "/notes/zero2prod/",
-        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
-        "/notes/type-driven-design/"
+        "/posts/choose-your-tools/"
       ],
       "out": []
     },
     "/notes/type-driven-design/": {
       "in": [],
       "out": [
-        "/notes/rust/",
-        "/notes/zero2prod/",
         "/notes/rust/",
         "/notes/zero2prod/"
       ]
@@ -41,6 +28,13 @@
     "/posts/22-years-of-emacs/": {
       "in": [],
       "out": []
+    },
+    "/posts/a-new-theme/": {
+      "in": [],
+      "out": [
+        "/posts/choose-your-tools/",
+        "/notes/rust/"
+      ]
     },
     "/posts/ai-in-academics/": {
       "in": [],
@@ -91,14 +85,10 @@
       "out": []
     },
     "/posts/choose-your-tools/": {
-      "in": [],
+      "in": [
+        "/posts/a-new-theme/"
+      ],
       "out": [
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
         "/notes/rust/",
         "/notes/rust/"
       ]
@@ -212,6 +202,11 @@
       "permalink": "/posts/22-years-of-emacs/",
       "section": "posts",
       "title": "22 Years of Emacs"
+    },
+    "/posts/a-new-theme/": {
+      "permalink": "/posts/a-new-theme/",
+      "section": "posts",
+      "title": "A New Theme"
     },
     "/posts/ai-in-academics/": {
       "permalink": "/posts/ai-in-academics/",
