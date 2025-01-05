@@ -4,12 +4,22 @@
       "in": [
         "/posts/choose-your-tools/",
         "/posts/choose-your-tools/",
+        "/notes/zero2prod/",
         "/notes/type-driven-design/"
       ],
       "out": []
     },
     "/notes/type-driven-design/": {
       "in": [],
+      "out": [
+        "/notes/rust/",
+        "/notes/zero2prod/"
+      ]
+    },
+    "/notes/zero2prod/": {
+      "in": [
+        "/notes/type-driven-design/"
+      ],
       "out": [
         "/notes/rust/"
       ]
@@ -172,6 +182,11 @@
       "permalink": "/notes/type-driven-design/",
       "section": "notes",
       "title": "Type-Driven Design"
+    },
+    "/notes/zero2prod/": {
+      "permalink": "/notes/zero2prod/",
+      "section": "notes",
+      "title": "Zero to Production"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",

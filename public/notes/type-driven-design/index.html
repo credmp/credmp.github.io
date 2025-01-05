@@ -10,12 +10,12 @@
 <title>
     Type-Driven Design | Arjen Wiersma
 </title>
-  <meta name="description" content=" Note This is a test note Rust has a really cool type driven design thing.
+  <meta name="description" content="Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = &#34;Arjen&#34;.to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.
 rust rust code snippet start" />
 <meta property="og:url" content="http://localhost:1313/notes/type-driven-design/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Type-Driven Design">
-  <meta property="og:description" content="Note This is a test note Rust has a really cool type driven design thing.
+  <meta property="og:description" content="Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = &#34;Arjen&#34;.to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.
 rust rust code snippet start">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -25,16 +25,16 @@ rust rust code snippet start">
 
 
   <meta itemprop="name" content="Type-Driven Design">
-  <meta itemprop="description" content="Note This is a test note Rust has a really cool type driven design thing.
+  <meta itemprop="description" content="Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = &#34;Arjen&#34;.to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.
 rust rust code snippet start">
   <meta itemprop="datePublished" content="2025-01-05T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-01-05T00:00:00+00:00">
-  <meta itemprop="wordCount" content="110">
+  <meta itemprop="wordCount" content="178">
   <meta itemprop="keywords" content="Design">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Type-Driven Design">
-  <meta name="twitter:description" content="Note This is a test note Rust has a really cool type driven design thing.
+  <meta name="twitter:description" content="Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = &#34;Arjen&#34;.to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.
 rust rust code snippet start">
 
 <link rel="canonical" href="http://localhost:1313/notes/type-driven-design/" />
@@ -59,7 +59,7 @@ rust rust code snippet start">
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2025-01-05",
-  "description": " Note This is a test note Rust has a really cool type driven design thing.\nrust rust code snippet start",
+  "description": "Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = \"Arjen\".to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.\nrust rust code snippet start",
   "headline": "Type-Driven Design",
   "isPartOf": {
     "@id": "http://localhost:1313/notes/",
@@ -70,7 +70,7 @@ rust rust code snippet start">
   "name": "Type-Driven Design",
   "timeRequired": "PT1M",
   "url": "http://localhost:1313/notes/type-driven-design/",
-  "wordCount": 110
+  "wordCount": 178
 }
 </script>
 
@@ -113,40 +113,8 @@ rust rust code snippet start">
         </div>
     </header>
 
-    <figure
-  role="note"
-  id="admonition-00"
-  aria-labelledby="admonition-caption-00"
-  class="admonition note  not-prose"
->
-  <div class="flex items-center space-x-2 pb-2 font-semibold">
-      <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  fill="none"
-  stroke="currentColor"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  stroke-width="2"
-  class="lucide lucide-info block"
->
-  <circle cx="12" cy="12" r="10" />
-  <path d="M12 16v-4M12 8h.01" />
-</svg>
-
-    <figcaption id="admonition-caption-00">
-        Note
-    </figcaption>
-  </div>
-
-  <div class="prose pl-8 text-inherit marker:text-inherit">
-    This is a test note
-  </div>
-</figure>
-
-<p><a href="/notes/rust/" class="backlink">Rust</a>
- has a really cool type driven design thing.</p>
+    <p><a href="/notes/rust/" class="backlink">Rust</a>
+ has allows for a pattern called Type-Driven Design. In the below example a <code>SubscriberName</code> is created. It has a single <code>String</code> value. In <em>simple</em> code this might be represented as <code>let subscriber_name = &quot;Arjen&quot;.to_string();</code>. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type <code>SubscriberName</code> you know it is valid.</p>
 <figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
   <aside
     class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
@@ -225,11 +193,16 @@ rust rust code snippet start">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="bp">Self</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></div>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Usage
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">subscriber_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubscriberName</span>::<span class="n">parse</span><span class="p">(</span><span class="s">&#34;Arjen&#34;</span><span class="p">);</span></span></span></code></pre></div>
   <p class="sr-only">rust code snippet end</p>
 
   
 </figure>
+<p>The source of this knowledge is from <a href="/notes/zero2prod/" class="backlink">Zero2Prod (Book)</a>
+.</p>
 
   </article>
     <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
@@ -353,6 +326,30 @@ rust rust code snippet start">
                   class="taxonomy"
                   title="Posts and notes on Programming"
                   >Programming</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/notes/zero2prod/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="Zero to Production"
+              >Zero to Production</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/literature/"
+                  class="taxonomy"
+                  title="Posts and notes on Literature"
+                  >Literature</a
                 >
               </li>
           </ul>

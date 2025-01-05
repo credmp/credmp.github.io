@@ -4,9 +4,7 @@ date: "2025-01-05"
 categories: [Design]
 ---
 
-{{< admonition >}}This is a test note{{< /admonition >}}
-
-{{< backlink "rust" "Rust">}} has a really cool type driven design thing.
+{{< backlink "rust" "Rust">}} has allows for a pattern called Type-Driven Design. In the below example a `SubscriberName` is created. It has a single `String` value. In *simple* code this might be represented as `let subscriber_name = "Arjen".to_string();`. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type `SubscriberName` you know it is valid.
 
 ```rust
 #[derive(Debug)]
@@ -28,4 +26,9 @@ impl SubscriberName {
         }
     }
 }
+
+// Usage
+let subscriber_name = SubscriberName::parse("Arjen");
 ```
+
+The source of this knowledge is from {{< backlink "zero2prod" "Zero2Prod (Book)">}}.
