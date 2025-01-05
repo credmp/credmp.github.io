@@ -1,4 +1,4 @@
-baseURL = 'https://example.com/'
+baseURL = 'https://www.arjenwiersma.nl/'
 languageCode = 'en-us'
 title = "Arjen Wiersma"
 copyright = 'Arjen Wiersma' # Used in the footer copyright mention.
