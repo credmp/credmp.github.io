@@ -1,7 +1,2 @@
-*~
-public/
-posts/archive.org
-posts/posts.org
-posts/rss.org
+/node_modules/
 /.direnv/
-/.hugo_build.lock

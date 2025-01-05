@@ -1,0 +1,357 @@
+{
+  "graph": {
+    "/notes/rust/": {
+      "in": [
+        "/posts/choose-your-tools/",
+        "/posts/choose-your-tools/",
+        "/notes/type-driven-design/"
+      ],
+      "out": []
+    },
+    "/notes/type-driven-design/": {
+      "in": [],
+      "out": [
+        "/notes/rust/"
+      ]
+    },
+    "/posts/22-years-of-emacs/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/ai-in-academics/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-1/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-2/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-3/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-4/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-5/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-6/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-7/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-8/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2023-day-9/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/aoc-2024/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/badge-challenge-3/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/choose-your-tools/": {
+      "in": [],
+      "out": [
+        "/notes/rust/",
+        "/notes/rust/"
+      ]
+    },
+    "/posts/cleaning-up-lsp-mode/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/cyber-cafe-podcast/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/deployment-anxiety/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/htb-ambassador/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/ifixit-dell/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/learn-to-stud-deepwork/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/learn-to-stud-finding-time/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/learn-to-stud-zotero/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/leren-studeren-tijd-vinden/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/master-of-science/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/ms-teams-on-linux/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/my-computing-environment/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/ou-heading-to-the-finish-line/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/ou-sqm/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/perfectionsim-procrastination/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/remembering-bastiaan/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/resigning-as-htb-ambassador/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/setting-up-traefik/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/should-we-pay-for-oss/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/starting-master-thesis/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/the-start-of-bide/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/using-selmer/": {
+      "in": [],
+      "out": []
+    }
+  },
+  "pages": {
+    "/notes/rust/": {
+      "permalink": "/notes/rust/",
+      "section": "notes",
+      "title": "The Rust Programming Language"
+    },
+    "/notes/type-driven-design/": {
+      "permalink": "/notes/type-driven-design/",
+      "section": "notes",
+      "title": "Type-Driven Design"
+    },
+    "/posts/22-years-of-emacs/": {
+      "permalink": "/posts/22-years-of-emacs/",
+      "section": "posts",
+      "title": "22 Years of Emacs"
+    },
+    "/posts/ai-in-academics/": {
+      "permalink": "/posts/ai-in-academics/",
+      "section": "posts",
+      "title": "Using AI in Academics"
+    },
+    "/posts/aoc-2023-day-1/": {
+      "permalink": "/posts/aoc-2023-day-1/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 1"
+    },
+    "/posts/aoc-2023-day-2/": {
+      "permalink": "/posts/aoc-2023-day-2/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 2"
+    },
+    "/posts/aoc-2023-day-3/": {
+      "permalink": "/posts/aoc-2023-day-3/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 3"
+    },
+    "/posts/aoc-2023-day-4/": {
+      "permalink": "/posts/aoc-2023-day-4/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 4"
+    },
+    "/posts/aoc-2023-day-5/": {
+      "permalink": "/posts/aoc-2023-day-5/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 5"
+    },
+    "/posts/aoc-2023-day-6/": {
+      "permalink": "/posts/aoc-2023-day-6/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 6"
+    },
+    "/posts/aoc-2023-day-7/": {
+      "permalink": "/posts/aoc-2023-day-7/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 7"
+    },
+    "/posts/aoc-2023-day-8/": {
+      "permalink": "/posts/aoc-2023-day-8/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 8"
+    },
+    "/posts/aoc-2023-day-9/": {
+      "permalink": "/posts/aoc-2023-day-9/",
+      "section": "posts",
+      "title": "Advent of Code 2023 Day 9"
+    },
+    "/posts/aoc-2024/": {
+      "permalink": "/posts/aoc-2024/",
+      "section": "posts",
+      "title": "Advent of Code 2024"
+    },
+    "/posts/badge-challenge-3/": {
+      "permalink": "/posts/badge-challenge-3/",
+      "section": "posts",
+      "title": "Badge Challenge 3"
+    },
+    "/posts/choose-your-tools/": {
+      "permalink": "/posts/choose-your-tools/",
+      "section": "posts",
+      "title": "Choose Your Tools"
+    },
+    "/posts/cleaning-up-lsp-mode/": {
+      "permalink": "/posts/cleaning-up-lsp-mode/",
+      "section": "posts",
+      "title": "Cleaning Up After LSP-Mode"
+    },
+    "/posts/cyber-cafe-podcast/": {
+      "permalink": "/posts/cyber-cafe-podcast/",
+      "section": "posts",
+      "title": "The Cyber Cafe Podcast"
+    },
+    "/posts/deployment-anxiety/": {
+      "permalink": "/posts/deployment-anxiety/",
+      "section": "posts",
+      "title": "Deployment Anxiety"
+    },
+    "/posts/htb-ambassador/": {
+      "permalink": "/posts/htb-ambassador/",
+      "section": "posts",
+      "title": "Hack the Box Ambassador"
+    },
+    "/posts/ifixit-dell/": {
+      "permalink": "/posts/ifixit-dell/",
+      "section": "posts",
+      "title": "The Right to Repair"
+    },
+    "/posts/learn-to-stud-deepwork/": {
+      "permalink": "/posts/learn-to-stud-deepwork/",
+      "section": "posts",
+      "title": "  \"Deep Work\" Voor Het Studeren [NL]\n  "
+    },
+    "/posts/learn-to-stud-finding-time/": {
+      "permalink": "/posts/learn-to-stud-finding-time/",
+      "section": "posts",
+      "title": "Finding Time to Study"
+    },
+    "/posts/learn-to-stud-zotero/": {
+      "permalink": "/posts/learn-to-stud-zotero/",
+      "section": "posts",
+      "title": "Bronnen Beheren Met Zotero [NL]"
+    },
+    "/posts/leren-studeren-tijd-vinden/": {
+      "permalink": "/posts/leren-studeren-tijd-vinden/",
+      "section": "posts",
+      "title": "Tijd Vinden Om Te Studeren [Dutch Article]"
+    },
+    "/posts/master-of-science/": {
+      "permalink": "/posts/master-of-science/",
+      "section": "posts",
+      "title": "Master of Puppets^HScience!"
+    },
+    "/posts/ms-teams-on-linux/": {
+      "permalink": "/posts/ms-teams-on-linux/",
+      "section": "posts",
+      "title": "Microsoft Teams (V2) on Linux"
+    },
+    "/posts/my-computing-environment/": {
+      "permalink": "/posts/my-computing-environment/",
+      "section": "posts",
+      "title": "My Computing Environment"
+    },
+    "/posts/ou-heading-to-the-finish-line/": {
+      "permalink": "/posts/ou-heading-to-the-finish-line/",
+      "section": "posts",
+      "title": "Heading to the Finish Line"
+    },
+    "/posts/ou-sqm/": {
+      "permalink": "/posts/ou-sqm/",
+      "section": "posts",
+      "title": "Open Universiteit: Software Quality Management"
+    },
+    "/posts/perfectionsim-procrastination/": {
+      "permalink": "/posts/perfectionsim-procrastination/",
+      "section": "posts",
+      "title": "Perfectionism Leads to Procrastination and Paralysis"
+    },
+    "/posts/remembering-bastiaan/": {
+      "permalink": "/posts/remembering-bastiaan/",
+      "section": "posts",
+      "title": "Remembering Bastiaan"
+    },
+    "/posts/resigning-as-htb-ambassador/": {
+      "permalink": "/posts/resigning-as-htb-ambassador/",
+      "section": "posts",
+      "title": "Resigning as Hack the Box Ambassador"
+    },
+    "/posts/setting-up-traefik/": {
+      "permalink": "/posts/setting-up-traefik/",
+      "section": "posts",
+      "title": "Using Traefik"
+    },
+    "/posts/should-we-pay-for-oss/": {
+      "permalink": "/posts/should-we-pay-for-oss/",
+      "section": "posts",
+      "title": "Should We Pay for Open Source?"
+    },
+    "/posts/starting-master-thesis/": {
+      "permalink": "/posts/starting-master-thesis/",
+      "section": "posts",
+      "title": "Starting My Master Thesis"
+    },
+    "/posts/the-start-of-bide/": {
+      "permalink": "/posts/the-start-of-bide/",
+      "section": "posts",
+      "title": "  Embarking on a Journey to Revolutionize Code Editing: The Birth of \"BiDE\"\n  "
+    },
+    "/posts/using-selmer/": {
+      "permalink": "/posts/using-selmer/",
+      "section": "posts",
+      "title": "Enhance Testability With Selmer"
+    }
+  }
+}

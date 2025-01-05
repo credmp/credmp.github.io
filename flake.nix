@@ -11,6 +11,8 @@
         packages = [ 
 		pkgs.bashInteractive 
 		pkgs.hugo
+    pkgs.go
+    pkgs.nodejs
 	];
       };
     });

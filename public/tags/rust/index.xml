@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on Arjen Wiersma</title>
+    <link>http://localhost:1313/tags/rust/</link>
+    <description>Recent content in Rust on Arjen Wiersma</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Arjen Wiersma</copyright>
+    <lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Choose your tools</title>
+      <link>http://localhost:1313/posts/choose-your-tools/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/choose-your-tools/</guid>
+      <description>&lt;p&gt;Originally posted on 2024-09-30 (Monday).&lt;/p&gt;&#xA;&lt;p&gt;I ❤️ to build software. I sadly do not have a lot of time next to my daily work to spend on my side projects, so I have to be disciplined in where I invest time. I wish I could spend endless amounts of time on exploring new technologies, but sadly I simply do not have that time. In writing this is sometimes referred to as &lt;a href=&#34;https://www.masterclass.com/articles/what-does-it-mean-to-kill-your-darlings&#34;&gt;&amp;ldquo;to kill your darlings&amp;rdquo;&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
