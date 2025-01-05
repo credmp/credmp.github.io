@@ -5,6 +5,18 @@
         "/posts/choose-your-tools/",
         "/posts/choose-your-tools/",
         "/notes/zero2prod/",
+        "/notes/type-driven-design/",
+        "/notes/type-driven-design/",
+        "/posts/choose-your-tools/",
+        "/posts/choose-your-tools/",
+        "/notes/zero2prod/",
+        "/posts/choose-your-tools/",
+        "/posts/choose-your-tools/",
+        "/notes/type-driven-design/",
+        "/notes/zero2prod/",
+        "/notes/zero2prod/",
+        "/posts/choose-your-tools/",
+        "/posts/choose-your-tools/",
         "/notes/type-driven-design/"
       ],
       "out": []
@@ -12,6 +24,8 @@
     "/notes/type-driven-design/": {
       "in": [],
       "out": [
+        "/notes/rust/",
+        "/notes/zero2prod/",
         "/notes/rust/",
         "/notes/zero2prod/"
       ]
@@ -79,6 +93,12 @@
     "/posts/choose-your-tools/": {
       "in": [],
       "out": [
+        "/notes/rust/",
+        "/notes/rust/",
+        "/notes/rust/",
+        "/notes/rust/",
+        "/notes/rust/",
+        "/notes/rust/",
         "/notes/rust/",
         "/notes/rust/"
       ]
