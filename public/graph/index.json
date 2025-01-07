@@ -1,5 +1,11 @@
 {
   "graph": {
+    "/notes/clojure/": {
+      "in": [
+        "/posts/20250107-clojure-reitit-server/"
+      ],
+      "out": []
+    },
     "/notes/rust-emacs/": {
       "in": [],
       "out": [
@@ -9,13 +15,13 @@
     },
     "/notes/rust/": {
       "in": [
-        "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
-        "/posts/a-new-theme/",
         "/notes/zero2prod/",
         "/notes/rust-emacs/",
         "/notes/rust-emacs/",
-        "/notes/type-driven-design/"
+        "/notes/type-driven-design/",
+        "/posts/a-new-theme/",
+        "/posts/choose-your-tools/",
+        "/posts/choose-your-tools/"
       ],
       "out": []
     },
@@ -28,10 +34,19 @@
     },
     "/notes/zero2prod/": {
       "in": [
-        "/notes/type-driven-design/"
+        "/notes/type-driven-design/",
+        "/posts/a-new-theme/"
       ],
       "out": [
         "/notes/rust/"
+      ]
+    },
+    "/posts/20250107-clojure-reitit-server/": {
+      "in": [],
+      "out": [
+        "/posts/a-new-theme/",
+        "/posts/choose-your-tools/",
+        "/notes/clojure/"
       ]
     },
     "/posts/22-years-of-emacs/": {
@@ -39,10 +54,13 @@
       "out": []
     },
     "/posts/a-new-theme/": {
-      "in": [],
+      "in": [
+        "/posts/20250107-clojure-reitit-server/"
+      ],
       "out": [
         "/posts/choose-your-tools/",
-        "/notes/rust/"
+        "/notes/rust/",
+        "/notes/zero2prod/"
       ]
     },
     "/posts/ai-in-academics/": {
@@ -95,6 +113,7 @@
     },
     "/posts/choose-your-tools/": {
       "in": [
+        "/posts/20250107-clojure-reitit-server/",
         "/posts/a-new-theme/"
       ],
       "out": [
@@ -192,6 +211,11 @@
     }
   },
   "pages": {
+    "/notes/clojure/": {
+      "permalink": "/notes/clojure/",
+      "section": "notes",
+      "title": "Clojure"
+    },
     "/notes/rust-emacs/": {
       "permalink": "/notes/rust-emacs/",
       "section": "notes",
@@ -211,6 +235,11 @@
       "permalink": "/notes/zero2prod/",
       "section": "notes",
       "title": "Zero to Production"
+    },
+    "/posts/20250107-clojure-reitit-server/": {
+      "permalink": "/posts/20250107-clojure-reitit-server/",
+      "section": "posts",
+      "title": "Build an API With Reitit in Clojure"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",
