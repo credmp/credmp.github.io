@@ -7,8 +7,29 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs</title>
+      <link>http://localhost:1313/categories/emacs/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/emacs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://localhost:1313/categories/programming/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rust</title>
+      <link>http://localhost:1313/categories/rust/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/rust/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Design</title>
       <link>http://localhost:1313/categories/design/</link>
@@ -21,13 +42,6 @@
       <link>http://localhost:1313/categories/literature/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/literature/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programming</title>
-      <link>http://localhost:1313/categories/programming/</link>
-      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/programming/</guid>
       <description></description>
     </item>
     <item>

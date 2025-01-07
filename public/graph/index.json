@@ -1,12 +1,21 @@
 {
   "graph": {
+    "/notes/rust-emacs/": {
+      "in": [],
+      "out": [
+        "/notes/rust/",
+        "/notes/rust/"
+      ]
+    },
     "/notes/rust/": {
       "in": [
-        "/posts/a-new-theme/",
-        "/notes/type-driven-design/",
         "/notes/zero2prod/",
+        "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/"
+        "/posts/choose-your-tools/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
+        "/notes/type-driven-design/"
       ],
       "out": []
     },
@@ -183,6 +192,11 @@
     }
   },
   "pages": {
+    "/notes/rust-emacs/": {
+      "permalink": "/notes/rust-emacs/",
+      "section": "notes",
+      "title": "Configuring Emacs for Rust Development"
+    },
     "/notes/rust/": {
       "permalink": "/notes/rust/",
       "section": "notes",
