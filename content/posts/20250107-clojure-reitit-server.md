@@ -1,6 +1,6 @@
 +++
-date = '2025-01-07T21:22:03+01:00'
-draft = true
+date = '2025-01-07T22:22:22+01:00'
+draft = false
 title = 'Build an API with reitit in Clojure'
 tags = ['clojure', 'web']
 categories = ['programming']
