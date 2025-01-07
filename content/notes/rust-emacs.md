@@ -1,7 +1,7 @@
 ---
 title: Configuring Emacs for Rust development
 date: "2025-01-07"
-categories: [Programming, Emacs, Rust]
+categories: [Programming, Emacs]
 ---
 
 Emacs is great for editing {{< backlink "rust" "Rust">}} source files. In addition to your normal Emacs configuration (such as completion modes) it requires 3 packages. First you will want `lsp-mode`, a very full featured LSP client for Emacs. Additionally you will want `lsp-ui`, which I only use for the `lsp-ui-imenu` feature.
