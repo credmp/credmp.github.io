@@ -5,7 +5,7 @@ tags = ['clojure', 'web']
 categories = ['programming']
 +++
 
-In {{< backlink "a-new-theme" "my previous post">}} I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in {{< backlink "choose-your-tools" "a post about tooling">}}, I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack. 
+In {{< backlink "a-new-theme" "my previous post">}} I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in {{< backlink "choose-your-tools" "a post about tooling">}}, I reiterated my ❤️ for {{< backlink "clojure" "Clojure">}} as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack. 
 
 Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.
 

@@ -1,5 +1,11 @@
 {
   "graph": {
+    "/notes/clojure/": {
+      "in": [
+        "/posts/20250107-clojure-reitit-server/"
+      ],
+      "out": []
+    },
     "/notes/rust-emacs/": {
       "in": [],
       "out": [
@@ -39,7 +45,8 @@
       "in": [],
       "out": [
         "/posts/a-new-theme/",
-        "/posts/choose-your-tools/"
+        "/posts/choose-your-tools/",
+        "/notes/clojure/"
       ]
     },
     "/posts/22-years-of-emacs/": {
@@ -204,6 +211,11 @@
     }
   },
   "pages": {
+    "/notes/clojure/": {
+      "permalink": "/notes/clojure/",
+      "section": "notes",
+      "title": "Clojure"
+    },
     "/notes/rust-emacs/": {
       "permalink": "/notes/rust-emacs/",
       "section": "notes",
