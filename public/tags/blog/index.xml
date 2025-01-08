@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Arjen Wiersma</title>
-    <link>http://localhost:1313/tags/blog/</link>
+    <link>https://www.arjenwiersma.nl/tags/blog/</link>
     <description>Recent content in Blog on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Sun, 05 Jan 2025 23:17:16 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.arjenwiersma.nl/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A New Theme</title>
-      <link>http://localhost:1313/posts/a-new-theme/</link>
+      <link>https://www.arjenwiersma.nl/posts/a-new-theme/</link>
       <pubDate>Sun, 05 Jan 2025 23:17:16 +0100</pubDate>
-      <guid>http://localhost:1313/posts/a-new-theme/</guid>
-      <description>&lt;p&gt;So, a new year, a new theme! I switched my blog to use the &lt;a href=&#34;https://github.com/michenriksen/hugo-theme-til&#34;&gt;Today I Learned Theme&lt;/a&gt;. This theme has a great feature where it also maintains a collection of notes and shows a graph with related notes. This is very similar to how I use org-roam.&lt;/p&gt;&#xA;&lt;p&gt;I will not be transferring all my notes over, but I thought it would be a very nice feature to share some of my notes with you. This year I am focussing on &lt;a href=&#34;http://localhost:1313/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; and &lt;a href=&#34;http://localhost:1313/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA;, and as a result I will be posting my notes on the new things I learn.&lt;/p&gt;</description>
+      <guid>https://www.arjenwiersma.nl/posts/a-new-theme/</guid>
+      <description>&lt;p&gt;So, a new year, a new theme! I switched my blog to use the &lt;a href=&#34;https://github.com/michenriksen/hugo-theme-til&#34;&gt;Today I Learned Theme&lt;/a&gt;. This theme has a great feature where it also maintains a collection of notes and shows a graph with related notes. This is very similar to how I use org-roam.&lt;/p&gt;&#xA;&lt;p&gt;I will not be transferring all my notes over, but I thought it would be a very nice feature to share some of my notes with you. This year I am focussing on &lt;a href=&#34;https://www.arjenwiersma.nl/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; and &lt;a href=&#34;https://www.arjenwiersma.nl/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA;, and as a result I will be posting my notes on the new things I learn.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
