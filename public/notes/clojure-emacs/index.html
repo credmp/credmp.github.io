@@ -8,36 +8,36 @@
 <meta name="language" content="en" />
 <meta name="viewport" content="width=device-width" />
 <title>
-    Type-Driven Design | Arjen Wiersma
+    Setting up Emacs for Clojure development | Arjen Wiersma
 </title>
-  <meta name="description" content="Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = &#34;Arjen&#34;.to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.
-rust rust code snippet start" />
-<meta property="og:url" content="http://localhost:1313/notes/type-driven-design/">
+  <meta name="description" content="Emacs 🥰 Lisp, and as Clojure is a Lisp like language, Emacs is extremely capable in editing it. I use several packages to make my live a joy inside Emacs, here are the Clojure specific packages:
+paredit: I highly recommend it to work with any lisp, it makes working with the parenthesis a real joy. There is an animated guide of most of the features. cider: The only thing you need to run and work with Clojure files flycheck-clj-kondo: brings the hints from clj-kondo to the editing screen. clj-refactor: provides all the refactoring tools you will need clojure-mode: finally the clojure mode to provide basic features (highlighting, indentation, navigation and basic refactoring) into Emacs. I have an YouTube playlist on my channel that covers most of these tools. The videos are from 2016 (when I did my live coding in Clojure series), but are still very relevant today." />
+<meta property="og:url" content="http://localhost:1313/notes/clojure-emacs/">
   <meta property="og:site_name" content="Arjen Wiersma">
-  <meta property="og:title" content="Type-Driven Design">
-  <meta property="og:description" content="Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = &#34;Arjen&#34;.to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.
-rust rust code snippet start">
+  <meta property="og:title" content="Setting up Emacs for Clojure development">
+  <meta property="og:description" content="Emacs 🥰 Lisp, and as Clojure is a Lisp like language, Emacs is extremely capable in editing it. I use several packages to make my live a joy inside Emacs, here are the Clojure specific packages:
+paredit: I highly recommend it to work with any lisp, it makes working with the parenthesis a real joy. There is an animated guide of most of the features. cider: The only thing you need to run and work with Clojure files flycheck-clj-kondo: brings the hints from clj-kondo to the editing screen. clj-refactor: provides all the refactoring tools you will need clojure-mode: finally the clojure mode to provide basic features (highlighting, indentation, navigation and basic refactoring) into Emacs. I have an YouTube playlist on my channel that covers most of these tools. The videos are from 2016 (when I did my live coding in Clojure series), but are still very relevant today.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
-    <meta property="article:published_time" content="2025-01-05T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-01-05T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-01-09T20:25:59+01:00">
+    <meta property="article:modified_time" content="2025-01-09T20:25:59+01:00">
 
 
-  <meta itemprop="name" content="Type-Driven Design">
-  <meta itemprop="description" content="Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = &#34;Arjen&#34;.to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.
-rust rust code snippet start">
-  <meta itemprop="datePublished" content="2025-01-05T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-01-05T00:00:00+00:00">
-  <meta itemprop="wordCount" content="178">
-  <meta itemprop="keywords" content="Design">
+  <meta itemprop="name" content="Setting up Emacs for Clojure development">
+  <meta itemprop="description" content="Emacs 🥰 Lisp, and as Clojure is a Lisp like language, Emacs is extremely capable in editing it. I use several packages to make my live a joy inside Emacs, here are the Clojure specific packages:
+paredit: I highly recommend it to work with any lisp, it makes working with the parenthesis a real joy. There is an animated guide of most of the features. cider: The only thing you need to run and work with Clojure files flycheck-clj-kondo: brings the hints from clj-kondo to the editing screen. clj-refactor: provides all the refactoring tools you will need clojure-mode: finally the clojure mode to provide basic features (highlighting, indentation, navigation and basic refactoring) into Emacs. I have an YouTube playlist on my channel that covers most of these tools. The videos are from 2016 (when I did my live coding in Clojure series), but are still very relevant today.">
+  <meta itemprop="datePublished" content="2025-01-09T20:25:59+01:00">
+  <meta itemprop="dateModified" content="2025-01-09T20:25:59+01:00">
+  <meta itemprop="wordCount" content="234">
+  <meta itemprop="keywords" content="Programming,Emacs">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Type-Driven Design">
-  <meta name="twitter:description" content="Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = &#34;Arjen&#34;.to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.
-rust rust code snippet start">
+  <meta name="twitter:title" content="Setting up Emacs for Clojure development">
+  <meta name="twitter:description" content="Emacs 🥰 Lisp, and as Clojure is a Lisp like language, Emacs is extremely capable in editing it. I use several packages to make my live a joy inside Emacs, here are the Clojure specific packages:
+paredit: I highly recommend it to work with any lisp, it makes working with the parenthesis a real joy. There is an animated guide of most of the features. cider: The only thing you need to run and work with Clojure files flycheck-clj-kondo: brings the hints from clj-kondo to the editing screen. clj-refactor: provides all the refactoring tools you will need clojure-mode: finally the clojure mode to provide basic features (highlighting, indentation, navigation and basic refactoring) into Emacs. I have an YouTube playlist on my channel that covers most of these tools. The videos are from 2016 (when I did my live coding in Clojure series), but are still very relevant today.">
 
-<link rel="canonical" href="http://localhost:1313/notes/type-driven-design/" />
+<link rel="canonical" href="http://localhost:1313/notes/clojure-emacs/" />
 
     <link rel="stylesheet" href="/css/index.css" />
 
@@ -48,29 +48,30 @@ rust rust code snippet start">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@id": "http://localhost:1313/notes/type-driven-design/",
+  "@id": "http://localhost:1313/notes/clojure-emacs/",
   "@type": "BlogPosting",
   "articleSection": [
-    "Design"
+    "Programming",
+    "Emacs"
   ],
   "author": {
     "@type": "Person",
     "name": "Arjen Wiersma"
   },
   "copyrightNotice": "Arjen Wiersma",
-  "datePublished": "2025-01-05",
-  "description": "Rust has allows for a pattern called Type-Driven Design. In the below example a SubscriberName is created. It has a single String value. In simple code this might be represented as let subscriber_name = \"Arjen\".to_string();. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type SubscriberName you know it is valid.\nrust rust code snippet start",
-  "headline": "Type-Driven Design",
+  "datePublished": "2025-01-09",
+  "description": "Emacs 🥰 Lisp, and as Clojure is a Lisp like language, Emacs is extremely capable in editing it. I use several packages to make my live a joy inside Emacs, here are the Clojure specific packages:\nparedit: I highly recommend it to work with any lisp, it makes working with the parenthesis a real joy. There is an animated guide of most of the features. cider: The only thing you need to run and work with Clojure files flycheck-clj-kondo: brings the hints from clj-kondo to the editing screen. clj-refactor: provides all the refactoring tools you will need clojure-mode: finally the clojure mode to provide basic features (highlighting, indentation, navigation and basic refactoring) into Emacs. I have an YouTube playlist on my channel that covers most of these tools. The videos are from 2016 (when I did my live coding in Clojure series), but are still very relevant today.",
+  "headline": "Setting Up Emacs for Clojure Development",
   "isPartOf": {
     "@id": "http://localhost:1313/notes/",
     "@type": "Blog",
     "name": "Notes"
   },
-  "mainEntityOfPage": "http://localhost:1313/notes/type-driven-design/",
-  "name": "Type-Driven Design",
-  "timeRequired": "PT1M",
-  "url": "http://localhost:1313/notes/type-driven-design/",
-  "wordCount": 178
+  "mainEntityOfPage": "http://localhost:1313/notes/clojure-emacs/",
+  "name": "Setting Up Emacs for Clojure Development",
+  "timeRequired": "PT2M",
+  "url": "http://localhost:1313/notes/clojure-emacs/",
+  "wordCount": 234
 }
 </script>
 
@@ -106,22 +107,31 @@ rust rust code snippet start">
       <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
         <article class="main">
     <header>
-      <h1 class="!mb-1">Type-Driven Design</h1><div class="flex flex-row items-center space-x-4">
-          <time class="text-sm italic opacity-80" datetime="2025-01-05T00:00:00&#43;00:00"
-            >January 5, 2025</time
+      <h1 class="!mb-1">Setting Up Emacs for Clojure Development</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2025-01-09T20:25:59&#43;01:00"
+            >January 9, 2025</time
           >
         </div>
     </header>
 
-    <p><a href="/notes/rust/" class="backlink">Rust</a>
- has allows for a pattern called Type-Driven Design. In the below example a <code>SubscriberName</code> is created. It has a single <code>String</code> value. In <em>simple</em> code this might be represented as <code>let subscriber_name = &quot;Arjen&quot;.to_string();</code>. By making the type you can wrap the validation logic into the creation of the type. This means that wherever you get a paramter of type <code>SubscriberName</code> you know it is valid.</p>
+    <p>Emacs 🥰 Lisp, and as <a href="/notes/clojure/" class="backlink">Clojure</a>
+ is a Lisp like language, Emacs is extremely capable in editing it. I use several packages to make my live a joy inside Emacs, here are the <a href="/notes/clojure/" class="backlink">Clojure</a>
+ specific packages:</p>
+<ul>
+<li><a href="https://paredit.org/">paredit</a>: I highly recommend it to work with any lisp, it makes working with the parenthesis a real joy. There is an <a href="http://danmidwood.com/content/2014/11/21/animated-paredit.html">animated guide</a> of most of the features.</li>
+<li><a href="https://cider.mx/">cider</a>: The only thing you need to run and work with Clojure files</li>
+<li><a href="https://github.com/borkdude/flycheck-clj-kondo">flycheck-clj-kondo</a>: brings the hints from <a href="https://github.com/clj-kondo/clj-kondo">clj-kondo</a> to the editing screen.</li>
+<li><a href="https://github.com/clojure-emacs/clj-refactor.el">clj-refactor</a>: provides all the refactoring tools you will need</li>
+<li><a href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>: finally the clojure mode to provide basic features (highlighting, indentation, navigation and basic refactoring) into Emacs.</li>
+</ul>
+<p>I have an <a href="https://www.youtube.com/playlist?list=PLdKXxqwRv6_y7rHHjbrK38E59t9ost3o3">YouTube playlist</a> on my channel that covers most of these tools. The videos are from 2016 (when I did my live coding in Clojure series), but are still very relevant today.</p>
 <figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
   <aside
     class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
   >
     <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
       <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
-        <span class="relative">rust</span>
+        <span class="relative">emacs-lisp</span>
       </div>
       <div>
         <clipboard-copy
@@ -174,35 +184,43 @@ rust rust code snippet start">
       </div>
     </div>
   </aside>
-  <p class="sr-only">rust code snippet start</p>
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#[derive(Debug)]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">SubscriberName</span><span class="p">(</span><span class="nb">String</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">SubscriberName</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="sd">/// Returns an instance of `SubscriberName` if the input satisfies all
-</span></span></span><span class="line"><span class="cl"><span class="sd"></span><span class="w">    </span><span class="sd">/// our validation constraints on subscriber names.
-</span></span></span><span class="line"><span class="cl"><span class="sd"></span><span class="w">    </span><span class="sd">/// It panics otherwise.
-</span></span></span><span class="line"><span class="cl"><span class="sd"></span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">parse</span><span class="p">(</span><span class="n">s</span>: <span class="nb">String</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">SubscriberName</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">is_empty_or_whitespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">is_empty</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">is_too_long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">graphemes</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="n">count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">256</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">forbidden_characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="sc">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;(&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;)&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;&#34;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;&lt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\\&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;{&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;}&#39;</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">contains_forbidden_characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">any</span><span class="p">(</span><span class="o">|</span><span class="n">g</span><span class="o">|</span><span class="w"> </span><span class="n">forbidden_characters</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g</span><span class="p">));</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">is_empty_or_whitespace</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">is_too_long</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">contains_forbidden_characters</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Err</span><span class="p">(</span><span class="fm">format!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{}</span><span class="s"> is not a valid subscriber name.&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="bp">Self</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Usage
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">subscriber_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubscriberName</span>::<span class="n">parse</span><span class="p">(</span><span class="s">&#34;Arjen&#34;</span><span class="p">);</span></span></span></code></pre></div>
-  <p class="sr-only">rust code snippet end</p>
+  <p class="sr-only">emacs-lisp code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="c1">;; http://danmidwood.com/content/2014/11/21/animated-paredit.html</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">paredit</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:hook</span> <span class="p">((</span><span class="nv">clojure-mode</span> <span class="o">.</span> <span class="nv">paredit-mode</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">cider</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;First install the package:</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">flycheck-clj-kondo</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">clj-refactor</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:after</span> <span class="nv">clojure-mode</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">defun</span> <span class="nv">my-clojure-mode-hook</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">clj-refactor-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">yas-minor-mode</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">; for adding require/use/import statements</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">;; This choice of keybinding leaves cider-macroexpand-1 unbound</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">cljr-add-keybindings-with-prefix</span> <span class="s">&#34;C-c C-m&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;clojure-mode-hook</span> <span class="nf">#&#39;</span><span class="nv">my-clojure-mode-hook</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;then install the checker as soon as `clojure-mode&#39; is loaded</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">clojure-mode</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:after</span> <span class="nv">flycheck-clj-kondo</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;flycheck-clj-kondo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">flycheck-mode</span> <span class="mi">1</span><span class="p">))</span></span></span></code></pre></div>
+  <p class="sr-only">emacs-lisp code snippet end</p>
 
   
 </figure>
-<p>The source of this knowledge is from <a href="/notes/zero2prod/" class="backlink">Zero2Prod (Book)</a>
-.</p>
 
   </article>
     <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
@@ -231,7 +249,10 @@ rust rust code snippet start">
 
       <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
           <li>
-            <a href="/categories/design/" class="taxonomy category">Design</a>
+            <a href="/categories/programming/" class="taxonomy category">Programming</a>
+          </li>
+          <li>
+            <a href="/categories/emacs/" class="taxonomy category">Emacs</a>
           </li>
       </ul>
     </section>
@@ -262,7 +283,7 @@ rust rust code snippet start">
       <content-network-graph
   class="h-64 ml-6"
   data-endpoint="/graph/index.json"
-  page="/notes/type-driven-design/"
+  page="/notes/clojure-emacs/"
 ></content-network-graph>
 
     </section>
@@ -312,10 +333,10 @@ rust rust code snippet start">
         <header class="grow">
           <h3>
             <a
-              href="/notes/rust/"
+              href="/notes/clojure/"
               class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
-              title="The rust programming language"
-              >The Rust Programming Language</a
+              title="Clojure"
+              >Clojure</a
             >
           </h3>
         </header>
@@ -336,20 +357,20 @@ rust rust code snippet start">
         <header class="grow">
           <h3>
             <a
-              href="/notes/zero2prod/"
+              href="/notes/clojure/"
               class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
-              title="Zero to Production"
-              >Zero to Production</a
+              title="Clojure"
+              >Clojure</a
             >
           </h3>
         </header>
           <ul class="flex flex-row items-center justify-end space-x-2">
               <li>
                 <a
-                  href="/categories/literature/"
+                  href="/categories/programming/"
                   class="taxonomy"
-                  title="Posts and notes on Literature"
-                  >Literature</a
+                  title="Posts and notes on Programming"
+                  >Programming</a
                 >
               </li>
           </ul>
