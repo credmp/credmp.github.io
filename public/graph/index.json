@@ -25,10 +25,10 @@
     "/notes/rust/": {
       "in": [
         "/posts/a-new-theme/",
+        "/notes/zero2prod/",
         "/notes/rust-emacs/",
         "/notes/rust-emacs/",
         "/notes/type-driven-design/",
-        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
         "/posts/choose-your-tools/"
       ],
