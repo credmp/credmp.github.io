@@ -12,6 +12,8 @@
         "/posts/20250111-happy-with-nixos/",
         "/notes/clojure-emacs/",
         "/notes/clojure-emacs/",
+        "/posts/20250107-clojure-reitit-server/",
+        "/posts/20250111-happy-with-nixos/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": []
@@ -19,6 +21,8 @@
     "/notes/rust-emacs/": {
       "in": [],
       "out": [
+        "/notes/rust/",
+        "/notes/rust/",
         "/notes/rust/",
         "/notes/rust/"
       ]
@@ -32,7 +36,15 @@
         "/posts/a-new-theme/",
         "/notes/zero2prod/",
         "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/"
+        "/posts/choose-your-tools/",
+        "/posts/20250111-happy-with-nixos/",
+        "/posts/a-new-theme/",
+        "/posts/choose-your-tools/",
+        "/posts/choose-your-tools/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
+        "/notes/type-driven-design/",
+        "/notes/zero2prod/"
       ],
       "out": []
     },
@@ -40,21 +52,29 @@
       "in": [],
       "out": [
         "/notes/rust/",
+        "/notes/zero2prod/",
+        "/notes/rust/",
         "/notes/zero2prod/"
       ]
     },
     "/notes/zero2prod/": {
       "in": [
         "/notes/type-driven-design/",
-        "/posts/a-new-theme/"
+        "/posts/a-new-theme/",
+        "/posts/a-new-theme/",
+        "/notes/type-driven-design/"
       ],
       "out": [
+        "/notes/rust/",
         "/notes/rust/"
       ]
     },
     "/posts/20250107-clojure-reitit-server/": {
       "in": [],
       "out": [
+        "/posts/a-new-theme/",
+        "/posts/choose-your-tools/",
+        "/notes/clojure/",
         "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
         "/notes/clojure/"
@@ -73,9 +93,13 @@
     },
     "/posts/a-new-theme/": {
       "in": [
+        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": [
+        "/posts/choose-your-tools/",
+        "/notes/rust/",
+        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
         "/notes/rust/",
         "/notes/zero2prod/"
@@ -132,9 +156,13 @@
     "/posts/choose-your-tools/": {
       "in": [
         "/posts/20250107-clojure-reitit-server/",
+        "/posts/a-new-theme/",
+        "/posts/20250107-clojure-reitit-server/",
         "/posts/a-new-theme/"
       ],
       "out": [
+        "/notes/rust/",
+        "/notes/rust/",
         "/notes/rust/",
         "/notes/rust/"
       ]
