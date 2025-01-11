@@ -1,5 +1,5 @@
 ---
-title: The rust programming language
+title: The Rust programming language
 date: "2025-01-05"
 categories: [Programming]
 ---

@@ -1,6 +1,6 @@
 +++
 date = '2025-01-07T22:18:54+01:00'
-title = 'Clojure'
+title = 'The Clojure programming language'
 categories = ['Programming']
 +++
 
