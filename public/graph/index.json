@@ -9,7 +9,6 @@
     },
     "/notes/clojure/": {
       "in": [
-        "/",
         "/posts/20250111-happy-with-nixos/",
         "/notes/clojure-emacs/",
         "/notes/clojure-emacs/",
@@ -26,11 +25,10 @@
     },
     "/notes/rust/": {
       "in": [
-        "/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/posts/20250126-digital-ocean-dev-database/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/notes/type-driven-design/",
         "/posts/a-new-theme/",
         "/notes/zero2prod/",
@@ -187,9 +185,7 @@
       "out": []
     },
     "/posts/master-of-science/": {
-      "in": [
-        "/"
-      ],
+      "in": [],
       "out": []
     },
     "/posts/ms-teams-on-linux/": {
@@ -213,9 +209,7 @@
       "out": []
     },
     "/posts/remembering-bastiaan/": {
-      "in": [
-        "/"
-      ],
+      "in": [],
       "out": []
     },
     "/posts/resigning-as-htb-ambassador/": {

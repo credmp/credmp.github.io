@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web on Arjen Wiersma</title>
-    <link>https://www.arjenwiersma.nl/tags/web/</link>
+    <link>http://localhost:1313/tags/web/</link>
     <description>Recent content in Web on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Tue, 07 Jan 2025 22:22:22 +0100</lastBuildDate>
-    <atom:link href="https://www.arjenwiersma.nl/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build an API with reitit in Clojure</title>
-      <link>https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/</link>
+      <link>http://localhost:1313/posts/20250107-clojure-reitit-server/</link>
       <pubDate>Tue, 07 Jan 2025 22:22:22 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;https://www.arjenwiersma.nl/posts/a-new-theme/&#34; class=&#34;backlink&#34;&gt;my previous post&lt;/a&gt;&#xA; I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in &lt;a href=&#34;https://www.arjenwiersma.nl/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;a post about tooling&lt;/a&gt;&#xA;, I reiterated my ❤️ for &lt;a href=&#34;https://www.arjenwiersma.nl/notes/clojure/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.&lt;/p&gt;&#xA;&lt;p&gt;Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/20250107-clojure-reitit-server/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/a-new-theme/&#34; class=&#34;backlink&#34;&gt;my previous post&lt;/a&gt;&#xA; I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in &lt;a href=&#34;http://localhost:1313/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;a post about tooling&lt;/a&gt;&#xA;, I reiterated my ❤️ for &lt;a href=&#34;http://localhost:1313/notes/clojure/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.&lt;/p&gt;&#xA;&lt;p&gt;Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

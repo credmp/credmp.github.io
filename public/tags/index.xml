@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Arjen Wiersma</title>
-    <link>https://www.arjenwiersma.nl/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Sun, 26 Jan 2025 12:31:17 +0100</lastBuildDate>
-    <atom:link href="https://www.arjenwiersma.nl/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Database</title>
-      <link>https://www.arjenwiersma.nl/tags/database/</link>
+      <link>http://localhost:1313/tags/database/</link>
       <pubDate>Sun, 26 Jan 2025 12:31:17 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/database/</guid>
+      <guid>http://localhost:1313/tags/database/</guid>
       <description></description>
     </item>
     <item>
       <title>Development</title>
-      <link>https://www.arjenwiersma.nl/tags/development/</link>
+      <link>http://localhost:1313/tags/development/</link>
       <pubDate>Sun, 26 Jan 2025 12:31:17 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/development/</guid>
+      <guid>http://localhost:1313/tags/development/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://www.arjenwiersma.nl/tags/linux/</link>
+      <link>http://localhost:1313/tags/linux/</link>
       <pubDate>Sat, 11 Jan 2025 14:31:20 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/linux/</guid>
+      <guid>http://localhost:1313/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Nixos</title>
-      <link>https://www.arjenwiersma.nl/tags/nixos/</link>
+      <link>http://localhost:1313/tags/nixos/</link>
       <pubDate>Sat, 11 Jan 2025 14:31:20 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/nixos/</guid>
+      <guid>http://localhost:1313/tags/nixos/</guid>
       <description></description>
     </item>
     <item>
       <title>Clojure</title>
-      <link>https://www.arjenwiersma.nl/tags/clojure/</link>
+      <link>http://localhost:1313/tags/clojure/</link>
       <pubDate>Tue, 07 Jan 2025 22:22:22 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/clojure/</guid>
+      <guid>http://localhost:1313/tags/clojure/</guid>
       <description></description>
     </item>
     <item>
       <title>Web</title>
-      <link>https://www.arjenwiersma.nl/tags/web/</link>
+      <link>http://localhost:1313/tags/web/</link>
       <pubDate>Tue, 07 Jan 2025 22:22:22 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/web/</guid>
+      <guid>http://localhost:1313/tags/web/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>https://www.arjenwiersma.nl/tags/blog/</link>
+      <link>http://localhost:1313/tags/blog/</link>
       <pubDate>Sun, 05 Jan 2025 23:17:16 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/blog/</guid>
+      <guid>http://localhost:1313/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Emacs</title>
-      <link>https://www.arjenwiersma.nl/tags/emacs/</link>
+      <link>http://localhost:1313/tags/emacs/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/emacs/</guid>
+      <guid>http://localhost:1313/tags/emacs/</guid>
       <description></description>
     </item>
     <item>
       <title>Rust</title>
-      <link>https://www.arjenwiersma.nl/tags/rust/</link>
+      <link>http://localhost:1313/tags/rust/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/rust/</guid>
+      <guid>http://localhost:1313/tags/rust/</guid>
       <description></description>
     </item>
     <item>
       <title>Learn-to-Study</title>
-      <link>https://www.arjenwiersma.nl/tags/learn-to-study/</link>
+      <link>http://localhost:1313/tags/learn-to-study/</link>
       <pubDate>Tue, 03 Sep 2024 19:22:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/learn-to-study/</guid>
+      <guid>http://localhost:1313/tags/learn-to-study/</guid>
       <description></description>
     </item>
     <item>
       <title>Health</title>
-      <link>https://www.arjenwiersma.nl/tags/health/</link>
+      <link>http://localhost:1313/tags/health/</link>
       <pubDate>Tue, 06 Jun 2023 08:15:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/health/</guid>
+      <guid>http://localhost:1313/tags/health/</guid>
       <description></description>
     </item>
     <item>
       <title>Mental</title>
-      <link>https://www.arjenwiersma.nl/tags/mental/</link>
+      <link>http://localhost:1313/tags/mental/</link>
       <pubDate>Tue, 06 Jun 2023 08:15:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/mental/</guid>
+      <guid>http://localhost:1313/tags/mental/</guid>
       <description></description>
     </item>
     <item>
       <title>Education</title>
-      <link>https://www.arjenwiersma.nl/tags/education/</link>
+      <link>http://localhost:1313/tags/education/</link>
       <pubDate>Thu, 13 Apr 2023 22:15:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/tags/education/</guid>
+      <guid>http://localhost:1313/tags/education/</guid>
       <description></description>
     </item>
   </channel>
