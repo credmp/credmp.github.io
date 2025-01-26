@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Sat, 11 Jan 2025 14:31:20 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2025 12:31:17 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digital Ocean, its support and development database</title>
+      <link>http://localhost:1313/posts/20250126-digital-ocean-dev-database/</link>
+      <pubDate>Sun, 26 Jan 2025 12:31:17 +0100</pubDate>
+      <guid>http://localhost:1313/posts/20250126-digital-ocean-dev-database/</guid>
+      <description>&lt;figure&#xA;  role=&#34;note&#34;&#xA;  id=&#34;admonition-00&#34;&#xA;  aria-labelledby=&#34;admonition-caption-00&#34;&#xA;  class=&#34;admonition tip  not-prose&#34;&#xA;&gt;&#xA;  &lt;div class=&#34;flex items-center space-x-2 pb-2 font-semibold&#34;&gt;&#xA;      &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;24&#34;&#xA;  height=&#34;24&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-flame block&#34;&#xA;&gt;&#xA;  &lt;path&#xA;    d=&#34;M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z&#34;&#xA;  /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;figcaption id=&#34;admonition-caption-00&#34;&gt;&#xA;        Tip&#xA;    &lt;/figcaption&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;prose pl-8 text-inherit marker:text-inherit&#34;&gt;&#xA;    Currently, only use Postgres 14 on the Digital Ocean application platform for development databases.&#xA;  &lt;/div&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;While following the book &lt;a href=&#34;http://localhost:1313/notes/zero2prod/&#34; class=&#34;backlink&#34;&gt;Zero2Prod&lt;/a&gt;&#xA; you will learn how to deploy a &lt;a href=&#34;http://localhost:1313/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA; application to digital ocean through a Continuous Deployment pipeline. This is hardly anything new for me, I even teach a course in DevOps, but to not stray from the path of the book I followed its instructions.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The joy of NixOS</title>
       <link>http://localhost:1313/posts/20250111-happy-with-nixos/</link>

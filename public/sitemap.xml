@@ -3,7 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-01-11T14:31:20+01:00</lastmod>
+    <lastmod>2025-01-26T12:31:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/database/</loc>
+    <lastmod>2025-01-26T12:31:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/development/</loc>
+    <lastmod>2025-01-26T12:31:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/20250126-digital-ocean-dev-database/</loc>
+    <lastmod>2025-01-26T12:31:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-01-26T12:31:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/programming/</loc>
+    <lastmod>2025-01-26T12:31:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/saas/</loc>
+    <lastmod>2025-01-26T12:31:17+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-01-26T12:31:17+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/linux/</loc>
     <lastmod>2025-01-11T14:31:20+01:00</lastmod>
@@ -12,15 +33,6 @@
     <lastmod>2025-01-11T14:31:20+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/operating-systems/</loc>
-    <lastmod>2025-01-11T14:31:20+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-01-11T14:31:20+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/programming/</loc>
-    <lastmod>2025-01-11T14:31:20+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-01-11T14:31:20+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/20250111-happy-with-nixos/</loc>
@@ -75,9 +87,6 @@
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/choose-your-tools/</loc>
-    <lastmod>2025-01-05T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/development/</loc>
     <lastmod>2025-01-05T00:00:00+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/emacs/</loc>
