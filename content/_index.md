@@ -9,10 +9,10 @@ In my work as Chief Lecturer for Cybersecurity I focus on teaching students all 
 
 I have been in the software industry for more that 25 years and have worked in:
 
-- Startups (Personify - USA, eBuddy - NL): Java, BigData
 - Internet providers (Chello / UPC, Tiscali - NL): Java
-- Healthcare and FinTech (Infomedics - NL): Java and dotNet
-- EduTech (NOVI - NL): Serverless, Javascript
+- Startups (Personify - USA, eBuddy - NL): Java, BigData
+- Healthcare and FinTech (Infomedics - NL): Java and dotNet - Managed the IT and Development teams
+- EduTech (NOVI - NL): Managed the development team building in Serverless, Javascript
 - Education (Hogeschool van Amsterdan / NOVI - NL): teaching software security and software engineering courses
 
 I am a member of:
