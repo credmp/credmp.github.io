@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Education on Arjen Wiersma</title>
-    <link>http://localhost:1313/tags/education/</link>
+    <link>https://www.arjenwiersma.nl/tags/education/</link>
     <description>Recent content in Education on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Thu, 13 Apr 2023 22:15:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.arjenwiersma.nl/tags/education/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Starting my Master Thesis</title>
-      <link>http://localhost:1313/posts/starting-master-thesis/</link>
+      <link>https://www.arjenwiersma.nl/posts/starting-master-thesis/</link>
       <pubDate>Thu, 13 Apr 2023 22:15:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/starting-master-thesis/</guid>
+      <guid>https://www.arjenwiersma.nl/posts/starting-master-thesis/</guid>
       <description>&lt;p&gt;Today, I took the first step towards starting my master&amp;rsquo;s thesis. I have decided to document my journey and experiences on my blog. Given that the thesis will play a pivotal role in my life for the next nine months, I expect it to be a thrilling journey.&lt;/p&gt;&#xA;&lt;h3 id=&#34;finding-a-topic&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  Finding a topic&#xA;  &#xA;    &lt;a href=&#34;#finding-a-topic&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;As a student at &lt;a href=&#34;https://www.ou.nl&#34;&gt;Open Universiteit&lt;/a&gt; in The Netherlands, I had the opportunity to work with the &lt;a href=&#34;https://rascal-mpl.org&#34;&gt;Rascal programming language&lt;/a&gt; during the Software Quality Management course. I found the language intriguing and enjoyed working with it throughout the module. After consulting with my professor, we brainstormed various possibilities for my master&amp;rsquo;s thesis topic, ultimately settling on the creation of a visualization library for the language.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Open Universiteit: Software Quality Management</title>
-      <link>http://localhost:1313/posts/ou-sqm/</link>
+      <link>https://www.arjenwiersma.nl/posts/ou-sqm/</link>
       <pubDate>Sat, 25 Mar 2023 16:31:00 +0100</pubDate>
-      <guid>http://localhost:1313/posts/ou-sqm/</guid>
+      <guid>https://www.arjenwiersma.nl/posts/ou-sqm/</guid>
       <description>&lt;h3 id=&#34;background&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  Background&#xA;  &#xA;    &lt;a href=&#34;#background&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;I have been working on getting my Master&amp;rsquo;s degree in Software Engineering. To do this I have started following courses at the Dutch Open Universiteit. They have a Master&amp;rsquo;s program that takes 2 years and you are able to follow it from home.&lt;/p&gt;</description>
     </item>
   </channel>
