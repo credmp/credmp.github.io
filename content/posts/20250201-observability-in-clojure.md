@@ -5,6 +5,10 @@ tags = ['clojure', 'web', 'observability']
 categories = ['programming']
 +++
 
+Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability ([Chakraborty & Kundan, 2021](https://doi.org/10.1007/978-1-4842-6888-9_2); [Kosińska et al., 2023](https://doi.org/10.1109/ACCESS.2023.3281860)). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities ([Hausenblas, 2023](https://doi.org/10.48550/arXiv.2303.13402); [Chakraborty & Kundan, 2021](https://doi.org/10.1007/978-1-4842-6888-9_2)). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files. 
+
+## The running project
+
 In {{< backlink "20250107-clojure-reitit-server" "my previous post on reitit">}} we built a simple endpoint using {{< backlink "clojure" "Clojure">}} and reitit. The complete code for the small project was:
 
 ```clojure
@@ -26,9 +30,7 @@ In {{< backlink "20250107-clojure-reitit-server" "my previous post on reitit">}}
 
 Nice and easy eh? That simplicity is what I truly love about {{< backlink "clojure" "Clojure">}}. That, and the fact that there is an awesome interoperability with the Java ecosystem of libraries.
 
-## Observability
-
-Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability ([Chakraborty & Kundan, 2021](https://doi.org/10.1007/978-1-4842-6888-9_2); [Kosińska et al., 2023](https://doi.org/10.1109/ACCESS.2023.3281860)). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities ([Hausenblas, 2023](https://doi.org/10.48550/arXiv.2303.13402); [Chakraborty & Kundan, 2021](https://doi.org/10.1007/978-1-4842-6888-9_2)). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files. 
+## Adding observability
 
 In {{< backlink "clojure" "Clojure">}} it is possible to add observability through the wonderful [clj-otel library by Steffan Westcott](https://github.com/steffan-westcott/clj-otel/). It implements the [OpenTelemetry](https://opentelemetry.io) standard which makes it integrate nicely in products such as [HoneyComb.io](https://www.honeycomb.io/) and [Jaeger](https://www.jaegertracing.io/). 
 

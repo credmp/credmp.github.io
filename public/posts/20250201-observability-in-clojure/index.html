@@ -10,13 +10,11 @@
 <title>
     Observability in Clojure | Arjen Wiersma
 </title>
-  <meta name="description" content="In my previous post on reitit we built a simple endpoint using Clojure and reitit. The complete code for the small project was:
-clojure clojure code snippet start" />
+  <meta name="description" content="Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (Chakraborty &amp; Kundan, 2021; Kosińska et al., 2023). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (Hausenblas, 2023; Chakraborty &amp; Kundan, 2021). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files." />
 <meta property="og:url" content="https://www.arjenwiersma.nl/posts/20250201-observability-in-clojure/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Observability in Clojure">
-  <meta property="og:description" content="In my previous post on reitit we built a simple endpoint using Clojure and reitit. The complete code for the small project was:
-clojure clojure code snippet start">
+  <meta property="og:description" content="Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (Chakraborty &amp; Kundan, 2021; Kosińska et al., 2023). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (Hausenblas, 2023; Chakraborty &amp; Kundan, 2021). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -28,17 +26,15 @@ clojure clojure code snippet start">
 
 
   <meta itemprop="name" content="Observability in Clojure">
-  <meta itemprop="description" content="In my previous post on reitit we built a simple endpoint using Clojure and reitit. The complete code for the small project was:
-clojure clojure code snippet start">
+  <meta itemprop="description" content="Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (Chakraborty &amp; Kundan, 2021; Kosińska et al., 2023). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (Hausenblas, 2023; Chakraborty &amp; Kundan, 2021). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.">
   <meta itemprop="datePublished" content="2025-02-01T13:03:45+01:00">
   <meta itemprop="dateModified" content="2025-02-01T13:03:45+01:00">
-  <meta itemprop="wordCount" content="742">
+  <meta itemprop="wordCount" content="746">
   <meta itemprop="keywords" content="Clojure,Web,Observability">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Observability in Clojure">
-  <meta name="twitter:description" content="In my previous post on reitit we built a simple endpoint using Clojure and reitit. The complete code for the small project was:
-clojure clojure code snippet start">
+  <meta name="twitter:description" content="Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (Chakraborty &amp; Kundan, 2021; Kosińska et al., 2023). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (Hausenblas, 2023; Chakraborty &amp; Kundan, 2021). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.">
 
 <link rel="canonical" href="https://www.arjenwiersma.nl/posts/20250201-observability-in-clojure/" />
 
@@ -72,7 +68,7 @@ clojure clojure code snippet start">
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2025-02-01",
-  "description": "In my previous post on reitit we built a simple endpoint using Clojure and reitit. The complete code for the small project was:\nclojure clojure code snippet start",
+  "description": "Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (Chakraborty \u0026 Kundan, 2021; Kosińska et al., 2023). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (Hausenblas, 2023; Chakraborty \u0026 Kundan, 2021). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.",
   "headline": "Observability in Clojure",
   "isPartOf": {
     "@id": "https://www.arjenwiersma.nl/posts/",
@@ -88,7 +84,7 @@ clojure clojure code snippet start">
   "name": "Observability in Clojure",
   "timeRequired": "PT4M",
   "url": "https://www.arjenwiersma.nl/posts/20250201-observability-in-clojure/",
-  "wordCount": 742
+  "wordCount": 746
 }
 </script>
 
@@ -131,7 +127,33 @@ clojure clojure code snippet start">
         </div>
     </header>
 
-    <p>In <a href="/posts/20250107-clojure-reitit-server/" class="backlink">my previous post on reitit</a>
+    <p>Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (<a href="https://doi.org/10.1007/978-1-4842-6888-9_2">Chakraborty &amp; Kundan, 2021</a>; <a href="https://doi.org/10.1109/ACCESS.2023.3281860">Kosińska et al., 2023</a>). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (<a href="https://doi.org/10.48550/arXiv.2303.13402">Hausenblas, 2023</a>; <a href="https://doi.org/10.1007/978-1-4842-6888-9_2">Chakraborty &amp; Kundan, 2021</a>). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.</p>
+<h3 id="the-running-project" class="scroll-mt-8 group">
+  The running project
+  
+    <a href="#the-running-project"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>In <a href="/posts/20250107-clojure-reitit-server/" class="backlink">my previous post on reitit</a>
  we built a simple endpoint using <a href="/notes/clojure/" class="backlink">Clojure</a>
  and reitit. The complete code for the small project was:</p>
 <figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
@@ -214,10 +236,10 @@ clojure clojure code snippet start">
 </figure>
 <p>Nice and easy eh? That simplicity is what I truly love about <a href="/notes/clojure/" class="backlink">Clojure</a>
 . That, and the fact that there is an awesome interoperability with the Java ecosystem of libraries.</p>
-<h3 id="observability" class="scroll-mt-8 group">
-  Observability
+<h3 id="adding-observability" class="scroll-mt-8 group">
+  Adding observability
   
-    <a href="#observability"
+    <a href="#adding-observability"
         class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
         aria-hidden="true" title="Link to this heading" tabindex="-1">
         <svg
@@ -239,7 +261,6 @@ clojure clojure code snippet start">
     </a>
   
 </h3>
-<p>Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (<a href="https://doi.org/10.1007/978-1-4842-6888-9_2">Chakraborty &amp; Kundan, 2021</a>; <a href="https://doi.org/10.1109/ACCESS.2023.3281860">Kosińska et al., 2023</a>). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (<a href="https://doi.org/10.48550/arXiv.2303.13402">Hausenblas, 2023</a>; <a href="https://doi.org/10.1007/978-1-4842-6888-9_2">Chakraborty &amp; Kundan, 2021</a>). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.</p>
 <p>In <a href="/notes/clojure/" class="backlink">Clojure</a>
  it is possible to add observability through the wonderful <a href="https://github.com/steffan-westcott/clj-otel/">clj-otel library by Steffan Westcott</a>. It implements the <a href="https://opentelemetry.io">OpenTelemetry</a> standard which makes it integrate nicely in products such as <a href="https://www.honeycomb.io/">HoneyComb.io</a> and <a href="https://www.jaegertracing.io/">Jaeger</a>.</p>
 <p>The library has a great tutorial that you can follow <a href="https://github.com/steffan-westcott/clj-otel/blob/master/doc/tutorial.adoc">here</a>. Applying the knowledge from this tutorial to our reitit application is also trivial. To show the power of observability a JDBC connection will be added to the application. It is not necessary to mess with any tables or such, it will just leverage a connection to a Postgres database and a value will be queried from it.</p>
