@@ -4,12 +4,6 @@
       "in": [],
       "out": [
         "/notes/clojure/",
-        "/notes/clojure/",
-        "/notes/clojure/",
-        "/notes/clojure/",
-        "/notes/clojure/",
-        "/notes/clojure/",
-        "/notes/clojure/",
         "/notes/clojure/"
       ]
     },
@@ -18,18 +12,9 @@
         "/posts/20250111-happy-with-nixos/",
         "/notes/clojure-emacs/",
         "/notes/clojure-emacs/",
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/20250111-happy-with-nixos/",
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/20250111-happy-with-nixos/",
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/20250111-happy-with-nixos/",
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
+        "/posts/20250201-observability-in-clojure/",
+        "/posts/20250201-observability-in-clojure/",
+        "/posts/20250201-observability-in-clojure/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": []
@@ -38,51 +23,18 @@
       "in": [],
       "out": [
         "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
         "/notes/rust/"
       ]
     },
     "/notes/rust/": {
       "in": [
         "/posts/20250111-happy-with-nixos/",
-        "/posts/20250126-digital-ocean-dev-database/",
         "/notes/rust-emacs/",
         "/notes/rust-emacs/",
         "/notes/type-driven-design/",
-        "/posts/a-new-theme/",
-        "/notes/zero2prod/",
-        "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
         "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/20250111-happy-with-nixos/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
-        "/posts/a-new-theme/",
-        "/notes/type-driven-design/",
         "/notes/zero2prod/",
-        "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/20250111-happy-with-nixos/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/posts/a-new-theme/",
-        "/notes/type-driven-design/",
-        "/notes/zero2prod/",
-        "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/20250111-happy-with-nixos/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
-        "/posts/a-new-theme/",
-        "/notes/type-driven-design/",
-        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
         "/posts/choose-your-tools/"
       ],
@@ -92,49 +44,24 @@
       "in": [],
       "out": [
         "/notes/rust/",
-        "/notes/zero2prod/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
-        "/notes/rust/",
         "/notes/zero2prod/"
       ]
     },
     "/notes/zero2prod/": {
       "in": [
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/notes/type-driven-design/",
-        "/posts/a-new-theme/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/a-new-theme/",
         "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/a-new-theme/",
-        "/notes/type-driven-design/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/a-new-theme/",
-        "/notes/type-driven-design/"
+        "/posts/a-new-theme/"
       ],
       "out": [
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
         "/notes/rust/"
       ]
     },
     "/posts/20250107-clojure-reitit-server/": {
-      "in": [],
+      "in": [
+        "/posts/20250201-observability-in-clojure/"
+      ],
       "out": [
-        "/posts/a-new-theme/",
-        "/posts/choose-your-tools/",
-        "/notes/clojure/",
-        "/posts/a-new-theme/",
-        "/posts/choose-your-tools/",
-        "/notes/clojure/",
-        "/posts/a-new-theme/",
-        "/posts/choose-your-tools/",
-        "/notes/clojure/",
         "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
         "/notes/clojure/"
@@ -144,12 +71,6 @@
       "in": [],
       "out": [
         "/notes/clojure/",
-        "/notes/rust/",
-        "/notes/clojure/",
-        "/notes/rust/",
-        "/notes/clojure/",
-        "/notes/rust/",
-        "/notes/clojure/",
         "/notes/rust/"
       ]
     },
@@ -157,13 +78,16 @@
       "in": [],
       "out": [
         "/notes/zero2prod/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
         "/notes/rust/"
+      ]
+    },
+    "/posts/20250201-observability-in-clojure/": {
+      "in": [],
+      "out": [
+        "/posts/20250107-clojure-reitit-server/",
+        "/notes/clojure/",
+        "/notes/clojure/",
+        "/notes/clojure/"
       ]
     },
     "/posts/22-years-of-emacs/": {
@@ -172,21 +96,9 @@
     },
     "/posts/a-new-theme/": {
       "in": [
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": [
-        "/posts/choose-your-tools/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
-        "/posts/choose-your-tools/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
-        "/posts/choose-your-tools/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
         "/notes/rust/",
         "/notes/zero2prod/"
@@ -243,21 +155,9 @@
     "/posts/choose-your-tools/": {
       "in": [
         "/posts/20250107-clojure-reitit-server/",
-        "/posts/a-new-theme/",
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/a-new-theme/",
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/a-new-theme/",
-        "/posts/20250107-clojure-reitit-server/",
         "/posts/a-new-theme/"
       ],
       "out": [
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
-        "/notes/rust/",
         "/notes/rust/",
         "/notes/rust/"
       ]
@@ -396,6 +296,11 @@
       "permalink": "/posts/20250126-digital-ocean-dev-database/",
       "section": "posts",
       "title": "Digital Ocean, Its Support and Development Database"
+    },
+    "/posts/20250201-observability-in-clojure/": {
+      "permalink": "/posts/20250201-observability-in-clojure/",
+      "section": "posts",
+      "title": "Observability in Clojure"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",
