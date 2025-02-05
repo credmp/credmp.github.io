@@ -2,301 +2,308 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Arjen Wiersma</title>
-    <link>https://www.arjenwiersma.nl/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 13:03:45 +0100</lastBuildDate>
-    <atom:link href="https://www.arjenwiersma.nl/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Feb 2025 20:40:54 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clojure Projects</title>
+      <link>http://localhost:1313/posts/20250205-clojure-projects/</link>
+      <pubDate>Wed, 05 Feb 2025 20:40:54 +0100</pubDate>
+      <guid>http://localhost:1313/posts/20250205-clojure-projects/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Observability in Clojure</title>
-      <link>https://www.arjenwiersma.nl/posts/20250201-observability-in-clojure/</link>
+      <link>http://localhost:1313/posts/20250201-observability-in-clojure/</link>
       <pubDate>Sat, 01 Feb 2025 13:03:45 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/20250201-observability-in-clojure/</guid>
+      <guid>http://localhost:1313/posts/20250201-observability-in-clojure/</guid>
       <description>&lt;p&gt;Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (&lt;a href=&#34;https://doi.org/10.1007/978-1-4842-6888-9_2&#34;&gt;Chakraborty &amp;amp; Kundan, 2021&lt;/a&gt;; &lt;a href=&#34;https://doi.org/10.1109/ACCESS.2023.3281860&#34;&gt;Kosińska et al., 2023&lt;/a&gt;). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (&lt;a href=&#34;https://doi.org/10.48550/arXiv.2303.13402&#34;&gt;Hausenblas, 2023&lt;/a&gt;; &lt;a href=&#34;https://doi.org/10.1007/978-1-4842-6888-9_2&#34;&gt;Chakraborty &amp;amp; Kundan, 2021&lt;/a&gt;). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Digital Ocean, its support and development database</title>
-      <link>https://www.arjenwiersma.nl/posts/20250126-digital-ocean-dev-database/</link>
+      <link>http://localhost:1313/posts/20250126-digital-ocean-dev-database/</link>
       <pubDate>Sun, 26 Jan 2025 12:31:17 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/20250126-digital-ocean-dev-database/</guid>
-      <description>&lt;figure&#xA;  role=&#34;note&#34;&#xA;  id=&#34;admonition-00&#34;&#xA;  aria-labelledby=&#34;admonition-caption-00&#34;&#xA;  class=&#34;admonition tip  not-prose&#34;&#xA;&gt;&#xA;  &lt;div class=&#34;flex items-center space-x-2 pb-2 font-semibold&#34;&gt;&#xA;      &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;24&#34;&#xA;  height=&#34;24&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-flame block&#34;&#xA;&gt;&#xA;  &lt;path&#xA;    d=&#34;M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z&#34;&#xA;  /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;figcaption id=&#34;admonition-caption-00&#34;&gt;&#xA;        Tip&#xA;    &lt;/figcaption&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;prose pl-8 text-inherit marker:text-inherit&#34;&gt;&#xA;    Currently, only use Postgres 14 on the Digital Ocean application platform for development databases.&#xA;  &lt;/div&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;While following the book &lt;a href=&#34;https://www.arjenwiersma.nl/notes/zero2prod/&#34; class=&#34;backlink&#34;&gt;Zero2Prod&lt;/a&gt;&#xA; you will learn how to deploy a &lt;a href=&#34;https://www.arjenwiersma.nl/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA; application to digital ocean through a Continuous Deployment pipeline. This is hardly anything new for me, I even teach a course in DevOps, but to not stray from the path of the book I followed its instructions.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/20250126-digital-ocean-dev-database/</guid>
+      <description>&lt;figure&#xA;  role=&#34;note&#34;&#xA;  id=&#34;admonition-00&#34;&#xA;  aria-labelledby=&#34;admonition-caption-00&#34;&#xA;  class=&#34;admonition tip  not-prose&#34;&#xA;&gt;&#xA;  &lt;div class=&#34;flex items-center space-x-2 pb-2 font-semibold&#34;&gt;&#xA;      &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;24&#34;&#xA;  height=&#34;24&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-flame block&#34;&#xA;&gt;&#xA;  &lt;path&#xA;    d=&#34;M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z&#34;&#xA;  /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;figcaption id=&#34;admonition-caption-00&#34;&gt;&#xA;        Tip&#xA;    &lt;/figcaption&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;prose pl-8 text-inherit marker:text-inherit&#34;&gt;&#xA;    Currently, only use Postgres 14 on the Digital Ocean application platform for development databases.&#xA;  &lt;/div&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;While following the book &lt;a href=&#34;http://localhost:1313/notes/zero2prod/&#34; class=&#34;backlink&#34;&gt;Zero2Prod&lt;/a&gt;&#xA; you will learn how to deploy a &lt;a href=&#34;http://localhost:1313/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA; application to digital ocean through a Continuous Deployment pipeline. This is hardly anything new for me, I even teach a course in DevOps, but to not stray from the path of the book I followed its instructions.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The joy of NixOS</title>
-      <link>https://www.arjenwiersma.nl/posts/20250111-happy-with-nixos/</link>
+      <link>http://localhost:1313/posts/20250111-happy-with-nixos/</link>
       <pubDate>Sat, 11 Jan 2025 14:31:20 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/20250111-happy-with-nixos/</guid>
+      <guid>http://localhost:1313/posts/20250111-happy-with-nixos/</guid>
       <description>&lt;p&gt;In July 2023, I installed NixOS as my daily operating system. NixOS is a Linux distribution that emphasizes a declarative approach to system management. This means you define your desired operating system configuration in a file (e.g., KDE with Emacs 30 and Firefox), and the Nix package manager uses that file to create your OS. Every change generates a new version, allowing you to revert to a previous version if anything goes wrong.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Build an API with reitit in Clojure</title>
-      <link>https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/</link>
+      <link>http://localhost:1313/posts/20250107-clojure-reitit-server/</link>
       <pubDate>Tue, 07 Jan 2025 22:22:22 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;https://www.arjenwiersma.nl/posts/a-new-theme/&#34; class=&#34;backlink&#34;&gt;my previous post&lt;/a&gt;&#xA; I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in &lt;a href=&#34;https://www.arjenwiersma.nl/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;a post about tooling&lt;/a&gt;&#xA;, I reiterated my ❤️ for &lt;a href=&#34;https://www.arjenwiersma.nl/notes/clojure/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.&lt;/p&gt;&#xA;&lt;p&gt;Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/20250107-clojure-reitit-server/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/a-new-theme/&#34; class=&#34;backlink&#34;&gt;my previous post&lt;/a&gt;&#xA; I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in &lt;a href=&#34;http://localhost:1313/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;a post about tooling&lt;/a&gt;&#xA;, I reiterated my ❤️ for &lt;a href=&#34;http://localhost:1313/notes/clojure/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.&lt;/p&gt;&#xA;&lt;p&gt;Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A New Theme</title>
-      <link>https://www.arjenwiersma.nl/posts/a-new-theme/</link>
+      <link>http://localhost:1313/posts/a-new-theme/</link>
       <pubDate>Sun, 05 Jan 2025 23:17:16 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/a-new-theme/</guid>
-      <description>&lt;p&gt;So, a new year, a new theme! I switched my blog to use the &lt;a href=&#34;https://github.com/michenriksen/hugo-theme-til&#34;&gt;Today I Learned Theme&lt;/a&gt;. This theme has a great feature where it also maintains a collection of notes and shows a graph with related notes. This is very similar to how I use org-roam.&lt;/p&gt;&#xA;&lt;p&gt;I will not be transferring all my notes over, but I thought it would be a very nice feature to share some of my notes with you. This year I am focussing on &lt;a href=&#34;https://www.arjenwiersma.nl/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; and &lt;a href=&#34;https://www.arjenwiersma.nl/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA;, and as a result I will be posting my notes on the new things I learn.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/a-new-theme/</guid>
+      <description>&lt;p&gt;So, a new year, a new theme! I switched my blog to use the &lt;a href=&#34;https://github.com/michenriksen/hugo-theme-til&#34;&gt;Today I Learned Theme&lt;/a&gt;. This theme has a great feature where it also maintains a collection of notes and shows a graph with related notes. This is very similar to how I use org-roam.&lt;/p&gt;&#xA;&lt;p&gt;I will not be transferring all my notes over, but I thought it would be a very nice feature to share some of my notes with you. This year I am focussing on &lt;a href=&#34;http://localhost:1313/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; and &lt;a href=&#34;http://localhost:1313/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA;, and as a result I will be posting my notes on the new things I learn.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Choose your tools</title>
-      <link>https://www.arjenwiersma.nl/posts/choose-your-tools/</link>
+      <link>http://localhost:1313/posts/choose-your-tools/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/choose-your-tools/</guid>
+      <guid>http://localhost:1313/posts/choose-your-tools/</guid>
       <description>&lt;figure&#xA;  role=&#34;note&#34;&#xA;  id=&#34;admonition-00&#34;&#xA;  aria-labelledby=&#34;admonition-caption-00&#34;&#xA;  class=&#34;admonition note  not-prose&#34;&#xA;&gt;&#xA;  &lt;div class=&#34;flex items-center space-x-2 pb-2 font-semibold&#34;&gt;&#xA;      &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;24&#34;&#xA;  height=&#34;24&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-info block&#34;&#xA;&gt;&#xA;  &lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;10&#34; /&gt;&#xA;  &lt;path d=&#34;M12 16v-4M12 8h.01&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;figcaption id=&#34;admonition-caption-00&#34;&gt;&#xA;        Note&#xA;    &lt;/figcaption&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;prose pl-8 text-inherit marker:text-inherit&#34;&gt;&#xA;    Originally posted on 2024-09-30 (Monday). It was updated in January of 2025.&#xA;  &lt;/div&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;I ❤️ to build software. I sadly do not have a lot of time next to my daily work to spend on my side projects, so I have to be disciplined in where I invest time. I wish I could spend endless amounts of time on exploring new technologies, but sadly I simply do not have that time. In writing this is sometimes referred to as &lt;a href=&#34;https://www.masterclass.com/articles/what-does-it-mean-to-kill-your-darlings&#34;&gt;&amp;ldquo;to kill your darlings&amp;rdquo;&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2024</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2024/</link>
+      <link>http://localhost:1313/posts/aoc-2024/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2024/</guid>
+      <guid>http://localhost:1313/posts/aoc-2024/</guid>
       <description>&lt;p&gt;It is December again and that means it is time for the &lt;a href=&#34;https://adventofcode.com/&#34;&gt;Advent of Code&lt;/a&gt;. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.&lt;/p&gt;&#xA;&lt;p&gt;This year I am using Java, together with my students. My goal is to write as modern as possible Java, which means using streams and new language constructs where possible.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The right to repair</title>
-      <link>https://www.arjenwiersma.nl/posts/ifixit-dell/</link>
+      <link>http://localhost:1313/posts/ifixit-dell/</link>
       <pubDate>Wed, 04 Dec 2024 22:13:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/ifixit-dell/</guid>
+      <guid>http://localhost:1313/posts/ifixit-dell/</guid>
       <description>&lt;p&gt;My old laptop, now almost 6 years old, has seen it all. From conferences, to lectures, traveling to distant places and to the library. I did a lot of work on it during the writing of my thesis, and it is a victim to countless hours of compiler time.&lt;/p&gt;&#xA;&lt;p&gt;Sadly the battery started to die. It got to the point that you can only use it shortly for heavier loads. Luckily, unlike certain hardware (looking at you Apple), it is easy to fix. All it needs is a new battery. So I found that &lt;a href=&#34;https://www.ifixit.com/Guide&#34;&gt;ifixit&lt;/a&gt; had the right parts and a &lt;strong&gt;very&lt;/strong&gt; useful kit with all the right tools to do the job.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Remembering Bastiaan</title>
-      <link>https://www.arjenwiersma.nl/posts/remembering-bastiaan/</link>
+      <link>http://localhost:1313/posts/remembering-bastiaan/</link>
       <pubDate>Mon, 02 Dec 2024 18:41:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/remembering-bastiaan/</guid>
+      <guid>http://localhost:1313/posts/remembering-bastiaan/</guid>
       <description>&lt;p&gt;Today the academic world is remembering &lt;a href=&#34;https://cs.ou.nl/members/bastiaan/&#34;&gt;Bastiaan Heeren&lt;/a&gt;, who passed away last week.&lt;/p&gt;&#xA;&lt;p&gt;I spent the better time of a year working on my thesis, and before that I enjoyed lectures given by Bastiaan. He was a person with a great love for teaching, especially when you can get into the nitty gritty details of software quality and the benefits of functional programming.&lt;/p&gt;&#xA;&lt;p&gt;I look back fondly on my time with Bastiaan. He was an open, warm, critical and encouraging human being. He had a great love for his family and work.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using Traefik</title>
-      <link>https://www.arjenwiersma.nl/posts/setting-up-traefik/</link>
+      <link>http://localhost:1313/posts/setting-up-traefik/</link>
       <pubDate>Sun, 17 Nov 2024 12:18:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/setting-up-traefik/</guid>
+      <guid>http://localhost:1313/posts/setting-up-traefik/</guid>
       <description>&lt;p&gt;I recently came across &lt;a href=&#34;https://traefik.io/traefik/&#34;&gt;Traefik&lt;/a&gt;. It is a reverse proxy built specifically for services in the cloud. I was searching for a convenient (up-to-date) way to expose my project using a reverse proxy within &lt;code&gt;docker-compose&lt;/code&gt;. I used to use &lt;code&gt;nginx&lt;/code&gt; for this, but it then requires a generator and an lets encrypt listener (so 3 containers). Traefik only requires a single container and allows you to label your docker containers to apply rules to them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Enhance testability with selmer</title>
-      <link>https://www.arjenwiersma.nl/posts/using-selmer/</link>
+      <link>http://localhost:1313/posts/using-selmer/</link>
       <pubDate>Tue, 08 Oct 2024 19:42:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/using-selmer/</guid>
+      <guid>http://localhost:1313/posts/using-selmer/</guid>
       <description>&lt;p&gt;This is my first article in a series called &lt;strong&gt;Rock Solid Software&lt;/strong&gt;. In it I explore different dimensions of software that does not simply break. You can write good software in any programming language, although some are more suited to a disciplined practice then others, Clojure is definitely in the &lt;em&gt;relaxed&lt;/em&gt; space of discipline here.&lt;/p&gt;&#xA;&lt;p&gt;Today I am exploring the use of Selmer templates in Clojure. If you have explored &lt;a href=&#34;https://www.biffweb.com&#34;&gt;Biff&lt;/a&gt; at all you will know that all the UI logic works by sending &lt;code&gt;Hiccup&lt;/code&gt; through a handler, which will turn into HTML through &lt;code&gt;rum&lt;/code&gt; (specifically the &lt;code&gt;wrap-render-rum&lt;/code&gt; middleware). If you provide a vector as a result for an endpoint, it will be converted to HTML.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bronnen beheren met Zotero [NL]</title>
-      <link>https://www.arjenwiersma.nl/posts/learn-to-stud-zotero/</link>
+      <link>http://localhost:1313/posts/learn-to-stud-zotero/</link>
       <pubDate>Tue, 03 Sep 2024 19:22:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/learn-to-stud-zotero/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://www.arjenwiersma.nl/ox-hugo/_20240722_203307screenshot.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Je hebt &lt;a href=&#34;https://www.arjenwiersma.nl/posts/leren-studeren-tijd-vinden/&#34;&gt;tijd gereserveerd om te gaan studeren&lt;/a&gt; en &lt;a href=&#34;https://www.arjenwiersma.nl/posts/learn-to-stud-deepwork/&#34;&gt;je volgt een ritueel om goed in jouw &amp;ldquo;Deep Work&amp;rdquo; modus te komen&lt;/a&gt;, dat studeren gaat echt goed lukken! Tijdens de colleges en in de lesmaterialen vind je allerlei links naar papers, websites, YouTube videos en haal je veel informatie uit boeken. Al deze bronnen zijn zeer waardevol en bij de eindopdracht zul je veel van deze bronnen weer moeten gebruiken om argumenten te onderbouwen of juist iets te ontkrachten. Hoe ga je dan om met die bronnen zonder dat je gek wordt van allerlei documentjes?&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/learn-to-stud-zotero/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/ox-hugo/_20240722_203307screenshot.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Je hebt &lt;a href=&#34;http://localhost:1313/posts/leren-studeren-tijd-vinden/&#34;&gt;tijd gereserveerd om te gaan studeren&lt;/a&gt; en &lt;a href=&#34;http://localhost:1313/posts/learn-to-stud-deepwork/&#34;&gt;je volgt een ritueel om goed in jouw &amp;ldquo;Deep Work&amp;rdquo; modus te komen&lt;/a&gt;, dat studeren gaat echt goed lukken! Tijdens de colleges en in de lesmaterialen vind je allerlei links naar papers, websites, YouTube videos en haal je veel informatie uit boeken. Al deze bronnen zijn zeer waardevol en bij de eindopdracht zul je veel van deze bronnen weer moeten gebruiken om argumenten te onderbouwen of juist iets te ontkrachten. Hoe ga je dan om met die bronnen zonder dat je gek wordt van allerlei documentjes?&lt;/p&gt;</description>
     </item>
     <item>
       <title>  &#34;Deep Work&#34; voor het studeren [NL]
   </title>
-      <link>https://www.arjenwiersma.nl/posts/learn-to-stud-deepwork/</link>
+      <link>http://localhost:1313/posts/learn-to-stud-deepwork/</link>
       <pubDate>Wed, 21 Aug 2024 22:52:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/learn-to-stud-deepwork/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://www.arjenwiersma.nl/ox-hugo/_20240720_225806screenshot.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;In &lt;a href=&#34;https://www.arjenwiersma.nl/posts/leren-studeren-tijd-vinden/&#34;&gt;mijn vorige artikel&lt;/a&gt; heb ik uitgelegd hoe je tijd kunt vinden om te studeren, de vraag is echter, is alle tijd hetzelfde? Het simpele antwoord is &amp;ldquo;nee&amp;rdquo;. Maar waarom niet, zul je vragen, en daarmee komen we op het onderwerp van dit artikel.&lt;/p&gt;&#xA;&lt;p&gt;Cal Newport heeft een fantastisch boek geschreven, &amp;ldquo;&lt;a href=&#34;https://www.bol.com/nl/nl/p/deep-work/9200000047340481/?bltgh=ujEmm8L1hL083Qs4-KJKSQ.2_18.19.ProductTitle&#34;&gt;Deep Work: Rules for Focused Success in a Distracted World&lt;/a&gt;&amp;rdquo;. In dit boek onderzoekt hij hoe je gefocust werkt en wat er voor nodig is om gefocust te blijven [1]. In het boek identificeert hij 2 soorten werk; &amp;ldquo;Deep Work&amp;rdquo; en &amp;ldquo;Shallow Work&amp;rdquo;. Deze concepten hebben voor mij de aanpak van mijn dagelijkse werk zelfs veranderd, maar dat is een verhaal voor een andere keer.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/learn-to-stud-deepwork/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/ox-hugo/_20240720_225806screenshot.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/leren-studeren-tijd-vinden/&#34;&gt;mijn vorige artikel&lt;/a&gt; heb ik uitgelegd hoe je tijd kunt vinden om te studeren, de vraag is echter, is alle tijd hetzelfde? Het simpele antwoord is &amp;ldquo;nee&amp;rdquo;. Maar waarom niet, zul je vragen, en daarmee komen we op het onderwerp van dit artikel.&lt;/p&gt;&#xA;&lt;p&gt;Cal Newport heeft een fantastisch boek geschreven, &amp;ldquo;&lt;a href=&#34;https://www.bol.com/nl/nl/p/deep-work/9200000047340481/?bltgh=ujEmm8L1hL083Qs4-KJKSQ.2_18.19.ProductTitle&#34;&gt;Deep Work: Rules for Focused Success in a Distracted World&lt;/a&gt;&amp;rdquo;. In dit boek onderzoekt hij hoe je gefocust werkt en wat er voor nodig is om gefocust te blijven [1]. In het boek identificeert hij 2 soorten werk; &amp;ldquo;Deep Work&amp;rdquo; en &amp;ldquo;Shallow Work&amp;rdquo;. Deze concepten hebben voor mij de aanpak van mijn dagelijkse werk zelfs veranderd, maar dat is een verhaal voor een andere keer.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Finding time to study</title>
-      <link>https://www.arjenwiersma.nl/posts/learn-to-stud-finding-time/</link>
+      <link>http://localhost:1313/posts/learn-to-stud-finding-time/</link>
       <pubDate>Mon, 15 Jul 2024 23:05:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/learn-to-stud-finding-time/</guid>
-      <description>&lt;p&gt;This is an English article, there is also a &lt;a href=&#34;https://www.arjenwiersma.nl/posts/leren-studeren-tijd-vinden&#34;&gt;Dutch version&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;So, you&amp;rsquo;ve decided to start studying? Maybe you want to earn your Bachelor or Master&amp;rsquo;s degree, or perhaps you&amp;rsquo;re aiming for that highly technical certificate. It&amp;rsquo;s great that you&amp;rsquo;re taking this step, but once you begin, you&amp;rsquo;ll quickly need to answer the question of where you&amp;rsquo;ll find the time.&lt;/p&gt;&#xA;&lt;p&gt;Time is our most valuable, non-renewable resource. Studying requires time – and not just a little – so you naturally want to use it well. Most programs expect you to invest between 12 and 24 hours per week to keep up, and that&amp;rsquo;s quite a bit! If you&amp;rsquo;re not currently studying, try thinking about which days and times you could free up that time. Will you eat out less or exercise less? Get up early on weekends or stay up late?&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/learn-to-stud-finding-time/</guid>
+      <description>&lt;p&gt;This is an English article, there is also a &lt;a href=&#34;http://localhost:1313/posts/leren-studeren-tijd-vinden&#34;&gt;Dutch version&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;So, you&amp;rsquo;ve decided to start studying? Maybe you want to earn your Bachelor or Master&amp;rsquo;s degree, or perhaps you&amp;rsquo;re aiming for that highly technical certificate. It&amp;rsquo;s great that you&amp;rsquo;re taking this step, but once you begin, you&amp;rsquo;ll quickly need to answer the question of where you&amp;rsquo;ll find the time.&lt;/p&gt;&#xA;&lt;p&gt;Time is our most valuable, non-renewable resource. Studying requires time – and not just a little – so you naturally want to use it well. Most programs expect you to invest between 12 and 24 hours per week to keep up, and that&amp;rsquo;s quite a bit! If you&amp;rsquo;re not currently studying, try thinking about which days and times you could free up that time. Will you eat out less or exercise less? Get up early on weekends or stay up late?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tijd vinden om te studeren [Dutch article]</title>
-      <link>https://www.arjenwiersma.nl/posts/leren-studeren-tijd-vinden/</link>
+      <link>http://localhost:1313/posts/leren-studeren-tijd-vinden/</link>
       <pubDate>Mon, 15 Jul 2024 23:05:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/leren-studeren-tijd-vinden/</guid>
-      <description>&lt;p&gt;This is a Dutch artcile, there is also an &lt;a href=&#34;https://www.arjenwiersma.nl/posts/learn-to-stud-finding-time&#34;&gt;English version&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Dus, jij hebt besloten om te gaan studeren? Misschien wil je jouw HBO- of Masterdiploma halen, of juist dat ene supertechnische certificaat bemachtigen. Het is geweldig dat je deze stap gaat zetten, maar zodra je begint, zul je vrij snel de vraag moeten beantwoorden waar je de tijd vandaan haalt.&lt;/p&gt;&#xA;&lt;p&gt;Tijd is onze meest waardevolle, niet-hernieuwbare bron. Studeren vergt tijd – en niet zo&amp;rsquo;n klein beetje ook – dus wil je het natuurlijk goed doen. De meeste studies verwachten dat je wekelijks ergens tussen de 12 en 24 uur investeert om bij te blijven, en dat is flink wat! Als je nog niet studeert, probeer dan eens na te denken over welke dagen en momenten je die tijd kunt vrijmaken. Ga je minder uit eten of juist minder sporten? Vroeg opstaan in het weekend, of juist extra laat naar bed?&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/leren-studeren-tijd-vinden/</guid>
+      <description>&lt;p&gt;This is a Dutch artcile, there is also an &lt;a href=&#34;http://localhost:1313/posts/learn-to-stud-finding-time&#34;&gt;English version&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Dus, jij hebt besloten om te gaan studeren? Misschien wil je jouw HBO- of Masterdiploma halen, of juist dat ene supertechnische certificaat bemachtigen. Het is geweldig dat je deze stap gaat zetten, maar zodra je begint, zul je vrij snel de vraag moeten beantwoorden waar je de tijd vandaan haalt.&lt;/p&gt;&#xA;&lt;p&gt;Tijd is onze meest waardevolle, niet-hernieuwbare bron. Studeren vergt tijd – en niet zo&amp;rsquo;n klein beetje ook – dus wil je het natuurlijk goed doen. De meeste studies verwachten dat je wekelijks ergens tussen de 12 en 24 uur investeert om bij te blijven, en dat is flink wat! Als je nog niet studeert, probeer dan eens na te denken over welke dagen en momenten je die tijd kunt vrijmaken. Ga je minder uit eten of juist minder sporten? Vroeg opstaan in het weekend, of juist extra laat naar bed?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Master of Puppets^HScience!</title>
-      <link>https://www.arjenwiersma.nl/posts/master-of-science/</link>
+      <link>http://localhost:1313/posts/master-of-science/</link>
       <pubDate>Mon, 24 Jun 2024 21:47:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/master-of-science/</guid>
+      <guid>http://localhost:1313/posts/master-of-science/</guid>
       <description>&lt;p&gt;So, on Thursday I defended my thesis in front of the graduation committee, and passed! This means that the work I have been doing for the last year comes to an end. From now on there are not long nights and weekends working on my thesis anymore.&lt;/p&gt;&#xA;&lt;p&gt;Back in 2021 I started my journey of achieving a Master&amp;rsquo;s degree, first with a connecting program and then with the 2 year Master program. Even though I have been in computer science in some form for the last 30 years I still found it to be quite a learning experience.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Resigning as Hack The Box Ambassador</title>
-      <link>https://www.arjenwiersma.nl/posts/resigning-as-htb-ambassador/</link>
+      <link>http://localhost:1313/posts/resigning-as-htb-ambassador/</link>
       <pubDate>Tue, 28 May 2024 22:50:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/resigning-as-htb-ambassador/</guid>
+      <guid>http://localhost:1313/posts/resigning-as-htb-ambassador/</guid>
       <description>&lt;p&gt;So, today I have some news. I will be resigning as Ambassador for Hack The Box after our in-person meetup in June (2024). This means that I will be stepping down from organizing the monthly virtual and quarterly in-person Hack The Box meetups. Let me explain how I got to this decision.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-beginning&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  The beginning&#xA;  &#xA;    &lt;a href=&#34;#the-beginning&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;So, in 2019, I started out building a cyber security curriculum for &lt;a href=&#34;https://www.novi.nl&#34;&gt;NOVI Hogeschool&lt;/a&gt;. I had the ability to greenfield the courses and create something that is of value to students. In this curriculum I started using Hack The Box for exercises and training next to the regular classwork.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The cyber cafe podcast</title>
-      <link>https://www.arjenwiersma.nl/posts/cyber-cafe-podcast/</link>
+      <link>http://localhost:1313/posts/cyber-cafe-podcast/</link>
       <pubDate>Tue, 09 Apr 2024 20:39:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/cyber-cafe-podcast/</guid>
+      <guid>http://localhost:1313/posts/cyber-cafe-podcast/</guid>
       <description>&lt;p&gt;Last week I was a guest on the Cyber Cafe podcast by &lt;a href=&#34;https://rootsec.nl/&#34;&gt;rootsec&lt;/a&gt;. It was a fun discussion on education and the current xz backdoor story. It is in the Dutch language. It is available on youtube and included below:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     <item>
       <title>Microsoft Teams (v2) on Linux</title>
-      <link>https://www.arjenwiersma.nl/posts/ms-teams-on-linux/</link>
+      <link>http://localhost:1313/posts/ms-teams-on-linux/</link>
       <pubDate>Mon, 01 Apr 2024 10:29:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/ms-teams-on-linux/</guid>
+      <guid>http://localhost:1313/posts/ms-teams-on-linux/</guid>
       <description>&lt;p&gt;This post is just a small note for those of you who also run Microsoft Teams on Linux through their browser and now receive a note &amp;ldquo;your browser does not meet the requirements for the new Teams&amp;rdquo;. It turns out that the client is looking at the user-agent string to determine which browsers it accepts, and which not.&lt;/p&gt;&#xA;&lt;p&gt;So, if you have the message, install an user-agent switcher and select a common browser on a common OS (from the MS perspective) and you will suddenly meet the requirements.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My computing environment</title>
-      <link>https://www.arjenwiersma.nl/posts/my-computing-environment/</link>
+      <link>http://localhost:1313/posts/my-computing-environment/</link>
       <pubDate>Sun, 18 Feb 2024 15:35:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/my-computing-environment/</guid>
+      <guid>http://localhost:1313/posts/my-computing-environment/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This is a longer form article. I is relevant as of &lt;strong&gt;February 18th 2023&lt;/strong&gt;. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on &lt;a href=&#34;https://github.com/credmp/nixos-dotfiles/&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Heading to the finish line</title>
-      <link>https://www.arjenwiersma.nl/posts/ou-heading-to-the-finish-line/</link>
+      <link>http://localhost:1313/posts/ou-heading-to-the-finish-line/</link>
       <pubDate>Sat, 17 Feb 2024 20:59:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/ou-heading-to-the-finish-line/</guid>
+      <guid>http://localhost:1313/posts/ou-heading-to-the-finish-line/</guid>
       <description>&lt;p&gt;It has been a little while. I have been swamped with work and the work on my thesis, leaving no room to finish the Advent of Code or much of anything else.&lt;/p&gt;&#xA;&lt;p&gt;Yesterday I gave my practice presentation for my thesis. This means I am one more step closer to the finish line. During the day there were many interactions with fellow students. One of the topics has been the templates to use at Open Universiteit. So, I thought I would just create a repository of the templates that I use, so that anyone can learn from them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 day 9</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-9/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-9/</link>
       <pubDate>Sat, 09 Dec 2023 07:29:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-9/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-9/</guid>
       <description>&lt;p&gt;The weekend generally is a place to find hard puzzles again, this time not so much. A simple quest to find the next number in a sequence with a fully written out algorithm to follow. They key here is to use recursion.&lt;/p&gt;&#xA;&lt;figure class=&#34;codeblock not-prose relative scroll-mt-8&#34; id=&#34;codeblock-01&#34;&gt;&#xA;  &lt;aside&#xA;    class=&#34;absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block&#34;&#xA;  &gt;&#xA;    &lt;div class=&#34;codeblock-meta flex max-w-xs flex-row items-center space-x-3&#34;&gt;&#xA;      &lt;div class=&#34;small-caps shrink cursor-default truncate font-mono text-xs&#34; aria-hidden=&#34;true&#34;&gt;&#xA;        &lt;span class=&#34;relative&#34;&gt;go&lt;/span&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div&gt;&#xA;        &lt;clipboard-copy&#xA;          type=&#34;button&#34;&#xA;          aria-label=&#34;Copy code to clipboard&#34;&#xA;          title=&#34;Copy code to clipboard&#34;&#xA;          class=&#34;block cursor-pointer transition-colors hover:text-sky-400&#34;&#xA;          target=&#34;#codeblock-01 code&#34;&#xA;        &gt;&#xA;          &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  class=&#34;lucide lucide-clipboard h-4 w-4&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;rect width=&#34;8&#34; height=&#34;4&#34; x=&#34;8&#34; y=&#34;2&#34; rx=&#34;1&#34; ry=&#34;1&#34; /&gt;&#xA;  &lt;path d=&#34;M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;        &lt;/clipboard-copy&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div&gt;&#xA;        &lt;a&#xA;          href=&#34;#codeblock-01&#34;&#xA;          class=&#34;block&#34;&#xA;          aria-label=&#34;Link to this code block&#34;&#xA;          title=&#34;Link to this code block&#34;&#xA;        &gt;&#xA;          &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;        &lt;/a&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/aside&gt;&#xA;  &lt;p class=&#34;sr-only&#34;&gt;go code snippet start&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 day 8</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-8/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-8/</link>
       <pubDate>Sat, 09 Dec 2023 07:27:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-8/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-8/</guid>
       <description>&lt;p&gt;Somewhat suspicious of 2 easy days we end up at Day 8. A simple map to follow again, from one key follow the instructions until we hit &lt;code&gt;ZZZ&lt;/code&gt;. Part 2 had us do it for several keys at once, with the goal to find the spot where they all converge. This can take &lt;strong&gt;forever&lt;/strong&gt;, erhm, a long time.&lt;/p&gt;&#xA;&lt;p&gt;So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem. It is the smallest positive integer that is divisible by two or more numbers without leaving a remainder. To find the LCM of two or more numbers, you can use a method called prime factorization or a simpler approach involving multiples. We can also use the Greatest Common Divisor (GCD) to find the LCM.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 day 7</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-7/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-7/</link>
       <pubDate>Sat, 09 Dec 2023 07:18:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-7/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-7/</guid>
       <description>&lt;p&gt;Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.&lt;/p&gt;&#xA;&lt;figure class=&#34;codeblock not-prose relative scroll-mt-8&#34; id=&#34;codeblock-01&#34;&gt;&#xA;  &lt;aside&#xA;    class=&#34;absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block&#34;&#xA;  &gt;&#xA;    &lt;div class=&#34;codeblock-meta flex max-w-xs flex-row items-center space-x-3&#34;&gt;&#xA;      &lt;div class=&#34;small-caps shrink cursor-default truncate font-mono text-xs&#34; aria-hidden=&#34;true&#34;&gt;&#xA;        &lt;span class=&#34;relative&#34;&gt;go&lt;/span&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div&gt;&#xA;        &lt;clipboard-copy&#xA;          type=&#34;button&#34;&#xA;          aria-label=&#34;Copy code to clipboard&#34;&#xA;          title=&#34;Copy code to clipboard&#34;&#xA;          class=&#34;block cursor-pointer transition-colors hover:text-sky-400&#34;&#xA;          target=&#34;#codeblock-01 code&#34;&#xA;        &gt;&#xA;          &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  class=&#34;lucide lucide-clipboard h-4 w-4&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;rect width=&#34;8&#34; height=&#34;4&#34; x=&#34;8&#34; y=&#34;2&#34; rx=&#34;1&#34; ry=&#34;1&#34; /&gt;&#xA;  &lt;path d=&#34;M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;        &lt;/clipboard-copy&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div&gt;&#xA;        &lt;a&#xA;          href=&#34;#codeblock-01&#34;&#xA;          class=&#34;block&#34;&#xA;          aria-label=&#34;Link to this code block&#34;&#xA;          title=&#34;Link to this code block&#34;&#xA;        &gt;&#xA;          &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;        &lt;/a&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/aside&gt;&#xA;  &lt;p class=&#34;sr-only&#34;&gt;go code snippet start&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 day 6</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-6/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-6/</link>
       <pubDate>Sat, 09 Dec 2023 07:16:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-6/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-6/</guid>
       <description>&lt;p&gt;Day 6 turned out to be the easiest day in the range so far. A simple implementation of the algorithm was more than sufficient.&lt;/p&gt;&#xA;&lt;p&gt;I later learned that it was a quadratic function. On the subreddit Deatranger999 said:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x + d is at most 0, where t is the total time of the race and d is the distance you&amp;rsquo;d like to beat. So I just plugged each one into WolframAlpha, found the roots, and then calculated the number of integers between the two roots.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 day 5</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-5/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-5/</link>
       <pubDate>Sat, 09 Dec 2023 07:13:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-5/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-5/</guid>
       <description>&lt;p&gt;Today was an interesting problem. We are basically given a map to follow based on a number, possibly transforming the number at each step. With a single number this is quite simple, just apply the rules and step through each set of transformations. The problem becomes tricky when it turns out we have to deal with enormous ranges of numbers. On the subreddit some people reported their implementation to take hours and use 20GB of memory.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 Day 4</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-4/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-4/</link>
       <pubDate>Mon, 04 Dec 2023 23:16:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-4/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-4/</guid>
       <description>&lt;p&gt;The difficulty is going up and down. This day was quite easy in comparison to yesterday. Today it was about parsing some numbers and finding a set of winning numbers.&lt;/p&gt;&#xA;&lt;p&gt;As I am doing these puzzles in Go I found out that there is no default &lt;code&gt;set&lt;/code&gt; type. There is an implementation by HashiCorp named &lt;a href=&#34;https://github.com/hashicorp/go-set&#34;&gt;go-set&lt;/a&gt; that fills this void. I did not use an external package (I try to avoid them while doing AoC), but I am very tempted to pull that package in.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 Day 3</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-3/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-3/</link>
       <pubDate>Sun, 03 Dec 2023 12:38:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-3/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-3/</guid>
       <description>&lt;p&gt;Day 3 was quite something. I think that in an attempt to make it harder for AI to solve the puzzles the creators also increased the difficulty level of the base puzzles a little too much. The test was not very clear as to what should happen with negative numbers and it might trip people up. The puzzle itself is a great to exercise grid knowledge as you have to work with neighbors and you have to extend the numbers when you find them. Part 2 was just some bookkeeping on my existing implementation, so it was not too much work.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 Day 2</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-2/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-2/</link>
       <pubDate>Sat, 02 Dec 2023 14:41:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-2/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-2/</guid>
       <description>&lt;p&gt;Day 2 was another fun challenge. Lots of splitting of strings. I wonder if there is a better way to filter out the min and max value from the separate grabs.&lt;/p&gt;&#xA;&lt;p&gt;I am sure I will not be able to complete all challenges this year, but so far so good.&lt;/p&gt;&#xA;&lt;figure class=&#34;codeblock not-prose relative scroll-mt-8&#34; id=&#34;codeblock-01&#34;&gt;&#xA;  &lt;aside&#xA;    class=&#34;absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block&#34;&#xA;  &gt;&#xA;    &lt;div class=&#34;codeblock-meta flex max-w-xs flex-row items-center space-x-3&#34;&gt;&#xA;      &lt;div class=&#34;small-caps shrink cursor-default truncate font-mono text-xs&#34; aria-hidden=&#34;true&#34;&gt;&#xA;        &lt;span class=&#34;relative&#34;&gt;go&lt;/span&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div&gt;&#xA;        &lt;clipboard-copy&#xA;          type=&#34;button&#34;&#xA;          aria-label=&#34;Copy code to clipboard&#34;&#xA;          title=&#34;Copy code to clipboard&#34;&#xA;          class=&#34;block cursor-pointer transition-colors hover:text-sky-400&#34;&#xA;          target=&#34;#codeblock-01 code&#34;&#xA;        &gt;&#xA;          &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  class=&#34;lucide lucide-clipboard h-4 w-4&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;rect width=&#34;8&#34; height=&#34;4&#34; x=&#34;8&#34; y=&#34;2&#34; rx=&#34;1&#34; ry=&#34;1&#34; /&gt;&#xA;  &lt;path d=&#34;M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;        &lt;/clipboard-copy&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div&gt;&#xA;        &lt;a&#xA;          href=&#34;#codeblock-01&#34;&#xA;          class=&#34;block&#34;&#xA;          aria-label=&#34;Link to this code block&#34;&#xA;          title=&#34;Link to this code block&#34;&#xA;        &gt;&#xA;          &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;        &lt;/a&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/aside&gt;&#xA;  &lt;p class=&#34;sr-only&#34;&gt;go code snippet start&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2023 Day 1</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2023-day-1/</link>
+      <link>http://localhost:1313/posts/aoc-2023-day-1/</link>
       <pubDate>Sat, 02 Dec 2023 14:39:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2023-day-1/</guid>
+      <guid>http://localhost:1313/posts/aoc-2023-day-1/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://www.adventofcode.com&#34;&gt;Advent of Code&lt;/a&gt; has started again. At &lt;a href=&#34;https://www.novi.nl&#34;&gt;NOVI&lt;/a&gt; we participate with a group of our students. We use the AoC throughout the entire curriculum as practice exercises to learn new programming languages or the application of data-structures and algorithms.&lt;/p&gt;&#xA;&lt;p&gt;Day 1 was a tricky start for most people. Part 1 was not too bad, but part 2 tripped most people up. I guess the idea was that you would have to solve the challenge with an array iteration, but most students tripped up. They tried to match each word and replace the occurrence in the text, running head-on into the edge-case where 2 numbers overlap, such as &amp;ldquo;eightwo&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>  Embarking on a Journey to Revolutionize Code Editing: The Birth of &#34;BiDE&#34;
   </title>
-      <link>https://www.arjenwiersma.nl/posts/the-start-of-bide/</link>
+      <link>http://localhost:1313/posts/the-start-of-bide/</link>
       <pubDate>Mon, 04 Sep 2023 20:44:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/the-start-of-bide/</guid>
+      <guid>http://localhost:1313/posts/the-start-of-bide/</guid>
       <description>&lt;p&gt;As the warm haze of summer gives way to the crisp air of autumn, the season marks a pivotal moment in my academic journey: the commencement of my Master&amp;rsquo;s thesis project. Having successfully had my research proposal accepted earlier this year, I now face the last leg of this marathon—bringing my theoretical framework to life.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-powerhouse-partnership-open-universiteit-and-cwi&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  The Powerhouse Partnership: Open Universiteit and CWI&#xA;  &#xA;    &lt;a href=&#34;#the-powerhouse-partnership-open-universiteit-and-cwi&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;While undertaking a Master&amp;rsquo;s thesis is a significant endeavor on its own, I always have to make it more complex. My research will be a collaborative effort between two prominent institutions: the Open Universiteit and the Centrum Wiskunde &amp;amp; Informatica (CWI).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Perfectionism leads to procrastination and paralysis</title>
-      <link>https://www.arjenwiersma.nl/posts/perfectionsim-procrastination/</link>
+      <link>http://localhost:1313/posts/perfectionsim-procrastination/</link>
       <pubDate>Tue, 06 Jun 2023 08:15:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/perfectionsim-procrastination/</guid>
+      <guid>http://localhost:1313/posts/perfectionsim-procrastination/</guid>
       <description>&lt;p&gt;Working on my thesis research proposal has been quite the journey, and not always in the direction I would have chosen. A personal revelation that struck me during the process is the tight and rather vexing relationship between perfectionism, procrastination, and paralysis.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s often said that the perfect is the enemy of the good. In my quest for the &amp;lsquo;just right&amp;rsquo; words to articulate my thoughts, I found this saying to be glaringly accurate. The ticking clock became a dull backdrop to my cerebral scavenger hunt. My concentration started to drift and instead of zeroing in on my research proposal, I found myself fixated on, of all things, the color scheme of my desktop environment.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using AI in academics</title>
-      <link>https://www.arjenwiersma.nl/posts/ai-in-academics/</link>
+      <link>http://localhost:1313/posts/ai-in-academics/</link>
       <pubDate>Sat, 20 May 2023 11:00:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/ai-in-academics/</guid>
+      <guid>http://localhost:1313/posts/ai-in-academics/</guid>
       <description>&lt;p&gt;Using AI, in particular generative models such as GPT, are in contention within academics. The purity of academics resides in students writing on their research and having their work peer-reviewed. But how can you now be sure that the student wrote the paper and how can you trust its content? Many universities, including the OU have written about it. The OU published an article in &lt;a href=&#34;https://modulair.ou.nl/modulair-2023-april/chatgpt-in-het-onderwijs&#34;&gt;Modulair about it&lt;/a&gt;. Generally, the consensus seems to be that it is ok to use AI as an assistant, but you must write your texts.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Starting my Master Thesis</title>
-      <link>https://www.arjenwiersma.nl/posts/starting-master-thesis/</link>
+      <link>http://localhost:1313/posts/starting-master-thesis/</link>
       <pubDate>Thu, 13 Apr 2023 22:15:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/starting-master-thesis/</guid>
+      <guid>http://localhost:1313/posts/starting-master-thesis/</guid>
       <description>&lt;p&gt;Today, I took the first step towards starting my master&amp;rsquo;s thesis. I have decided to document my journey and experiences on my blog. Given that the thesis will play a pivotal role in my life for the next nine months, I expect it to be a thrilling journey.&lt;/p&gt;&#xA;&lt;h3 id=&#34;finding-a-topic&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  Finding a topic&#xA;  &#xA;    &lt;a href=&#34;#finding-a-topic&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;As a student at &lt;a href=&#34;https://www.ou.nl&#34;&gt;Open Universiteit&lt;/a&gt; in The Netherlands, I had the opportunity to work with the &lt;a href=&#34;https://rascal-mpl.org&#34;&gt;Rascal programming language&lt;/a&gt; during the Software Quality Management course. I found the language intriguing and enjoyed working with it throughout the module. After consulting with my professor, we brainstormed various possibilities for my master&amp;rsquo;s thesis topic, ultimately settling on the creation of a visualization library for the language.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Open Universiteit: Software Quality Management</title>
-      <link>https://www.arjenwiersma.nl/posts/ou-sqm/</link>
+      <link>http://localhost:1313/posts/ou-sqm/</link>
       <pubDate>Sat, 25 Mar 2023 16:31:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/ou-sqm/</guid>
+      <guid>http://localhost:1313/posts/ou-sqm/</guid>
       <description>&lt;h3 id=&#34;background&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  Background&#xA;  &#xA;    &lt;a href=&#34;#background&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;I have been working on getting my Master&amp;rsquo;s degree in Software Engineering. To do this I have started following courses at the Dutch Open Universiteit. They have a Master&amp;rsquo;s program that takes 2 years and you are able to follow it from home.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Badge Challenge 3</title>
-      <link>https://www.arjenwiersma.nl/posts/badge-challenge-3/</link>
+      <link>http://localhost:1313/posts/badge-challenge-3/</link>
       <pubDate>Sun, 12 Mar 2023 12:10:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/badge-challenge-3/</guid>
+      <guid>http://localhost:1313/posts/badge-challenge-3/</guid>
       <description>&lt;h3 id=&#34;original-post&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  Original Post&#xA;  &#xA;    &lt;a href=&#34;#original-post&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;During each in-person Hack The Box meetup I have a small badge challenge that will give the first solver of the challenge a price. at the meetup of March 2023 there will be a very nice little challenge to be done as well, a beautiful NOVI hoodie. You can already download the password protected zip archive. The password will be shared during the meetup opening words.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deployment Anxiety</title>
-      <link>https://www.arjenwiersma.nl/posts/deployment-anxiety/</link>
+      <link>http://localhost:1313/posts/deployment-anxiety/</link>
       <pubDate>Wed, 16 Nov 2022 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/deployment-anxiety/</guid>
+      <guid>http://localhost:1313/posts/deployment-anxiety/</guid>
       <description>&lt;p&gt;Let me tell you how it was to ship a product out to half a million people back in 1999. But before I do that, let me tell you why. Today I talked to one of my students and he mentioned that he was very nervous about a change he was making. He was afraid it would break things and that he would spend the afternoon working through his CI/CD pipeline to resolve issues.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cleaning up after LSP-mode</title>
-      <link>https://www.arjenwiersma.nl/posts/cleaning-up-lsp-mode/</link>
+      <link>http://localhost:1313/posts/cleaning-up-lsp-mode/</link>
       <pubDate>Mon, 07 Nov 2022 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/cleaning-up-lsp-mode/</guid>
+      <guid>http://localhost:1313/posts/cleaning-up-lsp-mode/</guid>
       <description>&lt;p&gt;I use &lt;a href=&#34;https://emacs-lsp.github.io/lsp-mode/&#34;&gt;lsp-mode&lt;/a&gt; quite extensively. I switched from eglot when I started using LSP more. The beautify of lsp-mode is that it will automatically install language servers as you need them. It also integrates excellently with &lt;a href=&#34;https://emacs-lsp.github.io/dap-mode/&#34;&gt;dap-mode&lt;/a&gt; to enable debugging sessions. So, I switched to it, turned off all the information overload and I am quite happy.&lt;/p&gt;&#xA;&lt;p&gt;One thing I do extensively is that I use LaTeX to make my slides for college class slides and class assignments. That means I have hundreds of directories with presentations, assignments and other documents. Each time I enter a directory for a class it will spawn an LSP session for that set of LaTeX files.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Should we pay for open source?</title>
-      <link>https://www.arjenwiersma.nl/posts/should-we-pay-for-oss/</link>
+      <link>http://localhost:1313/posts/should-we-pay-for-oss/</link>
       <pubDate>Sun, 06 Nov 2022 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/should-we-pay-for-oss/</guid>
+      <guid>http://localhost:1313/posts/should-we-pay-for-oss/</guid>
       <description>&lt;p&gt;As the world is processing the &lt;a href=&#34;https://www.forbes.com/sites/petersuciu/2022/11/05/twitter-is-facing-a-great-exodus--can-the-company-remain-profitable-if-it-loses-its-power-users/?sh=3a3aaec0212a&#34;&gt;Twitter deal&lt;/a&gt; the open source project &lt;a href=&#34;https://joinmastodon.org/&#34;&gt;Mastodon&lt;/a&gt; is gaining a lot of traction. The instance that I am on, &lt;a href=&#34;https://fostodon.org&#34;&gt;fosstodon&lt;/a&gt;, is run by a small team and is fully funded by &lt;a href=&#34;https://hub.fosstodon.org/support/&#34;&gt;donations&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Now this may sound somewhat strange; as the twitterverse is blowing up about $8/month for a blue checkmark I would argue that the $8 is better spent supporting open source projects. As developers, security people, and users we rely on a lot of free time and effort from open source contributors.&lt;/p&gt;</description>
     </item>
     <item>
       <title>22 years of Emacs</title>
-      <link>https://www.arjenwiersma.nl/posts/22-years-of-emacs/</link>
+      <link>http://localhost:1313/posts/22-years-of-emacs/</link>
       <pubDate>Tue, 07 Dec 2021 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/22-years-of-emacs/</guid>
+      <guid>http://localhost:1313/posts/22-years-of-emacs/</guid>
       <description>&lt;h3 id=&#34;where-to-begin-dot-dot-dot&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  Where to begin&amp;hellip;&#xA;  &#xA;    &lt;a href=&#34;#where-to-begin-dot-dot-dot&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;I just watched David Wilson&amp;rsquo;s talk called &lt;a href=&#34;https://emacsconf.org/2021/talks/forever/&#34;&gt;M-x forever - why Emacs will outlast text editor trends&lt;/a&gt;. He gave this talk at &lt;a href=&#34;https://emacsconf.org/&#34;&gt;EmacsConf 2021&lt;/a&gt; which is a conference dedicated to Emacs. The talk made me reflect on my use of Emacs over the last years and then I realized that this year will mark 22 years that Emacs and I have been together. This (probably too long) article reflects on those years and dives into my use of Emacs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hack The Box Ambassador</title>
-      <link>https://www.arjenwiersma.nl/posts/htb-ambassador/</link>
+      <link>http://localhost:1313/posts/htb-ambassador/</link>
       <pubDate>Wed, 29 Sep 2021 00:00:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/htb-ambassador/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://www.arjenwiersma.nl/ox-hugo/header.jpg&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;For the last 18 months I have organized the dutch Hack The Box meetups. Due to COVID-19 they have all been as a digital meetup, but not less entertaining though.&lt;/p&gt;&#xA;&lt;p&gt;During my time organizing the meetups the Hack The Box organization supports me in various ways; they give me stuff to hand out such as swag or VIP memberships, they help organize speakers for events when we don&amp;rsquo;t have one ourselves and they provide me with Hack The Box goodies every once in a while.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/htb-ambassador/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/ox-hugo/header.jpg&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;For the last 18 months I have organized the dutch Hack The Box meetups. Due to COVID-19 they have all been as a digital meetup, but not less entertaining though.&lt;/p&gt;&#xA;&lt;p&gt;During my time organizing the meetups the Hack The Box organization supports me in various ways; they give me stuff to hand out such as swag or VIP memberships, they help organize speakers for events when we don&amp;rsquo;t have one ourselves and they provide me with Hack The Box goodies every once in a while.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

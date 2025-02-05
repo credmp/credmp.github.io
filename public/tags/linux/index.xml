@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Arjen Wiersma</title>
-    <link>https://www.arjenwiersma.nl/tags/linux/</link>
+    <link>http://localhost:1313/tags/linux/</link>
     <description>Recent content in Linux on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Sat, 11 Jan 2025 14:31:20 +0100</lastBuildDate>
-    <atom:link href="https://www.arjenwiersma.nl/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The joy of NixOS</title>
-      <link>https://www.arjenwiersma.nl/posts/20250111-happy-with-nixos/</link>
+      <link>http://localhost:1313/posts/20250111-happy-with-nixos/</link>
       <pubDate>Sat, 11 Jan 2025 14:31:20 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/20250111-happy-with-nixos/</guid>
+      <guid>http://localhost:1313/posts/20250111-happy-with-nixos/</guid>
       <description>&lt;p&gt;In July 2023, I installed NixOS as my daily operating system. NixOS is a Linux distribution that emphasizes a declarative approach to system management. This means you define your desired operating system configuration in a file (e.g., KDE with Emacs 30 and Firefox), and the Nix package manager uses that file to create your OS. Every change generates a new version, allowing you to revert to a previous version if anything goes wrong.&lt;/p&gt;</description>
     </item>
   </channel>
