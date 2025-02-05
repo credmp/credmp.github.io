@@ -7,13 +7,20 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 13:03:45 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2025 20:40:54 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clojure</title>
       <link>http://localhost:1313/tags/clojure/</link>
-      <pubDate>Sat, 01 Feb 2025 13:03:45 +0100</pubDate>
+      <pubDate>Wed, 05 Feb 2025 20:40:54 +0100</pubDate>
       <guid>http://localhost:1313/tags/clojure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>http://localhost:1313/tags/web/</link>
+      <pubDate>Wed, 05 Feb 2025 20:40:54 +0100</pubDate>
+      <guid>http://localhost:1313/tags/web/</guid>
       <description></description>
     </item>
     <item>
@@ -21,13 +28,6 @@
       <link>http://localhost:1313/tags/observability/</link>
       <pubDate>Sat, 01 Feb 2025 13:03:45 +0100</pubDate>
       <guid>http://localhost:1313/tags/observability/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Web</title>
-      <link>http://localhost:1313/tags/web/</link>
-      <pubDate>Sat, 01 Feb 2025 13:03:45 +0100</pubDate>
-      <guid>http://localhost:1313/tags/web/</guid>
       <description></description>
     </item>
     <item>

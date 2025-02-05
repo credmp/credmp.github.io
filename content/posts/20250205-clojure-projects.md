@@ -1,6 +1,8 @@
 +++
 date = '2025-02-05T20:40:54+01:00'
 title = 'Clojure Projects'
+tags = ['clojure', 'web']
+categories = ['programming']
 +++
 
 When I tell people that I like to code in {{< backlink "clojure" "Clojure">}} the common response is "*wut?*". Clojure is not known as a programming language in which you create big systems. As all Clojure people know, this is not true. There are many systems written in Clojure. Let me show you some that are very actively maintained.
