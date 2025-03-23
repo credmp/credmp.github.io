@@ -3,11 +3,9 @@ title: Arjen Wiersma
 date: "2025-01-05"
 ---
 
-My name is Arjen and I am the Manager of Product Development and Chief Lecturer at [Hogeschool NOVI](https://www.novi.nl). I work on creating the most modern and relevant educational (EduTech) products that we can offer. Through stategic partnerships and attracting the most talented content developers and technical staff we offer world class education to our students.
+My name is Arjen. I usually write something about the place I work at here. On March 21st I had my last day at NOVI and am currently taking a break. In April I will post my next adventure here...
 
-In my work as Chief Lecturer for Cybersecurity I focus on teaching students all there is to know about the technical side of Cyber Security. My main areas of expertise are Reverse Engineering, Infrastructure Security and Web Application Security. I also teach a wide range of Software Development courses, such as an introduction to programming, Java, DevOps and more advanced courses such as Datastructures & Algorithms, Secure Coding.
-
-I have been in the software industry for more that 25 years and have worked in:
+I have been in the software and security industry for almost 30 years and have worked in:
 
 - Internet providers (Chello / UPC, Tiscali - NL): Java
 - Startups (Personify - USA, eBuddy - NL): Java, BigData

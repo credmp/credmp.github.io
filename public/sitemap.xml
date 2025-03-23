@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/career/</loc>
+    <lastmod>2025-03-23T08:17:33+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-03-23T08:17:33+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-03-23T08:17:33+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/20250323-the-cycle-continues/</loc>
+    <lastmod>2025-03-23T08:17:33+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-02-05T20:40:54+01:00</lastmod>
   </url><url>
@@ -11,13 +23,7 @@
     <loc>http://localhost:1313/posts/20250205-clojure-projects/</loc>
     <lastmod>2025-02-05T20:40:54+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-02-05T20:40:54+01:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/programming/</loc>
-    <lastmod>2025-02-05T20:40:54+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-02-05T20:40:54+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/web/</loc>

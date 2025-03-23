@@ -9,14 +9,14 @@
     },
     "/notes/clojure/": {
       "in": [
-        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250205-clojure-projects/",
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
         "/posts/20250111-happy-with-nixos/",
+        "/notes/clojure-emacs/",
+        "/notes/clojure-emacs/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
-        "/posts/20250201-observability-in-clojure/"
+        "/posts/20250201-observability-in-clojure/",
+        "/posts/20250107-clojure-reitit-server/"
       ],
       "out": []
     },
@@ -29,13 +29,13 @@
     },
     "/notes/rust/": {
       "in": [
-        "/posts/a-new-theme/",
-        "/notes/zero2prod/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/notes/type-driven-design/",
         "/posts/20250111-happy-with-nixos/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
+        "/notes/type-driven-design/",
+        "/notes/zero2prod/",
+        "/posts/20250126-digital-ocean-dev-database/",
+        "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
         "/posts/choose-your-tools/"
       ],
@@ -50,9 +50,9 @@
     },
     "/notes/zero2prod/": {
       "in": [
-        "/posts/a-new-theme/",
+        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
-        "/notes/type-driven-design/"
+        "/posts/a-new-theme/"
       ],
       "out": [
         "/notes/rust/"
@@ -95,6 +95,13 @@
       "in": [],
       "out": [
         "/notes/clojure/"
+      ]
+    },
+    "/posts/20250323-the-cycle-continues/": {
+      "in": [],
+      "out": [
+        "/posts/resigning-as-htb-ambassador/",
+        "/posts/master-of-science/"
       ]
     },
     "/posts/22-years-of-emacs/": {
@@ -161,8 +168,8 @@
     },
     "/posts/choose-your-tools/": {
       "in": [
-        "/posts/a-new-theme/",
-        "/posts/20250107-clojure-reitit-server/"
+        "/posts/20250107-clojure-reitit-server/",
+        "/posts/a-new-theme/"
       ],
       "out": [
         "/notes/rust/",
@@ -206,7 +213,9 @@
       "out": []
     },
     "/posts/master-of-science/": {
-      "in": [],
+      "in": [
+        "/posts/20250323-the-cycle-continues/"
+      ],
       "out": []
     },
     "/posts/ms-teams-on-linux/": {
@@ -234,7 +243,9 @@
       "out": []
     },
     "/posts/resigning-as-htb-ambassador/": {
-      "in": [],
+      "in": [
+        "/posts/20250323-the-cycle-continues/"
+      ],
       "out": []
     },
     "/posts/setting-up-traefik/": {
@@ -313,6 +324,11 @@
       "permalink": "/posts/20250205-clojure-projects/",
       "section": "posts",
       "title": "Clojure Projects"
+    },
+    "/posts/20250323-the-cycle-continues/": {
+      "permalink": "/posts/20250323-the-cycle-continues/",
+      "section": "posts",
+      "title": "The Cycle Continues"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",
