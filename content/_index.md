@@ -18,6 +18,7 @@ I am a member of:
 
 - [NLJUG](https://nljug.org/): The dutch Java user group
 - [VERSEN](https://www.versen.nl/): The dutch association of software engineers
+- [OWASP](https://owasp.org/www-chapter-netherlands/): The OWASP Netherlands chapter
 
 In 2024 I completed my [Masters' Degree](/posts/master-of-science). My research topic was *BiDE*, a language and architecture for the creation of bidirectional diagrammatic editors. In essence a way to modify program text using diagrams and text at the same time, allowing stakeholders of different backgrounds to work on the same system at the same time. I worked on this thesis with [Bastiaan Heeren](/posts/remembering-bastiaan)  (Open Universiteit) and [Jurgen Vinju](https://homepages.cwi.nl/~jurgenv/) (Centrum Wiskunde en Informatica).
 
