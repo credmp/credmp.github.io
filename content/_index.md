@@ -3,7 +3,7 @@ title: Arjen Wiersma
 date: "2025-01-05"
 ---
 
-My name is Arjen. I usually write something about the place I work at here. On March 21st I had my last day at NOVI and am currently taking a break. In April I will post my next adventure here...
+My name is Arjen. I am a Cyber Security Consultant for [Scyon](https://www.scyon.nl/). I help organisations with their Application Security, Offensive Security and (Cyber) Business needs.
 
 I have been in the software and security industry for almost 30 years and have worked in:
 
@@ -12,6 +12,7 @@ I have been in the software and security industry for almost 30 years and have w
 - Healthcare and FinTech (Infomedics - NL): Java and dotNet - Managed the IT and Development teams
 - EduTech (NOVI - NL): Managed the development team building in Serverless, Javascript
 - Education (Hogeschool van Amsterdan / NOVI - NL): teaching software security and software engineering courses
+- Cyber Security (Independent): helping organisations with their security posture
 
 I am a member of:
 
