@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Sun, 23 Mar 2025 08:17:33 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 13 Apr 2025 09:22:09 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software developers are doomed to create software</title>
+      <link>http://localhost:1313/posts/20250413-doomed-software-developers/</link>
+      <pubDate>Sun, 13 Apr 2025 09:22:09 +0200</pubDate>
+      <guid>http://localhost:1313/posts/20250413-doomed-software-developers/</guid>
+      <description>&lt;p&gt;Will software development change? Yes, of course. Will we stop making software? No, we&amp;rsquo;ll still be creating software, just not in the same way as before.&lt;/p&gt;&#xA;&lt;p&gt;For the last few months, a lingering question in our industry has been: is there still room for developers in this AI-driven world? My answer is yes, but we won&amp;rsquo;t be developing in the same way we have for the past 30 years.&lt;/p&gt;&#xA;&lt;p&gt;My career dates back to my first professional coding job in 1996. Back then, we created software that had to be physically shipped to customers on some form of media. My most ambitious project was the &lt;a href=&#34;https://arjenwiersma.nl/posts/deployment-anxiety/&#34;&gt;work I did when the Dutch ISP Freeler was created&lt;/a&gt; {{&amp;lt; backlink &amp;lsquo;deployment-anxiety&amp;rsquo; &amp;lsquo;Deployment anxiety&amp;rsquo; &amp;gt;}}. We wrote software and then put it on a CD-ROM to ship to customers. Later, the delivery medium became the web, which transformed all our distribution challenges. Programming languages evolved too, shifting from those focused on single platforms and distribution methods to more web-friendly languages.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Cycle Continues</title>
       <link>http://localhost:1313/posts/20250323-the-cycle-continues/</link>
