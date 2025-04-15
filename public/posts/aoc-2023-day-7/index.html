@@ -203,8 +203,8 @@ go go code snippet start">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Card</span><span class="p">)</span> <span class="nf">rank</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">freq</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">c</span><span class="p">.</span><span class="nx">hand</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">v</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span> <span class="c1">// skip counting the joker
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">v</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span> <span class="c1">// skip counting the joker</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
 </span></span><span class="line"><span class="cl">		<span class="p">}</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">freq</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="o">++</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
@@ -213,8 +213,8 @@ go go code snippet start">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nx">freq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">jokers</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">strength</span> <span class="o">:=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">freq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// full house and 2 pair
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">freq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// full house and 2 pair</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">freq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">strength</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">strength</span>
@@ -287,8 +287,8 @@ go go code snippet start">
 </span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="mi">251216224</span> <span class="o">!=</span> <span class="nx">res</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Wrong answer&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 1: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">elapsed</span><span class="p">)</span> <span class="c1">// 251216224
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 1: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">elapsed</span><span class="p">)</span> <span class="c1">// 251216224</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nx">cards</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">Card</span><span class="p">{}</span>
 </span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">content</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">p</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
@@ -309,8 +309,8 @@ go go code snippet start">
 </span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="mi">250825971</span> <span class="o">!=</span> <span class="nx">res</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Wrong part 2&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 2: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">elapsed</span><span class="p">)</span> <span class="c1">// 250825971
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 2: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">elapsed</span><span class="p">)</span> <span class="c1">// 250825971</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
   <p class="sr-only">go code snippet end</p>
 
   

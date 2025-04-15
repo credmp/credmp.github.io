@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Wed, 05 Feb 2025 20:40:54 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 15 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Developer Growth</title>
+      <link>http://localhost:1313/notes/developer-growth/</link>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/developer-growth/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://cleancoder.com/&#34;&gt;Uncle Bob&lt;/a&gt;, in his presentations, likes to say that the number of developers in the world doubles every 5 years. Recently The Primeagen in one of his &lt;a href=&#34;https://youtube.com/shorts/42S4YPUK8N4?si=lB-6tHBJfpi4dfYi&#34;&gt;shorts&lt;/a&gt; says that they double every 6 years. They both do not give any source for this information, so can it be validated?&lt;/p&gt;&#xA;&lt;p&gt;The Netherlands has an agency called &lt;a href=&#34;https://www.cbs.nl&#34;&gt;Centraal Bureau voor de Statistiek (CBS)&lt;/a&gt; which collects all kinds of statistics about the country. It turns out that they also have statistics on the type of field people work in.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Clojure Projects</title>
       <link>http://localhost:1313/posts/20250205-clojure-projects/</link>
