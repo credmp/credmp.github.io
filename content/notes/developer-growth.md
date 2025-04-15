@@ -16,7 +16,7 @@ In 2019 it was 258.000 and 2020 270.000. All the way back in 2014 there were 185
 
 It turns out that COVID created a sudden influx of more software developers, {{< sidenote "something mirrored in the number of job openings in the US during that same time" >}}I can not find independent data to backup these statements, but searching the internet there seems to be consesus.{{< /sidenote >}}. 
 
-Interestingly, the number of high educated (hbo,wo) particpants in software development jobs seems to decline, while the number of very-practically educated (basisschool, mbo 1) started to rise making up the deficit.
+Interestingly, the number of high educated (hbo,wo) particpants in software development jobs seems to decline, while the number of very-practically educated (basisschool, vmbo, mbo 1) started to rise making up the deficit. Perhaps this signals an change into more "doing" of software development, assisted by AI?
 
 Since the end of the pandemic the number of workers has very slowly been growing. This might be due to retirement and inflow from education/reschooling being at the same level. At the same time we are still facing a shortage of workers, as seen in the [arbeidsmarkt dashboard](https://www.cbs.nl/nl-nl/visualisaties/dashboard-arbeidsmarkt):
 
