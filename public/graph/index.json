@@ -25,6 +25,10 @@
       "in": [],
       "out": []
     },
+    "/notes/euvd/": {
+      "in": [],
+      "out": []
+    },
     "/notes/rust-emacs/": {
       "in": [],
       "out": [
@@ -35,9 +39,9 @@
     "/notes/rust/": {
       "in": [
         "/notes/zero2prod/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/posts/20250111-happy-with-nixos/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
@@ -306,6 +310,11 @@
       "permalink": "/notes/developer-growth/",
       "section": "notes",
       "title": "Developer Growth"
+    },
+    "/notes/euvd/": {
+      "permalink": "/notes/euvd/",
+      "section": "notes",
+      "title": "European Union Vulnerability Database"
     },
     "/notes/rust-emacs/": {
       "permalink": "/notes/rust-emacs/",

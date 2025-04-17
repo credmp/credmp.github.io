@@ -14,7 +14,7 @@
       <link>http://localhost:1313/notes/developer-growth/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/developer-growth/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://cleancoder.com/&#34;&gt;Uncle Bob&lt;/a&gt;, in his presentations, likes to say that the number of developers in the world doubles every 5 years. Recently The Primeagen in one of his &lt;a href=&#34;https://youtube.com/shorts/42S4YPUK8N4?si=lB-6tHBJfpi4dfYi&#34;&gt;shorts&lt;/a&gt; says that they double every 6 years. They both do not give any source for this information, so can it be validated?&lt;/p&gt;&#xA;&lt;p&gt;The Netherlands has an agency called &lt;a href=&#34;https://www.cbs.nl&#34;&gt;Centraal Bureau voor de Statistiek (CBS)&lt;/a&gt; which collects all kinds of statistics about the country. It turns out that they also have statistics on the type of field people work in.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://cleancoder.com/&#34;&gt;Uncle Bob&lt;/a&gt;, in his presentations, likes to say that the number of developers in the world doubles every 5 years. Recently The Primeagen in one of his &lt;a href=&#34;https://youtube.com/shorts/42S4YPUK8N4?si=lB-6tHBJfpi4dfYi&#34;&gt;shorts&lt;/a&gt; he echos that statement. They both do not give any source for this information, so can it be validated?&lt;/p&gt;&#xA;&lt;p&gt;The Netherlands has an agency called &lt;a href=&#34;https://www.cbs.nl&#34;&gt;Centraal Bureau voor de Statistiek (CBS)&lt;/a&gt; which collects all kinds of statistics about the country. It turns out that they also have statistics on the type of field people work in.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Clojure Projects</title>

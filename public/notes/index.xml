@@ -7,14 +7,21 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Tue, 15 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>European Union Vulnerability Database</title>
+      <link>http://localhost:1313/notes/euvd/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/euvd/</guid>
+      <description>&lt;p&gt;The European Union Agency for Cybersecurity (ENISA) has its own Vulnerability Database, called the &lt;a href=&#34;https://euvd.enisa.europa.eu&#34;&gt;European Union Vulnerability Database (EUVD)&lt;/a&gt;. It&amp;rsquo;s datasource is &lt;a href=&#34;https://www.vulnerability-lookup.org&#34;&gt;The Vulnerability Lookup project&lt;/a&gt;, a system that correlates various sources and streamlines Coordinated Vulnerability Disclosure (CVD). It uses the Global CVE Allocation System (&lt;a href=&#34;https://gcve.eu&#34;&gt;link&lt;/a&gt;) as a source. This system is created with funding by the EU and is maintained by Computer Incident Response Center Luxembourg (CIRCL), with a nice dashboard &lt;a href=&#34;https://vulnerability.circl.lu&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Developer Growth</title>
       <link>http://localhost:1313/notes/developer-growth/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/developer-growth/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://cleancoder.com/&#34;&gt;Uncle Bob&lt;/a&gt;, in his presentations, likes to say that the number of developers in the world doubles every 5 years. Recently The Primeagen in one of his &lt;a href=&#34;https://youtube.com/shorts/42S4YPUK8N4?si=lB-6tHBJfpi4dfYi&#34;&gt;shorts&lt;/a&gt; says that they double every 6 years. They both do not give any source for this information, so can it be validated?&lt;/p&gt;&#xA;&lt;p&gt;The Netherlands has an agency called &lt;a href=&#34;https://www.cbs.nl&#34;&gt;Centraal Bureau voor de Statistiek (CBS)&lt;/a&gt; which collects all kinds of statistics about the country. It turns out that they also have statistics on the type of field people work in.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://cleancoder.com/&#34;&gt;Uncle Bob&lt;/a&gt;, in his presentations, likes to say that the number of developers in the world doubles every 5 years. Recently The Primeagen in one of his &lt;a href=&#34;https://youtube.com/shorts/42S4YPUK8N4?si=lB-6tHBJfpi4dfYi&#34;&gt;shorts&lt;/a&gt; he echos that statement. They both do not give any source for this information, so can it be validated?&lt;/p&gt;&#xA;&lt;p&gt;The Netherlands has an agency called &lt;a href=&#34;https://www.cbs.nl&#34;&gt;Centraal Bureau voor de Statistiek (CBS)&lt;/a&gt; which collects all kinds of statistics about the country. It turns out that they also have statistics on the type of field people work in.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setting up Emacs for Clojure development</title>
