@@ -15,6 +15,10 @@ enableRobotsTXT = false # IMPORTANT: set to true if you want to use the theme's 
 
 [menus]
   [[menus.main]]
+    name = 'Talks'
+    pageRef = '/talks'
+    weight = 15
+  [[menus.main]]
     name = 'Notes'
     pageRef = '/notes'
     weight = 20

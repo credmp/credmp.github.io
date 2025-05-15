@@ -239,6 +239,8 @@
     <loc>http://localhost:1313/posts/htb-ambassador/</loc>
     <lastmod>2021-09-29T00:00:00+02:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/talks/</loc>
+  </url><url>
     <loc>http://localhost:1313/graph/</loc>
   </url>
 </urlset>
