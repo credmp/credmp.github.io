@@ -11,7 +11,9 @@ The video I am commenting on below is part of a series called [Vibe-coding in he
 
 Now, check out the following video. In case you do not know any Dutch, Tom is using bolt.new to create an AI chat bot that simulates a difficult HR talk. How HR is related to education is not relevant here, the point is that he wants to show the use of a model with a frontend.
 
+{{< rawhtml >}}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/I1WfyW-x5ag?si=UkvTkBN2OR2eB3GR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{{< /rawhtml >}}
 
 The video goes quite well, until marker 11:20. Bolt has created a frontend for him and then he wants to safely store the API key for mistral. Bolt suggest using Supabase with edge functions, Tom however has heard that using `.env` files is a safe way to store keys.
 
@@ -21,8 +23,14 @@ Anyhow, Tom asks it to use a `.env` file and Bolt does what it is asked. It crea
 
 In the DevTools (F12 in most browsers) you can now inspect all the interaction with mistral, including the `Bearer` authorization with the API key.
 
-[[./images/bearer-token-apikey.png]]
+![An exposed API key](/images/bearer-token-apikey.png)
 
 {{< admonition >}}
 The API key has been disabled at this time. If you find one in an application on the internet, please notify its creator of the problem instead of using their AI budget for yourself.
 {{< /admonition >}}
+
+I talk about these risks in my talk "Vibe-coding your way into a security nightmare". You can watch it below:
+
+{{< rawhtml >}}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AeECsaII_18?si=4kSLeZOtEuZrmYVU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{{< /rawhtml >}}
