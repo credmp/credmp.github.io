@@ -39,9 +39,9 @@
     "/notes/rust/": {
       "in": [
         "/notes/zero2prod/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
