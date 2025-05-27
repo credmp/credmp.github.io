@@ -3,12 +3,12 @@ title: Arjen Wiersma
 date: "2025-01-05"
 ---
 
-My name is Arjen. I am a Cyber Security Consultant for [Scyon](https://www.scyon.nl/). I help organisations with their Application Security, Offensive Security and (Cyber) Business needs.
+My name is Arjen. I am a Cyber Security Consultant for [Scyon](https://www.scyon.nl/). I help organisations with their Application Security, Offensive Security and (Cyber) Business needs. Roles that I like to fulfill: (C)ISO, Security Engineer, Engineer Manager, Senior Developer (Java or Rust).
 
 I have been in the software and security industry for almost 30 years and have worked in:
 
 - Internet providers (Chello / UPC, Tiscali - NL): Java
-- Startups (Personify - USA, eBuddy - NL): Java, BigData
+- Startups (Personify - USA, eBuddy - NL): Java, Big Data
 - Healthcare and FinTech (Infomedics - NL): Java and dotNet - Managed the IT and Development teams
 - EduTech (NOVI - NL): Managed the development team building in Serverless, Javascript
 - Education (Hogeschool van Amsterdan / NOVI - NL): teaching software security and software engineering courses
