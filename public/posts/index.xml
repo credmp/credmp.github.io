@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Mon, 26 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jun 2025 13:39:16 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The things I read this week (23)</title>
+      <link>http://localhost:1313/posts/20250607-week-23/</link>
+      <pubDate>Sat, 07 Jun 2025 13:39:16 +0200</pubDate>
+      <guid>http://localhost:1313/posts/20250607-week-23/</guid>
+      <description>&lt;h2 id=&#34;tech-in-general&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  Tech in general&#xA;  &#xA;    &lt;a href=&#34;#tech-in-general&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h2&gt;&#xA;&lt;p&gt;I learned that most of the layoffs in the US are not so much about AI taking jobs. Sure, there are bound to be a bunch of people that are no longer employed because their jobs was easily replaced by a system, but there is more then meets the eye. In &amp;ldquo;&lt;a href=&#34;https://qz.com/tech-layoffs-tax-code-trump-section-174-microsoft-meta-1851783502&#34;&gt;The hidden time bomb in the tax code that&amp;rsquo;s fueling mass tech layoffs&lt;/a&gt;&amp;rdquo; explores the tax rule that was changed under Trump-I, section 174, which basically no longer allows companies to write-off R&amp;amp;D effort in the current fiscal year.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How vibe coding fails</title>
       <link>http://localhost:1313/posts/20250526-vibe-coding/</link>
@@ -176,7 +183,7 @@
       <link>http://localhost:1313/posts/my-computing-environment/</link>
       <pubDate>Sun, 18 Feb 2024 15:35:00 +0100</pubDate>
       <guid>http://localhost:1313/posts/my-computing-environment/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This is a longer form article. I is relevant as of &lt;strong&gt;February 18th 2023&lt;/strong&gt;. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on &lt;a href=&#34;https://github.com/credmp/nixos-dotfiles/&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This is a longer form article. I is relevant as of &lt;strong&gt;February 18th 2023&lt;/strong&gt;. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on &lt;a href=&#34;https://github.com/credmp/nixos-dotfiles/&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Heading to the finish line</title>
