@@ -14,7 +14,7 @@
       <link>http://localhost:1313/posts/a-new-theme/</link>
       <pubDate>Sun, 05 Jan 2025 23:17:16 +0100</pubDate>
       <guid>http://localhost:1313/posts/a-new-theme/</guid>
-      <description>&lt;p&gt;So, a new year, a new theme! I switched my blog to use the &lt;a href=&#34;https://github.com/michenriksen/hugo-theme-til&#34;&gt;Today I Learned Theme&lt;/a&gt;. This theme has a great feature where it also maintains a collection of notes and shows a graph with related notes. This is very similar to how I use org-roam.&lt;/p&gt;&#xA;&lt;p&gt;I will not be transferring all my notes over, but I thought it would be a very nice feature to share some of my notes with you. This year I am focussing on &lt;a href=&#34;http://localhost:1313/posts/choose-your-tools/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA; and &lt;a href=&#34;http://localhost:1313/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA;, and as a result I will be posting my notes on the new things I learn.&lt;/p&gt;</description>
+      <description>So, a new year, a new theme! I switched my blog to use the Today I Learned Theme. This theme has a great feature where it also maintains a collection of notes and shows a graph with related notes. This is very similar to how I use org-roam.&#xA;I will not be transferring all my notes over, but I thought it would be a very nice feature to share some of my notes with you.</description>
     </item>
   </channel>
 </rss>

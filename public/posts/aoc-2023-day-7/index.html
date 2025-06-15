@@ -11,13 +11,15 @@
     Advent of Code 2023 day 7 | Arjen Wiersma
 </title>
   <meta name="description" content="Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
-go go code snippet start" />
+go go code snippet start
+package main import ( &#34;fmt&#34; &#34;sort&#34; &#34;strconv&#34; &#34;strings&#34; &#34;time&#34; &#34;arjenwiersma.nl/aoc/internal/aoc&#34; ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c." />
   <meta name="author" content="[Arjen Wiersma]" />
 <meta property="og:url" content="http://localhost:1313/posts/aoc-2023-day-7/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Advent of Code 2023 day 7">
   <meta property="og:description" content="Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
-go go code snippet start">
+go go code snippet start
+package main import ( &#34;fmt&#34; &#34;sort&#34; &#34;strconv&#34; &#34;strings&#34; &#34;time&#34; &#34;arjenwiersma.nl/aoc/internal/aoc&#34; ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -27,7 +29,8 @@ go go code snippet start">
 
   <meta itemprop="name" content="Advent of Code 2023 day 7">
   <meta itemprop="description" content="Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
-go go code snippet start">
+go go code snippet start
+package main import ( &#34;fmt&#34; &#34;sort&#34; &#34;strconv&#34; &#34;strings&#34; &#34;time&#34; &#34;arjenwiersma.nl/aoc/internal/aoc&#34; ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c.">
   <meta itemprop="datePublished" content="2023-12-09T07:18:00+01:00">
   <meta itemprop="dateModified" content="2023-12-09T07:18:00+01:00">
   <meta itemprop="wordCount" content="457">
@@ -35,7 +38,8 @@ go go code snippet start">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Advent of Code 2023 day 7">
   <meta name="twitter:description" content="Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
-go go code snippet start">
+go go code snippet start
+package main import ( &#34;fmt&#34; &#34;sort&#34; &#34;strconv&#34; &#34;strings&#34; &#34;time&#34; &#34;arjenwiersma.nl/aoc/internal/aoc&#34; ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c.">
 
 <link rel="canonical" href="http://localhost:1313/posts/aoc-2023-day-7/" />
 
@@ -44,6 +48,9 @@ go go code snippet start">
 
       <script src="/js/main.js" defer></script>
   
+  
+
+
 
 <script type="application/ld+json">
 {
@@ -56,7 +63,7 @@ go go code snippet start">
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2023-12-09",
-  "description": "Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.\ngo go code snippet start",
+  "description": "Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.\ngo go code snippet start\npackage main import ( \"fmt\" \"sort\" \"strconv\" \"strings\" \"time\" \"arjenwiersma.nl/aoc/internal/aoc\" ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c.",
   "headline": "Advent of Code 2023 Day 7",
   "isPartOf": {
     "@id": "http://localhost:1313/posts/",

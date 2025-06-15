@@ -37,13 +37,13 @@
     },
     "/notes/rust/": {
       "in": [
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/zero2prod/",
-        "/notes/type-driven-design/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
+        "/notes/type-driven-design/",
+        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
         "/posts/choose-your-tools/"
       ],
@@ -65,9 +65,9 @@
     },
     "/notes/zero2prod/": {
       "in": [
-        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/a-new-theme/"
+        "/posts/a-new-theme/",
+        "/notes/type-driven-design/"
       ],
       "out": [
         "/notes/rust/"
@@ -135,6 +135,10 @@
         "/notes/vibe-coding/",
         "/notes/vibe-coding/"
       ]
+    },
+    "/posts/20250607-week-24/": {
+      "in": [],
+      "out": []
     },
     "/posts/22-years-of-emacs/": {
       "in": [],
@@ -393,6 +397,11 @@
       "permalink": "/posts/20250607-week-23/",
       "section": "posts",
       "title": "The Things I Read This Week (23)"
+    },
+    "/posts/20250607-week-24/": {
+      "permalink": "/posts/20250607-week-24/",
+      "section": "posts",
+      "title": "The Things I Read This Week (24)"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",
