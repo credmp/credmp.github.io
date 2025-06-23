@@ -14,7 +14,7 @@
       <link>http://localhost:1313/notes/zero2prod/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/zero2prod/</guid>
-      <description>A book about making production systems in the Rust programming language.&#xA;Website: https://www.zero2prod.com/index.html </description>
+      <description>&lt;p&gt;A book about making production systems in the &lt;a href=&#34;http://localhost:1313/notes/rust/&#34; class=&#34;backlink&#34;&gt;Rust&lt;/a&gt;&#xA; programming language.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Website: &lt;a href=&#34;https://www.zero2prod.com/index.html&#34;&gt;https://www.zero2prod.com/index.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>
