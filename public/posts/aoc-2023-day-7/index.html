@@ -11,13 +11,15 @@
     Advent of Code 2023 day 7 | Arjen Wiersma
 </title>
   <meta name="description" content="Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
-go go code snippet start" />
+go go code snippet start
+package main import ( &#34;fmt&#34; &#34;sort&#34; &#34;strconv&#34; &#34;strings&#34; &#34;time&#34; &#34;arjenwiersma.nl/aoc/internal/aoc&#34; ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c." />
   <meta name="author" content="[Arjen Wiersma]" />
 <meta property="og:url" content="http://localhost:1313/posts/aoc-2023-day-7/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Advent of Code 2023 day 7">
   <meta property="og:description" content="Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
-go go code snippet start">
+go go code snippet start
+package main import ( &#34;fmt&#34; &#34;sort&#34; &#34;strconv&#34; &#34;strings&#34; &#34;time&#34; &#34;arjenwiersma.nl/aoc/internal/aoc&#34; ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -27,7 +29,8 @@ go go code snippet start">
 
   <meta itemprop="name" content="Advent of Code 2023 day 7">
   <meta itemprop="description" content="Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
-go go code snippet start">
+go go code snippet start
+package main import ( &#34;fmt&#34; &#34;sort&#34; &#34;strconv&#34; &#34;strings&#34; &#34;time&#34; &#34;arjenwiersma.nl/aoc/internal/aoc&#34; ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c.">
   <meta itemprop="datePublished" content="2023-12-09T07:18:00+01:00">
   <meta itemprop="dateModified" content="2023-12-09T07:18:00+01:00">
   <meta itemprop="wordCount" content="457">
@@ -35,7 +38,8 @@ go go code snippet start">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Advent of Code 2023 day 7">
   <meta name="twitter:description" content="Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.
-go go code snippet start">
+go go code snippet start
+package main import ( &#34;fmt&#34; &#34;sort&#34; &#34;strconv&#34; &#34;strings&#34; &#34;time&#34; &#34;arjenwiersma.nl/aoc/internal/aoc&#34; ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c.">
 
 <link rel="canonical" href="http://localhost:1313/posts/aoc-2023-day-7/" />
 
@@ -44,6 +48,9 @@ go go code snippet start">
 
       <script src="/js/main.js" defer></script>
   
+  
+
+
 
 <script type="application/ld+json">
 {
@@ -56,7 +63,7 @@ go go code snippet start">
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2023-12-09",
-  "description": "Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.\ngo go code snippet start",
+  "description": "Today we learned about CamelCards, a game of poker meant to play on the back of a camel. The most interesting part here was the parsing of the cards and figuring out how to properly rank them. Part 2 turned out to be as easy as tracking Jokers.\ngo go code snippet start\npackage main import ( \"fmt\" \"sort\" \"strconv\" \"strings\" \"time\" \"arjenwiersma.nl/aoc/internal/aoc\" ) type Card struct { bid int hand []int jokers int } func (c *Card) strongerThen(o *Card) bool { for i, v := range c.",
   "headline": "Advent of Code 2023 Day 7",
   "isPartOf": {
     "@id": "http://localhost:1313/posts/",
@@ -207,8 +214,8 @@ go go code snippet start">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Card</span><span class="p">)</span> <span class="nf">rank</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">freq</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">c</span><span class="p">.</span><span class="nx">hand</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">v</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span> <span class="c1">// skip counting the joker</span>
-</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">v</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span> <span class="c1">// skip counting the joker
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">continue</span>
 </span></span><span class="line"><span class="cl">		<span class="p">}</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">freq</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="o">++</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
@@ -217,8 +224,8 @@ go go code snippet start">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nx">freq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">jokers</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">strength</span> <span class="o">:=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">freq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// full house and 2 pair</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">freq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// full house and 2 pair
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">freq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">strength</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">strength</span>
@@ -291,8 +298,8 @@ go go code snippet start">
 </span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="mi">251216224</span> <span class="o">!=</span> <span class="nx">res</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Wrong answer&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 1: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">elapsed</span><span class="p">)</span> <span class="c1">// 251216224</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 1: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">elapsed</span><span class="p">)</span> <span class="c1">// 251216224
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">	<span class="nx">cards</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">Card</span><span class="p">{}</span>
 </span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">content</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">p</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
@@ -313,8 +320,8 @@ go go code snippet start">
 </span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="mi">250825971</span> <span class="o">!=</span> <span class="nx">res</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Wrong part 2&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 2: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">elapsed</span><span class="p">)</span> <span class="c1">// 250825971</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 2: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">elapsed</span><span class="p">)</span> <span class="c1">// 250825971
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
   <p class="sr-only">go code snippet end</p>
 
   

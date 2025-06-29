@@ -14,7 +14,7 @@
       <link>http://localhost:1313/posts/20250111-happy-with-nixos/</link>
       <pubDate>Sat, 11 Jan 2025 14:31:20 +0100</pubDate>
       <guid>http://localhost:1313/posts/20250111-happy-with-nixos/</guid>
-      <description>&lt;p&gt;In July 2023, I installed NixOS as my daily operating system. NixOS is a Linux distribution that emphasizes a declarative approach to system management. This means you define your desired operating system configuration in a file (e.g., KDE with Emacs 30 and Firefox), and the Nix package manager uses that file to create your OS. Every change generates a new version, allowing you to revert to a previous version if anything goes wrong.&lt;/p&gt;</description>
+      <description>In July 2023, I installed NixOS as my daily operating system. NixOS is a Linux distribution that emphasizes a declarative approach to system management. This means you define your desired operating system configuration in a file (e.g., KDE with Emacs 30 and Firefox), and the Nix package manager uses that file to create your OS. Every change generates a new version, allowing you to revert to a previous version if anything goes wrong.</description>
     </item>
   </channel>
 </rss>

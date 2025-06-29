@@ -11,13 +11,13 @@
     Advent of Code 2023 day 8 | Arjen Wiersma
 </title>
   <meta name="description" content="Somewhat suspicious of 2 easy days we end up at Day 8. A simple map to follow again, from one key follow the instructions until we hit ZZZ. Part 2 had us do it for several keys at once, with the goal to find the spot where they all converge. This can take forever, erhm, a long time.
-So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem. It is the smallest positive integer that is divisible by two or more numbers without leaving a remainder. To find the LCM of two or more numbers, you can use a method called prime factorization or a simpler approach involving multiples. We can also use the Greatest Common Divisor (GCD) to find the LCM." />
+So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem." />
   <meta name="author" content="[Arjen Wiersma]" />
 <meta property="og:url" content="http://localhost:1313/posts/aoc-2023-day-8/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Advent of Code 2023 day 8">
   <meta property="og:description" content="Somewhat suspicious of 2 easy days we end up at Day 8. A simple map to follow again, from one key follow the instructions until we hit ZZZ. Part 2 had us do it for several keys at once, with the goal to find the spot where they all converge. This can take forever, erhm, a long time.
-So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem. It is the smallest positive integer that is divisible by two or more numbers without leaving a remainder. To find the LCM of two or more numbers, you can use a method called prime factorization or a simpler approach involving multiples. We can also use the Greatest Common Divisor (GCD) to find the LCM.">
+So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -27,7 +27,7 @@ So there has to be a math type solution to this problem. It turns out to be a Le
 
   <meta itemprop="name" content="Advent of Code 2023 day 8">
   <meta itemprop="description" content="Somewhat suspicious of 2 easy days we end up at Day 8. A simple map to follow again, from one key follow the instructions until we hit ZZZ. Part 2 had us do it for several keys at once, with the goal to find the spot where they all converge. This can take forever, erhm, a long time.
-So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem. It is the smallest positive integer that is divisible by two or more numbers without leaving a remainder. To find the LCM of two or more numbers, you can use a method called prime factorization or a simpler approach involving multiples. We can also use the Greatest Common Divisor (GCD) to find the LCM.">
+So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem.">
   <meta itemprop="datePublished" content="2023-12-09T07:27:00+01:00">
   <meta itemprop="dateModified" content="2023-12-09T07:27:00+01:00">
   <meta itemprop="wordCount" content="450">
@@ -35,7 +35,7 @@ So there has to be a math type solution to this problem. It turns out to be a Le
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Advent of Code 2023 day 8">
   <meta name="twitter:description" content="Somewhat suspicious of 2 easy days we end up at Day 8. A simple map to follow again, from one key follow the instructions until we hit ZZZ. Part 2 had us do it for several keys at once, with the goal to find the spot where they all converge. This can take forever, erhm, a long time.
-So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem. It is the smallest positive integer that is divisible by two or more numbers without leaving a remainder. To find the LCM of two or more numbers, you can use a method called prime factorization or a simpler approach involving multiples. We can also use the Greatest Common Divisor (GCD) to find the LCM.">
+So there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem.">
 
 <link rel="canonical" href="http://localhost:1313/posts/aoc-2023-day-8/" />
 
@@ -44,6 +44,9 @@ So there has to be a math type solution to this problem. It turns out to be a Le
 
       <script src="/js/main.js" defer></script>
   
+  
+
+
 
 <script type="application/ld+json">
 {
@@ -56,7 +59,7 @@ So there has to be a math type solution to this problem. It turns out to be a Le
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2023-12-09",
-  "description": "Somewhat suspicious of 2 easy days we end up at Day 8. A simple map to follow again, from one key follow the instructions until we hit ZZZ. Part 2 had us do it for several keys at once, with the goal to find the spot where they all converge. This can take forever, erhm, a long time.\nSo there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem. It is the smallest positive integer that is divisible by two or more numbers without leaving a remainder. To find the LCM of two or more numbers, you can use a method called prime factorization or a simpler approach involving multiples. We can also use the Greatest Common Divisor (GCD) to find the LCM.",
+  "description": "Somewhat suspicious of 2 easy days we end up at Day 8. A simple map to follow again, from one key follow the instructions until we hit ZZZ. Part 2 had us do it for several keys at once, with the goal to find the spot where they all converge. This can take forever, erhm, a long time.\nSo there has to be a math type solution to this problem. It turns out to be a Least Common Multiple problem.",
   "headline": "Advent of Code 2023 Day 8",
   "isPartOf": {
     "@id": "http://localhost:1313/posts/",
@@ -390,8 +393,8 @@ So there has to be a math type solution to this problem. It turns out to be a Le
 </span></span><span class="line"><span class="cl">		<span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">// do stuff</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">endTime</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// do stuff
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">endTime</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">elapsed</span> <span class="p">=</span> <span class="nx">endTime</span><span class="p">.</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">startTime</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Part 2: %d (%v)\n&#34;</span><span class="p">,</span> <span class="nf">LCM</span><span class="p">(</span><span class="nx">solves</span><span class="p">),</span> <span class="nx">elapsed</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>

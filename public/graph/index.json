@@ -9,14 +9,13 @@
     },
     "/notes/clojure/": {
       "in": [
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
         "/posts/20250205-clojure-projects/",
         "/posts/20250111-happy-with-nixos/",
+        "/notes/clojure-emacs/",
+        "/notes/clojure-emacs/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
-        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": []
@@ -38,16 +37,15 @@
     },
     "/notes/rust/": {
       "in": [
-        "/notes/zero2prod/",
         "/posts/20250111-happy-with-nixos/",
         "/notes/rust-emacs/",
         "/notes/rust-emacs/",
-        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
+        "/notes/type-driven-design/",
+        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
-        "/posts/20250126-digital-ocean-dev-database/"
+        "/posts/choose-your-tools/"
       ],
       "out": []
     },
@@ -67,10 +65,9 @@
     },
     "/notes/zero2prod/": {
       "in": [
-        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
-        "/posts/20250126-digital-ocean-dev-database/"
+        "/notes/type-driven-design/"
       ],
       "out": [
         "/notes/rust/"
@@ -81,9 +78,6 @@
         "/posts/20250201-observability-in-clojure/"
       ],
       "out": [
-        "/posts/a-new-theme/",
-        "/posts/choose-your-tools/",
-        "/notes/clojure/",
         "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
         "/notes/clojure/"
@@ -99,8 +93,6 @@
     "/posts/20250126-digital-ocean-dev-database/": {
       "in": [],
       "out": [
-        "/notes/zero2prod/",
-        "/notes/rust/",
         "/notes/zero2prod/",
         "/notes/rust/"
       ]
@@ -152,13 +144,16 @@
       "in": [],
       "out": []
     },
+    "/posts/20250629-week-26/": {
+      "in": [],
+      "out": []
+    },
     "/posts/22-years-of-emacs/": {
       "in": [],
       "out": []
     },
     "/posts/a-new-theme/": {
       "in": [
-        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": [
@@ -218,8 +213,7 @@
     "/posts/choose-your-tools/": {
       "in": [
         "/posts/20250107-clojure-reitit-server/",
-        "/posts/a-new-theme/",
-        "/posts/20250107-clojure-reitit-server/"
+        "/posts/a-new-theme/"
       ],
       "out": [
         "/notes/rust/",
@@ -419,6 +413,11 @@
     },
     "/posts/20250623-week-25/": {
       "permalink": "/posts/20250623-week-25/",
+      "section": "posts",
+      "title": "The Things I Read (Week 25)"
+    },
+    "/posts/20250629-week-26/": {
+      "permalink": "/posts/20250629-week-26/",
       "section": "posts",
       "title": "The Things I Read (Week 25)"
     },
