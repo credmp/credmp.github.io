@@ -3,14 +3,14 @@
   lang="en-us"
   dir="ltr"
 >
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8" />
 <meta name="language" content="en" />
 <meta name="viewport" content="width=device-width" />
 <title>
     Posts | Arjen Wiersma
 </title>
-<meta property="og:url" content="http://localhost:1313/posts/">
+<meta property="og:url" content="https://www.arjenwiersma.nl/posts/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Posts">
   <meta property="og:locale" content="en_us">
@@ -24,12 +24,22 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Posts">
 
-<link rel="canonical" href="http://localhost:1313/posts/" /><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/posts/index.xml" /><link rel="alternate" type="application/json" href="http://localhost:1313/posts/index.json" />
+<link rel="canonical" href="https://www.arjenwiersma.nl/posts/" /><link rel="alternate" type="application/rss&#43;xml" href="https://www.arjenwiersma.nl/posts/index.xml" /><link rel="alternate" type="application/json" href="https://www.arjenwiersma.nl/posts/index.json" />
 
-    <link rel="stylesheet" href="/css/index.css" />
+      <link
+        rel="stylesheet"
+        href="/css/index.min.f8a65cc8c325821f285bc0748829de9cda4cfcba962787612f5d731e4c2c3bc6.css"
+        integrity="sha256-&#43;KZcyMMlgh8oW8B0iCnenNpM/LqWJ4dhL11zHkwsO8Y="
+        crossorigin="anonymous"
+      />
 
 
-      <script src="/js/main.js" defer></script>
+      <script
+        src="/js/main.d08dd7bf84e75145632853df5565c828a4a44de84df4bf08672d692241737c30.js"
+        integrity="sha256-0I3Xv4TnUUVjKFPfVWXIKKSkTehN9L8IZy1pIkFzfDA="
+        crossorigin="anonymous"
+        defer
+      ></script>
   
 
 <script type="application/ld+json">
@@ -117,6 +127,198 @@
 
         <div class="not-prose">
   <ol>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/aoc-2023-day-5/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Advent of Code 2023 day 5</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2023-12-09T07:13:00&#43;01:00"
+              >December 9, 2023</time
+            >
+          </header>
+
+          <div class="text-sm"><p>Today was an interesting problem. We are basically given a map to follow based on a number, possibly transforming the number at each step. With a single number this is quite simple, just apply the rules and step through each set of transformations. The problem becomes tricky when it turns out we have to deal with enormous ranges of numbers. On the subreddit some people reported their implementation to take hours and use 20GB of memory.</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/aoc-2023-day-4/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Advent of Code 2023 Day 4</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2023-12-04T23:16:00&#43;01:00"
+              >December 4, 2023</time
+            >
+          </header>
+
+          <div class="text-sm"><p>The difficulty is going up and down. This day was quite easy in comparison to yesterday. Today it was about parsing some numbers and finding a set of winning numbers.</p>
+<p>As I am doing these puzzles in Go I found out that there is no default <code>set</code> type. There is an implementation by HashiCorp named <a href="https://github.com/hashicorp/go-set">go-set</a> that fills this void. I did not use an external package (I try to avoid them while doing AoC), but I am very tempted to pull that package in.</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/aoc-2023-day-3/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Advent of Code 2023 Day 3</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2023-12-03T12:38:00&#43;01:00"
+              >December 3, 2023</time
+            >
+          </header>
+
+          <div class="text-sm"><p>Day 3 was quite something. I think that in an attempt to make it harder for AI to solve the puzzles the creators also increased the difficulty level of the base puzzles a little too much. The test was not very clear as to what should happen with negative numbers and it might trip people up. The puzzle itself is a great to exercise grid knowledge as you have to work with neighbors and you have to extend the numbers when you find them. Part 2 was just some bookkeeping on my existing implementation, so it was not too much work.</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/aoc-2023-day-2/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Advent of Code 2023 Day 2</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2023-12-02T14:41:00&#43;01:00"
+              >December 2, 2023</time
+            >
+          </header>
+
+          <div class="text-sm"><p>Day 2 was another fun challenge. Lots of splitting of strings. I wonder if there is a better way to filter out the min and max value from the separate grabs.</p>
+<p>I am sure I will not be able to complete all challenges this year, but so far so good.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">go</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-01 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-01"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">go code snippet start</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/aoc-2023-day-1/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Advent of Code 2023 Day 1</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2023-12-02T14:39:00&#43;01:00"
+              >December 2, 2023</time
+            >
+          </header>
+
+          <div class="text-sm"><p>The <a href="https://www.adventofcode.com">Advent of Code</a> has started again. At <a href="https://www.novi.nl">NOVI</a> we participate with a group of our students. We use the AoC throughout the entire curriculum as practice exercises to learn new programming languages or the application of data-structures and algorithms.</p>
+<p>Day 1 was a tricky start for most people. Part 1 was not too bad, but part 2 tripped most people up. I guess the idea was that you would have to solve the challenge with an array iteration, but most students tripped up. They tried to match each word and replace the occurrence in the text, running head-on into the edge-case where 2 numbers overlap, such as &ldquo;eightwo&rdquo;.</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/the-start-of-bide/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >  Embarking on a Journey to Revolutionize Code Editing: The Birth of &#34;BiDE&#34;
+  </a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2023-09-04T20:44:00&#43;02:00"
+              >September 4, 2023</time
+            >
+          </header>
+
+          <div class="text-sm"><p>As the warm haze of summer gives way to the crisp air of autumn, the season marks a pivotal moment in my academic journey: the commencement of my Master&rsquo;s thesis project. Having successfully had my research proposal accepted earlier this year, I now face the last leg of this marathon—bringing my theoretical framework to life.</p>
+<h3 id="the-powerhouse-partnership-open-universiteit-and-cwi" class="scroll-mt-8 group">
+  The Powerhouse Partnership: Open Universiteit and CWI
+  
+    <a href="#the-powerhouse-partnership-open-universiteit-and-cwi"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>While undertaking a Master&rsquo;s thesis is a significant endeavor on its own, I always have to make it more complex. My research will be a collaborative effort between two prominent institutions: the Open Universiteit and the Centrum Wiskunde &amp; Informatica (CWI).</p></div>
+        </article>
+      </li>
       <li class="mb-6">
         <article class="flex flex-col space-y-1">
           <header>

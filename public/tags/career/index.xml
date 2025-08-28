@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Career on Arjen Wiersma</title>
-    <link>http://localhost:1313/tags/career/</link>
+    <link>https://www.arjenwiersma.nl/tags/career/</link>
     <description>Recent content in Career on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Sun, 23 Mar 2025 08:17:33 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/career/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.arjenwiersma.nl/tags/career/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Cycle Continues</title>
-      <link>http://localhost:1313/posts/20250323-the-cycle-continues/</link>
+      <link>https://www.arjenwiersma.nl/posts/20250323-the-cycle-continues/</link>
       <pubDate>Sun, 23 Mar 2025 08:17:33 +0100</pubDate>
-      <guid>http://localhost:1313/posts/20250323-the-cycle-continues/</guid>
-      <description>&lt;p&gt;I am leaving NOVI. Yes, I know, it is sad news. For almost 6 years I have been building and maintaining an organisation that provides the best cybersecurity and software development (Bachelor) education in The Netherlands. In that time I have done amazing things:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Created a short course format for people that want to switch careers. With some back of the napkin calculations I have seen over 2500 students pass through one of the programs.&lt;/li&gt;&#xA;&lt;li&gt;I lead a team of quality assurance, educational development, EduTech developers and teachers to build an awesome EduTech tool and provide top-notch education.&lt;/li&gt;&#xA;&lt;li&gt;Started and hosted the &lt;a href=&#34;http://localhost:1313/posts/resigning-as-htb-ambassador/&#34; class=&#34;backlink&#34;&gt;Hack The Box NL meetups&lt;/a&gt;&#xA; for 4 years.&lt;/li&gt;&#xA;&lt;li&gt;I became part of the management team and helped the organisation through an M&amp;amp;A proces&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;It has been a wild ride, but like all things that begin, it must end.&lt;/p&gt;</description>
+      <guid>https://www.arjenwiersma.nl/posts/20250323-the-cycle-continues/</guid>
+      <description>&lt;p&gt;I am leaving NOVI. Yes, I know, it is sad news. For almost 6 years I have been building and maintaining an organisation that provides the best cybersecurity and software development (Bachelor) education in The Netherlands. In that time I have done amazing things:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Created a short course format for people that want to switch careers. With some back of the napkin calculations I have seen over 2500 students pass through one of the programs.&lt;/li&gt;&#xA;&lt;li&gt;I lead a team of quality assurance, educational development, EduTech developers and teachers to build an awesome EduTech tool and provide top-notch education.&lt;/li&gt;&#xA;&lt;li&gt;Started and hosted the &lt;a href=&#34;https://www.arjenwiersma.nl/posts/resigning-as-htb-ambassador/&#34; class=&#34;backlink&#34;&gt;Hack The Box NL meetups&lt;/a&gt;&#xA; for 4 years.&lt;/li&gt;&#xA;&lt;li&gt;I became part of the management team and helped the organisation through an M&amp;amp;A proces&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;It has been a wild ride, but like all things that begin, it must end.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
