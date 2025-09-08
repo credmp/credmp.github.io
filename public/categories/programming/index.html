@@ -28,8 +28,8 @@
 
       <link
         rel="stylesheet"
-        href="/css/index.min.f8a65cc8c325821f285bc0748829de9cda4cfcba962787612f5d731e4c2c3bc6.css"
-        integrity="sha256-&#43;KZcyMMlgh8oW8B0iCnenNpM/LqWJ4dhL11zHkwsO8Y="
+        href="/css/index.min.7dc5bce5e48ff3fe71c582eac851646db39f1a70e9dc6198c199a3189731869e.css"
+        integrity="sha256-fcW85eSP8/5xxYLqyFFkbbOfGnDp3GGYwZmjGJcxhp4="
         crossorigin="anonymous"
       />
 
@@ -41,6 +41,9 @@
         defer
       ></script>
   
+  
+
+
 
 <script type="application/ld+json">
 {
@@ -111,9 +114,8 @@
             >
           </header>
 
-          <div class="text-sm"><p>When I tell people that I like to code in <a href="/notes/clojure/" class="backlink">Clojure</a>
- the common response is &ldquo;<em>wut?</em>&rdquo;. Clojure is not known as a programming language in which you create big systems. As all Clojure people know, this is not true. There are many systems written in Clojure. Let me show you some that are very actively maintained.</p>
-<p>First there is <a href="https://www.lipas.fi/liikuntapaikat">Lipas</a>, a Finnish platform that shows you information about sports clubs. The structure and techniques used <a href="https://github.com/lipas-liikuntapaikat/lipas/">in this code base</a> I use as a reference implementation for my own ClojureScript + Clojure systems. A screenshot of the application is shown here:</p></div>
+          <div class="text-sm">When I tell people that I like to code in Clojure the common response is &ldquo;wut?&rdquo;. Clojure is not known as a programming language in which you create big systems. As all Clojure people know, this is not true. There are many systems written in Clojure. Let me show you some that are very actively maintained.
+First there is Lipas, a Finnish platform that shows you information about sports clubs. The structure and techniques used in this code base I use as a reference implementation for my own ClojureScript + Clojure systems.</div>
         </article>
       </li>
       <li class="mb-6">
@@ -130,7 +132,7 @@
             >
           </header>
 
-          <div class="text-sm"><p>Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (<a href="https://doi.org/10.1007/978-1-4842-6888-9_2">Chakraborty &amp; Kundan, 2021</a>; <a href="https://doi.org/10.1109/ACCESS.2023.3281860">Kosińska et al., 2023</a>). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (<a href="https://doi.org/10.48550/arXiv.2303.13402">Hausenblas, 2023</a>; <a href="https://doi.org/10.1007/978-1-4842-6888-9_2">Chakraborty &amp; Kundan, 2021</a>). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.</p></div>
+          <div class="text-sm">Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (Chakraborty &amp; Kundan, 2021; Kosińska et al., 2023). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (Hausenblas, 2023; Chakraborty &amp; Kundan, 2021). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.</div>
         </article>
       </li>
       <li class="mb-6">
@@ -147,42 +149,8 @@
             >
           </header>
 
-          <div class="text-sm"><figure
-  role="note"
-  id="admonition-00"
-  aria-labelledby="admonition-caption-00"
-  class="admonition tip  not-prose"
->
-  <div class="flex items-center space-x-2 pb-2 font-semibold">
-      <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  fill="none"
-  stroke="currentColor"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  stroke-width="2"
-  class="lucide lucide-flame block"
->
-  <path
-    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"
-  />
-</svg>
-
-    <figcaption id="admonition-caption-00">
-        Tip
-    </figcaption>
-  </div>
-
-  <div class="prose pl-8 text-inherit marker:text-inherit">
-    Currently, only use Postgres 14 on the Digital Ocean application platform for development databases.
-  </div>
-</figure>
-
-<p>While following the book <a href="/notes/zero2prod/" class="backlink">Zero2Prod</a>
- you will learn how to deploy a <a href="/notes/rust/" class="backlink">Rust</a>
- application to digital ocean through a Continuous Deployment pipeline. This is hardly anything new for me, I even teach a course in DevOps, but to not stray from the path of the book I followed its instructions.</p></div>
+          <div class="text-sm">Tip Currently, only use Postgres 14 on the Digital Ocean application platform for development databases. While following the book Zero2Prod you will learn how to deploy a Rust application to digital ocean through a Continuous Deployment pipeline. This is hardly anything new for me, I even teach a course in DevOps, but to not stray from the path of the book I followed its instructions.
+The spec for digital ocean looks like this (this is abbreviated for your reading pleasure):</div>
         </article>
       </li>
       <li class="mb-6">
@@ -199,7 +167,7 @@
             >
           </header>
 
-          <div class="text-sm"><p>In July 2023, I installed NixOS as my daily operating system. NixOS is a Linux distribution that emphasizes a declarative approach to system management. This means you define your desired operating system configuration in a file (e.g., KDE with Emacs 30 and Firefox), and the Nix package manager uses that file to create your OS. Every change generates a new version, allowing you to revert to a previous version if anything goes wrong.</p></div>
+          <div class="text-sm">In July 2023, I installed NixOS as my daily operating system. NixOS is a Linux distribution that emphasizes a declarative approach to system management. This means you define your desired operating system configuration in a file (e.g., KDE with Emacs 30 and Firefox), and the Nix package manager uses that file to create your OS. Every change generates a new version, allowing you to revert to a previous version if anything goes wrong.</div>
         </article>
       </li>
       <li class="mb-6">
@@ -216,11 +184,8 @@
             >
           </header>
 
-          <div class="text-sm"><p>In <a href="/posts/a-new-theme/" class="backlink">my previous post</a>
- I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in <a href="/posts/choose-your-tools/" class="backlink">a post about tooling</a>
-, I reiterated my ❤️ for <a href="/notes/clojure/" class="backlink">Clojure</a>
- as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.</p>
-<p>Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.</p></div>
+          <div class="text-sm">In my previous post I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in a post about tooling , I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.
+Clojure is special to me in that there are hardly any big frameworks in the ecosystem.</div>
         </article>
       </li>
   </ol>
