@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
 <meta name="language" content="en" />
 <meta name="viewport" content="width=device-width" />
@@ -11,12 +11,12 @@
     Build an API with reitit in Clojure | Arjen Wiersma
 </title>
   <meta name="description" content="In my previous post I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in a post about tooling , I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.
-Clojure is special to me in that there are hardly any big frameworks in the ecosystem." />
-<meta property="og:url" content="https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/">
+Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego." />
+<meta property="og:url" content="http://localhost:1313/posts/20250107-clojure-reitit-server/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Build an API with reitit in Clojure">
   <meta property="og:description" content="In my previous post I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in a post about tooling , I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.
-Clojure is special to me in that there are hardly any big frameworks in the ecosystem.">
+Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -28,7 +28,7 @@ Clojure is special to me in that there are hardly any big frameworks in the ecos
 
   <meta itemprop="name" content="Build an API with reitit in Clojure">
   <meta itemprop="description" content="In my previous post I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in a post about tooling , I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.
-Clojure is special to me in that there are hardly any big frameworks in the ecosystem.">
+Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.">
   <meta itemprop="datePublished" content="2025-01-07T22:22:22+01:00">
   <meta itemprop="dateModified" content="2025-01-07T22:22:22+01:00">
   <meta itemprop="wordCount" content="1541">
@@ -37,33 +37,20 @@ Clojure is special to me in that there are hardly any big frameworks in the ecos
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Build an API with reitit in Clojure">
   <meta name="twitter:description" content="In my previous post I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in a post about tooling , I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.
-Clojure is special to me in that there are hardly any big frameworks in the ecosystem.">
+Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.">
 
-<link rel="canonical" href="https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/" />
+<link rel="canonical" href="http://localhost:1313/posts/20250107-clojure-reitit-server/" />
 
-      <link
-        rel="stylesheet"
-        href="/css/index.min.7dc5bce5e48ff3fe71c582eac851646db39f1a70e9dc6198c199a3189731869e.css"
-        integrity="sha256-fcW85eSP8/5xxYLqyFFkbbOfGnDp3GGYwZmjGJcxhp4="
-        crossorigin="anonymous"
-      />
+    <link rel="stylesheet" href="/css/index.css" />
 
 
-      <script
-        src="/js/main.d08dd7bf84e75145632853df5565c828a4a44de84df4bf08672d692241737c30.js"
-        integrity="sha256-0I3Xv4TnUUVjKFPfVWXIKKSkTehN9L8IZy1pIkFzfDA="
-        crossorigin="anonymous"
-        defer
-      ></script>
+      <script src="/js/main.js" defer></script>
   
-  
-
-
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@id": "https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/",
+  "@id": "http://localhost:1313/posts/20250107-clojure-reitit-server/",
   "@type": "BlogPosting",
   "articleSection": [
     "Programming"
@@ -74,10 +61,10 @@ Clojure is special to me in that there are hardly any big frameworks in the ecos
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2025-01-07",
-  "description": "In my previous post I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in a post about tooling , I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.\nClojure is special to me in that there are hardly any big frameworks in the ecosystem.",
+  "description": "In my previous post I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in a post about tooling , I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.\nClojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.",
   "headline": "Build an API With Reitit in Clojure",
   "isPartOf": {
-    "@id": "https://www.arjenwiersma.nl/posts/",
+    "@id": "http://localhost:1313/posts/",
     "@type": "Blog",
     "name": "Posts"
   },
@@ -85,10 +72,10 @@ Clojure is special to me in that there are hardly any big frameworks in the ecos
     "Clojure",
     "Web"
   ],
-  "mainEntityOfPage": "https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/",
+  "mainEntityOfPage": "http://localhost:1313/posts/20250107-clojure-reitit-server/",
   "name": "Build an API With Reitit in Clojure",
   "timeRequired": "PT8M",
-  "url": "https://www.arjenwiersma.nl/posts/20250107-clojure-reitit-server/",
+  "url": "http://localhost:1313/posts/20250107-clojure-reitit-server/",
   "wordCount": 1541
 }
 </script>

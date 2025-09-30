@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
 <meta name="language" content="en" />
 <meta name="viewport" content="width=device-width" />
@@ -13,7 +13,7 @@
   <meta name="description" content="It is December again and that means it is time for the Advent of Code. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.
 This year I am using Java, together with my students. My goal is to write as modern as possible Java, which means using streams and new language constructs where possible." />
   <meta name="author" content="[Arjen Wiersma]" />
-<meta property="og:url" content="https://www.arjenwiersma.nl/posts/aoc-2024/">
+<meta property="og:url" content="http://localhost:1313/posts/aoc-2024/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Advent of Code 2024">
   <meta property="og:description" content="It is December again and that means it is time for the Advent of Code. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.
@@ -38,31 +38,18 @@ This year I am using Java, together with my students. My goal is to write as mod
   <meta name="twitter:description" content="It is December again and that means it is time for the Advent of Code. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.
 This year I am using Java, together with my students. My goal is to write as modern as possible Java, which means using streams and new language constructs where possible.">
 
-<link rel="canonical" href="https://www.arjenwiersma.nl/posts/aoc-2024/" />
+<link rel="canonical" href="http://localhost:1313/posts/aoc-2024/" />
 
-      <link
-        rel="stylesheet"
-        href="/css/index.min.7dc5bce5e48ff3fe71c582eac851646db39f1a70e9dc6198c199a3189731869e.css"
-        integrity="sha256-fcW85eSP8/5xxYLqyFFkbbOfGnDp3GGYwZmjGJcxhp4="
-        crossorigin="anonymous"
-      />
+    <link rel="stylesheet" href="/css/index.css" />
 
 
-      <script
-        src="/js/main.d08dd7bf84e75145632853df5565c828a4a44de84df4bf08672d692241737c30.js"
-        integrity="sha256-0I3Xv4TnUUVjKFPfVWXIKKSkTehN9L8IZy1pIkFzfDA="
-        crossorigin="anonymous"
-        defer
-      ></script>
+      <script src="/js/main.js" defer></script>
   
-  
-
-
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@id": "https://www.arjenwiersma.nl/posts/aoc-2024/",
+  "@id": "http://localhost:1313/posts/aoc-2024/",
   "@type": "BlogPosting",
   "articleSection": [
     "Writing"
@@ -76,14 +63,14 @@ This year I am using Java, together with my students. My goal is to write as mod
   "description": "It is December again and that means it is time for the Advent of Code. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.\nThis year I am using Java, together with my students. My goal is to write as modern as possible Java, which means using streams and new language constructs where possible.",
   "headline": "Advent of Code 2024",
   "isPartOf": {
-    "@id": "https://www.arjenwiersma.nl/posts/",
+    "@id": "http://localhost:1313/posts/",
     "@type": "Blog",
     "name": "Posts"
   },
-  "mainEntityOfPage": "https://www.arjenwiersma.nl/posts/aoc-2024/",
+  "mainEntityOfPage": "http://localhost:1313/posts/aoc-2024/",
   "name": "Advent of Code 2024",
   "timeRequired": "PT27M",
-  "url": "https://www.arjenwiersma.nl/posts/aoc-2024/",
+  "url": "http://localhost:1313/posts/aoc-2024/",
   "wordCount": 5667
 }
 </script>
@@ -342,8 +329,7 @@ This year I am using Java, together with my students. My goal is to write as mod
 <p>Part 2 was much more interesting, here you have to account for fault tolerance. In the Python implementations that were posted the common solution is to concatenate 2 parts of the array and then rerun the validation logic.</p>
 <p>Using streams we can something very similar. First we use an <code>IntStream</code> to iterate over every <code>int[]</code> (report). Then for every <code>int</code> in that report, we construct a new array by <code>filtering</code> out the index of the current item. After that it is a simple case of determining increment or decrement and applying the conditional logic.</p>
 <blockquote>
-<p>Suppose you have a list of <code>[1,2,4,7]</code>, while iterating it will first hit index <code>0</code>, the <code>filter</code> will prevent that entry from continuing. Next <code>1</code> through <code>3</code> will continue and as a result of <code>toArray()</code> a new array will be constructed with only those items.</p>
-</blockquote>
+<p>Suppose you have a list of <code>[1,2,4,7]</code>, while iterating it will first hit index <code>0</code>, the <code>filter</code> will prevent that entry from continuing. Next <code>1</code> through <code>3</code> will continue and as a result of <code>toArray()</code> a new array will be constructed with only those items.</p></blockquote>
 <figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-03">
   <aside
     class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
@@ -2086,8 +2072,7 @@ This year I am using Java, together with my students. My goal is to write as mod
 <p>Part 1 and part 2 are basically the same, the difference is the amount of iterations for the problem. In this case we have some rules in which rocks change and split up. We are tasked to find the amount of rocks after <code>25</code> and <code>75</code> iterations. The first is do-able with a brute force approach, the second is not.</p>
 <p>The rules are straightforward, but the solution to the problem space might not be. The trick is to use something called <code>memoization</code>.</p>
 <blockquote>
-<p>In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls to pure functions and returning the cached result when the same inputs occur again.</p>
-</blockquote>
+<p>In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls to pure functions and returning the cached result when the same inputs occur again.</p></blockquote>
 <p>So, basically we store results of method calls. Lets first look at my solution. It is a recursive function that takes a <code>number</code> and the number of <code>iterations</code> to apply to it.</p>
 <figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-22">
   <aside
@@ -2946,8 +2931,7 @@ This year I am using Java, together with my students. My goal is to write as mod
 <p>I finally solved it by looking at the field when all robots are on a unique position. I also have seen solution where the minimum safety value is found. The problem description was:</p>
 <blockquote>
 <p>During the bathroom break, someone notices that these robots seem awfully similar to ones built and used at the North Pole. If they&rsquo;re the same type of robots, they should have a hard-coded Easter egg: very rarely, most of the robots should arrange themselves into a picture of a Christmas tree.</p>
-<p>What is the fewest number of seconds that must elapse for the robots to display the Easter egg?</p>
-</blockquote>
+<p>What is the fewest number of seconds that must elapse for the robots to display the Easter egg?</p></blockquote>
 <p>Maybe if it had said &ldquo;very rarely, but when all the robots arrange themselves&rdquo;, but then again, how are you supposed to know that it means non-overlapping.</p>
 <p>Love the Christmas tree though.</p>
 <h3 id="day-15-warehouse-woes" class="scroll-mt-8 group">

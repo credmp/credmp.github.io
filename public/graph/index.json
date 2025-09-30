@@ -9,13 +9,14 @@
     },
     "/notes/clojure/": {
       "in": [
+        "/notes/clojure-emacs/",
+        "/notes/clojure-emacs/",
         "/posts/20250205-clojure-projects/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
+        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": []
@@ -37,15 +38,16 @@
     },
     "/notes/rust/": {
       "in": [
+        "/notes/zero2prod/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
+        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
-        "/notes/type-driven-design/",
-        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/"
+        "/posts/choose-your-tools/",
+        "/posts/20250126-digital-ocean-dev-database/"
       ],
       "out": []
     },
@@ -65,9 +67,10 @@
     },
     "/notes/zero2prod/": {
       "in": [
+        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
-        "/notes/type-driven-design/"
+        "/posts/20250126-digital-ocean-dev-database/"
       ],
       "out": [
         "/notes/rust/"
@@ -78,6 +81,9 @@
         "/posts/20250201-observability-in-clojure/"
       ],
       "out": [
+        "/posts/a-new-theme/",
+        "/posts/choose-your-tools/",
+        "/notes/clojure/",
         "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
         "/notes/clojure/"
@@ -93,6 +99,8 @@
     "/posts/20250126-digital-ocean-dev-database/": {
       "in": [],
       "out": [
+        "/notes/zero2prod/",
+        "/notes/rust/",
         "/notes/zero2prod/",
         "/notes/rust/"
       ]
@@ -176,6 +184,14 @@
       "in": [],
       "out": []
     },
+    "/posts/20250702-ai-mistake/": {
+      "in": [],
+      "out": []
+    },
+    "/posts/20250704-sneaky/": {
+      "in": [],
+      "out": []
+    },
     "/posts/20250711-week-26-27/": {
       "in": [],
       "out": []
@@ -186,6 +202,7 @@
     },
     "/posts/a-new-theme/": {
       "in": [
+        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": [
@@ -245,7 +262,8 @@
     "/posts/choose-your-tools/": {
       "in": [
         "/posts/20250107-clojure-reitit-server/",
-        "/posts/a-new-theme/"
+        "/posts/a-new-theme/",
+        "/posts/20250107-clojure-reitit-server/"
       ],
       "out": [
         "/notes/rust/",
@@ -482,6 +500,16 @@
       "permalink": "/posts/20250630-agentic-teams/",
       "section": "posts",
       "title": "When AIs Work in Teams (And Risks Get Bigger)"
+    },
+    "/posts/20250702-ai-mistake/": {
+      "permalink": "/posts/20250702-ai-mistake/",
+      "section": "posts",
+      "title": "When One AI's Mistake Causes a Total Meltdown"
+    },
+    "/posts/20250704-sneaky/": {
+      "permalink": "/posts/20250704-sneaky/",
+      "section": "posts",
+      "title": "The Sneaky AI: When Agents Deceive or Go Rogue"
     },
     "/posts/20250711-week-26-27/": {
       "permalink": "/posts/20250711-week-26-27/",
