@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 30 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/writing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Research Driven Blogs</title>
+      <link>http://localhost:1313/notes/research-driven-blogs/</link>
+      <pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/research-driven-blogs/</guid>
+      <description>&lt;p&gt;There are a million posts out there offering hot takes on every new piece of tech, and frankly, I&amp;rsquo;m not interested in adding another one to the pile. My goal is to cut through all that chatter by focusing on what the actual, reproducible research says. That way, the information is verifiable, and you don&amp;rsquo;t have to just take my word for it, you can check the sources for yourself. It&amp;rsquo;s the only way to get a clear picture of where things really stand, without the marketing hype or the doomsday predictions.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Advent of Code 2024</title>
       <link>http://localhost:1313/posts/aoc-2024/</link>

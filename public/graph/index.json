@@ -29,6 +29,12 @@
       "in": [],
       "out": []
     },
+    "/notes/research-driven-blogs/": {
+      "in": [
+        "/posts/20250930-semgrep/"
+      ],
+      "out": []
+    },
     "/notes/rust-emacs/": {
       "in": [],
       "out": [
@@ -39,9 +45,9 @@
     "/notes/rust/": {
       "in": [
         "/notes/zero2prod/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/posts/20250111-happy-with-nixos/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
@@ -195,6 +201,12 @@
     "/posts/20250711-week-26-27/": {
       "in": [],
       "out": []
+    },
+    "/posts/20250930-semgrep/": {
+      "in": [],
+      "out": [
+        "/notes/research-driven-blogs/"
+      ]
     },
     "/posts/22-years-of-emacs/": {
       "in": [],
@@ -386,6 +398,11 @@
       "section": "notes",
       "title": "European Union Vulnerability Database"
     },
+    "/notes/research-driven-blogs/": {
+      "permalink": "/notes/research-driven-blogs/",
+      "section": "notes",
+      "title": "Research Driven Blogs"
+    },
     "/notes/rust-emacs/": {
       "permalink": "/notes/rust-emacs/",
       "section": "notes",
@@ -515,6 +532,11 @@
       "permalink": "/posts/20250711-week-26-27/",
       "section": "posts",
       "title": "The Things I Read (Week 27 and 28)"
+    },
+    "/posts/20250930-semgrep/": {
+      "permalink": "/posts/20250930-semgrep/",
+      "section": "posts",
+      "title": "AI Can Write Code, but Can It Secure It? "
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",

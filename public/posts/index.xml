@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Fri, 11 Jul 2025 11:25:16 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 30 Sep 2025 08:04:04 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Can Write Code, But Can It Secure It? </title>
+      <link>http://localhost:1313/posts/20250930-semgrep/</link>
+      <pubDate>Tue, 30 Sep 2025 08:04:04 +0200</pubDate>
+      <guid>http://localhost:1313/posts/20250930-semgrep/</guid>
+      <description>&lt;p&gt;You can&amp;rsquo;t scroll through a tech feed these days without bumping into a hot take on AI and coding. Depending on who you ask, it&amp;rsquo;s either the greatest productivity boost in history or a security dumpster fire waiting to happen. Opinions are cheap, which is why I prefer to stick to the data from actual research. That way, the information is verifiable, and you can trust the analysis because you can check the sources for yourself. This style of writing I call &lt;a href=&#34;http://localhost:1313/notes/research-driven-blogs/&#34; class=&#34;backlink&#34;&gt;Research Driven Blogging&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The things I read (week 27 and 28)</title>
       <link>http://localhost:1313/posts/20250711-week-26-27/</link>
