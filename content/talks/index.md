@@ -6,11 +6,13 @@ I occasionally speak at conferences and meetups. Below are some of my active tal
 
 AI is revolutionizing software development, promising unprecedented speed. But blindly accepting AI-generated code – a practice coined "vibe coding" – can swiftly lead to security nightmares, as illustrated by real-world examples of exposed keys, bypassed payments, and chaotic architectures. This talk dissects the inherent risks when developers, especially those new to coding, leverage AI without oversight. I contrast risky "AI-driven" development with secure "AI-enhanced" development practiced by experienced engineers. Drawing on over 30 years in software and cybersecurity, I present seven essential rules for building secure applications in the age of AI. Learn how to evaluate generated code, apply established standards, perform effective testing, manage complexity, ensure documentation, and stay ahead of emerging AI security threats like prompt injection. Equip yourself to harness AI's power safely and build robust systems, avoiding the pitfalls of the security nightmare.
 
-Below are the recordings from Devoxx Belgium 2025 and TechSummit 2025.
+Below is the recordings from Devoxx Belgium 2025. 
 
 {{< rawhtml >}}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AQqZUzeTFOc?si=ipTN8eI4dof7Pvex" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 {{< /rawhtml >}}
+
+A shorter version of the talk was given at TechSummit 2025.
 
 {{< rawhtml >}}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JvIBJCXmNhc?si=LsH0Q27xJX4Ooe3E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
