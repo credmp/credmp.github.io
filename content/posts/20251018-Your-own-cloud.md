@@ -17,4 +17,4 @@ To further test out this setup I deployed on of my in-progress projects to the b
 
 Once everything turns out to be working nicely for a little while I will also migrate over my blog and then start shutting down my Github and Gitlab accounts. For me that is an enormous moment, I have had these accounts for many years, my Github dates back to 2008. 
 
-, lets see if the box is big enough when I migrate everything in.
+Lets see if the box is big enough when I migrate everything in.
