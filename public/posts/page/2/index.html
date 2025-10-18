@@ -18,8 +18,8 @@
 
 
   <meta itemprop="name" content="Posts">
-  <meta itemprop="datePublished" content="2025-09-30T08:04:04+02:00">
-  <meta itemprop="dateModified" content="2025-09-30T08:04:04+02:00">
+  <meta itemprop="datePublished" content="2025-10-18T20:34:56+02:00">
+  <meta itemprop="dateModified" content="2025-10-18T20:34:56+02:00">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Posts">
@@ -117,6 +117,58 @@
 
         <div class="not-prose">
   <ol>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/20250126-digital-ocean-dev-database/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Digital Ocean, its support and development database</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2025-01-26T12:31:17&#43;01:00"
+              >January 26, 2025</time
+            >
+          </header>
+
+          <div class="text-sm"><figure
+  role="note"
+  id="admonition-00"
+  aria-labelledby="admonition-caption-00"
+  class="admonition tip  not-prose"
+>
+  <div class="flex items-center space-x-2 pb-2 font-semibold">
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-flame block"
+>
+  <path
+    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"
+  />
+</svg>
+
+    <figcaption id="admonition-caption-00">
+        Tip
+    </figcaption>
+  </div>
+
+  <div class="prose pl-8 text-inherit marker:text-inherit">
+    Currently, only use Postgres 14 on the Digital Ocean application platform for development databases.
+  </div>
+</figure>
+
+<p>While following the book <a href="/notes/zero2prod/" class="backlink">Zero2Prod</a>
+ you will learn how to deploy a <a href="/notes/rust/" class="backlink">Rust</a>
+ application to digital ocean through a Continuous Deployment pipeline. This is hardly anything new for me, I even teach a course in DevOps, but to not stray from the path of the book I followed its instructions.</p></div>
+        </article>
+      </li>
       <li class="mb-6">
         <article class="flex flex-col space-y-1">
           <header>
@@ -515,7 +567,8 @@
           </header>
 
           <div class="text-sm"><blockquote>
-<p>This is a longer form article. I is relevant as of <strong>February 18th 2023</strong>. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on <a href="https://github.com/credmp/nixos-dotfiles/">Github</a>.</p></blockquote>
+<p>This is a longer form article. I is relevant as of <strong>February 18th 2023</strong>. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on <a href="https://github.com/credmp/nixos-dotfiles/">Github</a>.</p>
+</blockquote>
 <p>I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.</p></div>
         </article>
       </li>
@@ -535,92 +588,6 @@
 
           <div class="text-sm"><p>It has been a little while. I have been swamped with work and the work on my thesis, leaving no room to finish the Advent of Code or much of anything else.</p>
 <p>Yesterday I gave my practice presentation for my thesis. This means I am one more step closer to the finish line. During the day there were many interactions with fellow students. One of the topics has been the templates to use at Open Universiteit. So, I thought I would just create a repository of the templates that I use, so that anyone can learn from them.</p></div>
-        </article>
-      </li>
-  </ol>
-</div>
-
-      </section>
-      <section class="not-prose flex flex-col space-y-4">
-        <h2 class="text-xl font-semibold opacity-60 text-right border-b">2023</h2>
-
-        <div class="not-prose">
-  <ol>
-      <li class="mb-6">
-        <article class="flex flex-col space-y-1">
-          <header>
-            <h3 class="text-lg font-semibold leading-none">
-              <a
-                href="/posts/aoc-2023-day-9/"
-                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
-                >Advent of Code 2023 day 9</a
-              >
-            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2023-12-09T07:29:00&#43;01:00"
-              >December 9, 2023</time
-            >
-          </header>
-
-          <div class="text-sm"><p>The weekend generally is a place to find hard puzzles again, this time not so much. A simple quest to find the next number in a sequence with a fully written out algorithm to follow. They key here is to use recursion.</p>
-<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
-  <aside
-    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
-  >
-    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
-      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
-        <span class="relative">go</span>
-      </div>
-      <div>
-        <clipboard-copy
-          type="button"
-          aria-label="Copy code to clipboard"
-          title="Copy code to clipboard"
-          class="block cursor-pointer transition-colors hover:text-sky-400"
-          target="#codeblock-01 code"
-        >
-          <svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="lucide lucide-clipboard h-4 w-4"
-  viewBox="0 0 24 24"
->
-  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-</svg>
-
-        </clipboard-copy>
-      </div>
-      <div>
-        <a
-          href="#codeblock-01"
-          class="block"
-          aria-label="Link to this code block"
-          title="Link to this code block"
-        >
-          <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="16"
-  height="16"
-  fill="none"
-  stroke="currentColor"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  stroke-width="2"
-  class="lucide lucide-link w-4 h-4 block"
-  viewBox="0 0 24 24"
->
-  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-</svg>
-
-        </a>
-      </div>
-    </div>
-  </aside>
-  <p class="sr-only">go code snippet start</p></div>
         </article>
       </li>
   </ol>

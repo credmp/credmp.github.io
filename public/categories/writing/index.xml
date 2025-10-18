@@ -42,7 +42,7 @@
       <link>http://localhost:1313/posts/my-computing-environment/</link>
       <pubDate>Sun, 18 Feb 2024 15:35:00 +0100</pubDate>
       <guid>http://localhost:1313/posts/my-computing-environment/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This is a longer form article. I is relevant as of &lt;strong&gt;February 18th 2023&lt;/strong&gt;. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on &lt;a href=&#34;https://github.com/credmp/nixos-dotfiles/&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This is a longer form article. I is relevant as of &lt;strong&gt;February 18th 2023&lt;/strong&gt;. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on &lt;a href=&#34;https://github.com/credmp/nixos-dotfiles/&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deployment Anxiety</title>
