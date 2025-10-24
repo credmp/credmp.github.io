@@ -3,7 +3,7 @@ title: Arjen Wiersma
 date: "2025-01-05"
 ---
 
-My name is Arjen. I am a Cyber Security Consultant for [Scyon](https://www.scyon.nl/). I help organisations with their Application Security, Offensive Security and (Cyber) Business needs. Roles that I like to fulfill: (C)ISO, Security Engineer, Engineer Manager, Senior Developer (Java or Rust).
+My name is Arjen. I am a Cyber Security Consultant for [Scyon](https://www.scyon.nl/). I help organisations with their Application Security, Offensive Security and (Cyber) Business needs. Roles that I like to fulfill: Engineer Manager, Senior Developer (Java), Architect, (C)ISO.
 
 I have been in the software and security industry for almost 30 years and have worked in:
 
