@@ -10,14 +10,12 @@
     "/notes/clojure/": {
       "in": [
         "/posts/20250205-clojure-projects/",
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
         "/posts/20250111-happy-with-nixos/",
+        "/notes/clojure-emacs/",
+        "/notes/clojure-emacs/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": []
@@ -32,6 +30,8 @@
     },
     "/notes/research-driven-blogs/": {
       "in": [
+        "/posts/20251024-weird-llm/",
+        "/posts/20251024-weird-llm/",
         "/posts/20250930-semgrep/"
       ],
       "out": []
@@ -45,17 +45,15 @@
     },
     "/notes/rust/": {
       "in": [
-        "/notes/zero2prod/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/posts/a-new-theme/",
+        "/notes/type-driven-design/",
+        "/notes/zero2prod/",
         "/posts/choose-your-tools/",
-        "/posts/choose-your-tools/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/20250126-digital-ocean-dev-database/"
+        "/posts/choose-your-tools/"
       ],
       "out": []
     },
@@ -75,11 +73,9 @@
     },
     "/notes/zero2prod/": {
       "in": [
-        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/20250126-digital-ocean-dev-database/"
+        "/notes/type-driven-design/"
       ],
       "out": [
         "/notes/rust/"
@@ -90,12 +86,6 @@
         "/posts/20250201-observability-in-clojure/"
       ],
       "out": [
-        "/posts/a-new-theme/",
-        "/posts/choose-your-tools/",
-        "/notes/clojure/",
-        "/posts/a-new-theme/",
-        "/posts/choose-your-tools/",
-        "/notes/clojure/",
         "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
         "/notes/clojure/"
@@ -111,10 +101,6 @@
     "/posts/20250126-digital-ocean-dev-database/": {
       "in": [],
       "out": [
-        "/notes/zero2prod/",
-        "/notes/rust/",
-        "/notes/zero2prod/",
-        "/notes/rust/",
         "/notes/zero2prod/",
         "/notes/rust/"
       ]
@@ -220,14 +206,19 @@
       "in": [],
       "out": []
     },
+    "/posts/20251024-weird-llm/": {
+      "in": [],
+      "out": [
+        "/notes/research-driven-blogs/",
+        "/notes/research-driven-blogs/"
+      ]
+    },
     "/posts/22-years-of-emacs/": {
       "in": [],
       "out": []
     },
     "/posts/a-new-theme/": {
       "in": [
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/20250107-clojure-reitit-server/",
         "/posts/20250107-clojure-reitit-server/"
       ],
       "out": [
@@ -287,9 +278,7 @@
     "/posts/choose-your-tools/": {
       "in": [
         "/posts/20250107-clojure-reitit-server/",
-        "/posts/a-new-theme/",
-        "/posts/20250107-clojure-reitit-server/",
-        "/posts/20250107-clojure-reitit-server/"
+        "/posts/a-new-theme/"
       ],
       "out": [
         "/notes/rust/",
@@ -556,6 +545,11 @@
       "permalink": "/posts/20251018-your-own-cloud/",
       "section": "posts",
       "title": "Your Own Cloud"
+    },
+    "/posts/20251024-weird-llm/": {
+      "permalink": "/posts/20251024-weird-llm/",
+      "section": "posts",
+      "title": "The Dutch Are WEIRD, and So Is ChatGPT"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",
