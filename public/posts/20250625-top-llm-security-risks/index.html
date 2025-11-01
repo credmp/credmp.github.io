@@ -3,22 +3,18 @@
   lang="en-us"
   dir="ltr"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
 <meta name="language" content="en" />
 <meta name="viewport" content="width=device-width" />
 <title>
     Top LLM security risks: Prompt injection &amp; Sensitive information disclosure | Arjen Wiersma
 </title>
-  <meta name="description" content="Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!
-On Monday, I looked at the big picture. Today, I’m zooming in on two specific problems that pop up all the time. These are straight from the official OWASP Top 10 list of big risks for AI, so they’re definitely ones to watch.
-Let’s dive into Prompt Injection and Sensitive Information Disclosure." />
-<meta property="og:url" content="https://www.arjenwiersma.nl/posts/20250625-top-llm-security-risks/">
+  <meta name="description" content=" Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!" />
+<meta property="og:url" content="http://localhost:1313/posts/20250625-top-llm-security-risks/">
   <meta property="og:site_name" content="Arjen Wiersma">
-  <meta property="og:title" content="Top LLM security risks: Prompt injection &amp; Sensitive information disclosure">
-  <meta property="og:description" content="Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!
-On Monday, I looked at the big picture. Today, I’m zooming in on two specific problems that pop up all the time. These are straight from the official OWASP Top 10 list of big risks for AI, so they’re definitely ones to watch.
-Let’s dive into Prompt Injection and Sensitive Information Disclosure.">
+  <meta property="og:title" content="Top LLM security risks: Prompt injection & Sensitive information disclosure">
+  <meta property="og:description" content="Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -26,45 +22,28 @@ Let’s dive into Prompt Injection and Sensitive Information Disclosure.">
     <meta property="article:modified_time" content="2025-06-25T14:45:39+02:00">
 
 
-  <meta itemprop="name" content="Top LLM security risks: Prompt injection &amp; Sensitive information disclosure">
-  <meta itemprop="description" content="Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!
-On Monday, I looked at the big picture. Today, I’m zooming in on two specific problems that pop up all the time. These are straight from the official OWASP Top 10 list of big risks for AI, so they’re definitely ones to watch.
-Let’s dive into Prompt Injection and Sensitive Information Disclosure.">
+  <meta itemprop="name" content="Top LLM security risks: Prompt injection & Sensitive information disclosure">
+  <meta itemprop="description" content="Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!">
   <meta itemprop="datePublished" content="2025-06-25T14:45:39+02:00">
   <meta itemprop="dateModified" content="2025-06-25T14:45:39+02:00">
   <meta itemprop="wordCount" content="581">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Top LLM security risks: Prompt injection &amp; Sensitive information disclosure">
-  <meta name="twitter:description" content="Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!
-On Monday, I looked at the big picture. Today, I’m zooming in on two specific problems that pop up all the time. These are straight from the official OWASP Top 10 list of big risks for AI, so they’re definitely ones to watch.
-Let’s dive into Prompt Injection and Sensitive Information Disclosure.">
+  <meta name="twitter:title" content="Top LLM security risks: Prompt injection & Sensitive information disclosure">
+  <meta name="twitter:description" content="Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!">
 
-<link rel="canonical" href="https://www.arjenwiersma.nl/posts/20250625-top-llm-security-risks/" />
+<link rel="canonical" href="http://localhost:1313/posts/20250625-top-llm-security-risks/" />
 
-      <link
-        rel="stylesheet"
-        href="/css/index.min.7dc5bce5e48ff3fe71c582eac851646db39f1a70e9dc6198c199a3189731869e.css"
-        integrity="sha256-fcW85eSP8/5xxYLqyFFkbbOfGnDp3GGYwZmjGJcxhp4="
-        crossorigin="anonymous"
-      />
+    <link rel="stylesheet" href="/css/index.css" />
 
 
-      <script
-        src="/js/main.d08dd7bf84e75145632853df5565c828a4a44de84df4bf08672d692241737c30.js"
-        integrity="sha256-0I3Xv4TnUUVjKFPfVWXIKKSkTehN9L8IZy1pIkFzfDA="
-        crossorigin="anonymous"
-        defer
-      ></script>
+      <script src="/js/main.js" defer></script>
   
-  
-
-
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@id": "https://www.arjenwiersma.nl/posts/20250625-top-llm-security-risks/",
+  "@id": "http://localhost:1313/posts/20250625-top-llm-security-risks/",
   "@type": "BlogPosting",
   "author": {
     "@type": "Person",
@@ -72,17 +51,17 @@ Let’s dive into Prompt Injection and Sensitive Information Disclosure.">
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2025-06-25",
-  "description": "Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!\nOn Monday, I looked at the big picture. Today, I’m zooming in on two specific problems that pop up all the time. These are straight from the official OWASP Top 10 list of big risks for AI, so they’re definitely ones to watch.\nLet’s dive into Prompt Injection and Sensitive Information Disclosure.",
+  "description": " Tip This article was first published as part of a substack experiment, I reproduced it here. Alright, welcome back to our chat about AI security!",
   "headline": "Top LLM Security Risks: Prompt Injection \u0026 Sensitive Information Disclosure",
   "isPartOf": {
-    "@id": "https://www.arjenwiersma.nl/posts/",
+    "@id": "http://localhost:1313/posts/",
     "@type": "Blog",
     "name": "Posts"
   },
-  "mainEntityOfPage": "https://www.arjenwiersma.nl/posts/20250625-top-llm-security-risks/",
+  "mainEntityOfPage": "http://localhost:1313/posts/20250625-top-llm-security-risks/",
   "name": "Top LLM Security Risks: Prompt Injection \u0026 Sensitive Information Disclosure",
   "timeRequired": "PT3M",
-  "url": "https://www.arjenwiersma.nl/posts/20250625-top-llm-security-risks/",
+  "url": "http://localhost:1313/posts/20250625-top-llm-security-risks/",
   "wordCount": 581
 }
 </script>

@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writing on Arjen Wiersma</title>
-    <link>https://www.arjenwiersma.nl/categories/writing/</link>
+    <link>http://localhost:1313/categories/writing/</link>
     <description>Recent content in Writing on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Tue, 30 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://www.arjenwiersma.nl/categories/writing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/writing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Research Driven Blogs</title>
-      <link>https://www.arjenwiersma.nl/notes/research-driven-blogs/</link>
+      <link>http://localhost:1313/notes/research-driven-blogs/</link>
       <pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.arjenwiersma.nl/notes/research-driven-blogs/</guid>
-      <description>There are a million posts out there offering hot takes on every new piece of tech, and frankly, I&amp;rsquo;m not interested in adding another one to the pile. My goal is to cut through all that chatter by focusing on what the actual, reproducible research says. That way, the information is verifiable, and you don&amp;rsquo;t have to just take my word for it, you can check the sources for yourself. It&amp;rsquo;s the only way to get a clear picture of where things really stand, without the marketing hype or the doomsday predictions.</description>
+      <guid>http://localhost:1313/notes/research-driven-blogs/</guid>
+      <description>&lt;p&gt;There are a million posts out there offering hot takes on every new piece of tech, and frankly, I&amp;rsquo;m not interested in adding another one to the pile. My goal is to cut through all that chatter by focusing on what the actual, reproducible research says. That way, the information is verifiable, and you don&amp;rsquo;t have to just take my word for it, you can check the sources for yourself. It&amp;rsquo;s the only way to get a clear picture of where things really stand, without the marketing hype or the doomsday predictions.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advent of Code 2024</title>
-      <link>https://www.arjenwiersma.nl/posts/aoc-2024/</link>
+      <link>http://localhost:1313/posts/aoc-2024/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/aoc-2024/</guid>
-      <description>It is December again and that means it is time for the Advent of Code. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.&#xA;This year I am using Java, together with my students. My goal is to write as modern as possible Java, which means using streams and new language constructs where possible.</description>
+      <guid>http://localhost:1313/posts/aoc-2024/</guid>
+      <description>&lt;p&gt;It is December again and that means it is time for the &lt;a href=&#34;https://adventofcode.com/&#34;&gt;Advent of Code&lt;/a&gt;. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.&lt;/p&gt;&#xA;&lt;p&gt;This year I am using Java, together with my students. My goal is to write as modern as possible Java, which means using streams and new language constructs where possible.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Finding time to study</title>
-      <link>https://www.arjenwiersma.nl/posts/learn-to-stud-finding-time/</link>
+      <link>http://localhost:1313/posts/learn-to-stud-finding-time/</link>
       <pubDate>Mon, 15 Jul 2024 23:05:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/learn-to-stud-finding-time/</guid>
-      <description>This is an English article, there is also a Dutch version.&#xA;So, you&amp;rsquo;ve decided to start studying? Maybe you want to earn your Bachelor or Master&amp;rsquo;s degree, or perhaps you&amp;rsquo;re aiming for that highly technical certificate. It&amp;rsquo;s great that you&amp;rsquo;re taking this step, but once you begin, you&amp;rsquo;ll quickly need to answer the question of where you&amp;rsquo;ll find the time.&#xA;Time is our most valuable, non-renewable resource. Studying requires time – and not just a little – so you naturally want to use it well.</description>
+      <guid>http://localhost:1313/posts/learn-to-stud-finding-time/</guid>
+      <description>&lt;p&gt;This is an English article, there is also a &lt;a href=&#34;http://localhost:1313/posts/leren-studeren-tijd-vinden&#34;&gt;Dutch version&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;So, you&amp;rsquo;ve decided to start studying? Maybe you want to earn your Bachelor or Master&amp;rsquo;s degree, or perhaps you&amp;rsquo;re aiming for that highly technical certificate. It&amp;rsquo;s great that you&amp;rsquo;re taking this step, but once you begin, you&amp;rsquo;ll quickly need to answer the question of where you&amp;rsquo;ll find the time.&lt;/p&gt;&#xA;&lt;p&gt;Time is our most valuable, non-renewable resource. Studying requires time – and not just a little – so you naturally want to use it well. Most programs expect you to invest between 12 and 24 hours per week to keep up, and that&amp;rsquo;s quite a bit! If you&amp;rsquo;re not currently studying, try thinking about which days and times you could free up that time. Will you eat out less or exercise less? Get up early on weekends or stay up late?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tijd vinden om te studeren [Dutch article]</title>
-      <link>https://www.arjenwiersma.nl/posts/leren-studeren-tijd-vinden/</link>
+      <link>http://localhost:1313/posts/leren-studeren-tijd-vinden/</link>
       <pubDate>Mon, 15 Jul 2024 23:05:00 +0200</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/leren-studeren-tijd-vinden/</guid>
-      <description>This is a Dutch artcile, there is also an English version.&#xA;Dus, jij hebt besloten om te gaan studeren? Misschien wil je jouw HBO- of Masterdiploma halen, of juist dat ene supertechnische certificaat bemachtigen. Het is geweldig dat je deze stap gaat zetten, maar zodra je begint, zul je vrij snel de vraag moeten beantwoorden waar je de tijd vandaan haalt.&#xA;Tijd is onze meest waardevolle, niet-hernieuwbare bron. Studeren vergt tijd – en niet zo&amp;rsquo;n klein beetje ook – dus wil je het natuurlijk goed doen.</description>
+      <guid>http://localhost:1313/posts/leren-studeren-tijd-vinden/</guid>
+      <description>&lt;p&gt;This is a Dutch artcile, there is also an &lt;a href=&#34;http://localhost:1313/posts/learn-to-stud-finding-time&#34;&gt;English version&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Dus, jij hebt besloten om te gaan studeren? Misschien wil je jouw HBO- of Masterdiploma halen, of juist dat ene supertechnische certificaat bemachtigen. Het is geweldig dat je deze stap gaat zetten, maar zodra je begint, zul je vrij snel de vraag moeten beantwoorden waar je de tijd vandaan haalt.&lt;/p&gt;&#xA;&lt;p&gt;Tijd is onze meest waardevolle, niet-hernieuwbare bron. Studeren vergt tijd – en niet zo&amp;rsquo;n klein beetje ook – dus wil je het natuurlijk goed doen. De meeste studies verwachten dat je wekelijks ergens tussen de 12 en 24 uur investeert om bij te blijven, en dat is flink wat! Als je nog niet studeert, probeer dan eens na te denken over welke dagen en momenten je die tijd kunt vrijmaken. Ga je minder uit eten of juist minder sporten? Vroeg opstaan in het weekend, of juist extra laat naar bed?&lt;/p&gt;</description>
     </item>
     <item>
       <title>My computing environment</title>
-      <link>https://www.arjenwiersma.nl/posts/my-computing-environment/</link>
+      <link>http://localhost:1313/posts/my-computing-environment/</link>
       <pubDate>Sun, 18 Feb 2024 15:35:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/my-computing-environment/</guid>
-      <description>This is a longer form article. I is relevant as of February 18th 2023. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on Github.&#xA;I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.</description>
+      <guid>http://localhost:1313/posts/my-computing-environment/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This is a longer form article. I is relevant as of &lt;strong&gt;February 18th 2023&lt;/strong&gt;. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on &lt;a href=&#34;https://github.com/credmp/nixos-dotfiles/&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deployment Anxiety</title>
-      <link>https://www.arjenwiersma.nl/posts/deployment-anxiety/</link>
+      <link>http://localhost:1313/posts/deployment-anxiety/</link>
       <pubDate>Wed, 16 Nov 2022 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/deployment-anxiety/</guid>
-      <description>Let me tell you how it was to ship a product out to half a million people back in 1999. But before I do that, let me tell you why. Today I talked to one of my students and he mentioned that he was very nervous about a change he was making. He was afraid it would break things and that he would spend the afternoon working through his CI/CD pipeline to resolve issues.</description>
+      <guid>http://localhost:1313/posts/deployment-anxiety/</guid>
+      <description>&lt;p&gt;Let me tell you how it was to ship a product out to half a million people back in 1999. But before I do that, let me tell you why. Today I talked to one of my students and he mentioned that he was very nervous about a change he was making. He was afraid it would break things and that he would spend the afternoon working through his CI/CD pipeline to resolve issues.&lt;/p&gt;</description>
     </item>
     <item>
       <title>22 years of Emacs</title>
-      <link>https://www.arjenwiersma.nl/posts/22-years-of-emacs/</link>
+      <link>http://localhost:1313/posts/22-years-of-emacs/</link>
       <pubDate>Tue, 07 Dec 2021 00:00:00 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/22-years-of-emacs/</guid>
-      <description>Where to begin&amp;hellip; I just watched David Wilson&amp;rsquo;s talk called M-x forever - why Emacs will outlast text editor trends. He gave this talk at EmacsConf 2021 which is a conference dedicated to Emacs. The talk made me reflect on my use of Emacs over the last years and then I realized that this year will mark 22 years that Emacs and I have been together. This (probably too long) article reflects on those years and dives into my use of Emacs.</description>
+      <guid>http://localhost:1313/posts/22-years-of-emacs/</guid>
+      <description>&lt;h3 id=&#34;where-to-begin-dot-dot-dot&#34; class=&#34;scroll-mt-8 group&#34;&gt;&#xA;  Where to begin&amp;hellip;&#xA;  &#xA;    &lt;a href=&#34;#where-to-begin-dot-dot-dot&#34;&#xA;        class=&#34;no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block&#34;&#xA;        aria-hidden=&#34;true&#34; title=&#34;Link to this heading&#34; tabindex=&#34;-1&#34;&gt;&#xA;        &lt;svg&#xA;  xmlns=&#34;http://www.w3.org/2000/svg&#34;&#xA;  width=&#34;16&#34;&#xA;  height=&#34;16&#34;&#xA;  fill=&#34;none&#34;&#xA;  stroke=&#34;currentColor&#34;&#xA;  stroke-linecap=&#34;round&#34;&#xA;  stroke-linejoin=&#34;round&#34;&#xA;  stroke-width=&#34;2&#34;&#xA;  class=&#34;lucide lucide-link w-4 h-4 block&#34;&#xA;  viewBox=&#34;0 0 24 24&#34;&#xA;&gt;&#xA;  &lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; /&gt;&#xA;  &lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;    &lt;/a&gt;&#xA;  &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;I just watched David Wilson&amp;rsquo;s talk called &lt;a href=&#34;https://emacsconf.org/2021/talks/forever/&#34;&gt;M-x forever - why Emacs will outlast text editor trends&lt;/a&gt;. He gave this talk at &lt;a href=&#34;https://emacsconf.org/&#34;&gt;EmacsConf 2021&lt;/a&gt; which is a conference dedicated to Emacs. The talk made me reflect on my use of Emacs over the last years and then I realized that this year will mark 22 years that Emacs and I have been together. This (probably too long) article reflects on those years and dives into my use of Emacs.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

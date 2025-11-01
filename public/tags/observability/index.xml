@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Observability on Arjen Wiersma</title>
-    <link>https://www.arjenwiersma.nl/tags/observability/</link>
+    <link>http://localhost:1313/tags/observability/</link>
     <description>Recent content in Observability on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Sat, 01 Feb 2025 13:03:45 +0100</lastBuildDate>
-    <atom:link href="https://www.arjenwiersma.nl/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/observability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Observability in Clojure</title>
-      <link>https://www.arjenwiersma.nl/posts/20250201-observability-in-clojure/</link>
+      <link>http://localhost:1313/posts/20250201-observability-in-clojure/</link>
       <pubDate>Sat, 01 Feb 2025 13:03:45 +0100</pubDate>
-      <guid>https://www.arjenwiersma.nl/posts/20250201-observability-in-clojure/</guid>
-      <description>Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (Chakraborty &amp;amp; Kundan, 2021; Kosińska et al., 2023). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (Hausenblas, 2023; Chakraborty &amp;amp; Kundan, 2021). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.</description>
+      <guid>http://localhost:1313/posts/20250201-observability-in-clojure/</guid>
+      <description>&lt;p&gt;Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (&lt;a href=&#34;https://doi.org/10.1007/978-1-4842-6888-9_2&#34;&gt;Chakraborty &amp;amp; Kundan, 2021&lt;/a&gt;; &lt;a href=&#34;https://doi.org/10.1109/ACCESS.2023.3281860&#34;&gt;Kosińska et al., 2023&lt;/a&gt;). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (&lt;a href=&#34;https://doi.org/10.48550/arXiv.2303.13402&#34;&gt;Hausenblas, 2023&lt;/a&gt;; &lt;a href=&#34;https://doi.org/10.1007/978-1-4842-6888-9_2&#34;&gt;Chakraborty &amp;amp; Kundan, 2021&lt;/a&gt;). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

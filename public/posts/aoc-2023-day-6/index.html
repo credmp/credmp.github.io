@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
 <meta name="language" content="en" />
 <meta name="viewport" content="width=device-width" />
@@ -12,14 +12,14 @@
 </title>
   <meta name="description" content="Day 6 turned out to be the easiest day in the range so far. A simple implementation of the algorithm was more than sufficient.
 I later learned that it was a quadratic function. On the subreddit Deatranger999 said:
-If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x &#43; d is at most 0, where t is the total time of the race and d is the distance you’d like to beat." />
+If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x &#43; d is at most 0, where t is the total time of the race and d is the distance you’d like to beat. So I just plugged each one into WolframAlpha, found the roots, and then calculated the number of integers between the two roots." />
   <meta name="author" content="[Arjen Wiersma]" />
-<meta property="og:url" content="https://www.arjenwiersma.nl/posts/aoc-2023-day-6/">
+<meta property="og:url" content="http://localhost:1313/posts/aoc-2023-day-6/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Advent of Code 2023 day 6">
   <meta property="og:description" content="Day 6 turned out to be the easiest day in the range so far. A simple implementation of the algorithm was more than sufficient.
 I later learned that it was a quadratic function. On the subreddit Deatranger999 said:
-If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x &#43; d is at most 0, where t is the total time of the race and d is the distance you’d like to beat.">
+If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x &#43; d is at most 0, where t is the total time of the race and d is the distance you’d like to beat. So I just plugged each one into WolframAlpha, found the roots, and then calculated the number of integers between the two roots.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -30,7 +30,7 @@ If you hold down the button for x seconds, then you will beat the distance if th
   <meta itemprop="name" content="Advent of Code 2023 day 6">
   <meta itemprop="description" content="Day 6 turned out to be the easiest day in the range so far. A simple implementation of the algorithm was more than sufficient.
 I later learned that it was a quadratic function. On the subreddit Deatranger999 said:
-If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x &#43; d is at most 0, where t is the total time of the race and d is the distance you’d like to beat.">
+If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x &#43; d is at most 0, where t is the total time of the race and d is the distance you’d like to beat. So I just plugged each one into WolframAlpha, found the roots, and then calculated the number of integers between the two roots.">
   <meta itemprop="datePublished" content="2023-12-09T07:16:00+01:00">
   <meta itemprop="dateModified" content="2023-12-09T07:16:00+01:00">
   <meta itemprop="wordCount" content="306">
@@ -39,33 +39,20 @@ If you hold down the button for x seconds, then you will beat the distance if th
   <meta name="twitter:title" content="Advent of Code 2023 day 6">
   <meta name="twitter:description" content="Day 6 turned out to be the easiest day in the range so far. A simple implementation of the algorithm was more than sufficient.
 I later learned that it was a quadratic function. On the subreddit Deatranger999 said:
-If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x &#43; d is at most 0, where t is the total time of the race and d is the distance you’d like to beat.">
+If you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x &#43; d is at most 0, where t is the total time of the race and d is the distance you’d like to beat. So I just plugged each one into WolframAlpha, found the roots, and then calculated the number of integers between the two roots.">
 
-<link rel="canonical" href="https://www.arjenwiersma.nl/posts/aoc-2023-day-6/" />
+<link rel="canonical" href="http://localhost:1313/posts/aoc-2023-day-6/" />
 
-      <link
-        rel="stylesheet"
-        href="/css/index.min.7dc5bce5e48ff3fe71c582eac851646db39f1a70e9dc6198c199a3189731869e.css"
-        integrity="sha256-fcW85eSP8/5xxYLqyFFkbbOfGnDp3GGYwZmjGJcxhp4="
-        crossorigin="anonymous"
-      />
+    <link rel="stylesheet" href="/css/index.css" />
 
 
-      <script
-        src="/js/main.d08dd7bf84e75145632853df5565c828a4a44de84df4bf08672d692241737c30.js"
-        integrity="sha256-0I3Xv4TnUUVjKFPfVWXIKKSkTehN9L8IZy1pIkFzfDA="
-        crossorigin="anonymous"
-        defer
-      ></script>
+      <script src="/js/main.js" defer></script>
   
-  
-
-
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@id": "https://www.arjenwiersma.nl/posts/aoc-2023-day-6/",
+  "@id": "http://localhost:1313/posts/aoc-2023-day-6/",
   "@type": "BlogPosting",
   "author": {
     "@type": "Person",
@@ -73,17 +60,17 @@ If you hold down the button for x seconds, then you will beat the distance if th
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2023-12-09",
-  "description": "Day 6 turned out to be the easiest day in the range so far. A simple implementation of the algorithm was more than sufficient.\nI later learned that it was a quadratic function. On the subreddit Deatranger999 said:\nIf you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x + d is at most 0, where t is the total time of the race and d is the distance you’d like to beat.",
+  "description": "Day 6 turned out to be the easiest day in the range so far. A simple implementation of the algorithm was more than sufficient.\nI later learned that it was a quadratic function. On the subreddit Deatranger999 said:\nIf you hold down the button for x seconds, then you will beat the distance if the quadratic x^2 - t x + d is at most 0, where t is the total time of the race and d is the distance you’d like to beat. So I just plugged each one into WolframAlpha, found the roots, and then calculated the number of integers between the two roots.",
   "headline": "Advent of Code 2023 Day 6",
   "isPartOf": {
-    "@id": "https://www.arjenwiersma.nl/posts/",
+    "@id": "http://localhost:1313/posts/",
     "@type": "Blog",
     "name": "Posts"
   },
-  "mainEntityOfPage": "https://www.arjenwiersma.nl/posts/aoc-2023-day-6/",
+  "mainEntityOfPage": "http://localhost:1313/posts/aoc-2023-day-6/",
   "name": "Advent of Code 2023 Day 6",
   "timeRequired": "PT2M",
-  "url": "https://www.arjenwiersma.nl/posts/aoc-2023-day-6/",
+  "url": "http://localhost:1313/posts/aoc-2023-day-6/",
   "wordCount": 306
 }
 </script>
@@ -197,69 +184,69 @@ If you hold down the button for x seconds, then you will beat the distance if th
     </div>
   </aside>
   <p class="sr-only">go code snippet start</p>
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;strconv&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;strings&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;arjenwiersma.nl/aoc/internal/aoc&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">lines</span> <span class="o">:=</span> <span class="nx">aoc</span><span class="p">.</span><span class="nf">AsLines</span><span class="p">(</span><span class="s">&#34;2023/Day06/input.txt&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">times</span> <span class="p">[]</span><span class="kt">int</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">t</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#34; &#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">s</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">TrimSpace</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">s</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">i</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">times</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">times</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">distances</span> <span class="p">[]</span><span class="kt">int</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">t</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#34; &#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">s</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">TrimSpace</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">s</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">i</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">distances</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">distances</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">result</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">times</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">times</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">t</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">t</span> <span class="p">&lt;</span> <span class="nx">times</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="nx">t</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">d</span> <span class="o">:=</span> <span class="nx">t</span> <span class="o">*</span> <span class="p">(</span><span class="nx">times</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">t</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">d</span> <span class="p">&gt;</span> <span class="nx">distances</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">			<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">ans</span> <span class="o">:=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">result</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">ans</span> <span class="o">*=</span> <span class="nx">c</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 1: &#34;</span><span class="p">,</span> <span class="nx">ans</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">nT</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d%d%d%d&#34;</span><span class="p">,</span> <span class="nx">times</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">times</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">times</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">times</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">nD</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d%d%d%d&#34;</span><span class="p">,</span> <span class="nx">distances</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">distances</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">distances</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">distances</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">ans</span> <span class="p">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">t</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">t</span> <span class="p">&lt;</span> <span class="nx">nT</span><span class="p">;</span> <span class="nx">t</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">d</span> <span class="o">:=</span> <span class="nx">t</span> <span class="o">*</span> <span class="p">(</span><span class="nx">nT</span> <span class="o">-</span> <span class="nx">t</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">d</span> <span class="p">&gt;</span> <span class="nx">nD</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">ans</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 2: &#34;</span><span class="p">,</span> <span class="nx">ans</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;fmt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;strconv&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;strings&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;arjenwiersma.nl/aoc/internal/aoc&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">lines</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">aoc</span><span class="p">.</span><span class="nf">AsLines</span><span class="p">(</span><span class="s">&#34;2023/Day06/input.txt&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">times</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">TrimSpace</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">times</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">times</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">distances</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">TrimSpace</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">distances</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">distances</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">times</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">times</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">times</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span><span class="w"> </span><span class="nx">t</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nx">d</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">times</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">t</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">distances</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">ans</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">ans</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="nx">c</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 1: &#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ans</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">nT</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d%d%d%d&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">times</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="nx">times</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nx">times</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nx">times</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">nD</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d%d%d%d&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">distances</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="nx">distances</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nx">distances</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nx">distances</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">nT</span><span class="p">;</span><span class="w"> </span><span class="nx">t</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">d</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">nT</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">t</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">nD</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nx">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 2: &#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ans</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></div>
   <p class="sr-only">go code snippet end</p>
 
   

@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
 <meta name="language" content="en" />
 <meta name="viewport" content="width=device-width" />
@@ -13,7 +13,7 @@
   <meta name="description" content="The difficulty is going up and down. This day was quite easy in comparison to yesterday. Today it was about parsing some numbers and finding a set of winning numbers.
 As I am doing these puzzles in Go I found out that there is no default set type. There is an implementation by HashiCorp named go-set that fills this void. I did not use an external package (I try to avoid them while doing AoC), but I am very tempted to pull that package in." />
   <meta name="author" content="[Arjen Wiersma]" />
-<meta property="og:url" content="https://www.arjenwiersma.nl/posts/aoc-2023-day-4/">
+<meta property="og:url" content="http://localhost:1313/posts/aoc-2023-day-4/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Advent of Code 2023 Day 4">
   <meta property="og:description" content="The difficulty is going up and down. This day was quite easy in comparison to yesterday. Today it was about parsing some numbers and finding a set of winning numbers.
@@ -37,31 +37,18 @@ As I am doing these puzzles in Go I found out that there is no default set type.
   <meta name="twitter:description" content="The difficulty is going up and down. This day was quite easy in comparison to yesterday. Today it was about parsing some numbers and finding a set of winning numbers.
 As I am doing these puzzles in Go I found out that there is no default set type. There is an implementation by HashiCorp named go-set that fills this void. I did not use an external package (I try to avoid them while doing AoC), but I am very tempted to pull that package in.">
 
-<link rel="canonical" href="https://www.arjenwiersma.nl/posts/aoc-2023-day-4/" />
+<link rel="canonical" href="http://localhost:1313/posts/aoc-2023-day-4/" />
 
-      <link
-        rel="stylesheet"
-        href="/css/index.min.7dc5bce5e48ff3fe71c582eac851646db39f1a70e9dc6198c199a3189731869e.css"
-        integrity="sha256-fcW85eSP8/5xxYLqyFFkbbOfGnDp3GGYwZmjGJcxhp4="
-        crossorigin="anonymous"
-      />
+    <link rel="stylesheet" href="/css/index.css" />
 
 
-      <script
-        src="/js/main.d08dd7bf84e75145632853df5565c828a4a44de84df4bf08672d692241737c30.js"
-        integrity="sha256-0I3Xv4TnUUVjKFPfVWXIKKSkTehN9L8IZy1pIkFzfDA="
-        crossorigin="anonymous"
-        defer
-      ></script>
+      <script src="/js/main.js" defer></script>
   
-  
-
-
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@id": "https://www.arjenwiersma.nl/posts/aoc-2023-day-4/",
+  "@id": "http://localhost:1313/posts/aoc-2023-day-4/",
   "@type": "BlogPosting",
   "author": {
     "@type": "Person",
@@ -72,14 +59,14 @@ As I am doing these puzzles in Go I found out that there is no default set type.
   "description": "The difficulty is going up and down. This day was quite easy in comparison to yesterday. Today it was about parsing some numbers and finding a set of winning numbers.\nAs I am doing these puzzles in Go I found out that there is no default set type. There is an implementation by HashiCorp named go-set that fills this void. I did not use an external package (I try to avoid them while doing AoC), but I am very tempted to pull that package in.",
   "headline": "Advent of Code 2023 Day 4",
   "isPartOf": {
-    "@id": "https://www.arjenwiersma.nl/posts/",
+    "@id": "http://localhost:1313/posts/",
     "@type": "Blog",
     "name": "Posts"
   },
-  "mainEntityOfPage": "https://www.arjenwiersma.nl/posts/aoc-2023-day-4/",
+  "mainEntityOfPage": "http://localhost:1313/posts/aoc-2023-day-4/",
   "name": "Advent of Code 2023 Day 4",
   "timeRequired": "PT2M",
-  "url": "https://www.arjenwiersma.nl/posts/aoc-2023-day-4/",
+  "url": "http://localhost:1313/posts/aoc-2023-day-4/",
   "wordCount": 238
 }
 </script>
@@ -190,55 +177,55 @@ As I am doing these puzzles in Go I found out that there is no default set type.
     </div>
   </aside>
   <p class="sr-only">go code snippet start</p>
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;math&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;strings&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;arjenwiersma.nl/aoc/internal/aoc&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">lines</span> <span class="o">:=</span> <span class="nx">aoc</span><span class="p">.</span><span class="nf">AsLines</span><span class="p">(</span><span class="s">&#34;2023/Day04/input.txt&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">ans</span> <span class="o">:=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">counts</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">lines</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">x</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">lines</span><span class="p">);</span> <span class="nx">x</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">counts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">l</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">lines</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">nums</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span> <span class="s">&#34;:&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">parts</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#34;|&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">myInts</span> <span class="o">:=</span> <span class="nx">aoc</span><span class="p">.</span><span class="nf">StrToInts</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#34; &#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">winInts</span> <span class="o">:=</span> <span class="nx">aoc</span><span class="p">.</span><span class="nf">StrToInts</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#34; &#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">myInts</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">x</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">winInts</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">x</span> <span class="o">==</span> <span class="nx">v</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">					<span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">				<span class="p">}</span>
-</span></span><span class="line"><span class="cl">			<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">count</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">c</span> <span class="o">:=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">x</span> <span class="o">&lt;=</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">x</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="nx">counts</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="nx">x</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">counts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">			<span class="p">}</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">ans</span> <span class="o">+=</span> <span class="nx">c</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 1: &#34;</span><span class="p">,</span> <span class="nx">ans</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">ans</span> <span class="p">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">counts</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">ans</span> <span class="o">+=</span> <span class="nx">v</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 2: &#34;</span><span class="p">,</span> <span class="nx">ans</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;fmt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;math&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;strings&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;arjenwiersma.nl/aoc/internal/aoc&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">lines</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">aoc</span><span class="p">.</span><span class="nf">AsLines</span><span class="p">(</span><span class="s">&#34;2023/Day04/input.txt&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">ans</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">counts</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">lines</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">lines</span><span class="p">);</span><span class="w"> </span><span class="nx">x</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">counts</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">lines</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">nums</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;:&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">parts</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&#34;|&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">myInts</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">aoc</span><span class="p">.</span><span class="nf">StrToInts</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">winInts</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">aoc</span><span class="p">.</span><span class="nf">StrToInts</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">myInts</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">winInts</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nx">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">for</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">count</span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="o">++</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="nx">counts</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">counts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nx">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">c</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 1: &#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ans</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">counts</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">v</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 2: &#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ans</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></div>
   <p class="sr-only">go code snippet end</p>
 
   

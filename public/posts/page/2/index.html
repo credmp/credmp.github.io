@@ -18,8 +18,8 @@
 
 
   <meta itemprop="name" content="Posts">
-  <meta itemprop="datePublished" content="2025-10-24T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-10-24T00:00:00+00:00">
+  <meta itemprop="datePublished" content="2025-11-01T13:28:59+01:00">
+  <meta itemprop="dateModified" content="2025-11-01T13:28:59+01:00">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Posts">
@@ -31,9 +31,6 @@
 
       <script src="/js/main.js" defer></script>
   
-  
-
-
 
 <script type="application/ld+json">
 {
@@ -125,6 +122,25 @@
           <header>
             <h3 class="text-lg font-semibold leading-none">
               <a
+                href="/posts/20250205-clojure-projects/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Clojure Projects</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2025-02-05T20:40:54&#43;01:00"
+              >February 5, 2025</time
+            >
+          </header>
+
+          <div class="text-sm"><p>When I tell people that I like to code in <a href="/notes/clojure/" class="backlink">Clojure</a>
+ the common response is &ldquo;<em>wut?</em>&rdquo;. Clojure is not known as a programming language in which you create big systems. As all Clojure people know, this is not true. There are many systems written in Clojure. Let me show you some that are very actively maintained.</p>
+<p>First there is <a href="https://www.lipas.fi/liikuntapaikat">Lipas</a>, a Finnish platform that shows you information about sports clubs. The structure and techniques used <a href="https://github.com/lipas-liikuntapaikat/lipas/">in this code base</a> I use as a reference implementation for my own ClojureScript + Clojure systems. A screenshot of the application is shown here:</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
                 href="/posts/20250201-observability-in-clojure/"
                 class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
                 >Observability in Clojure</a
@@ -134,7 +150,7 @@
             >
           </header>
 
-          <div class="text-sm">Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (Chakraborty &amp; Kundan, 2021; Kosińska et al., 2023). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (Hausenblas, 2023; Chakraborty &amp; Kundan, 2021). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.</div>
+          <div class="text-sm"><p>Observability in cloud-native applications is crucial for managing complex systems and ensuring reliability (<a href="https://doi.org/10.1007/978-1-4842-6888-9_2">Chakraborty &amp; Kundan, 2021</a>; <a href="https://doi.org/10.1109/ACCESS.2023.3281860">Kosińska et al., 2023</a>). It enables continuous generation of actionable insights based on system signals, helping teams deliver excellent customer experiences despite underlying complexities (<a href="https://doi.org/10.48550/arXiv.2303.13402">Hausenblas, 2023</a>; <a href="https://doi.org/10.1007/978-1-4842-6888-9_2">Chakraborty &amp; Kundan, 2021</a>). In essence, adding proper observability to your system allows you to find and diagnose issues without having to dig through tons of unstructured log files.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -151,8 +167,42 @@
             >
           </header>
 
-          <div class="text-sm">Tip Currently, only use Postgres 14 on the Digital Ocean application platform for development databases. While following the book Zero2Prod you will learn how to deploy a Rust application to digital ocean through a Continuous Deployment pipeline. This is hardly anything new for me, I even teach a course in DevOps, but to not stray from the path of the book I followed its instructions.
-The spec for digital ocean looks like this (this is abbreviated for your reading pleasure):</div>
+          <div class="text-sm"><figure
+  role="note"
+  id="admonition-00"
+  aria-labelledby="admonition-caption-00"
+  class="admonition tip  not-prose"
+>
+  <div class="flex items-center space-x-2 pb-2 font-semibold">
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-flame block"
+>
+  <path
+    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"
+  />
+</svg>
+
+    <figcaption id="admonition-caption-00">
+        Tip
+    </figcaption>
+  </div>
+
+  <div class="prose pl-8 text-inherit marker:text-inherit">
+    Currently, only use Postgres 14 on the Digital Ocean application platform for development databases.
+  </div>
+</figure>
+
+<p>While following the book <a href="/notes/zero2prod/" class="backlink">Zero2Prod</a>
+ you will learn how to deploy a <a href="/notes/rust/" class="backlink">Rust</a>
+ application to digital ocean through a Continuous Deployment pipeline. This is hardly anything new for me, I even teach a course in DevOps, but to not stray from the path of the book I followed its instructions.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -169,7 +219,7 @@ The spec for digital ocean looks like this (this is abbreviated for your reading
             >
           </header>
 
-          <div class="text-sm">In July 2023, I installed NixOS as my daily operating system. NixOS is a Linux distribution that emphasizes a declarative approach to system management. This means you define your desired operating system configuration in a file (e.g., KDE with Emacs 30 and Firefox), and the Nix package manager uses that file to create your OS. Every change generates a new version, allowing you to revert to a previous version if anything goes wrong.</div>
+          <div class="text-sm"><p>In July 2023, I installed NixOS as my daily operating system. NixOS is a Linux distribution that emphasizes a declarative approach to system management. This means you define your desired operating system configuration in a file (e.g., KDE with Emacs 30 and Firefox), and the Nix package manager uses that file to create your OS. Every change generates a new version, allowing you to revert to a previous version if anything goes wrong.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -186,8 +236,11 @@ The spec for digital ocean looks like this (this is abbreviated for your reading
             >
           </header>
 
-          <div class="text-sm">In my previous post I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in a post about tooling , I reiterated my ❤️ for Clojure as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.
-Clojure is special to me in that there are hardly any big frameworks in the ecosystem.</div>
+          <div class="text-sm"><p>In <a href="/posts/a-new-theme/" class="backlink">my previous post</a>
+ I highlighted that I set myself the goal of creating a self hosted comic book collection tool. Before that, in <a href="/posts/choose-your-tools/" class="backlink">a post about tooling</a>
+, I reiterated my ❤️ for <a href="/notes/clojure/" class="backlink">Clojure</a>
+ as a language. So, this is the start of a series of articles detailing how the development is going, and also as an introduction to the various parts of the tech stack.</p>
+<p>Clojure is special to me in that there are hardly any big frameworks in the ecosystem. Clojure is more like Lego, there are countless building blocks of various shapes and sizes. It is up to you as the developer to stick the blocks together to get something usefull. You might guess that I also ❤️ Lego.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -204,8 +257,10 @@ Clojure is special to me in that there are hardly any big frameworks in the ecos
             >
           </header>
 
-          <div class="text-sm">So, a new year, a new theme! I switched my blog to use the Today I Learned Theme. This theme has a great feature where it also maintains a collection of notes and shows a graph with related notes. This is very similar to how I use org-roam.
-I will not be transferring all my notes over, but I thought it would be a very nice feature to share some of my notes with you.</div>
+          <div class="text-sm"><p>So, a new year, a new theme! I switched my blog to use the <a href="https://github.com/michenriksen/hugo-theme-til">Today I Learned Theme</a>. This theme has a great feature where it also maintains a collection of notes and shows a graph with related notes. This is very similar to how I use org-roam.</p>
+<p>I will not be transferring all my notes over, but I thought it would be a very nice feature to share some of my notes with you. This year I am focussing on <a href="/posts/choose-your-tools/" class="backlink">Clojure</a>
+ and <a href="/notes/rust/" class="backlink">Rust</a>
+, and as a result I will be posting my notes on the new things I learn.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -222,7 +277,39 @@ I will not be transferring all my notes over, but I thought it would be a very n
             >
           </header>
 
-          <div class="text-sm">Note Originally posted on 2024-09-30 (Monday). It was updated in January of 2025. I ❤️ to build software. I sadly do not have a lot of time next to my daily work to spend on my side projects, so I have to be disciplined in where I invest time. I wish I could spend endless amounts of time on exploring new technologies, but sadly I simply do not have that time.</div>
+          <div class="text-sm"><figure
+  role="note"
+  id="admonition-00"
+  aria-labelledby="admonition-caption-00"
+  class="admonition note  not-prose"
+>
+  <div class="flex items-center space-x-2 pb-2 font-semibold">
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-info block"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4M12 8h.01" />
+</svg>
+
+    <figcaption id="admonition-caption-00">
+        Note
+    </figcaption>
+  </div>
+
+  <div class="prose pl-8 text-inherit marker:text-inherit">
+    Originally posted on 2024-09-30 (Monday). It was updated in January of 2025.
+  </div>
+</figure>
+
+<p>I ❤️ to build software. I sadly do not have a lot of time next to my daily work to spend on my side projects, so I have to be disciplined in where I invest time. I wish I could spend endless amounts of time on exploring new technologies, but sadly I simply do not have that time. In writing this is sometimes referred to as <a href="https://www.masterclass.com/articles/what-does-it-mean-to-kill-your-darlings">&ldquo;to kill your darlings&rdquo;</a>.</p></div>
         </article>
       </li>
   </ol>
@@ -248,8 +335,8 @@ I will not be transferring all my notes over, but I thought it would be a very n
             >
           </header>
 
-          <div class="text-sm">It is December again and that means it is time for the Advent of Code. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.
-This year I am using Java, together with my students. My goal is to write as modern as possible Java, which means using streams and new language constructs where possible.</div>
+          <div class="text-sm"><p>It is December again and that means it is time for the <a href="https://adventofcode.com/">Advent of Code</a>. Due to my workload and family obligations I will probably not be able to get very far this year, but still I wanted to write a post about it.</p>
+<p>This year I am using Java, together with my students. My goal is to write as modern as possible Java, which means using streams and new language constructs where possible.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -266,8 +353,8 @@ This year I am using Java, together with my students. My goal is to write as mod
             >
           </header>
 
-          <div class="text-sm">My old laptop, now almost 6 years old, has seen it all. From conferences, to lectures, traveling to distant places and to the library. I did a lot of work on it during the writing of my thesis, and it is a victim to countless hours of compiler time.
-Sadly the battery started to die. It got to the point that you can only use it shortly for heavier loads. Luckily, unlike certain hardware (looking at you Apple), it is easy to fix.</div>
+          <div class="text-sm"><p>My old laptop, now almost 6 years old, has seen it all. From conferences, to lectures, traveling to distant places and to the library. I did a lot of work on it during the writing of my thesis, and it is a victim to countless hours of compiler time.</p>
+<p>Sadly the battery started to die. It got to the point that you can only use it shortly for heavier loads. Luckily, unlike certain hardware (looking at you Apple), it is easy to fix. All it needs is a new battery. So I found that <a href="https://www.ifixit.com/Guide">ifixit</a> had the right parts and a <strong>very</strong> useful kit with all the right tools to do the job.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -284,9 +371,9 @@ Sadly the battery started to die. It got to the point that you can only use it s
             >
           </header>
 
-          <div class="text-sm">Today the academic world is remembering Bastiaan Heeren, who passed away last week.
-I spent the better time of a year working on my thesis, and before that I enjoyed lectures given by Bastiaan. He was a person with a great love for teaching, especially when you can get into the nitty gritty details of software quality and the benefits of functional programming.
-I look back fondly on my time with Bastiaan.</div>
+          <div class="text-sm"><p>Today the academic world is remembering <a href="https://cs.ou.nl/members/bastiaan/">Bastiaan Heeren</a>, who passed away last week.</p>
+<p>I spent the better time of a year working on my thesis, and before that I enjoyed lectures given by Bastiaan. He was a person with a great love for teaching, especially when you can get into the nitty gritty details of software quality and the benefits of functional programming.</p>
+<p>I look back fondly on my time with Bastiaan. He was an open, warm, critical and encouraging human being. He had a great love for his family and work.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -303,7 +390,7 @@ I look back fondly on my time with Bastiaan.</div>
             >
           </header>
 
-          <div class="text-sm">I recently came across Traefik. It is a reverse proxy built specifically for services in the cloud. I was searching for a convenient (up-to-date) way to expose my project using a reverse proxy within docker-compose. I used to use nginx for this, but it then requires a generator and an lets encrypt listener (so 3 containers). Traefik only requires a single container and allows you to label your docker containers to apply rules to them.</div>
+          <div class="text-sm"><p>I recently came across <a href="https://traefik.io/traefik/">Traefik</a>. It is a reverse proxy built specifically for services in the cloud. I was searching for a convenient (up-to-date) way to expose my project using a reverse proxy within <code>docker-compose</code>. I used to use <code>nginx</code> for this, but it then requires a generator and an lets encrypt listener (so 3 containers). Traefik only requires a single container and allows you to label your docker containers to apply rules to them.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -320,8 +407,8 @@ I look back fondly on my time with Bastiaan.</div>
             >
           </header>
 
-          <div class="text-sm">This is my first article in a series called Rock Solid Software. In it I explore different dimensions of software that does not simply break. You can write good software in any programming language, although some are more suited to a disciplined practice then others, Clojure is definitely in the relaxed space of discipline here.
-Today I am exploring the use of Selmer templates in Clojure. If you have explored Biff at all you will know that all the UI logic works by sending Hiccup through a handler, which will turn into HTML through rum (specifically the wrap-render-rum middleware).</div>
+          <div class="text-sm"><p>This is my first article in a series called <strong>Rock Solid Software</strong>. In it I explore different dimensions of software that does not simply break. You can write good software in any programming language, although some are more suited to a disciplined practice then others, Clojure is definitely in the <em>relaxed</em> space of discipline here.</p>
+<p>Today I am exploring the use of Selmer templates in Clojure. If you have explored <a href="https://www.biffweb.com">Biff</a> at all you will know that all the UI logic works by sending <code>Hiccup</code> through a handler, which will turn into HTML through <code>rum</code> (specifically the <code>wrap-render-rum</code> middleware). If you provide a vector as a result for an endpoint, it will be converted to HTML.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -338,7 +425,10 @@ Today I am exploring the use of Selmer templates in Clojure. If you have explore
             >
           </header>
 
-          <div class="text-sm">Je hebt tijd gereserveerd om te gaan studeren en je volgt een ritueel om goed in jouw &ldquo;Deep Work&rdquo; modus te komen, dat studeren gaat echt goed lukken! Tijdens de colleges en in de lesmaterialen vind je allerlei links naar papers, websites, YouTube videos en haal je veel informatie uit boeken. Al deze bronnen zijn zeer waardevol en bij de eindopdracht zul je veel van deze bronnen weer moeten gebruiken om argumenten te onderbouwen of juist iets te ontkrachten.</div>
+          <div class="text-sm"><figure><img src="/ox-hugo/_20240722_203307screenshot.png">
+</figure>
+
+<p>Je hebt <a href="/posts/leren-studeren-tijd-vinden/">tijd gereserveerd om te gaan studeren</a> en <a href="/posts/learn-to-stud-deepwork/">je volgt een ritueel om goed in jouw &ldquo;Deep Work&rdquo; modus te komen</a>, dat studeren gaat echt goed lukken! Tijdens de colleges en in de lesmaterialen vind je allerlei links naar papers, websites, YouTube videos en haal je veel informatie uit boeken. Al deze bronnen zijn zeer waardevol en bij de eindopdracht zul je veel van deze bronnen weer moeten gebruiken om argumenten te onderbouwen of juist iets te ontkrachten. Hoe ga je dan om met die bronnen zonder dat je gek wordt van allerlei documentjes?</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -356,8 +446,11 @@ Today I am exploring the use of Selmer templates in Clojure. If you have explore
             >
           </header>
 
-          <div class="text-sm">In mijn vorige artikel heb ik uitgelegd hoe je tijd kunt vinden om te studeren, de vraag is echter, is alle tijd hetzelfde? Het simpele antwoord is &ldquo;nee&rdquo;. Maar waarom niet, zul je vragen, en daarmee komen we op het onderwerp van dit artikel.
-Cal Newport heeft een fantastisch boek geschreven, &ldquo;Deep Work: Rules for Focused Success in a Distracted World&rdquo;. In dit boek onderzoekt hij hoe je gefocust werkt en wat er voor nodig is om gefocust te blijven [1].</div>
+          <div class="text-sm"><figure><img src="/ox-hugo/_20240720_225806screenshot.png">
+</figure>
+
+<p>In <a href="/posts/leren-studeren-tijd-vinden/">mijn vorige artikel</a> heb ik uitgelegd hoe je tijd kunt vinden om te studeren, de vraag is echter, is alle tijd hetzelfde? Het simpele antwoord is &ldquo;nee&rdquo;. Maar waarom niet, zul je vragen, en daarmee komen we op het onderwerp van dit artikel.</p>
+<p>Cal Newport heeft een fantastisch boek geschreven, &ldquo;<a href="https://www.bol.com/nl/nl/p/deep-work/9200000047340481/?bltgh=ujEmm8L1hL083Qs4-KJKSQ.2_18.19.ProductTitle">Deep Work: Rules for Focused Success in a Distracted World</a>&rdquo;. In dit boek onderzoekt hij hoe je gefocust werkt en wat er voor nodig is om gefocust te blijven [1]. In het boek identificeert hij 2 soorten werk; &ldquo;Deep Work&rdquo; en &ldquo;Shallow Work&rdquo;. Deze concepten hebben voor mij de aanpak van mijn dagelijkse werk zelfs veranderd, maar dat is een verhaal voor een andere keer.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -374,9 +467,9 @@ Cal Newport heeft een fantastisch boek geschreven, &ldquo;Deep Work: Rules for F
             >
           </header>
 
-          <div class="text-sm">This is a Dutch artcile, there is also an English version.
-Dus, jij hebt besloten om te gaan studeren? Misschien wil je jouw HBO- of Masterdiploma halen, of juist dat ene supertechnische certificaat bemachtigen. Het is geweldig dat je deze stap gaat zetten, maar zodra je begint, zul je vrij snel de vraag moeten beantwoorden waar je de tijd vandaan haalt.
-Tijd is onze meest waardevolle, niet-hernieuwbare bron. Studeren vergt tijd – en niet zo&rsquo;n klein beetje ook – dus wil je het natuurlijk goed doen.</div>
+          <div class="text-sm"><p>This is a Dutch artcile, there is also an <a href="/posts/learn-to-stud-finding-time">English version</a>.</p>
+<p>Dus, jij hebt besloten om te gaan studeren? Misschien wil je jouw HBO- of Masterdiploma halen, of juist dat ene supertechnische certificaat bemachtigen. Het is geweldig dat je deze stap gaat zetten, maar zodra je begint, zul je vrij snel de vraag moeten beantwoorden waar je de tijd vandaan haalt.</p>
+<p>Tijd is onze meest waardevolle, niet-hernieuwbare bron. Studeren vergt tijd – en niet zo&rsquo;n klein beetje ook – dus wil je het natuurlijk goed doen. De meeste studies verwachten dat je wekelijks ergens tussen de 12 en 24 uur investeert om bij te blijven, en dat is flink wat! Als je nog niet studeert, probeer dan eens na te denken over welke dagen en momenten je die tijd kunt vrijmaken. Ga je minder uit eten of juist minder sporten? Vroeg opstaan in het weekend, of juist extra laat naar bed?</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -393,9 +486,9 @@ Tijd is onze meest waardevolle, niet-hernieuwbare bron. Studeren vergt tijd – 
             >
           </header>
 
-          <div class="text-sm">This is an English article, there is also a Dutch version.
-So, you&rsquo;ve decided to start studying? Maybe you want to earn your Bachelor or Master&rsquo;s degree, or perhaps you&rsquo;re aiming for that highly technical certificate. It&rsquo;s great that you&rsquo;re taking this step, but once you begin, you&rsquo;ll quickly need to answer the question of where you&rsquo;ll find the time.
-Time is our most valuable, non-renewable resource. Studying requires time – and not just a little – so you naturally want to use it well.</div>
+          <div class="text-sm"><p>This is an English article, there is also a <a href="/posts/leren-studeren-tijd-vinden">Dutch version</a>.</p>
+<p>So, you&rsquo;ve decided to start studying? Maybe you want to earn your Bachelor or Master&rsquo;s degree, or perhaps you&rsquo;re aiming for that highly technical certificate. It&rsquo;s great that you&rsquo;re taking this step, but once you begin, you&rsquo;ll quickly need to answer the question of where you&rsquo;ll find the time.</p>
+<p>Time is our most valuable, non-renewable resource. Studying requires time – and not just a little – so you naturally want to use it well. Most programs expect you to invest between 12 and 24 hours per week to keep up, and that&rsquo;s quite a bit! If you&rsquo;re not currently studying, try thinking about which days and times you could free up that time. Will you eat out less or exercise less? Get up early on weekends or stay up late?</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -412,8 +505,8 @@ Time is our most valuable, non-renewable resource. Studying requires time – an
             >
           </header>
 
-          <div class="text-sm">So, on Thursday I defended my thesis in front of the graduation committee, and passed! This means that the work I have been doing for the last year comes to an end. From now on there are not long nights and weekends working on my thesis anymore.
-Back in 2021 I started my journey of achieving a Master&rsquo;s degree, first with a connecting program and then with the 2 year Master program.</div>
+          <div class="text-sm"><p>So, on Thursday I defended my thesis in front of the graduation committee, and passed! This means that the work I have been doing for the last year comes to an end. From now on there are not long nights and weekends working on my thesis anymore.</p>
+<p>Back in 2021 I started my journey of achieving a Master&rsquo;s degree, first with a connecting program and then with the 2 year Master program. Even though I have been in computer science in some form for the last 30 years I still found it to be quite a learning experience.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -430,8 +523,33 @@ Back in 2021 I started my journey of achieving a Master&rsquo;s degree, first wi
             >
           </header>
 
-          <div class="text-sm">So, today I have some news. I will be resigning as Ambassador for Hack The Box after our in-person meetup in June (2024). This means that I will be stepping down from organizing the monthly virtual and quarterly in-person Hack The Box meetups. Let me explain how I got to this decision.
-The beginning So, in 2019, I started out building a cyber security curriculum for NOVI Hogeschool. I had the ability to greenfield the courses and create something that is of value to students.</div>
+          <div class="text-sm"><p>So, today I have some news. I will be resigning as Ambassador for Hack The Box after our in-person meetup in June (2024). This means that I will be stepping down from organizing the monthly virtual and quarterly in-person Hack The Box meetups. Let me explain how I got to this decision.</p>
+<h3 id="the-beginning" class="scroll-mt-8 group">
+  The beginning
+  
+    <a href="#the-beginning"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>So, in 2019, I started out building a cyber security curriculum for <a href="https://www.novi.nl">NOVI Hogeschool</a>. I had the ability to greenfield the courses and create something that is of value to students. In this curriculum I started using Hack The Box for exercises and training next to the regular classwork.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -448,7 +566,8 @@ The beginning So, in 2019, I started out building a cyber security curriculum fo
             >
           </header>
 
-          <div class="text-sm">Last week I was a guest on the Cyber Cafe podcast by rootsec. It was a fun discussion on education and the current xz backdoor story. It is in the Dutch language. It is available on youtube and included below:</div>
+          <div class="text-sm"><p>Last week I was a guest on the Cyber Cafe podcast by <a href="https://rootsec.nl/">rootsec</a>. It was a fun discussion on education and the current xz backdoor story. It is in the Dutch language. It is available on youtube and included below:</p>
+<!-- raw HTML omitted --></div>
         </article>
       </li>
       <li class="mb-6">
@@ -465,26 +584,8 @@ The beginning So, in 2019, I started out building a cyber security curriculum fo
             >
           </header>
 
-          <div class="text-sm">This post is just a small note for those of you who also run Microsoft Teams on Linux through their browser and now receive a note &ldquo;your browser does not meet the requirements for the new Teams&rdquo;. It turns out that the client is looking at the user-agent string to determine which browsers it accepts, and which not.
-So, if you have the message, install an user-agent switcher and select a common browser on a common OS (from the MS perspective) and you will suddenly meet the requirements.</div>
-        </article>
-      </li>
-      <li class="mb-6">
-        <article class="flex flex-col space-y-1">
-          <header>
-            <h3 class="text-lg font-semibold leading-none">
-              <a
-                href="/posts/my-computing-environment/"
-                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
-                >My computing environment</a
-              >
-            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2024-02-18T15:35:00&#43;01:00"
-              >February 18, 2024</time
-            >
-          </header>
-
-          <div class="text-sm">This is a longer form article. I is relevant as of February 18th 2023. If the circumstances of my environment changes I will try to update this article to reflect the situation. You can find the full source code of my dotfiles on Github.
-I like consistency and simplicity. I do not like to use many different tools to do different things, I rather spend my time learning to use a few tools very well then to follow the hype on the latest trend of tools for something we have been doing forever.</div>
+          <div class="text-sm"><p>This post is just a small note for those of you who also run Microsoft Teams on Linux through their browser and now receive a note &ldquo;your browser does not meet the requirements for the new Teams&rdquo;. It turns out that the client is looking at the user-agent string to determine which browsers it accepts, and which not.</p>
+<p>So, if you have the message, install an user-agent switcher and select a common browser on a common OS (from the MS perspective) and you will suddenly meet the requirements.</p></div>
         </article>
       </li>
   </ol>
