@@ -52,9 +52,9 @@
     },
     "/notes/rust/": {
       "in": [
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/posts/20250111-happy-with-nixos/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/notes/zero2prod/",
         "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",

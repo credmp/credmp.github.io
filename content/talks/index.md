@@ -24,6 +24,8 @@ A shorter version of the talk was given at TechSummit 2025.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JvIBJCXmNhc?si=LsH0Q27xJX4Ooe3E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 {{< /rawhtml >}}
 
+[My slide deck](vibe-coding.pdf)
+
 # Places where I presented this talk 
 - [Almere Tech #27](https://www.meetup.com/almere-tech/events/305045942/): a great local meetup here in Almere where I did my first run of this talk
 - Scyon HQ: nothing is scarier than presenting in front of your colleagues, but on an AI themed day I did just that.
