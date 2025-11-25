@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Nov 2025 08:24:29 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning to Type</title>
+      <link>http://localhost:1313/posts/20251125-learning-to-type/</link>
+      <pubDate>Tue, 25 Nov 2025 08:24:29 +0100</pubDate>
+      <guid>http://localhost:1313/posts/20251125-learning-to-type/</guid>
+      <description>&lt;p&gt;I was under the impression that I was a good typist, but getting an ergonomic keyboard taught me otherwise.&lt;/p&gt;&#xA;&lt;p&gt;I have long been fascinated by the world of keyboards. I have several mechanical keyboards, most from Ducky. They are wonderful, but they all have in common that they are traditional keyboards. This means that your hands are close together on the keyboard, closing your chest and forcing your hands in an awkward position. We all have become very used to this position, as this is the way typewriters taught us all how to type.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Emacs Editor</title>
       <link>http://localhost:1313/notes/emacs/</link>
