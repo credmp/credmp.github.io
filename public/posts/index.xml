@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Tue, 25 Nov 2025 08:24:29 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 01 Dec 2025 08:00:00 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code 2025 Day 1</title>
+      <link>http://localhost:1313/posts/20251201-aoc-2025-01/</link>
+      <pubDate>Mon, 01 Dec 2025 08:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/20251201-aoc-2025-01/</guid>
+      <description>&lt;p&gt;Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!&lt;/p&gt;&#xA;&lt;p&gt;My language this year is &lt;a href=&#34;http://localhost:1313/notes/clojure/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA;. My solution is quite simple and straightforward. I read the data using &lt;code&gt;split-instructions&lt;/code&gt;, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Learning to Type</title>
       <link>http://localhost:1313/posts/20251125-learning-to-type/</link>

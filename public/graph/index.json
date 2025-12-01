@@ -9,10 +9,11 @@
     },
     "/notes/clojure/": {
       "in": [
-        "/posts/20250205-clojure-projects/",
+        "/notes/clojure-emacs/",
+        "/notes/clojure-emacs/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
+        "/posts/20251201-aoc-2025-01/",
+        "/posts/20250205-clojure-projects/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
         "/posts/20250201-observability-in-clojure/",
@@ -52,10 +53,10 @@
     },
     "/notes/rust/": {
       "in": [
-        "/notes/zero2prod/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
+        "/notes/zero2prod/",
         "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
@@ -236,6 +237,12 @@
     "/posts/20251125-learning-to-type/": {
       "in": [],
       "out": []
+    },
+    "/posts/20251201-aoc-2025-01/": {
+      "in": [],
+      "out": [
+        "/notes/clojure/"
+      ]
     },
     "/posts/22-years-of-emacs/": {
       "in": [],
@@ -591,6 +598,11 @@
       "permalink": "/posts/20251125-learning-to-type/",
       "section": "posts",
       "title": "Learning to Type"
+    },
+    "/posts/20251201-aoc-2025-01/": {
+      "permalink": "/posts/20251201-aoc-2025-01/",
+      "section": "posts",
+      "title": "Advent of Code 2025 Day 1"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",
