@@ -244,6 +244,10 @@
         "/notes/clojure/"
       ]
     },
+    "/posts/20251202-aoc-2025-2/": {
+      "in": [],
+      "out": []
+    },
     "/posts/22-years-of-emacs/": {
       "in": [],
       "out": []
@@ -603,6 +607,11 @@
       "permalink": "/posts/20251201-aoc-2025-01/",
       "section": "posts",
       "title": "Advent of Code 2025 Day 1"
+    },
+    "/posts/20251202-aoc-2025-2/": {
+      "permalink": "/posts/20251202-aoc-2025-2/",
+      "section": "posts",
+      "title": "Advent of Code 2025 Day 2"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",
