@@ -10,12 +10,14 @@
 <title>
     Advent of Code 2025 Day 1 | Arjen Wiersma
 </title>
-  <meta name="description" content="Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!
+  <meta name="description" content="Day 1 of solving The Advent of Code in Clojure .
+Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!
 My language this year is Clojure . My solution is quite simple and straightforward. I read the data using split-instructions, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0." />
 <meta property="og:url" content="http://localhost:1313/posts/20251201-aoc-2025-01/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Advent of Code 2025 Day 1">
-  <meta property="og:description" content="Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!
+  <meta property="og:description" content="Day 1 of solving The Advent of Code in Clojure .
+Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!
 My language this year is Clojure . My solution is quite simple and straightforward. I read the data using split-instructions, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -25,16 +27,18 @@ My language this year is Clojure . My solution is quite simple and straightforwa
 
 
   <meta itemprop="name" content="Advent of Code 2025 Day 1">
-  <meta itemprop="description" content="Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!
+  <meta itemprop="description" content="Day 1 of solving The Advent of Code in Clojure .
+Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!
 My language this year is Clojure . My solution is quite simple and straightforward. I read the data using split-instructions, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.">
   <meta itemprop="datePublished" content="2025-12-01T08:00:00+01:00">
   <meta itemprop="dateModified" content="2025-12-01T08:00:00+01:00">
-  <meta itemprop="wordCount" content="280">
+  <meta itemprop="wordCount" content="291">
   <meta itemprop="keywords" content="Programming">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Advent of Code 2025 Day 1">
-  <meta name="twitter:description" content="Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!
+  <meta name="twitter:description" content="Day 1 of solving The Advent of Code in Clojure .
+Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!
 My language this year is Clojure . My solution is quite simple and straightforward. I read the data using split-instructions, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.">
 
 <link rel="canonical" href="http://localhost:1313/posts/20251201-aoc-2025-01/" />
@@ -59,7 +63,7 @@ My language this year is Clojure . My solution is quite simple and straightforwa
   },
   "copyrightNotice": "Arjen Wiersma",
   "datePublished": "2025-12-01",
-  "description": "Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!\nMy language this year is Clojure . My solution is quite simple and straightforward. I read the data using split-instructions, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.",
+  "description": "Day 1 of solving The Advent of Code in Clojure .\nEach year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!\nMy language this year is Clojure . My solution is quite simple and straightforward. I read the data using split-instructions, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.",
   "headline": "Advent of Code 2025 Day 1",
   "isPartOf": {
     "@id": "http://localhost:1313/posts/",
@@ -70,7 +74,7 @@ My language this year is Clojure . My solution is quite simple and straightforwa
   "name": "Advent of Code 2025 Day 1",
   "timeRequired": "PT2M",
   "url": "http://localhost:1313/posts/20251201-aoc-2025-01/",
-  "wordCount": 280
+  "wordCount": 291
 }
 </script>
 
@@ -117,7 +121,10 @@ My language this year is Clojure . My solution is quite simple and straightforwa
         </div>
     </header>
 
-    <p>Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!</p>
+    <p>Day 1 of solving <a href="/notes/aoc/" class="backlink">The Advent of Code</a>
+ in <a href="/notes/clojure/" class="backlink">Clojure</a>
+.</p>
+<p>Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!</p>
 <p>My language this year is <a href="/notes/clojure/" class="backlink">Clojure</a>
 . My solution is quite simple and straightforward. I read the data using <code>split-instructions</code>, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.</p>
 <p>For part 2 I just generate the sequence of numbers for each step in <code>all-steps</code> and then using reduce to apply it to each step, just like the reductions. The result is a long list of numbers from which I just take the 0s again.</p>
@@ -333,6 +340,54 @@ My language this year is Clojure . My solution is quite simple and straightforwa
           </h3>
 
           <ol class="not-prose ml-6">
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/notes/aoc/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="The Advent of Code"
+              >The Advent of Code</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/programming/"
+                  class="taxonomy"
+                  title="Posts and notes on Programming"
+                  >Programming</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/notes/clojure/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="The Clojure programming language"
+              >The Clojure Programming Language</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/programming/"
+                  class="taxonomy"
+                  title="Posts and notes on Programming"
+                  >Programming</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
     <li>
       <article class="flex flex-row items-center">
         <header class="grow">

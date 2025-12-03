@@ -133,6 +133,28 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
           <header>
             <h3 class="text-lg font-semibold leading-none">
               <a
+                href="/posts/20251203-aoc-2025-03/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Advent of Code 2025 Day 3</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2025-12-03T08:00:00&#43;01:00"
+              >December 3, 2025</time
+            >
+          </header>
+
+          <div class="text-sm"><p>Day 3 of solving <a href="/notes/aoc/" class="backlink">The Advent of Code</a>
+ in <a href="/notes/clojure/" class="backlink">Clojure</a>
+.</p>
+<p>The puzzle today has us figuring out the joltage of a bank of batteries. This is a puzzle of the type &ldquo;largest sequence in a list&rdquo;. When you start you already know that part 2 will be something that a naive approach will not be able to handle, but I still did part 1 with a naive combination function.</p>
+<p>The <a href="/notes/clojure/" class="backlink">Clojure</a>
+ combinatorics library will not work here, as it will take a look at the distinct pairs that will be in the list. So in a list of <code>(2 8 2)</code> it will find the unique pair of <code>(2 8)</code>, resulting in the integer 28 for the puzzle, but it will fail to see that 82 was also an option.</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
                 href="/posts/20251202-aoc-2025-2/"
                 class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
                 >Advent of Code 2025 Day 2</a
@@ -142,67 +164,10 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
             >
           </header>
 
-          <div class="text-sm"><p>The 2nd day had us do some magic with numbers. The quest was to find some silly patterns in the numbers. I chose to use good old regular expressions to do the job, while a colleague of mine chose to use math. Both work really well. The 2nd part of the puzzle is to find repeating patterns, where the 1st only wanted pairs.</p>
-<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
-  <aside
-    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
-  >
-    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
-      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
-        <span class="relative">clojure</span>
-      </div>
-      <div>
-        <clipboard-copy
-          type="button"
-          aria-label="Copy code to clipboard"
-          title="Copy code to clipboard"
-          class="block cursor-pointer transition-colors hover:text-sky-400"
-          target="#codeblock-01 code"
-        >
-          <svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="lucide lucide-clipboard h-4 w-4"
-  viewBox="0 0 24 24"
->
-  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-</svg>
-
-        </clipboard-copy>
-      </div>
-      <div>
-        <a
-          href="#codeblock-01"
-          class="block"
-          aria-label="Link to this code block"
-          title="Link to this code block"
-        >
-          <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="16"
-  height="16"
-  fill="none"
-  stroke="currentColor"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  stroke-width="2"
-  class="lucide lucide-link w-4 h-4 block"
-  viewBox="0 0 24 24"
->
-  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-</svg>
-
-        </a>
-      </div>
-    </div>
-  </aside>
-  <p class="sr-only">clojure code snippet start</p></div>
+          <div class="text-sm"><p>Day 2 of solving <a href="/notes/aoc/" class="backlink">The Advent of Code</a>
+ in <a href="/notes/clojure/" class="backlink">Clojure</a>
+.</p>
+<p>The 2nd day had us do some magic with numbers. The quest was to find some silly patterns in the numbers. I chose to use good old regular expressions to do the job, while a colleague of mine chose to use math. Both work really well. The 2nd part of the puzzle is to find repeating patterns, where the 1st only wanted pairs.</p></div>
         </article>
       </li>
       <li class="mb-6">
@@ -219,27 +184,12 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
             >
           </header>
 
-          <div class="text-sm"><p>Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!</p>
+          <div class="text-sm"><p>Day 1 of solving <a href="/notes/aoc/" class="backlink">The Advent of Code</a>
+ in <a href="/notes/clojure/" class="backlink">Clojure</a>
+.</p>
+<p>Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!</p>
 <p>My language this year is <a href="/notes/clojure/" class="backlink">Clojure</a>
 . My solution is quite simple and straightforward. I read the data using <code>split-instructions</code>, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.</p></div>
-        </article>
-      </li>
-      <li class="mb-6">
-        <article class="flex flex-col space-y-1">
-          <header>
-            <h3 class="text-lg font-semibold leading-none">
-              <a
-                href="/posts/20251125-learning-to-type/"
-                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
-                >Learning to Type</a
-              >
-            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2025-11-25T08:24:29&#43;01:00"
-              >November 25, 2025</time
-            >
-          </header>
-
-          <div class="text-sm"><p>I was under the impression that I was a good typist, but getting an ergonomic keyboard taught me otherwise.</p>
-<p>I have long been fascinated by the world of keyboards. I have several mechanical keyboards, most from Ducky. They are wonderful, but they all have in common that they are traditional keyboards. This means that your hands are close together on the keyboard, closing your chest and forcing your hands in an awkward position. We all have become very used to this position, as this is the way typewriters taught us all how to type.</p></div>
         </article>
       </li>
   </ol>
@@ -252,6 +202,35 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
 
         <div class="not-prose">
   <ol>
+    
+      <li>
+        <article class="flex flex-row items-center">
+          <header class="grow">
+            <h3>
+              <a
+                href="/notes/aoc/"
+                class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                title="The Advent of Code"
+                >The Advent of Code</a
+              >
+            </h3>
+          </header>
+          
+            <ul class="flex flex-row items-center justify-end space-x-2">
+              
+                <li>
+                  <a
+                    href="/categories/programming/"
+                    class="taxonomy"
+                    title="See notes on Programming"
+                    >Programming</a
+                  >
+                </li>
+              
+            </ul>
+          
+        </article>
+      </li>
     
       <li>
         <article class="flex flex-row items-center">
@@ -361,44 +340,6 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
                     class="taxonomy"
                     title="See notes on Programming"
                     >Programming</a
-                  >
-                </li>
-              
-            </ul>
-          
-        </article>
-      </li>
-    
-      <li>
-        <article class="flex flex-row items-center">
-          <header class="grow">
-            <h3>
-              <a
-                href="/notes/clojure-emacs/"
-                class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
-                title="Setting up Emacs for Clojure development"
-                >Setting up Emacs for Clojure development</a
-              >
-            </h3>
-          </header>
-          
-            <ul class="flex flex-row items-center justify-end space-x-2">
-              
-                <li>
-                  <a
-                    href="/categories/programming/"
-                    class="taxonomy"
-                    title="See notes on Programming"
-                    >Programming</a
-                  >
-                </li>
-              
-                <li>
-                  <a
-                    href="/categories/emacs/"
-                    class="taxonomy"
-                    title="See notes on Emacs"
-                    >Emacs</a
                   >
                 </li>
               

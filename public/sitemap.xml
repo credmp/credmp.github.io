@@ -2,29 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/20251202-aoc-2025-2/</loc>
-    <lastmod>2025-12-02T08:00:00+01:00</lastmod>
+    <loc>http://localhost:1313/posts/20251203-aoc-2025-03/</loc>
+    <lastmod>2025-12-03T08:00:00+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-12-02T08:00:00+01:00</lastmod>
+    <lastmod>2025-12-03T08:00:00+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-12-02T08:00:00+01:00</lastmod>
+    <lastmod>2025-12-03T08:00:00+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/programming/</loc>
+    <lastmod>2025-12-03T08:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/20251202-aoc-2025-2/</loc>
     <lastmod>2025-12-02T08:00:00+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/20251201-aoc-2025-01/</loc>
     <lastmod>2025-12-01T08:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/</loc>
+    <lastmod>2025-11-30T22:18:54+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/aoc/</loc>
+    <lastmod>2025-11-30T22:18:54+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/20251125-learning-to-type/</loc>
     <lastmod>2025-11-25T08:24:29+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/20251101-scratching-an-itch/</loc>
     <lastmod>2025-11-01T13:28:59+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/notes/</loc>
-    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/notes/emacs/</loc>
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
