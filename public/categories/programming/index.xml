@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Wed, 03 Dec 2025 08:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 08:00:00 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code 2025 Day 4</title>
+      <link>http://localhost:1313/posts/20251204-aoc-2025-4/</link>
+      <pubDate>Thu, 04 Dec 2025 08:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/20251204-aoc-2025-4/</guid>
+      <description>&lt;p&gt;Day 4 of solving &lt;a href=&#34;http://localhost:1313/notes/aoc/&#34; class=&#34;backlink&#34;&gt;The Advent of Code&lt;/a&gt;&#xA; in &lt;a href=&#34;http://localhost:1313/notes/clojure/&#34; class=&#34;backlink&#34;&gt;Clojure&lt;/a&gt;&#xA;.&lt;/p&gt;&#xA;&lt;p&gt;The first grid problem of the season! The first part was really suspiciously easy, read in the grid, find all the rolls and look at its 8 neighbors, eliminating it if there are less than 4. The 2nd part was a nice progression on this.&lt;/p&gt;&#xA;&lt;p&gt;Instead of just saying how many should be eliminated, we do it until there are no eliminations possible. This is highly reminiscent of a Conway Game of Life puzzle. In Clojure this is quite nicely done by reading the grid as a vector, and then ranging over all the coordinates. On each coordinate just take a look at the neighbors and apply the logic. Its pure nature means that the functions are already working in the right way to do this repeatedly.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Advent of Code 2025 Day 3</title>
       <link>http://localhost:1313/posts/20251203-aoc-2025-03/</link>

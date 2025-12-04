@@ -2,6 +2,7 @@
   "graph": {
     "/notes/aoc/": {
       "in": [
+        "/posts/20251204-aoc-2025-4/",
         "/posts/20251203-aoc-2025-03/",
         "/posts/20251202-aoc-2025-2/",
         "/posts/20251201-aoc-2025-01/",
@@ -18,9 +19,10 @@
     },
     "/notes/clojure/": {
       "in": [
-        "/notes/clojure-emacs/",
         "/posts/20250111-happy-with-nixos/",
         "/notes/clojure-emacs/",
+        "/notes/clojure-emacs/",
+        "/posts/20251204-aoc-2025-4/",
         "/posts/20251203-aoc-2025-03/",
         "/posts/20251203-aoc-2025-03/",
         "/posts/20251202-aoc-2025-2/",
@@ -69,9 +71,9 @@
     "/notes/rust/": {
       "in": [
         "/posts/20250111-happy-with-nixos/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
         "/notes/type-driven-design/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
         "/notes/zero2prod/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
@@ -276,6 +278,13 @@
         "/notes/clojure/",
         "/notes/aoc/",
         "/notes/clojure/",
+        "/notes/clojure/"
+      ]
+    },
+    "/posts/20251204-aoc-2025-4/": {
+      "in": [],
+      "out": [
+        "/notes/aoc/",
         "/notes/clojure/"
       ]
     },
@@ -653,6 +662,11 @@
       "permalink": "/posts/20251203-aoc-2025-03/",
       "section": "posts",
       "title": "Advent of Code 2025 Day 3"
+    },
+    "/posts/20251204-aoc-2025-4/": {
+      "permalink": "/posts/20251204-aoc-2025-4/",
+      "section": "posts",
+      "title": "Advent of Code 2025 Day 4"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",

@@ -133,6 +133,27 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
           <header>
             <h3 class="text-lg font-semibold leading-none">
               <a
+                href="/posts/20251204-aoc-2025-4/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Advent of Code 2025 Day 4</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2025-12-04T08:00:00&#43;01:00"
+              >December 4, 2025</time
+            >
+          </header>
+
+          <div class="text-sm"><p>Day 4 of solving <a href="/notes/aoc/" class="backlink">The Advent of Code</a>
+ in <a href="/notes/clojure/" class="backlink">Clojure</a>
+.</p>
+<p>The first grid problem of the season! The first part was really suspiciously easy, read in the grid, find all the rolls and look at its 8 neighbors, eliminating it if there are less than 4. The 2nd part was a nice progression on this.</p>
+<p>Instead of just saying how many should be eliminated, we do it until there are no eliminations possible. This is highly reminiscent of a Conway Game of Life puzzle. In Clojure this is quite nicely done by reading the grid as a vector, and then ranging over all the coordinates. On each coordinate just take a look at the neighbors and apply the logic. Its pure nature means that the functions are already working in the right way to do this repeatedly.</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
                 href="/posts/20251203-aoc-2025-03/"
                 class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
                 >Advent of Code 2025 Day 3</a
@@ -168,28 +189,6 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
  in <a href="/notes/clojure/" class="backlink">Clojure</a>
 .</p>
 <p>The 2nd day had us do some magic with numbers. The quest was to find some silly patterns in the numbers. I chose to use good old regular expressions to do the job, while a colleague of mine chose to use math. Both work really well. The 2nd part of the puzzle is to find repeating patterns, where the 1st only wanted pairs.</p></div>
-        </article>
-      </li>
-      <li class="mb-6">
-        <article class="flex flex-col space-y-1">
-          <header>
-            <h3 class="text-lg font-semibold leading-none">
-              <a
-                href="/posts/20251201-aoc-2025-01/"
-                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
-                >Advent of Code 2025 Day 1</a
-              >
-            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2025-12-01T08:00:00&#43;01:00"
-              >December 1, 2025</time
-            >
-          </header>
-
-          <div class="text-sm"><p>Day 1 of solving <a href="/notes/aoc/" class="backlink">The Advent of Code</a>
- in <a href="/notes/clojure/" class="backlink">Clojure</a>
-.</p>
-<p>Each year I like to participate in the Advent of Code. This year there will be 12 puzzles to solve due to Eric taking care of himself, good on you!</p>
-<p>My language this year is <a href="/notes/clojure/" class="backlink">Clojure</a>
-. My solution is quite simple and straightforward. I read the data using <code>split-instructions</code>, transforming the L into a subtraction. For part 1 it is enough to then take the reductions and then filter out all the times we land on the digit 0.</p></div>
         </article>
       </li>
   </ol>
