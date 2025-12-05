@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on Arjen Wiersma</title>
-    <link>http://localhost:1313/categories/security/</link>
+    <link>http://localhost:57305/categories/security/</link>
     <description>Recent content in Security on Arjen Wiersma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
     <lastBuildDate>Thu, 17 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:57305/categories/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>European Union Vulnerability Database</title>
-      <link>http://localhost:1313/notes/euvd/</link>
+      <link>http://localhost:57305/notes/euvd/</link>
       <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/euvd/</guid>
+      <guid>http://localhost:57305/notes/euvd/</guid>
       <description>&lt;p&gt;The European Union Agency for Cybersecurity (ENISA) has its own Vulnerability Database, called the &lt;a href=&#34;https://euvd.enisa.europa.eu&#34;&gt;European Union Vulnerability Database (EUVD)&lt;/a&gt;. It&amp;rsquo;s datasource is &lt;a href=&#34;https://www.vulnerability-lookup.org&#34;&gt;The Vulnerability Lookup project&lt;/a&gt;, a system that correlates various sources and streamlines Coordinated Vulnerability Disclosure (CVD). It uses the Global CVE Allocation System (&lt;a href=&#34;https://gcve.eu&#34;&gt;link&lt;/a&gt;) as a source. This system is created with funding by the EU and is maintained by Computer Incident Response Center Luxembourg (CIRCL), with a nice dashboard &lt;a href=&#34;https://vulnerability.circl.lu&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
