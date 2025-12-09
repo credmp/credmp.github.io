@@ -4,7 +4,7 @@
   dir="ltr"
 >
   <head>
-	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=57305&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
 <meta name="language" content="en" />
 <meta name="viewport" content="width=device-width" />
@@ -14,7 +14,7 @@
   <meta name="description" content="My name is Arjen. I am a Cyber Security Consultant for Scyon. I help organisations with their Application Security, Offensive Security and (Cyber) Business needs. Roles that I like to fulfill: Engineer Manager, Senior Developer (Java), Architect, (C)ISO.
 I have been in the software and security industry for almost 30 years and have worked in:
 Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA, eBuddy - NL): Java, Big Data Healthcare and FinTech (Infomedics - NL): Java and dotNet - Managed the IT and Development teams EduTech (NOVI - NL): Managed the development team building in Serverless, Javascript Education (Hogeschool van Amsterdan / NOVI - NL): teaching software security and software engineering courses Cyber Security (Independent): helping organisations with their security posture I am a member of:" />
-<meta property="og:url" content="http://localhost:57305/">
+<meta property="og:url" content="http://localhost:1313/">
   <meta property="og:site_name" content="Arjen Wiersma">
   <meta property="og:title" content="Arjen Wiersma">
   <meta property="og:description" content="My name is Arjen. I am a Cyber Security Consultant for Scyon. I help organisations with their Application Security, Offensive Security and (Cyber) Business needs. Roles that I like to fulfill: Engineer Manager, Senior Developer (Java), Architect, (C)ISO.
@@ -38,7 +38,7 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
 I have been in the software and security industry for almost 30 years and have worked in:
 Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA, eBuddy - NL): Java, Big Data Healthcare and FinTech (Infomedics - NL): Java and dotNet - Managed the IT and Development teams EduTech (NOVI - NL): Managed the development team building in Serverless, Javascript Education (Hogeschool van Amsterdan / NOVI - NL): teaching software security and software engineering courses Cyber Security (Independent): helping organisations with their security posture I am a member of:">
 
-<link rel="canonical" href="http://localhost:57305/" />
+<link rel="canonical" href="http://localhost:1313/" />
 
     <link rel="stylesheet" href="/css/index.css" />
 
@@ -133,6 +133,27 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
           <header>
             <h3 class="text-lg font-semibold leading-none">
               <a
+                href="/posts/20251209-editors/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >The history of editors (somewhat)</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2025-12-09T13:00:00&#43;01:00"
+              >December 9, 2025</time
+            >
+          </header>
+
+          <div class="text-sm"><p>TLDR: I created an interactive chart of editors, <a href="/editors.html">see it in action</a>.</p>
+<p>Today <a href="https://blog.jetbrains.com/fleet/2025/12/the-future-of-fleet/">the news dropped</a> that Jetbrains is cancelling its &ldquo;new&rdquo; editor, Fleet. Not that I use the product, but it got me thinking about editors (again). I love <a href="/notes/emacs/" class="backlink">editors</a>
+, specifically ones that I can change and bend to my will, such as <a href="/posts/22-years-of-emacs/">Emacs</a>.</p>
+<p>In my career I have used many different editors. I started on a Laser VTech 310 in Basic 2.0 and from there I transitioned into the world of Pascal and C/C++ to end up on the JVM with Java and <a href="/notes/clojure/" class="backlink">Clojure</a>
+. During that time I have seen many editors come and go in the work field.</p></div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
                 href="/posts/20251205-aoc-2025-5/"
                 class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
                 >Advent of Code 2025 Day 5</a
@@ -168,28 +189,6 @@ Internet providers (Chello / UPC, Tiscali - NL): Java Startups (Personify - USA,
 .</p>
 <p>The first grid problem of the season! The first part was really suspiciously easy, read in the grid, find all the rolls and look at its 8 neighbors, eliminating it if there are less than 4. The 2nd part was a nice progression on this.</p>
 <p>Instead of just saying how many should be eliminated, we do it until there are no eliminations possible. This is highly reminiscent of a Conway Game of Life puzzle. In Clojure this is quite nicely done by reading the grid as a vector, and then ranging over all the coordinates. On each coordinate just take a look at the neighbors and apply the logic. Its pure nature means that the functions are already working in the right way to do this repeatedly.</p></div>
-        </article>
-      </li>
-      <li class="mb-6">
-        <article class="flex flex-col space-y-1">
-          <header>
-            <h3 class="text-lg font-semibold leading-none">
-              <a
-                href="/posts/20251203-aoc-2025-03/"
-                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
-                >Advent of Code 2025 Day 3</a
-              >
-            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2025-12-03T08:00:00&#43;01:00"
-              >December 3, 2025</time
-            >
-          </header>
-
-          <div class="text-sm"><p>Day 3 of solving <a href="/notes/aoc/" class="backlink">The Advent of Code</a>
- in <a href="/notes/clojure/" class="backlink">Clojure</a>
-.</p>
-<p>The puzzle today has us figuring out the joltage of a bank of batteries. This is a puzzle of the type &ldquo;largest sequence in a list&rdquo;. When you start you already know that part 2 will be something that a naive approach will not be able to handle, but I still did part 1 with a naive combination function.</p>
-<p>The <a href="/notes/clojure/" class="backlink">Clojure</a>
- combinatorics library will not work here, as it will take a look at the distinct pairs that will be in the list. So in a list of <code>(2 8 2)</code> it will find the unique pair of <code>(2 8)</code>, resulting in the integer 28 for the puzzle, but it will fail to see that 82 was also an option.</p></div>
         </article>
       </li>
   </ol>

@@ -20,8 +20,9 @@
     },
     "/notes/clojure/": {
       "in": [
-        "/notes/clojure-emacs/",
+        "/posts/20251209-editors/",
         "/posts/20250111-happy-with-nixos/",
+        "/notes/clojure-emacs/",
         "/notes/clojure-emacs/",
         "/posts/20251205-aoc-2025-5/",
         "/posts/20251204-aoc-2025-4/",
@@ -47,6 +48,7 @@
     },
     "/notes/emacs/": {
       "in": [
+        "/posts/20251209-editors/",
         "/posts/20251101-scratching-an-itch/"
       ],
       "out": []
@@ -73,12 +75,12 @@
     "/notes/rust/": {
       "in": [
         "/posts/20250111-happy-with-nixos/",
+        "/posts/20250126-digital-ocean-dev-database/",
         "/notes/rust-emacs/",
         "/notes/rust-emacs/",
+        "/posts/a-new-theme/",
         "/notes/type-driven-design/",
         "/notes/zero2prod/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
         "/posts/choose-your-tools/",
         "/posts/20250126-digital-ocean-dev-database/"
@@ -101,9 +103,9 @@
     },
     "/notes/zero2prod/": {
       "in": [
-        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
+        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/"
       ],
       "out": [
@@ -294,6 +296,13 @@
       "in": [],
       "out": [
         "/notes/aoc/",
+        "/notes/clojure/"
+      ]
+    },
+    "/posts/20251209-editors/": {
+      "in": [],
+      "out": [
+        "/notes/emacs/",
         "/notes/clojure/"
       ]
     },
@@ -681,6 +690,11 @@
       "permalink": "/posts/20251205-aoc-2025-5/",
       "section": "posts",
       "title": "Advent of Code 2025 Day 5"
+    },
+    "/posts/20251209-editors/": {
+      "permalink": "/posts/20251209-editors/",
+      "section": "posts",
+      "title": "The History of Editors (Somewhat)"
     },
     "/posts/22-years-of-emacs/": {
       "permalink": "/posts/22-years-of-emacs/",
