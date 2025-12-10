@@ -1,976 +1,1930 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Editor Influence Graph</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
 
-        body {
-            font-family: 'JetBrains Mono', monospace;
-            background-color: #0f172a; /* Slate 900 */
-            color: #e2e8f0;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-            margin: 0;
-        }
+      body {
+        font-family: "JetBrains Mono", monospace;
+        background-color: #0f172a; /* Slate 900 */
+        color: #e2e8f0;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+      }
 
-        #graph-container {
-            width: 100%;
-            height: 100%;
-            cursor: move;
-            touch-action: none;
-        }
-        
-        #graph-container:active {
-            cursor: grabbing;
-        }
+      #graph-container {
+        width: 100%;
+        height: 100%;
+        cursor: move;
+        touch-action: none;
+      }
 
-        /* Tooltip */
-        #tooltip {
-            position: fixed;
-            background: rgba(15, 23, 42, 0.95);
-            border: 1px solid #334155;
-            padding: 12px;
-            border-radius: 8px;
-            pointer-events: none; /* Default: no interaction for hover */
-            display: none;
-            z-index: 50;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            max-width: 300px;
-            backdrop-filter: blur(4px);
-            transition: opacity 0.2s;
-        }
+      #graph-container:active {
+        cursor: grabbing;
+      }
 
-        /* When tooltip is locked (clicked), allow interaction */
-        #tooltip.locked {
-            pointer-events: auto;
-            border-color: #38bdf8;
-            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
-        }
+      /* Tooltip */
+      #tooltip {
+        position: fixed;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid #334155;
+        padding: 12px;
+        border-radius: 8px;
+        pointer-events: none; /* Default: no interaction for hover */
+        display: none;
+        z-index: 50;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        max-width: 300px;
+        backdrop-filter: blur(4px);
+        transition: opacity 0.2s;
+      }
 
-        .legend-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 6px;
-        }
+      /* When tooltip is locked (clicked), allow interaction */
+      #tooltip.locked {
+        pointer-events: auto;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+      }
 
-        .legend-line {
-            width: 20px;
-            height: 0;
-            border-bottom: 2px solid #94a3b8;
-            display: inline-block;
-            margin-right: 6px;
-            vertical-align: middle;
-        }
+      .legend-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+      }
 
-        .legend-line.dotted {
-            border-bottom-style: dashed;
-        }
+      .legend-line {
+        width: 20px;
+        height: 0;
+        border-bottom: 2px solid #94a3b8;
+        display: inline-block;
+        margin-right: 6px;
+        vertical-align: middle;
+      }
 
-        /* D3 Styles */
-        text {
-            font-family: 'JetBrains Mono', monospace;
-            pointer-events: none;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-        }
-        
-        .node circle {
-            transition: stroke-width 0.2s, r 0.2s;
-        }
+      .legend-line.dotted {
+        border-bottom-style: dashed;
+      }
 
-        /* Link Labels */
-        .link-label {
-            font-size: 10px;
-            fill: #94a3b8;
-            text-anchor: middle;
-            paint-order: stroke;
-            stroke: #0f172a;
-            stroke-width: 3px;
-            stroke-linecap: butt;
-            stroke-linejoin: miter;
-            pointer-events: none;
-            opacity: 0; 
-            transition: opacity 0.3s ease;
-        }
-        
-        /* Hull Styles */
-        .hull {
-            fill-opacity: 0.15;
-            stroke-width: 30px;
-            stroke-linejoin: round;
-            stroke-opacity: 0.15;
-            transition: fill-opacity 0.3s, stroke-opacity 0.3s;
-            pointer-events: none;
-        }
+      /* D3 Styles */
+      text {
+        font-family: "JetBrains Mono", monospace;
+        pointer-events: none;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+      }
 
-        .hull-label {
-            font-size: 16px;
-            font-weight: bold;
-            opacity: 0.7;
-            pointer-events: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+      .node circle {
+        transition:
+          stroke-width 0.2s,
+          r 0.2s;
+      }
 
-        /* Collapsible Panel */
-        #panel-content {
-            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-            max-height: 800px;
-            opacity: 1;
-            overflow: hidden;
-        }
-        
-        #panel-content.collapsed {
-            max-height: 0;
-            opacity: 0;
-            margin-bottom: 0;
-        }
+      /* Link Labels */
+      .link-label {
+        font-size: 10px;
+        fill: #94a3b8;
+        text-anchor: middle;
+        paint-order: stroke;
+        stroke: #0f172a;
+        stroke-width: 3px;
+        stroke-linecap: butt;
+        stroke-linejoin: miter;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
 
-        .chevron {
-            transition: transform 0.3s;
-        }
-        
-        .chevron.collapsed {
-            transform: rotate(-90deg);
-        }
+      /* Hull Styles */
+      .hull {
+        fill-opacity: 0.15;
+        stroke-width: 30px;
+        stroke-linejoin: round;
+        stroke-opacity: 0.15;
+        transition:
+          fill-opacity 0.3s,
+          stroke-opacity 0.3s;
+        pointer-events: none;
+      }
 
-        /* Year Axis Labels */
-        .axis-label {
-            font-size: 10px;
-            fill: #475569;
-            text-anchor: end;
-            font-weight: bold;
-            pointer-events: none;
-        }
-        
-        .axis-line {
-            stroke: #1e293b;
-            stroke-dasharray: 4;
-            pointer-events: none;
-        }
+      .hull-label {
+        font-size: 16px;
+        font-weight: bold;
+        opacity: 0.7;
+        pointer-events: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
 
-        /* Group Headers */
-        .group-label {
-            font-size: 14px;
-            fill: #64748b;
-            text-anchor: middle;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            pointer-events: none;
-        }
+      /* Collapsible Panel */
+      #panel-content {
+        transition:
+          max-height 0.3s ease-out,
+          opacity 0.3s ease-out;
+        max-height: 800px;
+        opacity: 1;
+        overflow: hidden;
+      }
 
-        .group-bg {
-            fill: none;
-            stroke: #1e293b;
-            stroke-width: 1;
-            stroke-dasharray: 8 4;
-        }
-        
-        /* Custom Toggle */
-        .toggle-checkbox:checked {
-            background-color: #38bdf8;
-        }
-        
+      #panel-content.collapsed {
+        max-height: 0;
+        opacity: 0;
+        margin-bottom: 0;
+      }
+
+      .chevron {
+        transition: transform 0.3s;
+      }
+
+      .chevron.collapsed {
+        transform: rotate(-90deg);
+      }
+
+      /* Year Axis Labels */
+      .axis-label {
+        font-size: 10px;
+        fill: #475569;
+        text-anchor: end;
+        font-weight: bold;
+        pointer-events: none;
+      }
+
+      .axis-line {
+        stroke: #1e293b;
+        stroke-dasharray: 4;
+        pointer-events: none;
+      }
+
+      /* Group Headers */
+      .group-label {
+        font-size: 14px;
+        fill: #64748b;
+        text-anchor: middle;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        pointer-events: none;
+      }
+
+      .group-bg {
+        fill: none;
+        stroke: #1e293b;
+        stroke-width: 1;
+        stroke-dasharray: 8 4;
+      }
+
+      /* Custom Toggle */
+      .toggle-checkbox:checked {
+        background-color: #38bdf8;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- UI Overlay -->
-    <div class="absolute top-4 left-4 z-40 bg-slate-800/90 rounded-lg border border-slate-700 shadow-xl backdrop-blur-sm max-w-xs transition-all duration-300 overflow-y-auto max-h-[90vh]">
-        <!-- Header / Toggle Area -->
-        <div id="panel-header" class="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-700/50 rounded-t-lg transition-colors">
-            <h1 class="text-sm font-bold text-white uppercase tracking-wide">Editor Network</h1>
-            <svg class="chevron w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    <div
+      class="absolute top-4 left-4 z-40 bg-slate-800/90 rounded-lg border border-slate-700 shadow-xl backdrop-blur-sm max-w-xs transition-all duration-300 overflow-y-auto max-h-[90vh]"
+    >
+      <!-- Header / Toggle Area -->
+      <div
+        id="panel-header"
+        class="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-700/50 rounded-t-lg transition-colors"
+      >
+        <h1 class="text-sm font-bold text-white uppercase tracking-wide">
+          Editor Network
+        </h1>
+        <svg
+          class="chevron w-4 h-4 text-slate-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- Collapsible Content -->
+      <div id="panel-content" class="px-4 pb-4">
+        <p class="text-xs text-slate-400 mb-4 border-b border-slate-700 pb-2">
+          Drag background to Pan.<br />Scroll to Zoom.<br /><strong
+            >Click nodes</strong
+          >
+          to see details/links.
+        </p>
+
+        <div
+          class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-slate-300 mb-4"
+        >
+          <div class="font-bold text-slate-500 col-span-2 mb-1">Status</div>
+          <div class="flex items-center">
+            <span
+              class="legend-dot bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"
+            ></span
+            >Active
+          </div>
+          <div class="flex items-center">
+            <span class="legend-dot bg-red-500 opacity-80"></span>Defunct
+          </div>
+          <div class="flex items-center">
+            <span class="legend-dot bg-amber-500"></span>Maintenance
+          </div>
+
+          <div class="font-bold text-slate-500 col-span-2 mt-2 mb-1">
+            Connections
+          </div>
+          <div class="flex items-center">
+            <span class="legend-line"></span>Lineage
+          </div>
+          <div class="flex items-center">
+            <span class="legend-line dotted"></span>Influence
+          </div>
+        </div>
+
+        <!-- Toggles -->
+        <div class="space-y-3 pt-2 border-t border-slate-700">
+          <div class="font-bold text-slate-500 text-xs mb-2">Controls</div>
+
+          <label class="flex items-center cursor-pointer">
+            <div class="relative">
+              <input type="checkbox" id="label-toggle" class="sr-only" />
+              <div
+                class="block bg-slate-600 w-8 h-5 rounded-full transition-colors"
+              ></div>
+              <div
+                class="dot absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition transform duration-200 ease-in-out"
+              ></div>
+            </div>
+            <div class="ml-3 text-xs text-slate-300 font-medium select-none">
+              Show Arrow Labels
+            </div>
+          </label>
+          <style>
+            input:checked ~ .block {
+              background-color: #38bdf8;
+            }
+            input:checked ~ .dot {
+              transform: translateX(100%);
+            }
+          </style>
+        </div>
+
+        <!-- People Toggles -->
+        <div class="space-y-2 pt-4 mt-2 border-t border-slate-700">
+          <div class="font-bold text-slate-500 text-xs mb-1">
+            Influence Spheres
+          </div>
+
+          <label class="flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              class="person-toggle accent-blue-500 w-3 h-3 rounded bg-slate-600 border-slate-500"
+              data-person="anders"
+              checked
+            />
+            <span class="ml-2 text-xs text-blue-300 font-medium select-none"
+              >Anders Hejlsberg</span
+            >
+          </label>
+
+          <label class="flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              class="person-toggle accent-purple-500 w-3 h-3 rounded bg-slate-600 border-slate-500"
+              data-person="erich"
+              checked
+            />
+            <span class="ml-2 text-xs text-purple-300 font-medium select-none"
+              >Erich Gamma</span
+            >
+          </label>
+
+          <label class="flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              class="person-toggle accent-orange-500 w-3 h-3 rounded bg-slate-600 border-slate-500"
+              data-person="jetbrains"
+              checked
+            />
+            <span class="ml-2 text-xs text-orange-300 font-medium select-none"
+              >JetBrains Team</span
+            >
+          </label>
+
+          <label class="flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              class="person-toggle accent-green-500 w-3 h-3 rounded bg-slate-600 border-slate-500"
+              data-person="joy"
+              checked
+            />
+            <span class="ml-2 text-xs text-green-300 font-medium select-none"
+              >Joy & Moolenaar</span
+            >
+          </label>
+        </div>
+
+        <!-- Blog Link -->
+        <div class="mt-4 pt-3 border-t border-slate-700">
+          <a
+            href="/posts/20251209-editors/"
+            target="_blank"
+            class="flex items-center text-xs text-blue-400 hover:text-blue-300 font-bold transition-colors"
+          >
+            <svg
+              class="w-3 h-3 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
             </svg>
+            Read the Story
+          </a>
         </div>
-
-        <!-- Collapsible Content -->
-        <div id="panel-content" class="px-4 pb-4">
-            <p class="text-xs text-slate-400 mb-4 border-b border-slate-700 pb-2">
-                Drag background to Pan.<br>Scroll to Zoom.<br><strong>Click nodes</strong> to see details/links.
-            </p>
-            
-            <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-slate-300 mb-4">
-                <div class="font-bold text-slate-500 col-span-2 mb-1">Status</div>
-                <div class="flex items-center"><span class="legend-dot bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>Active</div>
-                <div class="flex items-center"><span class="legend-dot bg-red-500 opacity-80"></span>Defunct</div>
-                <div class="flex items-center"><span class="legend-dot bg-amber-500"></span>Maintenance</div>
-                
-                <div class="font-bold text-slate-500 col-span-2 mt-2 mb-1">Connections</div>
-                <div class="flex items-center"><span class="legend-line"></span>Lineage</div>
-                <div class="flex items-center"><span class="legend-line dotted"></span>Influence</div>
-            </div>
-
-            <!-- Toggles -->
-            <div class="space-y-3 pt-2 border-t border-slate-700">
-                <div class="font-bold text-slate-500 text-xs mb-2">Controls</div>
-                
-                <label class="flex items-center cursor-pointer">
-                    <div class="relative">
-                        <input type="checkbox" id="label-toggle" class="sr-only">
-                        <div class="block bg-slate-600 w-8 h-5 rounded-full transition-colors"></div>
-                        <div class="dot absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition transform duration-200 ease-in-out"></div>
-                    </div>
-                    <div class="ml-3 text-xs text-slate-300 font-medium select-none">Show Arrow Labels</div>
-                </label>
-                <style>
-                    input:checked ~ .block { background-color: #38bdf8; }
-                    input:checked ~ .dot { transform: translateX(100%); }
-                </style>
-            </div>
-
-            <!-- People Toggles -->
-            <div class="space-y-2 pt-4 mt-2 border-t border-slate-700">
-                <div class="font-bold text-slate-500 text-xs mb-1">Influence Spheres</div>
-                
-                <label class="flex items-center cursor-pointer">
-                    <input type="checkbox" class="person-toggle accent-blue-500 w-3 h-3 rounded bg-slate-600 border-slate-500" data-person="anders" checked>
-                    <span class="ml-2 text-xs text-blue-300 font-medium select-none">Anders Hejlsberg</span>
-                </label>
-                
-                <label class="flex items-center cursor-pointer">
-                    <input type="checkbox" class="person-toggle accent-purple-500 w-3 h-3 rounded bg-slate-600 border-slate-500" data-person="erich" checked>
-                    <span class="ml-2 text-xs text-purple-300 font-medium select-none">Erich Gamma</span>
-                </label>
-
-                <label class="flex items-center cursor-pointer">
-                    <input type="checkbox" class="person-toggle accent-orange-500 w-3 h-3 rounded bg-slate-600 border-slate-500" data-person="jetbrains" checked>
-                    <span class="ml-2 text-xs text-orange-300 font-medium select-none">JetBrains Team</span>
-                </label>
-
-                <label class="flex items-center cursor-pointer">
-                    <input type="checkbox" class="person-toggle accent-green-500 w-3 h-3 rounded bg-slate-600 border-slate-500" data-person="joy" checked>
-                    <span class="ml-2 text-xs text-green-300 font-medium select-none">Joy & Moolenaar</span>
-                </label>
-
-            </div>
-
-            <!-- Blog Link -->
-            <div class="mt-4 pt-3 border-t border-slate-700">
-                <a href="/posts/20251209-editors/" target="_blank" class="flex items-center text-xs text-blue-400 hover:text-blue-300 font-bold transition-colors">
-                    <svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Read the Story
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
-    
+
     <!-- Reset Button -->
-    <button id="reset-btn" class="absolute bottom-6 right-6 z-40 bg-slate-700/80 hover:bg-slate-600 text-white text-xs px-3 py-2 rounded shadow-lg transition-colors border border-slate-600 backdrop-blur-sm">
-        Reset View
+    <button
+      id="reset-btn"
+      class="absolute bottom-6 right-6 z-40 bg-slate-700/80 hover:bg-slate-600 text-white text-xs px-3 py-2 rounded shadow-lg transition-colors border border-slate-600 backdrop-blur-sm"
+    >
+      Reset View
     </button>
 
     <div id="graph-container"></div>
     <div id="tooltip"></div>
 
     <script>
-        // --- Group Definitions ---
-        const groups = {
-            editors: { id: 'editors', label: 'Text Editors', index: 0 },
-            web: { id: 'web', label: 'Web & AI', index: 1 },
-            java: { id: 'java', label: 'Java Ecosystem', index: 2 },
-            cpp: { id: 'cpp', label: 'Native C/C++', index: 3 },
-            rad: { id: 'rad', label: 'Basic / RAD', index: 4 }
-        };
+      // --- Group Definitions ---
+      const groups = {
+        editors: { id: "editors", label: "Text Editors", index: 0 },
+        web: { id: "web", label: "Web & AI", index: 1 },
+        java: { id: "java", label: "Java Ecosystem", index: 2 },
+        cpp: { id: "cpp", label: "Native C/C++", index: 3 },
+        rad: { id: "rad", label: "Basic / RAD", index: 4 },
+      };
 
-        // --- Influential People Data ---
-        const people = {
-            anders: {
-                id: 'anders',
-                label: 'Anders Hejlsberg',
-                color: '#60a5fa', // Blue
-                nodes: ['tp', 'delphi', 'vjpp', 'vs', 'vscode'] // Spans RAD to Web
+      // --- Influential People Data ---
+      const people = {
+        anders: {
+          id: "anders",
+          label: "Anders Hejlsberg",
+          color: "#60a5fa", // Blue
+          nodes: ["tp", "delphi", "vjpp", "vs", "vscode"], // Spans RAD to Web
+        },
+        erich: {
+          id: "erich",
+          label: "Erich Gamma",
+          color: "#c084fc", // Purple
+          nodes: ["eclipse", "monaco", "vscode"], // Java to Web
+        },
+        jetbrains: {
+          id: "jetbrains",
+          label: "JetBrains",
+          color: "#fb923c", // Orange
+          nodes: [
+            "intellij",
+            "rubymine",
+            "phpstorm",
+            "webstorm",
+            "pycharm",
+            "appcode",
+            "clion",
+            "rustrover",
+            "goland",
+            "rider",
+            "fleet",
+            "android",
+          ],
+        },
+        joy: {
+          id: "joy",
+          label: "Joy & Moolenaar",
+          color: "#4ade80", // Green
+          nodes: ["vi", "vim", "neovim"],
+        },
+      };
+
+      // --- Data ---
+      const nodes = [
+        // Group 1: Text Editors
+        {
+          id: "vi",
+          group: "editors",
+          name: "Vi",
+          start: 1976,
+          end: null,
+          status: "maintenance",
+          desc: "The original visual editor for Unix. Small, fast, everywhere.",
+        },
+        {
+          id: "emacs",
+          group: "editors",
+          name: "Emacs",
+          start: 1976,
+          end: null,
+          status: "active",
+          desc: "The extensible, customizable, self-documenting display editor.",
+          links: [
+            {
+              title: "22 Years of Emacs",
+              url: "https://arjenwiersma.nl/posts/22-years-of-emacs/",
             },
-            erich: {
-                id: 'erich',
-                label: 'Erich Gamma',
-                color: '#c084fc', // Purple
-                nodes: ['eclipse', 'monaco', 'vscode'] // Java to Web
-            },
-            jetbrains: {
-                id: 'jetbrains',
-                label: 'JetBrains',
-                color: '#fb923c', // Orange
-                nodes: ['intellij', 'rubymine', 'phpstorm', 'webstorm', 'pycharm', 'appcode', 'clion','rustrover', 'goland', 'rider', 'fleet', 'android']
-            },
-            joy: {
-                id: 'joy',
-                label: 'Joy & Moolenaar',
-                color: '#4ade80', // Green
-                nodes: ['vi', 'vim', 'neovim']
-            }
-        };
+          ],
+        },
+        {
+          id: "vim",
+          group: "editors",
+          name: "Vim",
+          start: 1991,
+          end: null,
+          status: "active",
+          desc: "Vi IMproved. The ubiquitous text editor found on almost every server.",
+        },
+        {
+          id: "notepad",
+          group: "editors",
+          name: "Notepad",
+          start: 1983,
+          end: null,
+          status: "maintenance",
+          desc: "Windows default. Simple, bundled everywhere.",
+        },
+        {
+          id: "xemacs",
+          group: "editors",
+          name: "XEmacs",
+          start: 1991,
+          end: 2009,
+          status: "defunct",
+          desc: "Major Emacs fork (Lucid). Pioneered GUI features.",
+        },
+        {
+          id: "spacemacs",
+          group: "editors",
+          name: "Spacemacs",
+          start: 2012,
+          end: null,
+          status: "active",
+          desc: "Community Emacs distro. Unites Emacs & Vim power.",
+        },
+        {
+          id: "doom",
+          group: "editors",
+          name: "Doom Emacs",
+          start: 2014,
+          end: null,
+          status: "active",
+          desc: "Performance-oriented Emacs framework for vimmers.",
+        },
+        {
+          id: "notepadpp",
+          group: "editors",
+          name: "Notepad++",
+          start: 2003,
+          end: null,
+          status: "active",
+          desc: "Fast, lightweight, Scintilla-based editor for Windows.",
+        },
+        {
+          id: "textmate",
+          group: "editors",
+          name: "TextMate",
+          start: 2004,
+          end: null,
+          status: "maintenance",
+          desc: "Mac exclusive. Introduced Bundles and fuzzy file search.",
+        },
+        {
+          id: "sublime",
+          group: "editors",
+          name: "Sublime Text",
+          start: 2008,
+          end: null,
+          status: "active",
+          desc: "Changed the game with speed, minimap, and multi-cursor editing.",
+        },
+        {
+          id: "neovim",
+          group: "editors",
+          name: "Neovim",
+          start: 2014,
+          end: null,
+          status: "active",
+          desc: "Hyperextensible Vim-based text editor. Lua & LSP support.",
+        },
 
-        // --- Data ---
-        const nodes = [
-            // Group 1: Text Editors
-            { id: 'vi', group: 'editors', name: 'Vi', start: 1976, end: null, status: 'maintenance', desc: "The original visual editor for Unix. Small, fast, everywhere." },
-            { 
-                id: 'emacs', 
-                group: 'editors', 
-                name: 'Emacs', 
-                start: 1976, 
-                end: null, 
-                status: 'active', 
-                desc: "The extensible, customizable, self-documenting display editor.",
-                links: [
-                    { title: "22 Years of Emacs", url: "https://arjenwiersma.nl/posts/22-years-of-emacs/" }
-                ]
-            },
-            { id: 'vim', group: 'editors', name: 'Vim', start: 1991, end: null, status: 'active', desc: "Vi IMproved. The ubiquitous text editor found on almost every server." },
-            { id: 'notepad', group: 'editors', name: 'Notepad', start: 1983, end: null, status: 'maintenance', desc: "Windows default. Simple, bundled everywhere." },
-            { id: 'xemacs', group: 'editors', name: 'XEmacs', start: 1991, end: 2009, status: 'defunct', desc: "Major Emacs fork (Lucid). Pioneered GUI features." },
-            { id: 'spacemacs', group: 'editors', name: 'Spacemacs', start: 2012, end: null, status: 'active', desc: "Community Emacs distro. Unites Emacs & Vim power." },
-            { id: 'doom', group: 'editors', name: 'Doom Emacs', start: 2014, end: null, status: 'active', desc: "Performance-oriented Emacs framework for vimmers." },
-            { id: 'notepadpp', group: 'editors', name: 'Notepad++', start: 2003, end: null, status: 'active', desc: "Fast, lightweight, Scintilla-based editor for Windows." },
-            { id: 'textmate', group: 'editors', name: 'TextMate', start: 2004, end: null, status: 'maintenance', desc: "Mac exclusive. Introduced Bundles and fuzzy file search." },
-            { id: 'sublime', group: 'editors', name: 'Sublime Text', start: 2008, end: null, status: 'active', desc: "Changed the game with speed, minimap, and multi-cursor editing." },
-            { id: 'neovim', group: 'editors', name: 'Neovim', start: 2014, end: null, status: 'active', desc: "Hyperextensible Vim-based text editor. Lua & LSP support." },
+        // Group 2: Web & AI
+        {
+          id: "lighttable",
+          group: "web",
+          name: "Light Table",
+          start: 2012,
+          end: 2016,
+          status: "defunct",
+          desc: "Kickstarter hit. Introduced concept of live code evaluation.",
+        },
+        {
+          id: "brackets",
+          group: "web",
+          name: "Brackets",
+          start: 2014,
+          end: 2021,
+          status: "defunct",
+          desc: "Adobe's web-focused editor. Visual tools for CSS.",
+        },
+        {
+          id: "atom",
+          group: "web",
+          name: "Atom",
+          start: 2014,
+          end: 2022,
+          status: "defunct",
+          desc: "GitHub's 'hackable' editor. Birthplace of Electron.",
+        },
+        {
+          id: "monaco",
+          group: "web",
+          name: "Monaco",
+          start: 2011,
+          end: null,
+          status: "active",
+          desc: "Project Monaco. Microsoft's browser-based editor core.",
+        },
+        {
+          id: "vscode",
+          group: "web",
+          name: "VS Code",
+          start: 2015,
+          end: null,
+          status: "active",
+          desc: "Microsoft's Electron editor. Standardized LSP.",
+        },
+        {
+          id: "zed",
+          group: "web",
+          name: "Zed",
+          start: 2024,
+          end: null,
+          status: "active",
+          desc: "High-performance Rust editor. Co-creators of ACP.",
+        },
+        {
+          id: "cursor",
+          group: "web",
+          name: "Cursor",
+          start: 2023,
+          end: null,
+          status: "active",
+          desc: "AI-native fork of VS Code. Shadow Workspace.",
+        },
+        {
+          id: "windsurf",
+          group: "web",
+          name: "Windsurf",
+          start: 2024,
+          end: null,
+          status: "active",
+          desc: "Agentic IDE by Codeium. Cascade & M-Query.",
+        },
+        {
+          id: "antigravity",
+          group: "web",
+          name: "Antigravity",
+          start: 2025,
+          end: null,
+          status: "active",
+          desc: "Agentic IDE by Google. Cross surface agents.",
+        },
+        {
+          id: "rubymine",
+          group: "web",
+          name: "RubyMine",
+          start: 2008,
+          end: null,
+          status: "active",
+          desc: "JetBrains' dedicated Ruby on Rails IDE.",
+        },
+        {
+          id: "phpstorm",
+          group: "web",
+          name: "PhpStorm",
+          start: 2009,
+          end: null,
+          status: "active",
+          desc: "The standard for PHP development. Deep framework understanding.",
+        },
+        {
+          id: "webstorm",
+          group: "web",
+          name: "WebStorm",
+          start: 2010,
+          end: null,
+          status: "active",
+          desc: "The smartest JavaScript IDE before VS Code arrived.",
+        },
+        {
+          id: "pycharm",
+          group: "web",
+          name: "PyCharm",
+          start: 2010,
+          end: null,
+          status: "active",
+          desc: "The Python powerhouse. Data science & web dev.",
+        },
 
-            // Group 2: Web & AI
-            { id: 'lighttable', group: 'web', name: 'Light Table', start: 2012, end: 2016, status: 'defunct', desc: "Kickstarter hit. Introduced concept of live code evaluation." },
-            { id: 'brackets', group: 'web', name: 'Brackets', start: 2014, end: 2021, status: 'defunct', desc: "Adobe's web-focused editor. Visual tools for CSS." },
-            { id: 'atom', group: 'web', name: 'Atom', start: 2014, end: 2022, status: 'defunct', desc: "GitHub's 'hackable' editor. Birthplace of Electron." },
-            { id: 'monaco', group: 'web', name: 'Monaco', start: 2011, end: null, status: 'active', desc: "Project Monaco. Microsoft's browser-based editor core." },
-            { id: 'vscode', group: 'web', name: 'VS Code', start: 2015, end: null, status: 'active', desc: "Microsoft's Electron editor. Standardized LSP." },
-            { id: 'zed', group: 'web', name: 'Zed', start: 2024, end: null, status: 'active', desc: "High-performance Rust editor. Co-creators of ACP." },
-            { id: 'cursor', group: 'web', name: 'Cursor', start: 2023, end: null, status: 'active', desc: "AI-native fork of VS Code. Shadow Workspace." },
-            { id: 'windsurf', group: 'web', name: 'Windsurf', start: 2024, end: null, status: 'active', desc: "Agentic IDE by Codeium. Cascade & M-Query." },
-            { id: 'antigravity', group: 'web', name: 'Antigravity', start: 2025, end: null, status: 'active', desc: "Agentic IDE by Google. Cross surface agents." },
-            { id: 'rubymine', group: 'web', name: 'RubyMine', start: 2008, end: null, status: 'active', desc: "JetBrains' dedicated Ruby on Rails IDE." },
-            { id: 'phpstorm', group: 'web', name: 'PhpStorm', start: 2009, end: null, status: 'active', desc: "The standard for PHP development. Deep framework understanding." },
-            { id: 'webstorm', group: 'web', name: 'WebStorm', start: 2010, end: null, status: 'active', desc: "The smartest JavaScript IDE before VS Code arrived." },
-            { id: 'pycharm', group: 'web', name: 'PyCharm', start: 2010, end: null, status: 'active', desc: "The Python powerhouse. Data science & web dev." },
+        // Group 3: Java Ecosystem
+        {
+          id: "visualcafe",
+          group: "java",
+          name: "Visual Café",
+          start: 1996,
+          end: 2002,
+          status: "defunct",
+          desc: "Symantec's pioneer. The first true RAD tool for Java.",
+        },
+        {
+          id: "visualage",
+          group: "java",
+          name: "VisualAge",
+          start: 1997,
+          end: 2001,
+          status: "defunct",
+          desc: "IBM's Smalltalk-based Java IDE. The non-file-based ancestor of Eclipse.",
+        },
+        {
+          id: "jbuilder",
+          group: "java",
+          name: "JBuilder",
+          start: 1997,
+          end: 2008,
+          status: "defunct",
+          desc: "Borland's powerhouse. 'Delphi for Java'. Dominated the late 90s.",
+        },
+        {
+          id: "netbeans",
+          group: "java",
+          name: "NetBeans",
+          start: 1997,
+          end: null,
+          status: "active",
+          desc: "Original Java IDE. Controlled by Sun, then Oracle, now Apache.",
+        },
+        {
+          id: "jdev",
+          group: "java",
+          name: "JDeveloper",
+          start: 1998,
+          end: null,
+          status: "maintenance",
+          desc: "Oracle's proprietary IDE.",
+        },
+        {
+          id: "bluej",
+          group: "java",
+          name: "BlueJ",
+          start: 1999,
+          end: null,
+          status: "active",
+          desc: "Educational IDE. Visualization of objects. Objects first.",
+        },
+        {
+          id: "eclipse",
+          group: "java",
+          name: "Eclipse",
+          start: 2001,
+          end: null,
+          status: "active",
+          desc: "The Java IDE heavyweight. Plugin architecture pioneer.",
+        },
+        {
+          id: "intellij",
+          group: "java",
+          name: "IntelliJ IDEA",
+          start: 2001,
+          end: null,
+          status: "active",
+          desc: "JetBrains' flagship. Deep code analysis and refactoring.",
+        },
+        {
+          id: "android",
+          group: "java",
+          name: "Android Studio",
+          start: 2013,
+          end: null,
+          status: "active",
+          desc: "Official Android IDE. Built on IntelliJ platform.",
+        },
+        {
+          id: "fleet",
+          group: "java",
+          name: "Fleet",
+          start: 2022,
+          end: 2025,
+          status: "defunct",
+          desc: "JetBrains' distributed editor. Sunset Dec 22, 2025.",
+        },
 
-            // Group 3: Java Ecosystem
-            { id: 'visualcafe', group: 'java', name: 'Visual Café', start: 1996, end: 2002, status: 'defunct', desc: "Symantec's pioneer. The first true RAD tool for Java." },
-            { id: 'visualage', group: 'java', name: 'VisualAge', start: 1997, end: 2001, status: 'defunct', desc: "IBM's Smalltalk-based Java IDE. The non-file-based ancestor of Eclipse." },
-            { id: 'jbuilder', group: 'java', name: 'JBuilder', start: 1997, end: 2008, status: 'defunct', desc: "Borland's powerhouse. 'Delphi for Java'. Dominated the late 90s." },
-            { id: 'netbeans', group: 'java', name: 'NetBeans', start: 1997, end: null, status: 'active', desc: "Original Java IDE. Controlled by Sun, then Oracle, now Apache." },
-            { id: 'jdev', group: 'java', name: 'JDeveloper', start: 1998, end: null, status: 'maintenance', desc: "Oracle's proprietary IDE." },
-            { id: 'bluej', group: 'java', name: 'BlueJ', start: 1999, end: null, status: 'active', desc: "Educational IDE. Visualization of objects. Objects first." },
-            { id: 'eclipse', group: 'java', name: 'Eclipse', start: 2001, end: null, status: 'active', desc: "The Java IDE heavyweight. Plugin architecture pioneer." },
-            { id: 'intellij', group: 'java', name: 'IntelliJ IDEA', start: 2001, end: null, status: 'active', desc: "JetBrains' flagship. Deep code analysis and refactoring." },
-            { id: 'android', group: 'java', name: 'Android Studio', start: 2013, end: null, status: 'active', desc: "Official Android IDE. Built on IntelliJ platform." }, 
-            { id: 'fleet', group: 'java', name: 'Fleet', start: 2022, end: 2025, status: 'defunct', desc: "JetBrains' distributed editor. Sunset Dec 22, 2025." },
+        // Group 4: Native C/C++
+        {
+          id: "watcom",
+          group: "cpp",
+          name: "Watcom C/C++",
+          start: 1988,
+          end: 2000,
+          status: "defunct",
+          desc: "Legendary optimizing compiler. Powered Doom & Duke Nukem 3D.",
+        },
+        {
+          id: "turboc",
+          group: "cpp",
+          name: "Turbo C++",
+          start: 1990,
+          end: 1998,
+          status: "defunct",
+          desc: "Borland's famous 'Blue Screen' IDE for C++.",
+        },
+        {
+          id: "borlandcpp",
+          group: "cpp",
+          name: "Borland C++",
+          start: 1991,
+          end: 1997,
+          status: "defunct",
+          desc: "Pro-level Windows dev suite. The standard before MSVC took over.",
+        },
+        {
+          id: "msvc",
+          group: "cpp",
+          name: "Visual C++",
+          start: 1993,
+          end: null,
+          status: "maintenance",
+          desc: "Microsoft's 32-bit champion. Introduced MFC and Developer Studio.",
+        },
+        {
+          id: "cppbuilder",
+          group: "cpp",
+          name: "C++Builder",
+          start: 1997,
+          end: null,
+          status: "maintenance",
+          desc: "C++ with Delphi's RAD VCL. The best of both worlds.",
+        },
+        {
+          id: "csbuilder",
+          group: "cpp",
+          name: "C#Builder",
+          start: 2003,
+          end: 2006,
+          status: "defunct",
+          desc: "Borland's C# IDE, based on JBuilder and Delphi.",
+        },
+        {
+          id: "devcpp",
+          group: "cpp",
+          name: "Dev-C++",
+          start: 1998,
+          end: 2005,
+          status: "defunct",
+          desc: "Lightweight, open-source IDE using MinGW. Student favorite.",
+        },
+        {
+          id: "codeblocks",
+          group: "cpp",
+          name: "Code::Blocks",
+          start: 2005,
+          end: null,
+          status: "active",
+          desc: "Open-source, cross-platform C++ IDE. Plugin architecture.",
+        },
+        {
+          id: "appcode",
+          group: "cpp",
+          name: "AppCode",
+          start: 2011,
+          end: 2023,
+          status: "defunct",
+          desc: "JetBrains' IDE for Swift/Obj-C. Retired in 2023.",
+        },
+        {
+          id: "clion",
+          group: "cpp",
+          name: "CLion",
+          start: 2015,
+          end: null,
+          status: "active",
+          desc: "JetBrains' intelligent cross-platform C/C++ IDE.",
+        },
+        {
+          id: "rustrover",
+          group: "cpp",
+          name: "RustRover",
+          start: 2024,
+          end: null,
+          status: "active",
+          desc: "The first commercial Rust IDE, by Jetbrains.",
+        },
+        {
+          id: "goland",
+          group: "cpp",
+          name: "GoLand",
+          start: 2017,
+          end: null,
+          status: "active",
+          desc: "Dedicated Go IDE. Capable and robust.",
+        },
 
-            // Group 4: Native C/C++
-            { id: 'watcom', group: 'cpp', name: 'Watcom C/C++', start: 1988, end: 2000, status: 'defunct', desc: "Legendary optimizing compiler. Powered Doom & Duke Nukem 3D." },
-            { id: 'turboc', group: 'cpp', name: 'Turbo C++', start: 1990, end: 1998, status: 'defunct', desc: "Borland's famous 'Blue Screen' IDE for C++." },
-            { id: 'borlandcpp', group: 'cpp', name: 'Borland C++', start: 1991, end: 1997, status: 'defunct', desc: "Pro-level Windows dev suite. The standard before MSVC took over." },
-            { id: 'msvc', group: 'cpp', name: 'Visual C++', start: 1993, end: null, status: 'maintenance', desc: "Microsoft's 32-bit champion. Introduced MFC and Developer Studio." },
-            { id: 'cppbuilder', group: 'cpp', name: 'C++Builder', start: 1997, end: null, status: 'maintenance', desc: "C++ with Delphi's RAD VCL. The best of both worlds." },
-            { id: 'devcpp', group: 'cpp', name: 'Dev-C++', start: 1998, end: 2005, status: 'defunct', desc: "Lightweight, open-source IDE using MinGW. Student favorite." },
-            { id: 'codeblocks', group: 'cpp', name: 'Code::Blocks', start: 2005, end: null, status: 'active', desc: "Open-source, cross-platform C++ IDE. Plugin architecture." },
-            { id: 'appcode', group: 'cpp', name: 'AppCode', start: 2011, end: 2023, status: 'defunct', desc: "JetBrains' IDE for Swift/Obj-C. Retired in 2023." },
-            { id: 'clion', group: 'cpp', name: 'CLion', start: 2015, end: null, status: 'active', desc: "JetBrains' intelligent cross-platform C/C++ IDE." },
-            { id: 'rustrover', group: 'cpp', name: 'RustRover', start: 2024, end: null, status: 'active', desc: "The first commercial Rust IDE, by Jetbrains." },
-            { id: 'goland', group: 'cpp', name: 'GoLand', start: 2017, end: null, status: 'active', desc: "Dedicated Go IDE. Capable and robust." },
+        // Group 5: Basic / RAD
+        {
+          id: "basic2",
+          group: "rad",
+          name: "C64 Basic",
+          start: 1982,
+          end: 1994,
+          status: "defunct",
+          desc: "Commodore BASIC V2. The blue screen that started it all.",
+        },
+        {
+          id: "laser310",
+          group: "rad",
+          name: "Laser 310",
+          icon: "🚀",
+          start: 1984,
+          end: 1989,
+          status: "defunct",
+          desc: "VTech 8-bit computer with built-in Microsoft BASIC. A classic entry point.",
+        },
+        {
+          id: "tp",
+          group: "rad",
+          name: "Turbo Pascal",
+          start: 1983,
+          end: 1995,
+          status: "defunct",
+          desc: "The first affordable, fast, integrated IDE. Changed everything.",
+        },
+        {
+          id: "gwbasic",
+          group: "rad",
+          name: "GW-BASIC",
+          start: 1983,
+          end: 1991,
+          status: "defunct",
+          desc: "Microsoft's standard BASIC interpreter for PC-compatibles.",
+        },
+        {
+          id: "quickbasic",
+          group: "rad",
+          name: "QuickBASIC",
+          start: 1985,
+          end: 1991,
+          status: "defunct",
+          desc: "The first major TUI IDE. Structured programming, compiler.",
+        },
+        {
+          id: "vb",
+          group: "rad",
+          name: "Visual Basic",
+          start: 1991,
+          end: 2008,
+          status: "defunct",
+          desc: "Revolutionary RAD tool. Drag-and-drop GUI creation.",
+        },
+        {
+          id: "delphi",
+          group: "rad",
+          name: "Delphi",
+          start: 1995,
+          end: null,
+          status: "maintenance",
+          desc: "The peak of RAD tools. Native compilation, VCL, visual design.",
+        },
+        {
+          id: "vjpp",
+          group: "rad",
+          name: "Visual J++",
+          start: 1996,
+          end: 2004,
+          status: "defunct",
+          desc: "Microsoft's discontinued Java implementation. Subject of the Sun lawsuit.",
+        },
+        {
+          id: "vs",
+          group: "rad",
+          name: "Visual Studio",
+          start: 1997,
+          end: null,
+          status: "active",
+          desc: "Microsoft's comprehensive IDE platform.",
+        },
+        {
+          id: "vbnet",
+          group: "rad",
+          name: "VB.NET",
+          start: 2002,
+          end: null,
+          status: "maintenance",
+          desc: "Modern object-oriented Basic. Integrated into .NET.",
+        },
+        {
+          id: "rider",
+          group: "rad",
+          name: "Rider",
+          start: 2017,
+          end: null,
+          status: "active",
+          desc: "JetBrains' cross-platform .NET IDE. Based on ReSharper.",
+        },
+        {
+          id: "bds",
+          group: "rad",
+          name: "Borland Developer Studio",
+          start: 2005,
+          end: 2007,
+          status: "defunct",
+          desc: "Borland's attempt to bundle Java, Delphi and C++.",
+        },
+        {
+          id: "radstudio",
+          group: "rad",
+          name: "Embarcadero RAD Studio",
+          start: 2007,
+          end: null,
+          status: "active",
+          desc: "The continuation of BDS with only C++Builder and Delphi.",
+        },
+      ];
 
-            // Group 5: Basic / RAD
-            { id: 'basic2', group: 'rad', name: 'C64 Basic', start: 1982, end: 1994, status: 'defunct', desc: "Commodore BASIC V2. The blue screen that started it all." },
-            { id: 'laser310', group: 'rad', name: 'Laser 310', icon: '🚀', start: 1984, end: 1989, status: 'defunct', desc: "VTech 8-bit computer with built-in Microsoft BASIC. A classic entry point." }, 
-            { id: 'tp', group: 'rad', name: 'Turbo Pascal', start: 1983, end: 1995, status: 'defunct', desc: "The first affordable, fast, integrated IDE. Changed everything." },
-            { id: 'gwbasic', group: 'rad', name: 'GW-BASIC', start: 1983, end: 1991, status: 'defunct', desc: "Microsoft's standard BASIC interpreter for PC-compatibles." },
-            { id: 'quickbasic', group: 'rad', name: 'QuickBASIC', start: 1985, end: 1991, status: 'defunct', desc: "The first major TUI IDE. Structured programming, compiler." },
-            { id: 'vb', group: 'rad', name: 'Visual Basic', start: 1991, end: 2008, status: 'defunct', desc: "Revolutionary RAD tool. Drag-and-drop GUI creation." },
-            { id: 'delphi', group: 'rad', name: 'Delphi', start: 1995, end: null, status: 'maintenance', desc: "The peak of RAD tools. Native compilation, VCL, visual design." },
-            { id: 'vjpp', group: 'rad', name: 'Visual J++', start: 1996, end: 2004, status: 'defunct', desc: "Microsoft's discontinued Java implementation. Subject of the Sun lawsuit." },
-            { id: 'vs', group: 'rad', name: 'Visual Studio', start: 1997, end: null, status: 'active', desc: "Microsoft's comprehensive IDE platform." },
-            { id: 'vbnet', group: 'rad', name: 'VB.NET', start: 2002, end: null, status: 'maintenance', desc: "Modern object-oriented Basic. Integrated into .NET." },
-            { id: 'rider', group: 'rad', name: 'Rider', start: 2017, end: null, status: 'active', desc: "JetBrains' cross-platform .NET IDE. Based on ReSharper." }
-        ];
+      const links = [
+        // Lineage
+        { source: "vi", target: "vim", type: "lineage", label: "Clone" },
+        { source: "vim", target: "neovim", type: "lineage", label: "Fork" },
+        {
+          source: "vjpp",
+          target: "vs",
+          type: "lineage",
+          label: "Evolved into",
+        },
+        {
+          source: "intellij",
+          target: "android",
+          type: "lineage",
+          label: "Base Platform",
+        },
 
-        const links = [
-            // Lineage
-            { source: 'vi', target: 'vim', type: 'lineage', label: 'Clone' },
-            { source: 'vim', target: 'neovim', type: 'lineage', label: 'Fork' },
-            { source: 'vjpp', target: 'vs', type: 'lineage', label: 'Evolved into' },
-            { source: 'intellij', target: 'android', type: 'lineage', label: 'Base Platform' },
-            
-            { source: 'basic2', target: 'gwbasic', type: 'lineage', label: 'MS Heritage' },
-            { source: 'basic2', target: 'laser310', type: 'influence', label: 'ROM Basic Peer' },
-            { source: 'gwbasic', target: 'quickbasic', type: 'lineage', label: 'Compiler/IDE' },
-            { source: 'quickbasic', target: 'vb', type: 'lineage', label: 'GUI Evolution' },
-            { source: 'vb', target: 'vbnet', type: 'lineage', label: '.NET Shift' },
-            { source: 'vbnet', target: 'vs', type: 'influence', label: 'Integration' },
-            { source: 'vb', target: 'vs', type: 'influence', label: 'Ecosystem' },
+        {
+          source: "basic2",
+          target: "gwbasic",
+          type: "lineage",
+          label: "MS Heritage",
+        },
+        {
+          source: "basic2",
+          target: "laser310",
+          type: "influence",
+          label: "ROM Basic Peer",
+        },
+        {
+          source: "gwbasic",
+          target: "quickbasic",
+          type: "lineage",
+          label: "Compiler/IDE",
+        },
+        {
+          source: "quickbasic",
+          target: "vb",
+          type: "lineage",
+          label: "GUI Evolution",
+        },
+        { source: "vb", target: "vbnet", type: "lineage", label: ".NET Shift" },
+        {
+          source: "vbnet",
+          target: "vs",
+          type: "influence",
+          label: "Integration",
+        },
+        { source: "vb", target: "vs", type: "influence", label: "Ecosystem" },
 
-            { source: 'tp', target: 'delphi', type: 'lineage', label: 'Object Pascal' },
-            { source: 'tp', target: 'quickbasic', type: 'influence', label: 'Integrated Env' }, 
-            { source: 'tp', target: 'turboc', type: 'influence', label: 'IDE Concept' }, // New
-            { source: 'delphi', target: 'vjpp', type: 'influence', label: 'Hejlsberg (Creator)' },
-            { source: 'delphi', target: 'vs', type: 'influence', label: 'Component Model' },
-            { source: 'delphi', target: 'cppbuilder', type: 'influence', label: 'VCL Framework' }, // New
+        {
+          source: "tp",
+          target: "delphi",
+          type: "lineage",
+          label: "Object Pascal",
+        },
+        {
+          source: "tp",
+          target: "quickbasic",
+          type: "influence",
+          label: "Integrated Env",
+        },
+        {
+          source: "tp",
+          target: "turboc",
+          type: "influence",
+          label: "IDE Concept",
+        }, // New
+        {
+          source: "delphi",
+          target: "vjpp",
+          type: "influence",
+          label: "Hejlsberg (Creator)",
+        },
+        {
+          source: "delphi",
+          target: "vs",
+          type: "influence",
+          label: "Component Model",
+        },
+        {
+          source: "delphi",
+          target: "cppbuilder",
+          type: "influence",
+          label: "VCL Framework",
+        },
+        {
+          source: "delphi",
+          target: "bds",
+          type: "lineage",
+          label: "Bundled",
+        },
+        {
+          source: "delphi",
+          target: "csbuilder",
+          type: "influence",
+          label: "Based on",
+        },
+        {
+          source: "jbuilder",
+          target: "csbuilder",
+          type: "influence",
+          label: "Based on",
+        },
+        {
+          source: "cppbuilder",
+          target: "bds",
+          type: "lineage",
+          label: "Bundled",
+        },
+        {
+          source: "csbuilder",
+          target: "bds",
+          type: "lineage",
+          label: "Bundled",
+        },
+        {
+          source: "jbuilder",
+          target: "bds",
+          type: "lineage",
+          label: "Bundled",
+        },
+        {
+          source: "bds",
+          target: "radstudio",
+          type: "lineage",
+          label: "Continuation",
+        },
 
-            // C++ Lineage (New)
-            { source: 'turboc', target: 'borlandcpp', type: 'lineage', label: 'Pro Version' },
-            { source: 'borlandcpp', target: 'cppbuilder', type: 'lineage', label: 'RAD Evolution' },
-            { source: 'msvc', target: 'vs', type: 'lineage', label: 'Integration' },
-            { source: 'devcpp', target: 'codeblocks', type: 'influence', label: 'OSS Alternative' },
-            { source: 'intellij', target: 'clion', type: 'influence', label: 'Platform Base' },
-            { source: 'intellij', target: 'rustrover', type: 'influence', label: 'Platform Base' },
+        // C++ Lineage (New)
+        {
+          source: "turboc",
+          target: "borlandcpp",
+          type: "lineage",
+          label: "Pro Version",
+        },
+        {
+          source: "borlandcpp",
+          target: "cppbuilder",
+          type: "lineage",
+          label: "RAD Evolution",
+        },
+        { source: "msvc", target: "vs", type: "lineage", label: "Integration" },
+        {
+          source: "devcpp",
+          target: "codeblocks",
+          type: "influence",
+          label: "OSS Alternative",
+        },
+        {
+          source: "intellij",
+          target: "clion",
+          type: "influence",
+          label: "Platform Base",
+        },
+        {
+          source: "intellij",
+          target: "rustrover",
+          type: "influence",
+          label: "Platform Base",
+        },
 
-            { source: 'visualcafe', target: 'jbuilder', type: 'influence', label: 'Market Consolid.' },
-            { source: 'delphi', target: 'jbuilder', type: 'influence', label: 'UI/Concept' }, 
-            { source: 'visualage', target: 'eclipse', type: 'lineage', label: 'Rebuilt as Eclipse' },
-            { source: 'jbuilder', target: 'jdev', type: 'lineage', label: 'Licensed Code (Early)' },
-            { source: 'netbeans', target: 'eclipse', type: 'influence', label: 'Competition' },
+        {
+          source: "visualcafe",
+          target: "jbuilder",
+          type: "influence",
+          label: "Market Consolid.",
+        },
+        {
+          source: "delphi",
+          target: "jbuilder",
+          type: "influence",
+          label: "UI/Concept",
+        },
+        {
+          source: "visualage",
+          target: "eclipse",
+          type: "lineage",
+          label: "Rebuilt as Eclipse",
+        },
+        {
+          source: "jbuilder",
+          target: "jdev",
+          type: "lineage",
+          label: "Licensed Code (Early)",
+        },
+        {
+          source: "netbeans",
+          target: "eclipse",
+          type: "influence",
+          label: "Competition",
+        },
 
-            { source: 'emacs', target: 'xemacs', type: 'lineage', label: 'Fork (Lucid)' },
-            { source: 'emacs', target: 'spacemacs', type: 'influence', label: 'Framework' },
-            { source: 'emacs', target: 'doom', type: 'influence', label: 'Framework' },
-            { source: 'vim', target: 'spacemacs', type: 'influence', label: 'Evil Mode' }, 
-            { source: 'spacemacs', target: 'doom', type: 'influence', label: 'Optimization' },
+        {
+          source: "emacs",
+          target: "xemacs",
+          type: "lineage",
+          label: "Fork (Lucid)",
+        },
+        {
+          source: "emacs",
+          target: "spacemacs",
+          type: "influence",
+          label: "Framework",
+        },
+        {
+          source: "emacs",
+          target: "doom",
+          type: "influence",
+          label: "Framework",
+        },
+        {
+          source: "vim",
+          target: "spacemacs",
+          type: "influence",
+          label: "Evil Mode",
+        },
+        {
+          source: "spacemacs",
+          target: "doom",
+          type: "influence",
+          label: "Optimization",
+        },
 
-            { source: 'textmate', target: 'sublime', type: 'influence', label: 'Bundles Concept' },
-            { source: 'sublime', target: 'atom', type: 'influence', label: 'UI Paradigm' },
-            { source: 'sublime', target: 'vscode', type: 'influence', label: 'Command Palette' },
-            { source: 'lighttable', target: 'atom', type: 'influence', label: 'Web Tech Stack' },
-            { source: 'eclipse', target: 'vscode', type: 'influence', label: 'Language Server Concept' },
+        {
+          source: "textmate",
+          target: "sublime",
+          type: "influence",
+          label: "Bundles Concept",
+        },
+        {
+          source: "sublime",
+          target: "atom",
+          type: "influence",
+          label: "UI Paradigm",
+        },
+        {
+          source: "sublime",
+          target: "vscode",
+          type: "influence",
+          label: "Command Palette",
+        },
+        {
+          source: "lighttable",
+          target: "atom",
+          type: "influence",
+          label: "Web Tech Stack",
+        },
+        {
+          source: "eclipse",
+          target: "vscode",
+          type: "influence",
+          label: "Language Server Concept",
+        },
 
-            { source: 'monaco', target: 'vscode', type: 'lineage', label: 'Core Tech' },
-            { source: 'atom', target: 'vscode', type: 'influence', label: 'Electron Core' },
-            { source: 'atom', target: 'zed', type: 'lineage', label: 'Same Creators' }, 
+        {
+          source: "monaco",
+          target: "vscode",
+          type: "lineage",
+          label: "Core Tech",
+        },
+        {
+          source: "atom",
+          target: "vscode",
+          type: "influence",
+          label: "Electron Core",
+        },
+        {
+          source: "atom",
+          target: "zed",
+          type: "lineage",
+          label: "Same Creators",
+        },
 
-            { source: 'vscode', target: 'cursor', type: 'lineage', label: 'Fork / AI Native' },
-            { source: 'vscode', target: 'windsurf', type: 'lineage', label: 'Fork / Agentic' },
-            { source: 'vscode', target: 'antigravity', type: 'lineage', label: 'Fork / Agentic' },
-            
-            { source: 'intellij', target: 'fleet', type: 'lineage', label: 'New Architecture' },
+        {
+          source: "vscode",
+          target: "cursor",
+          type: "lineage",
+          label: "Fork / AI Native",
+        },
+        {
+          source: "vscode",
+          target: "windsurf",
+          type: "lineage",
+          label: "Fork / Agentic",
+        },
+        {
+          source: "vscode",
+          target: "antigravity",
+          type: "lineage",
+          label: "Fork / Agentic",
+        },
 
-            { source: 'vs', target: 'vscode', type: 'influence', label: 'Branding & Ecosystem' },
+        {
+          source: "intellij",
+          target: "fleet",
+          type: "lineage",
+          label: "New Architecture",
+        },
 
-            // JetBrains Ecosystem Connections
-            { source: 'intellij', target: 'rubymine', type: 'lineage', label: 'Platform Base' },
-            { source: 'intellij', target: 'phpstorm', type: 'lineage', label: 'Platform Base' },
-            { source: 'intellij', target: 'webstorm', type: 'lineage', label: 'Platform Base' },
-            { source: 'intellij', target: 'pycharm', type: 'lineage', label: 'Platform Base' },
-            { source: 'intellij', target: 'appcode', type: 'lineage', label: 'Platform Base' },
-            { source: 'intellij', target: 'rider', type: 'lineage', label: 'Platform Base' },
-            { source: 'intellij', target: 'goland', type: 'lineage', label: 'Platform Base' },
-            { source: 'webstorm', target: 'vscode', type: 'influence', label: 'JS/TS Features' },
-            { source: 'vs', target: 'rider', type: 'influence', label: 'Competitor' }
-        ];
+        {
+          source: "vs",
+          target: "vscode",
+          type: "influence",
+          label: "Branding & Ecosystem",
+        },
 
-        // --- D3 Setup ---
-        
-        const container = document.getElementById('graph-container');
-        let width = container.clientWidth;
-        let height = container.clientHeight;
+        // JetBrains Ecosystem Connections
+        {
+          source: "intellij",
+          target: "rubymine",
+          type: "lineage",
+          label: "Platform Base",
+        },
+        {
+          source: "intellij",
+          target: "phpstorm",
+          type: "lineage",
+          label: "Platform Base",
+        },
+        {
+          source: "intellij",
+          target: "webstorm",
+          type: "lineage",
+          label: "Platform Base",
+        },
+        {
+          source: "intellij",
+          target: "pycharm",
+          type: "lineage",
+          label: "Platform Base",
+        },
+        {
+          source: "intellij",
+          target: "appcode",
+          type: "lineage",
+          label: "Platform Base",
+        },
+        {
+          source: "intellij",
+          target: "rider",
+          type: "lineage",
+          label: "Platform Base",
+        },
+        {
+          source: "intellij",
+          target: "goland",
+          type: "lineage",
+          label: "Platform Base",
+        },
+        {
+          source: "webstorm",
+          target: "vscode",
+          type: "influence",
+          label: "JS/TS Features",
+        },
+        {
+          source: "vs",
+          target: "rider",
+          type: "influence",
+          label: "Competitor",
+        },
+      ];
 
-        const colorMap = {
-            active: '#22c55e',      // Green 500
-            defunct: '#ef4444',     // Red 500
-            maintenance: '#f59e0b'  // Amber 500
-        };
+      // --- D3 Setup ---
 
-        const svg = d3.select("#graph-container").append("svg")
-            .attr("width", "100%")
-            .attr("height", "100%")
-            .attr("viewBox", [0, 0, width, height]);
+      const container = document.getElementById("graph-container");
+      let width = container.clientWidth;
+      let height = container.clientHeight;
 
-        // Markers
-        const defs = svg.append("defs");
-        
-        defs.append("marker")
-            .attr("id", "arrow-solid")
-            .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 25) 
-            .attr("refY", 0)
-            .attr("markerWidth", 8)
-            .attr("markerHeight", 8)
-            .attr("orient", "auto")
-            .append("path")
-            .attr("d", "M0,-5L10,0L0,5")
-            .attr("fill", "#64748b");
+      const colorMap = {
+        active: "#22c55e", // Green 500
+        defunct: "#ef4444", // Red 500
+        maintenance: "#f59e0b", // Amber 500
+      };
 
-        defs.append("marker")
-            .attr("id", "arrow-dotted")
-            .attr("viewBox", "0 -5 10 10")
-            .attr("refX", 25)
-            .attr("refY", 0)
-            .attr("markerWidth", 8)
-            .attr("markerHeight", 8)
-            .attr("orient", "auto")
-            .append("path")
-            .attr("d", "M0,-5L10,0L0,5")
-            .attr("fill", "#94a3b8");
+      const svg = d3
+        .select("#graph-container")
+        .append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("viewBox", [0, 0, width, height]);
 
-        // Zoom Group
-        const g = svg.append("g");
+      // Markers
+      const defs = svg.append("defs");
 
-        // Setup Zoom
-        const zoom = d3.zoom()
-            .scaleExtent([0.1, 8])
-            .on("zoom", (event) => {
-                g.attr("transform", event.transform);
-                // We keep tooltip logic separate so it doesn't jump
-            });
+      defs
+        .append("marker")
+        .attr("id", "arrow-solid")
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 25)
+        .attr("refY", 0)
+        .attr("markerWidth", 8)
+        .attr("markerHeight", 8)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", "#64748b");
 
-        // Click on SVG Background to unlock tooltip
-        svg.call(zoom)
-           .on("dblclick.zoom", null)
-           .on("click", (event) => {
-               // If clicking directly on SVG (background), unlock
-               if (event.target.tagName === 'svg') {
-                   unlockTooltip();
-               }
-           });
+      defs
+        .append("marker")
+        .attr("id", "arrow-dotted")
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 25)
+        .attr("refY", 0)
+        .attr("markerWidth", 8)
+        .attr("markerHeight", 8)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", "#94a3b8");
 
-        // --- Timeline & Group Logic ---
-        const minYear = d3.min(nodes, d => d.start);
-        const maxYear = 2028;
-        
-        let yScale = d3.scaleLinear()
-            .domain([minYear, maxYear])
-            .range([120, height - 100]); 
+      // Zoom Group
+      const g = svg.append("g");
 
-        const axisGroup = g.append("g").attr("class", "axis-group");
-        const headerGroup = g.append("g").attr("class", "header-group");
-
-        // Helper to get X center for a group
-        function getGroupX(groupKey) {
-            const keys = Object.keys(groups);
-            const colWidth = width / keys.length;
-            const index = groups[groupKey].index;
-            return (index * colWidth) + (colWidth / 2);
-        }
-
-        function drawBackground() {
-            axisGroup.selectAll("*").remove();
-            headerGroup.selectAll("*").remove();
-
-            // 1. Draw Year Grid Lines
-            const years = d3.range(minYear, maxYear + 1, 5);
-            years.forEach(year => {
-                const y = yScale(year);
-                axisGroup.append("line")
-                    .attr("class", "axis-line")
-                    .attr("x1", -5000) 
-                    .attr("x2", 5000)
-                    .attr("y1", y)
-                    .attr("y2", y);
-                
-                axisGroup.append("text")
-                    .attr("class", "axis-label")
-                    .attr("x", 40) // Fixed left
-                    .attr("y", y - 5)
-                    .text(year);
-            });
-
-            // 2. Draw Group Separators and Headers
-            const groupKeys = Object.keys(groups);
-            const colWidth = width / groupKeys.length;
-
-            groupKeys.forEach((key, i) => {
-                const x = i * colWidth;
-                
-                // Vertical Separator
-                if (i > 0) {
-                    headerGroup.append("line")
-                        .attr("class", "group-bg")
-                        .attr("x1", x)
-                        .attr("x2", x)
-                        .attr("y1", -5000)
-                        .attr("y2", 5000);
-                }
-
-                // Header
-                headerGroup.append("text")
-                    .attr("class", "group-label")
-                    .attr("x", x + colWidth/2)
-                    .attr("y", yScale(minYear) - 40)
-                    .text(groups[key].label);
-            });
-        }
-        
-        // Simulation
-        const simulation = d3.forceSimulation(nodes)
-            .force("link", d3.forceLink(links).id(d => d.id).distance(100))
-            .force("charge", d3.forceManyBody().strength(-600))
-            .force("collide", d3.forceCollide().radius(50))
-            .force("y", d3.forceY(d => yScale(d.start)).strength(4))
-            // Force X based on group assignment
-            .force("x", d3.forceX(d => getGroupX(d.group)).strength(0.8)); // Strong horizontal pull
-
-        // Layers Order: Hulls -> Links -> Nodes
-        const hullGroup = g.append("g").attr("class", "hulls");
-        const linkGroup = g.append("g").attr("class", "links");
-        const nodeGroup = g.append("g").attr("class", "nodes");
-
-        // Links
-        const link = linkGroup
-            .selectAll("path.visible-link")
-            .data(links)
-            .join("path")
-            .attr("class", "visible-link")
-            .attr("stroke", d => d.type === 'lineage' ? "#64748b" : "#94a3b8")
-            .attr("stroke-width", 2)
-            .attr("stroke-dasharray", d => d.type === 'lineage' ? "0" : "5,5")
-            .attr("fill", "none")
-            .attr("marker-end", d => d.type === 'lineage' ? "url(#arrow-solid)" : "url(#arrow-dotted)")
-            .style("pointer-events", "none"); 
-
-        const linkOverlay = linkGroup
-            .selectAll("path.overlay-link")
-            .data(links)
-            .join("path")
-            .attr("class", "overlay-link")
-            .attr("stroke", "transparent") 
-            .attr("stroke-opacity", 0)     
-            .attr("stroke-width", 15)      
-            .attr("fill", "none")
-            .style("cursor", "pointer")
-            .on("mouseover", (event, d) => {
-                // Only show tooltip if no node is locked
-                if (!lockedNodeId) {
-                    showTooltip(event, null, d);
-                    link.filter(l => l === d)
-                        .attr("stroke", "#38bdf8")
-                        .attr("stroke-width", 3);
-                }
-            })
-            .on("mouseout", (event, d) => {
-                if (!lockedNodeId) {
-                    hideTooltip();
-                    link.filter(l => l === d)
-                        .attr("stroke", d.type === 'lineage' ? "#64748b" : "#94a3b8")
-                        .attr("stroke-width", 2);
-                }
-            });
-
-        // Link Labels
-        const linkLabels = g.append("g")
-            .selectAll("text")
-            .data(links)
-            .join("text")
-            .attr("class", "link-label")
-            .attr("dy", -5)
-            .text(d => d.label);
-
-        // Nodes
-        const node = nodeGroup
-            .selectAll("g")
-            .data(nodes)
-            .join("g")
-            .attr("class", "node")
-            .call(d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended));
-
-        node.append("circle")
-            .attr("r", 15)
-            .attr("fill", "#1e293b")
-            .attr("stroke", d => colorMap[d.status])
-            .attr("stroke-width", 3)
-            .style("cursor", "grab")
-            .style("filter", d => d.status === 'active' ? "drop-shadow(0 0 4px rgba(34,197,94,0.4))" : "none");
-
-        node.append("text")
-            .text(d => d.icon ? d.icon : d.name.substring(0,1)) // Use icon if available, else first letter
-            .attr("x", 0)
-            .attr("y", 4)
-            .attr("text-anchor", "middle")
-            .attr("fill", "#cbd5e1")
-            .attr("font-size", "10px")
-            .attr("font-weight", "bold");
-
-        node.append("text")
-            .text(d => d.name)
-            .attr("x", 0)
-            .attr("y", 30)
-            .attr("text-anchor", "middle")
-            .attr("fill", "#e2e8f0")
-            .attr("font-size", "12px")
-            .style("text-shadow", "0 2px 4px rgba(0,0,0,0.9)");
-
-        // --- Hull Logic ---
-        function updateHulls() {
-            // Get checked people
-            const activePeople = [];
-            document.querySelectorAll('.person-toggle:checked').forEach(cb => {
-                activePeople.push(people[cb.dataset.person]);
-            });
-
-            // Calculate hulls
-            const hullData = activePeople.map(person => {
-                // Get nodes for this person
-                const personNodes = nodes.filter(n => person.nodes.includes(n.id));
-                if (personNodes.length === 0) return null;
-
-                // Get points: We add padding points around each node to make the hull "fat"
-                const points = [];
-                const padding = 25; // larger than node radius
-                personNodes.forEach(n => {
-                    points.push([n.x - padding, n.y - padding]);
-                    points.push([n.x + padding, n.y - padding]);
-                    points.push([n.x + padding, n.y + padding]);
-                    points.push([n.x - padding, n.y + padding]);
-                });
-
-                const hullPoints = d3.polygonHull(points);
-                return { person, hullPoints };
-            }).filter(d => d && d.hullPoints);
-
-            const lineFn = d3.line().curve(d3.curveCatmullRomClosed);
-
-            // Bind data
-            const hulls = hullGroup.selectAll("path.hull")
-                .data(hullData, d => d.person.id);
-
-            // Enter
-            hulls.enter().append("path")
-                .attr("class", "hull")
-                .attr("fill", d => d.person.color)
-                .attr("stroke", d => d.person.color)
-                .attr("d", d => lineFn(d.hullPoints));
-
-            // Update
-            hulls.attr("d", d => lineFn(d.hullPoints));
-
-            // Exit
-            hulls.exit().remove();
-        }
-
-        // Tooltip State
-        let lockedNodeId = null;
-        const tooltip = document.getElementById('tooltip');
-
-        // Node Interaction Logic
-        node.on("click", (event, d) => {
-            event.stopPropagation(); // Prevent bg click
-            
-            if (lockedNodeId === d.id) {
-                // If clicking same node, unlock
-                unlockTooltip();
-            } else {
-                // Lock new node
-                lockedNodeId = d.id;
-                showTooltip(event, d, null, true); // true = locked
-            }
+      // Setup Zoom
+      const zoom = d3
+        .zoom()
+        .scaleExtent([0.1, 8])
+        .on("zoom", (event) => {
+          g.attr("transform", event.transform);
+          // We keep tooltip logic separate so it doesn't jump
         });
 
-        node.on("mouseover", (event, d) => {
-            if (!lockedNodeId) {
-                showTooltip(event, d, null);
-                highlightNode(d, true);
-            }
+      // Click on SVG Background to unlock tooltip
+      svg
+        .call(zoom)
+        .on("dblclick.zoom", null)
+        .on("click", (event) => {
+          // If clicking directly on SVG (background), unlock
+          if (event.target.tagName === "svg") {
+            unlockTooltip();
+          }
+        });
+
+      // --- Timeline & Group Logic ---
+      const minYear = d3.min(nodes, (d) => d.start);
+      const maxYear = 2028;
+
+      let yScale = d3
+        .scaleLinear()
+        .domain([minYear, maxYear])
+        .range([120, height - 100]);
+
+      const axisGroup = g.append("g").attr("class", "axis-group");
+      const headerGroup = g.append("g").attr("class", "header-group");
+
+      // Helper to get X center for a group
+      function getGroupX(groupKey) {
+        const keys = Object.keys(groups);
+        const colWidth = width / keys.length;
+        const index = groups[groupKey].index;
+        return index * colWidth + colWidth / 2;
+      }
+
+      function drawBackground() {
+        axisGroup.selectAll("*").remove();
+        headerGroup.selectAll("*").remove();
+
+        // 1. Draw Year Grid Lines
+        const years = d3.range(minYear, maxYear + 1, 5);
+        years.forEach((year) => {
+          const y = yScale(year);
+          axisGroup
+            .append("line")
+            .attr("class", "axis-line")
+            .attr("x1", -5000)
+            .attr("x2", 5000)
+            .attr("y1", y)
+            .attr("y2", y);
+
+          axisGroup
+            .append("text")
+            .attr("class", "axis-label")
+            .attr("x", 40) // Fixed left
+            .attr("y", y - 5)
+            .text(year);
+        });
+
+        // 2. Draw Group Separators and Headers
+        const groupKeys = Object.keys(groups);
+        const colWidth = width / groupKeys.length;
+
+        groupKeys.forEach((key, i) => {
+          const x = i * colWidth;
+
+          // Vertical Separator
+          if (i > 0) {
+            headerGroup
+              .append("line")
+              .attr("class", "group-bg")
+              .attr("x1", x)
+              .attr("x2", x)
+              .attr("y1", -5000)
+              .attr("y2", 5000);
+          }
+
+          // Header
+          headerGroup
+            .append("text")
+            .attr("class", "group-label")
+            .attr("x", x + colWidth / 2)
+            .attr("y", yScale(minYear) - 40)
+            .text(groups[key].label);
+        });
+      }
+
+      // Simulation
+      const simulation = d3
+        .forceSimulation(nodes)
+        .force(
+          "link",
+          d3
+            .forceLink(links)
+            .id((d) => d.id)
+            .distance(100),
+        )
+        .force("charge", d3.forceManyBody().strength(-600))
+        .force("collide", d3.forceCollide().radius(50))
+        .force("y", d3.forceY((d) => yScale(d.start)).strength(4))
+        // Force X based on group assignment
+        .force("x", d3.forceX((d) => getGroupX(d.group)).strength(0.8)); // Strong horizontal pull
+
+      // Layers Order: Hulls -> Links -> Nodes
+      const hullGroup = g.append("g").attr("class", "hulls");
+      const linkGroup = g.append("g").attr("class", "links");
+      const nodeGroup = g.append("g").attr("class", "nodes");
+
+      // Links
+      const link = linkGroup
+        .selectAll("path.visible-link")
+        .data(links)
+        .join("path")
+        .attr("class", "visible-link")
+        .attr("stroke", (d) => (d.type === "lineage" ? "#64748b" : "#94a3b8"))
+        .attr("stroke-width", 2)
+        .attr("stroke-dasharray", (d) => (d.type === "lineage" ? "0" : "5,5"))
+        .attr("fill", "none")
+        .attr("marker-end", (d) =>
+          d.type === "lineage" ? "url(#arrow-solid)" : "url(#arrow-dotted)",
+        )
+        .style("pointer-events", "none");
+
+      const linkOverlay = linkGroup
+        .selectAll("path.overlay-link")
+        .data(links)
+        .join("path")
+        .attr("class", "overlay-link")
+        .attr("stroke", "transparent")
+        .attr("stroke-opacity", 0)
+        .attr("stroke-width", 15)
+        .attr("fill", "none")
+        .style("cursor", "pointer")
+        .on("mouseover", (event, d) => {
+          // Only show tooltip if no node is locked
+          if (!lockedNodeId) {
+            showTooltip(event, null, d);
+            link
+              .filter((l) => l === d)
+              .attr("stroke", "#38bdf8")
+              .attr("stroke-width", 3);
+          }
         })
         .on("mouseout", (event, d) => {
-            if (!lockedNodeId) {
-                hideTooltip();
-                highlightNode(d, false);
-            }
+          if (!lockedNodeId) {
+            hideTooltip();
+            link
+              .filter((l) => l === d)
+              .attr("stroke", d.type === "lineage" ? "#64748b" : "#94a3b8")
+              .attr("stroke-width", 2);
+          }
         });
 
-        // Visual Highlight Helper
-        function highlightNode(d, active) {
-            // Find specific circle group
-            const group = node.filter(n => n.id === d.id);
-            const circle = group.select("circle");
-            
-            if (active) {
-                circle.attr("stroke", "#38bdf8").attr("fill", "#334155").attr("r", 18);
-                // Dim lines
-                link.style("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
-                // Show labels
-                const isAlwaysVisible = document.getElementById('label-toggle').checked;
-                linkLabels.style("opacity", l => {
-                     if (isAlwaysVisible) return (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1;
-                     return 0;
-                });
-                // Dim other nodes
-                node.style("opacity", n => {
-                    const isConnected = links.some(l => (l.source.id === d.id && l.target.id === n.id) || (l.source.id === n.id && l.target.id === d.id));
-                    return (n.id === d.id || isConnected) ? 1 : 0.2;
-                });
-            } else {
-                // Reset
-                circle.attr("stroke", n => colorMap[n.status]).attr("fill", "#1e293b").attr("r", 15);
-                link.style("opacity", 1);
-                node.style("opacity", 1);
-                const isAlwaysVisible = document.getElementById('label-toggle').checked;
-                linkLabels.style("opacity", isAlwaysVisible ? 1 : 0);
-            }
-        }
+      // Link Labels
+      const linkLabels = g
+        .append("g")
+        .selectAll("text")
+        .data(links)
+        .join("text")
+        .attr("class", "link-label")
+        .attr("dy", -5)
+        .text((d) => d.label);
 
-        function unlockTooltip() {
-            lockedNodeId = null;
-            tooltip.classList.remove('locked');
+      // Nodes
+      const node = nodeGroup
+        .selectAll("g")
+        .data(nodes)
+        .join("g")
+        .attr("class", "node")
+        .call(
+          d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended),
+        );
+
+      node
+        .append("circle")
+        .attr("r", 15)
+        .attr("fill", "#1e293b")
+        .attr("stroke", (d) => colorMap[d.status])
+        .attr("stroke-width", 3)
+        .style("cursor", "grab")
+        .style("filter", (d) =>
+          d.status === "active"
+            ? "drop-shadow(0 0 4px rgba(34,197,94,0.4))"
+            : "none",
+        );
+
+      node
+        .append("text")
+        .text((d) => (d.icon ? d.icon : d.name.substring(0, 1))) // Use icon if available, else first letter
+        .attr("x", 0)
+        .attr("y", 4)
+        .attr("text-anchor", "middle")
+        .attr("fill", "#cbd5e1")
+        .attr("font-size", "10px")
+        .attr("font-weight", "bold");
+
+      node
+        .append("text")
+        .text((d) => d.name)
+        .attr("x", 0)
+        .attr("y", 30)
+        .attr("text-anchor", "middle")
+        .attr("fill", "#e2e8f0")
+        .attr("font-size", "12px")
+        .style("text-shadow", "0 2px 4px rgba(0,0,0,0.9)");
+
+      // --- Hull Logic ---
+      function updateHulls() {
+        // Get checked people
+        const activePeople = [];
+        document.querySelectorAll(".person-toggle:checked").forEach((cb) => {
+          activePeople.push(people[cb.dataset.person]);
+        });
+
+        // Calculate hulls
+        const hullData = activePeople
+          .map((person) => {
+            // Get nodes for this person
+            const personNodes = nodes.filter((n) =>
+              person.nodes.includes(n.id),
+            );
+            if (personNodes.length === 0) return null;
+
+            // Get points: We add padding points around each node to make the hull "fat"
+            const points = [];
+            const padding = 25; // larger than node radius
+            personNodes.forEach((n) => {
+              points.push([n.x - padding, n.y - padding]);
+              points.push([n.x + padding, n.y - padding]);
+              points.push([n.x + padding, n.y + padding]);
+              points.push([n.x - padding, n.y + padding]);
+            });
+
+            const hullPoints = d3.polygonHull(points);
+            return { person, hullPoints };
+          })
+          .filter((d) => d && d.hullPoints);
+
+        const lineFn = d3.line().curve(d3.curveCatmullRomClosed);
+
+        // Bind data
+        const hulls = hullGroup
+          .selectAll("path.hull")
+          .data(hullData, (d) => d.person.id);
+
+        // Enter
+        hulls
+          .enter()
+          .append("path")
+          .attr("class", "hull")
+          .attr("fill", (d) => d.person.color)
+          .attr("stroke", (d) => d.person.color)
+          .attr("d", (d) => lineFn(d.hullPoints));
+
+        // Update
+        hulls.attr("d", (d) => lineFn(d.hullPoints));
+
+        // Exit
+        hulls.exit().remove();
+      }
+
+      // Tooltip State
+      let lockedNodeId = null;
+      const tooltip = document.getElementById("tooltip");
+
+      // Node Interaction Logic
+      node.on("click", (event, d) => {
+        event.stopPropagation(); // Prevent bg click
+
+        if (lockedNodeId === d.id) {
+          // If clicking same node, unlock
+          unlockTooltip();
+        } else {
+          // Lock new node
+          lockedNodeId = d.id;
+          showTooltip(event, d, null, true); // true = locked
+        }
+      });
+
+      node
+        .on("mouseover", (event, d) => {
+          if (!lockedNodeId) {
+            showTooltip(event, d, null);
+            highlightNode(d, true);
+          }
+        })
+        .on("mouseout", (event, d) => {
+          if (!lockedNodeId) {
             hideTooltip();
-            // Reset all visual states
-            node.each(function(d) { highlightNode(d, false); });
+            highlightNode(d, false);
+          }
+        });
+
+      // Visual Highlight Helper
+      function highlightNode(d, active) {
+        // Find specific circle group
+        const group = node.filter((n) => n.id === d.id);
+        const circle = group.select("circle");
+
+        if (active) {
+          circle
+            .attr("stroke", "#38bdf8")
+            .attr("fill", "#334155")
+            .attr("r", 18);
+          // Dim lines
+          link.style("opacity", (l) =>
+            l.source.id === d.id || l.target.id === d.id ? 1 : 0.1,
+          );
+          // Show labels
+          const isAlwaysVisible =
+            document.getElementById("label-toggle").checked;
+          linkLabels.style("opacity", (l) => {
+            if (isAlwaysVisible)
+              return l.source.id === d.id || l.target.id === d.id ? 1 : 0.1;
+            return 0;
+          });
+          // Dim other nodes
+          node.style("opacity", (n) => {
+            const isConnected = links.some(
+              (l) =>
+                (l.source.id === d.id && l.target.id === n.id) ||
+                (l.source.id === n.id && l.target.id === d.id),
+            );
+            return n.id === d.id || isConnected ? 1 : 0.2;
+          });
+        } else {
+          // Reset
+          circle
+            .attr("stroke", (n) => colorMap[n.status])
+            .attr("fill", "#1e293b")
+            .attr("r", 15);
+          link.style("opacity", 1);
+          node.style("opacity", 1);
+          const isAlwaysVisible =
+            document.getElementById("label-toggle").checked;
+          linkLabels.style("opacity", isAlwaysVisible ? 1 : 0);
+        }
+      }
+
+      function unlockTooltip() {
+        lockedNodeId = null;
+        tooltip.classList.remove("locked");
+        hideTooltip();
+        // Reset all visual states
+        node.each(function (d) {
+          highlightNode(d, false);
+        });
+      }
+
+      // Tooltip Function
+      function showTooltip(event, nodeData, linkData, isLocked = false) {
+        tooltip.style.display = "block";
+
+        if (isLocked) {
+          tooltip.classList.add("locked");
+          // When locked, we force highlighting on the locked node
+          if (nodeData) highlightNode(nodeData, true);
+        } else {
+          tooltip.classList.remove("locked");
         }
 
-        // Tooltip Function
-        function showTooltip(event, nodeData, linkData, isLocked = false) {
-            tooltip.style.display = 'block';
-            
-            if (isLocked) {
-                tooltip.classList.add('locked');
-                // When locked, we force highlighting on the locked node
-                if(nodeData) highlightNode(nodeData, true);
-            } else {
-                tooltip.classList.remove('locked');
-            }
+        if (nodeData) {
+          const statusColor =
+            nodeData.status === "active"
+              ? "text-green-400"
+              : nodeData.status === "defunct"
+                ? "text-red-400"
+                : "text-amber-400";
+          const range = `${nodeData.start} - ${nodeData.end ? nodeData.end : "Present"}`;
 
-            if (nodeData) {
-                const statusColor = nodeData.status === 'active' ? 'text-green-400' : (nodeData.status === 'defunct' ? 'text-red-400' : 'text-amber-400');
-                const range = `${nodeData.start} - ${nodeData.end ? nodeData.end : 'Present'}`;
-                
-                let linksHtml = '';
-                if (nodeData.links && nodeData.links.length > 0) {
-                    linksHtml = `
+          let linksHtml = "";
+          if (nodeData.links && nodeData.links.length > 0) {
+            linksHtml = `
                         <div class="mt-2 pt-2 border-t border-slate-700">
                             <div class="text-xs font-bold text-slate-500 mb-1">Stories & Links</div>
-                            ${nodeData.links.map(l => 
-                                `<a href="${l.url}" target="_blank" class="block text-xs text-blue-400 hover:text-blue-300 truncate py-0.5 hover:underline flex items-center gap-1">
+                            ${nodeData.links
+                              .map(
+                                (l) =>
+                                  `<a href="${l.url}" target="_blank" class="block text-xs text-blue-400 hover:text-blue-300 truncate py-0.5 hover:underline flex items-center gap-1">
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                                     ${l.title}
-                                 </a>`
-                            ).join('')}
+                                 </a>`,
+                              )
+                              .join("")}
                         </div>
                     `;
-                }
+          }
 
-                tooltip.innerHTML = `
+          tooltip.innerHTML = `
                     <div class="font-bold text-lg text-white mb-1 flex justify-between items-start">
                         <span>${nodeData.name}</span>
-                        ${isLocked ? '<span class="text-[10px] text-slate-500 font-normal border border-slate-600 px-1 rounded">LOCKED</span>' : ''}
+                        ${isLocked ? '<span class="text-[10px] text-slate-500 font-normal border border-slate-600 px-1 rounded">LOCKED</span>' : ""}
                     </div>
                     <div class="text-xs ${statusColor} font-mono mb-2 uppercase tracking-wider">${nodeData.status} • ${range}</div>
                     <div class="text-sm text-slate-300 leading-snug">${nodeData.desc}</div>
                     ${linksHtml}
                 `;
-            } else if (linkData) {
-                tooltip.innerHTML = `
+        } else if (linkData) {
+          tooltip.innerHTML = `
                     <div class="font-bold text-blue-400 mb-1">${linkData.label}</div>
                     <div class="text-xs text-slate-400">
                         ${linkData.source.name} &rarr; ${linkData.target.name}
                     </div>
                     <div class="text-xs text-slate-500 mt-1 italic">
-                        ${linkData.type === 'lineage' ? 'Direct Lineage/Fork' : 'Concept/Tech Influence'}
+                        ${linkData.type === "lineage" ? "Direct Lineage/Fork" : "Concept/Tech Influence"}
                     </div>
                 `;
-            }
-            
-            // Positioning
-            // If locked, position near the node target, otherwise follow mouse
-            let tx, ty;
-            if (isLocked && nodeData) {
-                // Convert node SVG coords to screen coords
-                // We use the event client coordinates for simplicity as clicking is an event
-                // But better to stick it near the clicked point
-                tx = event.clientX + 20;
-                ty = event.clientY - 20;
-            } else {
-                tx = event.clientX + 15;
-                ty = event.clientY + 15;
-            }
-
-            // Boundary Check
-            const rect = tooltip.getBoundingClientRect();
-            if (tx + rect.width > window.innerWidth) tx = event.clientX - rect.width - 20;
-            if (ty + rect.height > window.innerHeight) ty = event.clientY - rect.height - 20;
-
-            tooltip.style.left = tx + 'px';
-            tooltip.style.top = ty + 'px';
         }
 
-        function hideTooltip() {
-            tooltip.style.display = 'none';
+        // Positioning
+        // If locked, position near the node target, otherwise follow mouse
+        let tx, ty;
+        if (isLocked && nodeData) {
+          // Convert node SVG coords to screen coords
+          // We use the event client coordinates for simplicity as clicking is an event
+          // But better to stick it near the clicked point
+          tx = event.clientX + 20;
+          ty = event.clientY - 20;
+        } else {
+          tx = event.clientX + 15;
+          ty = event.clientY + 15;
         }
 
-        // Simulation Tick
-        simulation.on("tick", () => {
-            const pathD = d => `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
-            link.attr("d", pathD);
-            linkOverlay.attr("d", pathD);
-            linkLabels.attr("x", d => (d.source.x + d.target.x) / 2).attr("y", d => (d.source.y + d.target.y) / 2);
-            node.attr("transform", d => `translate(${d.x},${d.y})`);
-            
-            // Update Hulls on tick
-            updateHulls();
+        // Boundary Check
+        const rect = tooltip.getBoundingClientRect();
+        if (tx + rect.width > window.innerWidth)
+          tx = event.clientX - rect.width - 20;
+        if (ty + rect.height > window.innerHeight)
+          ty = event.clientY - rect.height - 20;
+
+        tooltip.style.left = tx + "px";
+        tooltip.style.top = ty + "px";
+      }
+
+      function hideTooltip() {
+        tooltip.style.display = "none";
+      }
+
+      // Simulation Tick
+      simulation.on("tick", () => {
+        const pathD = (d) =>
+          `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
+        link.attr("d", pathD);
+        linkOverlay.attr("d", pathD);
+        linkLabels
+          .attr("x", (d) => (d.source.x + d.target.x) / 2)
+          .attr("y", (d) => (d.source.y + d.target.y) / 2);
+        node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+
+        // Update Hulls on tick
+        updateHulls();
+      });
+
+      // Dragging
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+        d3.select(this).select("circle").style("cursor", "grabbing");
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+        d3.select(this).select("circle").style("cursor", "grab");
+      }
+
+      // Controls
+      document
+        .getElementById("label-toggle")
+        .addEventListener("change", (e) => {
+          const isChecked = e.target.checked;
+          linkLabels.style("opacity", isChecked ? 1 : 0);
         });
 
-        // Dragging
-        function dragstarted(event, d) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
-            d.fx = d.x;
-            d.fy = d.y;
-            d3.select(this).select("circle").style("cursor", "grabbing");
-        }
-
-        function dragged(event, d) {
-            d.fx = event.x;
-            d.fy = event.y;
-        }
-
-        function dragended(event, d) {
-            if (!event.active) simulation.alphaTarget(0);
-            d.fx = null;
-            d.fy = null;
-            d3.select(this).select("circle").style("cursor", "grab");
-        }
-
-        // Controls
-        document.getElementById('label-toggle').addEventListener('change', (e) => {
-            const isChecked = e.target.checked;
-            linkLabels.style('opacity', isChecked ? 1 : 0);
+      // Person Toggles
+      document.querySelectorAll(".person-toggle").forEach((toggle) => {
+        toggle.addEventListener("change", () => {
+          simulation.alpha(0.1).restart(); // restart briefly to animate hull changes
         });
+      });
 
-        // Person Toggles
-        document.querySelectorAll('.person-toggle').forEach(toggle => {
-            toggle.addEventListener('change', () => {
-                simulation.alpha(0.1).restart(); // restart briefly to animate hull changes
-            });
-        });
+      const panelHeader = document.getElementById("panel-header");
+      const panelContent = document.getElementById("panel-content");
+      const chevron = document.querySelector(".chevron");
 
-        const panelHeader = document.getElementById('panel-header');
-        const panelContent = document.getElementById('panel-content');
-        const chevron = document.querySelector('.chevron');
+      panelHeader.addEventListener("click", () => {
+        panelContent.classList.toggle("collapsed");
+        chevron.classList.toggle("collapsed");
+      });
 
-        panelHeader.addEventListener('click', () => {
-            panelContent.classList.toggle('collapsed');
-            chevron.classList.toggle('collapsed');
-        });
+      document.getElementById("reset-btn").addEventListener("click", () => {
+        svg
+          .transition()
+          .duration(750)
+          .call(
+            zoom.transform,
+            d3.zoomIdentity,
+            d3.zoomTransform(svg.node()).invert([width / 2, height / 2]),
+          );
+      });
 
-        document.getElementById('reset-btn').addEventListener('click', () => {
-            svg.transition().duration(750).call(
-                zoom.transform,
-                d3.zoomIdentity,
-                d3.zoomTransform(svg.node()).invert([width / 2, height / 2])
-            );
-        });
-        
-        // Initial
+      // Initial
+      drawBackground();
+
+      window.addEventListener("resize", () => {
+        width = container.clientWidth;
+        height = container.clientHeight;
+
+        svg.attr("viewBox", [0, 0, width, height]);
+        yScale.range([120, height - 100]);
+
+        // Re-calculate group forces
+        simulation.force("y", d3.forceY((d) => yScale(d.start)).strength(4));
+        simulation.force(
+          "x",
+          d3.forceX((d) => getGroupX(d.group)).strength(0.8),
+        );
+
+        simulation.alpha(0.3).restart();
         drawBackground();
-
-        window.addEventListener('resize', () => {
-            width = container.clientWidth;
-            height = container.clientHeight;
-            
-            svg.attr("viewBox", [0, 0, width, height]);
-            yScale.range([120, height - 100]);
-            
-            // Re-calculate group forces
-            simulation.force("y", d3.forceY(d => yScale(d.start)).strength(4));
-            simulation.force("x", d3.forceX(d => getGroupX(d.group)).strength(0.8));
-            
-            simulation.alpha(0.3).restart();
-            drawBackground();
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
