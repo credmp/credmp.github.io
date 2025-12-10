@@ -300,7 +300,7 @@
                 id: 'jetbrains',
                 label: 'JetBrains',
                 color: '#fb923c', // Orange
-                nodes: ['intellij', 'rubymine', 'phpstorm', 'webstorm', 'pycharm', 'appcode', 'clion', 'goland', 'rider', 'fleet', 'android']
+                nodes: ['intellij', 'rubymine', 'phpstorm', 'webstorm', 'pycharm', 'appcode', 'clion','rustrover', 'goland', 'rider', 'fleet', 'android']
             },
             joy: {
                 id: 'joy',
@@ -373,6 +373,7 @@
             { id: 'codeblocks', group: 'cpp', name: 'Code::Blocks', start: 2005, end: null, status: 'active', desc: "Open-source, cross-platform C++ IDE. Plugin architecture." },
             { id: 'appcode', group: 'cpp', name: 'AppCode', start: 2011, end: 2023, status: 'defunct', desc: "JetBrains' IDE for Swift/Obj-C. Retired in 2023." },
             { id: 'clion', group: 'cpp', name: 'CLion', start: 2015, end: null, status: 'active', desc: "JetBrains' intelligent cross-platform C/C++ IDE." },
+            { id: 'rustrover', group: 'cpp', name: 'RustRover', start: 2024, end: null, status: 'active', desc: "The first commercial Rust IDE, by Jetbrains." },
             { id: 'goland', group: 'cpp', name: 'GoLand', start: 2017, end: null, status: 'active', desc: "Dedicated Go IDE. Capable and robust." },
 
             // Group 5: Basic / RAD
@@ -417,6 +418,7 @@
             { source: 'msvc', target: 'vs', type: 'lineage', label: 'Integration' },
             { source: 'devcpp', target: 'codeblocks', type: 'influence', label: 'OSS Alternative' },
             { source: 'intellij', target: 'clion', type: 'influence', label: 'Platform Base' },
+            { source: 'intellij', target: 'rustrover', type: 'influence', label: 'Platform Base' },
 
             { source: 'visualcafe', target: 'jbuilder', type: 'influence', label: 'Market Consolid.' },
             { source: 'delphi', target: 'jbuilder', type: 'influence', label: 'UI/Concept' }, 
