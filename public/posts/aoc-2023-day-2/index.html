@@ -184,23 +184,23 @@ go go code snippet start">
   <p class="sr-only">go code snippet start</p>
   <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;fmt&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;os&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;strconv&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;strings&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">type</span><span class="w"> </span><span class="nx">Grab</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">Grab</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">red</span><span class="p">,</span><span class="w"> </span><span class="nx">green</span><span class="p">,</span><span class="w"> </span><span class="nx">blue</span><span class="w"> </span><span class="kt">int</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">type</span><span class="w"> </span><span class="nx">Game</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">Game</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">id</span><span class="w">    </span><span class="kt">int</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">grabs</span><span class="w"> </span><span class="p">[]</span><span class="nx">Grab</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;2023/Day02/input.txt&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="p">[]</span><span class="nx">Game</span><span class="w">
@@ -235,7 +235,7 @@ go go code snippet start">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">possible</span><span class="w"> </span><span class="p">[]</span><span class="nx">Game</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">outer</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">outer</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">game</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">grab</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">game</span><span class="p">.</span><span class="nx">grabs</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="nx">grab</span><span class="p">.</span><span class="nx">red</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">max</span><span class="p">.</span><span class="nx">red</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">grab</span><span class="p">.</span><span class="nx">green</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">max</span><span class="p">.</span><span class="nx">green</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">grab</span><span class="p">.</span><span class="nx">blue</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">max</span><span class="p">.</span><span class="nx">blue</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -278,7 +278,7 @@ go go code snippet start">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nx">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">red</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">green</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">blue</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Part 2: &#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">sum</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
   <p class="sr-only">go code snippet end</p>
 
   

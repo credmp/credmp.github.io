@@ -182,13 +182,13 @@ rust rust code snippet start">
   </aside>
   <p class="sr-only">rust code snippet start</p>
   <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#[derive(Debug)]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">SubscriberName</span><span class="p">(</span><span class="nb">String</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">SubscriberName</span><span class="p">(</span><span class="nb">String</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">SubscriberName</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">impl</span><span class="w"> </span><span class="n">SubscriberName</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="sd">/// Returns an instance of `SubscriberName` if the input satisfies all
-</span></span></span><span class="line"><span class="cl"><span class="sd"></span><span class="w">    </span><span class="sd">/// our validation constraints on subscriber names.
-</span></span></span><span class="line"><span class="cl"><span class="sd"></span><span class="w">    </span><span class="sd">/// It panics otherwise.
-</span></span></span><span class="line"><span class="cl"><span class="sd"></span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">parse</span><span class="p">(</span><span class="n">s</span>: <span class="nb">String</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">SubscriberName</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="sd">/// our validation constraints on subscriber names.
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="sd">/// It panics otherwise.
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">parse</span><span class="p">(</span><span class="n">s</span>: <span class="nb">String</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">SubscriberName</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">is_empty_or_whitespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">is_empty</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">is_too_long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">graphemes</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="n">count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">256</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">forbidden_characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="sc">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;(&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;)&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;&#34;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;&lt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\\&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;{&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;}&#39;</span><span class="p">];</span><span class="w">
@@ -199,10 +199,10 @@ rust rust code snippet start">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="bp">Self</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Usage
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">subscriber_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubscriberName</span>::<span class="n">parse</span><span class="p">(</span><span class="s">&#34;Arjen&#34;</span><span class="p">);</span></span></span></code></pre></div>
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Usage
+</span></span></span><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">subscriber_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SubscriberName</span>::<span class="n">parse</span><span class="p">(</span><span class="s">&#34;Arjen&#34;</span><span class="p">);</span></span></span></code></pre></div>
   <p class="sr-only">rust code snippet end</p>
 
   
@@ -313,6 +313,54 @@ rust rust code snippet start">
           </h3>
 
           <ol class="not-prose ml-6">
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/notes/rust/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="The Rust programming language"
+              >The Rust Programming Language</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/programming/"
+                  class="taxonomy"
+                  title="Posts and notes on Programming"
+                  >Programming</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/notes/zero2prod/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="Zero to Production"
+              >Zero to Production</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/literature/"
+                  class="taxonomy"
+                  title="Posts and notes on Literature"
+                  >Literature</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
     <li>
       <article class="flex flex-row items-center">
         <header class="grow">

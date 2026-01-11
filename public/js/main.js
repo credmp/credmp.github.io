@@ -204,7 +204,7 @@
         var global$m2 = global$p2;
         var $String$52 = global$m2.String;
         var symbolConstructorDetection2 = !!Object.getOwnPropertySymbols && !fails$q2(function() {
-          var symbol3 = Symbol("symbol detection");
+          var symbol3 = /* @__PURE__ */ Symbol("symbol detection");
           return !$String$52(symbol3) || !(Object(symbol3) instanceof Symbol) || // Chrome 38-40 symbols are not inherited from DOM collections prototypes to instances
           !Symbol.sham && V8_VERSION$32 && V8_VERSION$32 < 41;
         });
@@ -3041,7 +3041,7 @@
           }), { b: 2 })).b !== 1) return true;
           var A = {};
           var B = {};
-          var symbol3 = Symbol("assign detection");
+          var symbol3 = /* @__PURE__ */ Symbol("assign detection");
           var alphabet = "abcdefghijklmnopqrst";
           A[symbol3] = 7;
           alphabet.split("").forEach(function(chr) {
@@ -9596,7 +9596,7 @@
         }, ht = y({}.isPrototypeOf), dt = "undefined" != typeof navigator && String(navigator.userAgent) || "", lt = r, ct = dt, ut = lt.process, ft = lt.Deno, pt2 = ut && ut.versions || ft && ft.version, vt = pt2 && pt2.v8;
         vt && (j = (R = vt.split("."))[0] > 0 && R[0] < 4 ? 1 : +(R[0] + R[1])), !j && ct && (!(R = ct.match(/Edge\/(\d+)/)) || R[1] >= 74) && (R = ct.match(/Chrome\/(\d+)/)) && (j = +R[1]);
         var gt = j, yt = gt, mt = s, bt = r.String, wt = !!Object.getOwnPropertySymbols && !mt((function() {
-          var t2 = Symbol("symbol detection");
+          var t2 = /* @__PURE__ */ Symbol("symbol detection");
           return !bt(t2) || !(Object(t2) instanceof Symbol) || !Symbol.sham && yt && yt < 41;
         })), kt = wt && !Symbol.sham && "symbol" == typeof Symbol.iterator, _t = at, xt = T, Et = ht, Ot = Object, Ct = kt ? function(t2) {
           return "symbol" == typeof t2;
@@ -9752,7 +9752,7 @@
           if (ro && 1 !== vo({ b: 1 }, vo(go({}, "a", { enumerable: true, get: function() {
             go(this, "b", { value: 3, enumerable: false });
           } }), { b: 2 })).b) return true;
-          var t2 = {}, e2 = {}, i2 = Symbol("assign detection"), o2 = "abcdefghijklmnopqrst";
+          var t2 = {}, e2 = {}, i2 = /* @__PURE__ */ Symbol("assign detection"), o2 = "abcdefghijklmnopqrst";
           return t2[i2] = 7, o2.split("").forEach((function(t3) {
             e2[t3] = t3;
           })), 7 !== vo({}, t2)[i2] || lo(vo({}, e2)).join("") !== o2;
@@ -18819,7 +18819,7 @@
   var global$p = global$s;
   var $String$5 = global$p.String;
   var symbolConstructorDetection = !!Object.getOwnPropertySymbols && !fails$v(function() {
-    var symbol2 = Symbol("symbol detection");
+    var symbol2 = /* @__PURE__ */ Symbol("symbol detection");
     return !$String$5(symbol2) || !(Object(symbol2) instanceof Symbol) || // Chrome 38-40 symbols are not inherited from DOM collections prototypes to instances
     !Symbol.sham && V8_VERSION$3 && V8_VERSION$3 < 41;
   });
@@ -19260,7 +19260,7 @@
     }), { b: 2 })).b !== 1) return true;
     var A = {};
     var B = {};
-    var symbol2 = Symbol("assign detection");
+    var symbol2 = /* @__PURE__ */ Symbol("assign detection");
     var alphabet = "abcdefghijklmnopqrst";
     A[symbol2] = 7;
     alphabet.split("").forEach(function(chr) {

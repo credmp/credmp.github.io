@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Arjen Wiersma</copyright>
-    <lastBuildDate>Sun, 30 Nov 2025 22:18:54 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jan 2026 22:18:54 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self Hosting</title>
+      <link>http://localhost:1313/notes/self-hosting/</link>
+      <pubDate>Sat, 10 Jan 2026 22:18:54 +0100</pubDate>
+      <guid>http://localhost:1313/notes/self-hosting/</guid>
+      <description>&lt;p&gt;Online services seem to take more and more money to use, they are also getting new features such as AI which might not be entirely what you want. I certainly do not want some random AI system training on my personal data. So I decided to start self-hosting the services that I use. I have been working on internalizing services for almost a year now, and I figured it is time to write some things down.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Advent of Code</title>
       <link>http://localhost:1313/notes/aoc/</link>

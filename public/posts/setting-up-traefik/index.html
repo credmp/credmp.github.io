@@ -181,36 +181,36 @@
   <p class="sr-only">dockerfile code snippet start</p>
   <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl">version: <span class="s1">&#39;3&#39;</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>services:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>  reverse-proxy:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    image: traefik:v3.1<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ports:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;80:80&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;443:443&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;8080:8080&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    volumes:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - /var/run/docker.sock:/var/run/docker.sock:ro<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - ./traefik.yml:/traefik.yml:ro <span class="c1"># Traefik config file</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - traefik-certs:/certs <span class="c1"># Docker volume to store the acme file for the Certifactes</span><span class="err">
+</span></span></span><span class="line"><span class="cl">services:<span class="err">
+</span></span></span><span class="line"><span class="cl">  reverse-proxy:<span class="err">
+</span></span></span><span class="line"><span class="cl">    image: traefik:v3.1<span class="err">
+</span></span></span><span class="line"><span class="cl">    ports:<span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;80:80&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;443:443&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;8080:8080&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">    volumes:<span class="err">
+</span></span></span><span class="line"><span class="cl">      - /var/run/docker.sock:/var/run/docker.sock:ro<span class="err">
+</span></span></span><span class="line"><span class="cl">      - ./traefik.yml:/traefik.yml:ro <span class="c1"># Traefik config file</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - traefik-certs:/certs <span class="c1"># Docker volume to store the acme file for the Certifactes</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>  app:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    image: your/image<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ports:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - 8081:8080<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    labels:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.enable=true&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.routers.app-http.rule=Host(`example.com`) || Host(`www.example.com`)&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.routers.app-http.entrypoints=web&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.routers.app-http.middlewares=redirect-to-https&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.routers.app-https.rule=Host(`example.com`) || Host(`www.example.com`)&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.routers.app-https.entrypoints=websecure&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.routers.app-https.tls=true&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.routers.app-https.tls.certresolver=letencrypt&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>volumes:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>  traefik-certs:<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    name: traefik-certs</span></span></code></pre></div>
+</span></span></span><span class="line"><span class="cl">  app:<span class="err">
+</span></span></span><span class="line"><span class="cl">    image: your/image<span class="err">
+</span></span></span><span class="line"><span class="cl">    ports:<span class="err">
+</span></span></span><span class="line"><span class="cl">      - 8081:8080<span class="err">
+</span></span></span><span class="line"><span class="cl">    labels:<span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.enable=true&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.routers.app-http.rule=Host(`example.com`) || Host(`www.example.com`)&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.routers.app-http.entrypoints=web&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.routers.app-http.middlewares=redirect-to-https&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.routers.app-https.rule=Host(`example.com`) || Host(`www.example.com`)&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.routers.app-https.entrypoints=websecure&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.routers.app-https.tls=true&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.routers.app-https.tls.certresolver=letencrypt&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">      - <span class="s2">&#34;traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl">volumes:<span class="err">
+</span></span></span><span class="line"><span class="cl">  traefik-certs:<span class="err">
+</span></span></span><span class="line"><span class="cl">    name: traefik-certs</span></span></code></pre></div>
   <p class="sr-only">dockerfile code snippet end</p>
 
   
