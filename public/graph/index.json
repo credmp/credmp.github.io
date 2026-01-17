@@ -20,10 +20,15 @@
     },
     "/notes/clojure/": {
       "in": [
-        "/posts/20251209-editors/",
+        "/notes/clojure-emacs/",
+        "/notes/clojure-emacs/",
         "/posts/20250111-happy-with-nixos/",
-        "/notes/clojure-emacs/",
-        "/notes/clojure-emacs/",
+        "/posts/20250205-clojure-projects/",
+        "/posts/20250201-observability-in-clojure/",
+        "/posts/20250201-observability-in-clojure/",
+        "/posts/20250201-observability-in-clojure/",
+        "/posts/20250107-clojure-reitit-server/",
+        "/posts/20251209-editors/",
         "/posts/20251205-aoc-2025-5/",
         "/posts/20251204-aoc-2025-4/",
         "/posts/20251203-aoc-2025-03/",
@@ -31,11 +36,6 @@
         "/posts/20251202-aoc-2025-2/",
         "/posts/20251201-aoc-2025-01/",
         "/posts/20251201-aoc-2025-01/",
-        "/posts/20250205-clojure-projects/",
-        "/posts/20250201-observability-in-clojure/",
-        "/posts/20250201-observability-in-clojure/",
-        "/posts/20250201-observability-in-clojure/",
-        "/posts/20250107-clojure-reitit-server/",
         "/posts/20251203-aoc-2025-03/",
         "/posts/20251203-aoc-2025-03/",
         "/posts/20250107-clojure-reitit-server/"
@@ -74,17 +74,21 @@
     },
     "/notes/rust/": {
       "in": [
-        "/posts/20250111-happy-with-nixos/",
-        "/posts/20250126-digital-ocean-dev-database/",
-        "/notes/rust-emacs/",
-        "/notes/rust-emacs/",
-        "/posts/a-new-theme/",
-        "/notes/type-driven-design/",
         "/notes/zero2prod/",
+        "/notes/rust-emacs/",
+        "/notes/rust-emacs/",
+        "/posts/20250111-happy-with-nixos/",
+        "/notes/type-driven-design/",
+        "/posts/20250126-digital-ocean-dev-database/",
+        "/posts/a-new-theme/",
         "/posts/choose-your-tools/",
         "/posts/choose-your-tools/",
         "/posts/20250126-digital-ocean-dev-database/"
       ],
+      "out": []
+    },
+    "/notes/self-hosting/": {
+      "in": [],
       "out": []
     },
     "/notes/type-driven-design/": {
@@ -103,9 +107,9 @@
     },
     "/notes/zero2prod/": {
       "in": [
+        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/",
         "/posts/a-new-theme/",
-        "/notes/type-driven-design/",
         "/posts/20250126-digital-ocean-dev-database/"
       ],
       "out": [
@@ -520,6 +524,11 @@
       "permalink": "/notes/rust/",
       "section": "notes",
       "title": "The Rust Programming Language"
+    },
+    "/notes/self-hosting/": {
+      "permalink": "/notes/self-hosting/",
+      "section": "notes",
+      "title": "Self Hosting"
     },
     "/notes/type-driven-design/": {
       "permalink": "/notes/type-driven-design/",

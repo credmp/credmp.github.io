@@ -14,7 +14,7 @@ My goal for this note, and its future linked notes, is to explain my entire self
 
 I started self-hosting my IoT devices, such as lamps. This might sound silly, but after an internet outage I was left with the situation that I was unable to control some of my devices without an internet connection. This is, of course, silly. So the first thing I self-hosted was:
 
-- Home Assistant: control system for my house, integrating all smart devices and moving control of them locally.
+- {{< backlink "home-assistant" "Home Assistant" >}}: control system for my house, integrating all smart devices and moving control of them locally.
 
 Then I moved to my use of big tech coding forges. I use Github and Gitlab extensively, and the current move [where Github is going to charge for running your own CI](https://devclass.com/2025/12/17/github-to-charge-for-self-hosted-runners-from-march-2026/) made sure that I did not want to out-source this piece of my workflow. So I self-hosted:
 

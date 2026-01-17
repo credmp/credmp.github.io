@@ -3,7 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-12-09T13:00:00+01:00</lastmod>
+    <lastmod>2026-01-10T22:18:54+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/hosting/</loc>
+    <lastmod>2026-01-10T22:18:54+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/</loc>
+    <lastmod>2026-01-10T22:18:54+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notes/self-hosting/</loc>
+    <lastmod>2026-01-10T22:18:54+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-12-09T13:00:00+01:00</lastmod>
@@ -28,9 +37,6 @@
   </url><url>
     <loc>http://localhost:1313/posts/20251201-aoc-2025-01/</loc>
     <lastmod>2025-12-01T08:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/notes/</loc>
-    <lastmod>2025-11-30T22:18:54+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/notes/aoc/</loc>
     <lastmod>2025-11-30T22:18:54+01:00</lastmod>
