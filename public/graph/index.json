@@ -23,13 +23,13 @@
         "/notes/clojure-emacs/",
         "/notes/clojure-emacs/",
         "/posts/20250111-happy-with-nixos/",
-        "/posts/20250205-clojure-projects/",
-        "/posts/20250201-observability-in-clojure/",
-        "/posts/20250201-observability-in-clojure/",
-        "/posts/20250201-observability-in-clojure/",
         "/posts/20250107-clojure-reitit-server/",
         "/posts/20251209-editors/",
+        "/posts/20250205-clojure-projects/",
         "/posts/20251205-aoc-2025-5/",
+        "/posts/20250201-observability-in-clojure/",
+        "/posts/20250201-observability-in-clojure/",
+        "/posts/20250201-observability-in-clojure/",
         "/posts/20251204-aoc-2025-4/",
         "/posts/20251203-aoc-2025-03/",
         "/posts/20251203-aoc-2025-03/",
@@ -55,6 +55,12 @@
     },
     "/notes/euvd/": {
       "in": [],
+      "out": []
+    },
+    "/notes/home-assistant/": {
+      "in": [
+        "/notes/self-hosting/"
+      ],
       "out": []
     },
     "/notes/research-driven-blogs/": {
@@ -89,7 +95,9 @@
     },
     "/notes/self-hosting/": {
       "in": [],
-      "out": []
+      "out": [
+        "/notes/home-assistant/"
+      ]
     },
     "/notes/type-driven-design/": {
       "in": [],
@@ -509,6 +517,11 @@
       "permalink": "/notes/euvd/",
       "section": "notes",
       "title": "European Union Vulnerability Database"
+    },
+    "/notes/home-assistant/": {
+      "permalink": "/notes/home-assistant/",
+      "section": "notes",
+      "title": "Home Assistant"
     },
     "/notes/research-driven-blogs/": {
       "permalink": "/notes/research-driven-blogs/",
